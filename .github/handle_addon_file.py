@@ -21,6 +21,13 @@ if addon_file is None:
 
 print(f"Found {addon_file.name}, {addon_file}")
 *names, version = addon_file.stem.split(" ")
+if not names:
+    *names, version = addon_file.stem.split("_")
+
+if not names or not version:
+    print(f"Invalid file name: {addon_file.name}")
+    sys.exit(1)
+
 print(
     "names:", names,
     "version:", version
@@ -57,12 +64,16 @@ with zipfile.ZipFile(new_file, "r") as zip_ref:
 new_file.unlink()
 print(f"Deleted {new_file}")
 
+
 # copy the files to the latest directory as well
 import shutil
 shutil.rmtree(latest_dir, ignore_errors=True)
 shutil.copytree(new_dir, latest_dir)
 
 print(f"Copied {new_dir} to {latest_dir}")
-
+# write version to txt file called version.txt
+github_dir = pathlib.Path(".github")
+with open(github_dir / "version.txt", "w") as f:
+    f.write(version)
 
 print(f"Done, handled {addon_file.name}")
