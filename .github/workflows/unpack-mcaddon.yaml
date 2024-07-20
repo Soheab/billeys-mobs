@@ -44,5 +44,7 @@ jobs:
 
       - name: Create Tag
         run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
             git tag -a v$INPUT_STORE -m "Version $INPUT_STORE"
             git push origin v$INPUT_STORE
