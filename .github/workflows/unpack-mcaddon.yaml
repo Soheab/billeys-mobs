@@ -37,7 +37,7 @@ jobs:
       - name: Get version from file
         shell: bash
         run: |
-          value=`cat .github/version.txt`
+          value=`cat version.txt`
           echo "The version: $value"
 
       - name: Create Tag
