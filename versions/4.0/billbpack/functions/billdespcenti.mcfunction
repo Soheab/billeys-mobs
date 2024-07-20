@@ -1,1 +1,0 @@
-event entity @e[type=billey:duck_centipede] despawn
