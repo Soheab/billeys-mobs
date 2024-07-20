@@ -29,22 +29,9 @@ jobs:
               git commit -m "Unpacked latest .mcaddon file"
               git push
 
-  create-tag:
-    name: Create Tag
-    needs: unpack-file
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository content
-        uses: actions/checkout@v2 # Checkout the repository content to github runner.
-
-      - name: Get version from file
-        shell: bash
-        run: |
-           echo $INPUT_STORE
-
-      - name: Create Tag
-        run: |
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git tag -a v$INPUT_STORE -m "Version $INPUT_STORE"
-            git push origin v$INPUT_STORE
+        - name: Create Tag
+          run: |
+              git config --local user.email "action@github.com"
+              git config --local user.name "GitHub Action"
+              git tag -a $INPUT_STORE -m "Version $INPUT_STORE"
+              git push origin $INPUT_STORE
