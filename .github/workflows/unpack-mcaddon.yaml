@@ -15,23 +15,15 @@ jobs:
           with:
             python-version: 3.12
 
-        - name: Execute Python script 
+        - name: Execute Python script & Commit changes & Create Tag
           run: |
             export INPUT_STORE=$(python .github/handle_addon_file.py)
             echo "Access direct: "
             echo $INPUT_STORE
-
-        - name: Commit changes And Push
-          run: |
-              git config --local user.email "action@github.com"
-              git config --local user.name "GitHub Action"
-              git add -A
-              git commit -m "Unpacked latest .mcaddon file"
-              git push
-
-        - name: Create Tag
-          run: |
-              git config --local user.email "action@github.com"
-              git config --local user.name "GitHub Action"
-              git tag -a v$INPUT_STORE -m "Version $INPUT_STORE"
-              git push origin v$INPUT_STORE
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add -A
+            git commit -m "Unpacked latest .mcaddon file"
+            git push
+            git tag -a v$INPUT_STORE -m "Version $INPUT_STORE"
+            git push origin v$INPUT_STORE
