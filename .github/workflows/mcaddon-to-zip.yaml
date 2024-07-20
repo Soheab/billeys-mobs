@@ -14,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Convert .mcaddon to .zip
-      run: mv -f -v *.mcaddon *.zip addons/
+      run: |
+        mkdir -p addons
+        mv -f -v *.mcaddon *.zip addons/
         
     - name: Commit changes And Push
       run: |
