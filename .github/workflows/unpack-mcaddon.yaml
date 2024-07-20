@@ -16,7 +16,10 @@ jobs:
             python-version: 3.12
 
         - name: Execute Python script 
-          run: python .github/handle_addon_file.py
+          run: |
+            export INPUT_STORE=$(python .github/handle_addon_file.py)
+            echo "Access direct: "
+            echo $INPUT_STORE
 
         - name: Commit changes And Push
           run: |
@@ -37,10 +40,9 @@ jobs:
       - name: Get version from file
         shell: bash
         run: |
-          value=`cat version.txt`
-          echo "The version: $value"
+           echo $INPUT_STORE
 
       - name: Create Tag
         run: |
-            git tag -a v$value -m "Version $value"
-            git push origin v$value
+            git tag -a v$INPUT_STORE -m "Version $INPUT_STORE"
+            git push origin v$INPUT_STORE

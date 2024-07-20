@@ -73,7 +73,8 @@ shutil.copytree(new_dir, latest_dir)
 print(f"Copied {new_dir} to {latest_dir}")
 # write version to txt file called version.txt
 github_dir = pathlib.Path(".github")
-with open(github_dir / "version.txt", "w") as f:
-    f.write(version)
 
 print(f"Done, handled {addon_file.name}")
+
+if __name__ == "__main__":
+    print(version)
