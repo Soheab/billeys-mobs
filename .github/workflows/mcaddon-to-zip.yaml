@@ -16,7 +16,7 @@ jobs:
     - name: Convert .mcaddon to .zip
       run: |
         mkdir -p addons
-        mv -f -v *.mcaddon *.zip addons/
+        mv -f -v *.mcaddon addons/*.zip
         
     - name: Commit changes And Push
       run: |
