@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billangler.sugar": {
+			"loop": true,
+			"bones": {
+				"bone": {
+					"rotation": ["query.life_time * 50", "query.life_time * 60", "query.life_time * 40"],
+					"scale": ["1 + math.abs(math.sin(query.life_time * 100) / 3)", "1 + math.abs(math.sin(query.life_time * 100) / 3)", "1 + math.abs(math.sin(query.life_time * 100) / 3)"]
+				}
+			}
+		}
+	}
+}

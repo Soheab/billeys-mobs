@@ -1,0 +1,71 @@
+##Мобы
+
+entity.billey:anglerfish.name=Удильщик
+item.spawn_egg.entity.billey:anglerfish.name=Создать удильщика
+entity.billey:swordfish.name=Рыба-меч
+item.spawn_egg.entity.billey:swordfish.name=Создать рыбу-меч
+entity.billey:zombie_cat.name=Зомби-кот
+item.spawn_egg.entity.billey:zombie_cat.name=Создать зомби-кота
+entity.billey:skeleton_cat.name=Кот-скелет
+item.spawn_egg.entity.billey:skeleton_cat.name=Создать кота-скелета
+entity.billey:mercat.name=Морской кот
+item.spawn_egg.entity.billey:mercat.name=Создать морского кота
+entity.billey:orca.name=Косатка
+item.spawn_egg.entity.billey:orca.name=Создать косатку
+entity.billey:pigeon.name=Голубь 
+item.spawn_egg.entity.billey:pigeon.name=Создать голубя
+entity.billey:pizzafish.name=Рыба-пицца
+item.spawn_egg.entity.billey:pizzafish.name=Создать рыбу-пиццу
+entity.billey:poopstain.name=Голубиный помёт
+item.spawn_egg.entity.billey:poopstain.name=Голубиный помёт
+entity.billey:gwshark.name=Большая белая акула
+item.spawn_egg.entity.billey:gwshark.name=Создать большую белую акулу
+entity.billey:picklepet.name=Домашний морской огурец
+item.spawn_egg.entity.billey:picklepet.name=Создать домашнего морского огурца
+entity.billey:endercat.name=Кот Края
+item.spawn_egg.entity.billey:endercat.name=Создать кота Края
+entity.billey:flyingcat.name=Кот-ангел
+item.spawn_egg.entity.billey:flyingcat.name=Создать кота-ангела
+entity.billey:endflyingcat.name=Кот-ангел Края
+item.spawn_egg.entity.billey:endflyingcat.name=Создать кота-ангела Края
+entity.billey:duck.name=Утка
+item.spawn_egg.entity.billey:duck.name=Создать утку
+entity.billey:flyingpig.name=Свинья-ангел
+item.spawn_egg.entity.billey:flyingpig.name=Создать свинью-ангела
+entity.billey:penguin.name=Пингвин
+item.spawn_egg.entity.billey:penguin.name=Создать пингвина
+entity.billey:zombified_cat.name=Иссушённый кот
+item.spawn_egg.entity.billey:zombified_cat.name=Создать иссушённого кота
+entity.billey:snail.name=Улитка
+item.spawn_egg.entity.billey:snail.name=Создать улитку
+entity.billey:piranha.name=Пиранья
+item.spawn_egg.entity.billey:piranha.name=Создать пиранью
+
+##Предметы
+
+item.billey:pizzapiece.name=Морская пицца
+item.billey:picklepet_fertilizer.name=Удобрение для домашнего морского огурца
+item.billey:cat_dust.name=Счастливая пыль
+item.billey:zcat_dust.name=Грустная пыль
+item.billey:wcat_dust.name=Весёлая пыль
+item.billey:scat_dust.name=Скучная пыль
+item.billey:cat_bottle.name=Счастливое зелье
+item.billey:zcat_bottle.name=Грустное зелье
+item.billey:wcat_bottle.name=Весёлое зелье
+item.billey:scat_bottle.name=Скучное зелье
+item.billey:swordcooked.name=Мясо рыбы-меч
+item.billey:swordmeat.name=Филе рыбы-меч
+item.billey:swordfin.name=Плавник рыбы-меч
+item.billey:swordtail.name=Хвост рыбы-меч
+item.billey:swordfish.name=Рыбий меч
+item.billey:swordstick.name=Палка рыбы-меч
+item.billey:anglerlight.name=Фонарь удильщика
+item.billey:colorful_dust.name=Радужная пыль
+item.billey:colorful_bottle.name=Радужное зелье
+item.billey:colorless_dust.name=Бесцветная пыль
+item.billey:colorless_bottle.name=Бесцветное зелье
+
+##Другое
+
+action.hint.exit.billey:duck=Нажмите кнопку «Красться» чтобы спешится
+action.hint.exit.billey:orca=Нажмите кнопку «Красться» чтобы спешится

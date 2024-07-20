@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:iron_pet_armor"
+    },
+    
+    "components": {
+      "minecraft:max_stack_size": 1
+  }
+}}

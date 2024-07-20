@@ -1,0 +1,1057 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.billey.eat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_interested"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"eat"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_interested"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.crack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"crack": "query.health < v.prevhealth"
+						},
+						{
+							"healed": "query.health > v.prevhealth"
+						}
+					],
+					"on_entry": [
+						"v.prevhealth = query.health;"
+					]
+				},
+				"crack": {
+					"transitions": [
+						{
+							"default": "1"
+						}//1 means instantly transition
+					],
+					"sound_effects": [
+						{
+							"effect": "crack"
+						}
+					]
+				},
+				"healed": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.hitanim": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"crack": "query.health < v.prevhealth"
+						},
+						{
+							"healed": "query.health > v.prevhealth"
+						}
+					],
+					"on_entry": [
+						"v.prevhealth = query.health;"
+					]
+				},
+				"crack": {
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"animations": [
+						"gothurt"
+					]
+				},
+				"healed": {
+					"transitions": [
+						{
+							"default": "1"
+						}//1 means instantly transition
+					]
+				}
+			}
+		},
+		"controller.animation.billey.kiwidisappear": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "!query.variant && (query.is_avoiding_mobs || (query.health < query.max_health))"
+						} //!query.variant is basically just query.variant == 0
+					]
+				},
+				"sit": {
+					"animations": [
+						"albino"
+					],
+					"transitions": [
+						{
+							"default": "query.is_tamed"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.eatfloor": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"sit": "query.mark_variant == 1"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"eatfloor"
+					],
+					"transitions": [
+						{
+							"wait": "query.any_animation_finished"
+						}
+					]
+				},
+				"wait": {
+					"transitions": [
+						{
+							"default": "query.mark_variant == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.amogus": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"walk": "q.modified_move_speed * 6"
+						}
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"running": "query.modified_move_speed > 0.8"
+						}
+					]
+				},
+				"running": {
+					"animations": [
+						{
+							"run": "q.modified_move_speed"
+						}
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "query.modified_move_speed <= 0.8"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.hamsterpower": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"contsit"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_powered"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"runstatic"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_powered"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.climb": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_wall_climbing"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"climb"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_wall_climbing"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.buckangry": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(query.has_target && !query.is_baby && !query.is_sitting && variable.state != 4 && !query.is_sleeping)"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"angry",
+						{
+							"fall": "query.is_on_ground"
+						}
+					],
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(query.has_target && !query.is_baby && !query.is_sitting && variable.state != 4 && !query.is_sleeping)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.duckangry": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(query.has_target && !query.is_baby && !query.is_sitting && variable.state != 4 && !query.is_sleeping)"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"angry"
+					],
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(query.has_target && !query.is_baby && !query.is_sitting && variable.state != 4 && !query.is_sleeping)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.climbb": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.vertical_speed > 0.1"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"climb"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "query.vertical_speed < 0.1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.swim": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"swim": "query.is_in_water"
+						}
+					]
+				},
+				"swim": {
+					"animations": [
+						"swim"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billkiwi.ground": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look_at_target"
+					],
+					"blend_transition": 1.25,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ground": "math.random(-500,1) > 0 && !query.is_sitting && !query.is_interested"
+						}
+					]
+				},
+				"ground": {
+					"animations": [
+						"ground"
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "query.anim_time > 0.05"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billkiwi.ground2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ground": "variable.attack_time > 0"
+						}
+					]
+				},
+				"ground": {
+					"animations": [
+						"ground"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ground2": "1"
+						}
+					]
+				},
+				"ground2": {
+					"transitions": [
+						{
+							"default": "variable.attack_time == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.sleep": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sleep": "variable.state == 4"
+						}
+					]
+				},
+				"sleep": {
+					"animations": [
+						"sleep"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "variable.state != 4"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.picklecatsit": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "query.is_sitting"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"fixsit"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_sitting"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.sitforcat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"stand"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_sitting"
+						},
+						{
+							"sleep": "query.is_sleeping"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_sitting"
+						},
+						{
+							"sleep": "query.is_sleeping"
+						}
+					]
+				},
+				"sleep": {
+					"animations": [
+						"sleep"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_sleeping && !query.is_sitting"
+						},
+						{
+							"sit": "!query.is_sleeping && query.is_sitting"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.sit": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_sitting"
+						},
+						{
+							"sleep": "query.is_sleeping"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_sitting"
+						},
+						{
+							"sleep": "query.is_sleeping"
+						}
+					]
+				},
+				"sleep": {
+					"animations": [
+						"sleep"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_sleeping && !query.is_sitting"
+						},
+						{
+							"sit": "!query.is_sleeping && query.is_sitting"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.3var": {
+			"initial_state": "var1",
+			"states": {
+				"var1": {
+					"animations": [
+						"var1"
+					],
+					"blend_transition": 0.3,
+					"transitions": [
+						{
+							"var2": "query.variant == 1"
+						},
+						{
+							"var3": "query.variant == 2"
+						}
+					]
+				},
+				"var2": {
+					"animations": [
+						"var2"
+					],
+					"blend_transition": 0.3,
+					"transitions": [
+						{
+							"var1": "query.variant == 0"
+						},
+						{
+							"var3": "query.variant == 2"
+						}
+					]
+				},
+				"var3": {
+					"animations": [
+						"var3"
+					],
+					"blend_transition": 0.3,
+					"transitions": [
+						{
+							"var1": "query.variant == 0"
+						},
+						{
+							"var2": "query.variant == 1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.centipede": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"centipede"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"sit": "(query.modified_move_speed > 0 || query.is_sheared) && query.is_alive"
+						}
+					]
+				},
+				"sit": {
+					"blend_transition": 1.0,
+					"transitions": [
+						{
+							"default": "!query.is_alive"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.eatscat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"noteating"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_interested"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"eat"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_interested"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.eatnoblend": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.4,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_interested"
+						}
+					]
+				},
+				"sit": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"animations": [
+						"beg"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_interested"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.ground": {
+			"initial_state": "sit",
+			"states": {
+				"default": {
+					"animations": [
+						"fall"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_on_ground"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"melt"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.shearedd": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "query.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.duckidleanim": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"flap": "query.is_sheared && (math.random(-1,2) > 0)"
+						},
+						{
+							"sit": "query.is_sheared && (math.random(-1,2) < 0) && query.is_in_water"
+						}
+					]
+				},
+				"flap": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"diphead"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.shearedflap": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "query.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.snail": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "query.is_sheared || query.is_sitting"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!query.is_sheared && !query.is_sitting"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.stunned": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "query.is_stunned"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!query.is_stunned"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.sheared": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "query.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.quackitem": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "math.random(-700,2) > 0"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quack"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.quackitem2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "math.random(-700,2) > 0"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quack2"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.hitted": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"controller.quack": "!query.is_baby && variable.state != 4 && !query.is_sleeping && query.health >= query.max_health"
+						},
+						{
+							"controller.quackbaby": "query.is_baby && variable.state != 4 && !query.is_sleeping && query.health >= query.max_health"
+						}
+					],
+					"transitions": [
+						{
+							"sit": "variable.hitted"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"hitted"
+					],
+					"transitions": [
+						{
+							"default": "query.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.quack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "query.is_stunned"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quack"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_stunned"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.quackbaby": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "query.is_stunned"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quackbaby"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_stunned"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.shearedbaby": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "query.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"shearedbaby"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.saddled": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "query.is_saddled"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"saddled"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!query.is_saddled"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billey.hamstersniff": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"sit": "query.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "query.any_animation_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}
