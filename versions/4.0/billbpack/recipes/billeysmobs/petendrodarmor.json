@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "billey:petendrodarmor"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "pickletrizer",
+    "ingredients": [
+      {
+        "item": "minecraft:end_rod"
+      },
+      {
+        "item": "billey:netherite_pet_armor"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "result": [
+      { "item": "billey:endrod_pet_armor" }
+    ]
+  }
+}
