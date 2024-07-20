@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:growth_bottle",
+      "category": "Equipment"
+    },
+
+    "components": {
+      "minecraft:icon": "adult_bottle",
+      "minecraft:use_animation": "eat",
+      "minecraft:render_offsets": "flesh"
+    }
+  }
+}
