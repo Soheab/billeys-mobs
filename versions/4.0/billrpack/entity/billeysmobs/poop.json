@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:poopstain",
+			"materials": {
+				"default": "skeleton"
+			},
+			"textures": {
+				"default": "textures/entity/bill/poop"
+			},
+			"geometry": {
+				"default": "geometry.ppoop"
+			},
+			"animations": {
+				"fall": "animation.billpigeon.fall",
+				"melt": "animation.billpigeon.melt",
+                "c.fall": "controller.animation.billey.ground",
+				"dead": "animation.billpigeon.dead"
+			},
+			"scripts": {
+				"animate": [
+                    {"dead": "!query.is_alive"},
+                    "c.fall"
+				]
+			},
+			"render_controllers": ["controller.render.birdpoopxd"],
+			"spawn_egg": {
+				"texture": "snowball"
+			}
+		}
+	}
+}
