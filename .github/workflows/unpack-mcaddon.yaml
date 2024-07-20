@@ -4,25 +4,43 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  unpack-file:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository content
+          uses: actions/checkout@v2 # Checkout the repository content to github runner.
 
+        - name: Setup Python Version
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.12
+
+        - name: Execute Python script 
+          run: python .github/handle_addon_file.py
+
+        - name: Commit changes And Push
+          run: |
+              git config --local user.email "action@github.com"
+              git config --local user.name "GitHub Action"
+              git add -A
+              git commit -m "Unpacked latest .mcaddon file"
+              git push
+
+  create-tag:
+    name: Create Tag
+    needs: unpack-file
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository content
         uses: actions/checkout@v2 # Checkout the repository content to github runner.
 
-      - name: Setup Python Version
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.12
-
-      - name: Execute Python script 
-        run: python .github/handle_addon_file.py
-
-      - name: Commit changes And Push
+      - name: Get version from file
+        shell: bash
         run: |
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git add -A
-            git commit -m "Unpacked .mcaddon file"
-            git push
+          value=`cat .github/version.txt`
+          echo "The version: $value"
+
+      - name: Create Tag
+        run: |
+            git tag -a v$value -m "Version $value"
+            git push origin v$value
