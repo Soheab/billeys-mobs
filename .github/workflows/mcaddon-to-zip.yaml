@@ -1,0 +1,27 @@
+name: mcaddon-to-zip
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  docit:
+    runs-on: ubuntu-latest
+
+    # basically, copy the *.mcaddon file to the same location and change the extension to .zip
+    steps:
+    - uses: actions/checkout@v2
+    - name: Convert .mcaddon to .zip
+      run: mv *.mcaddon *.zip
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Convert .mcaddon to .zip" -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
