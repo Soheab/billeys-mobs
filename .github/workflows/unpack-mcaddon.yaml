@@ -1,0 +1,28 @@
+name: unpack-mcaddon
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository content
+        uses: actions/checkout@v2 # Checkout the repository content to github runner.
+
+      - name: Setup Python Version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+
+      - name: Execute Python script 
+        run: python ./handle_addon_file.py
+
+      - name: Commit changes And Push
+        run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add -A
+            git commit -m "Unpacked .mcaddon file"
+            git push
