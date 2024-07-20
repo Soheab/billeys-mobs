@@ -17,7 +17,7 @@ jobs:
           python-version: 3.12
 
       - name: Execute Python script 
-        run: python handle_addon_file.py
+        run: python .github/handle_addon_file.py
 
       - name: Commit changes And Push
         run: |
