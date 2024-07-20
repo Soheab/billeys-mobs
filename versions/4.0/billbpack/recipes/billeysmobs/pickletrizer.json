@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:picklepet_fertilizer"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "pickletrizer",
+    "pattern": [
+      "FPF",
+      "PCP",
+      "FPF"
+    ],
+    "key": {
+      "F": {
+        "item": "minecraft:fish"
+      },
+      "P": {
+        "item": "billey:pizzapiece"
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data":  3
+      }
+    },
+    "result": [
+      { "item": "billey:picklepet_fertilizer" }
+    ]
+  }
+}
