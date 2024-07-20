@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "billey:billhamsterball"
+    },
+     "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:stained_glass",
+        "data":  9
+      },
+      {
+        "item": "billey:kiwi_fur"
+      }
+    ],
+    "result": [
+      { "item": "billey:hamster_ball",
+        "count": 2
+      },
+      { "item": "minecraft:diamond",
+        "count": 1
+      }
+    ]
+  }
+}
