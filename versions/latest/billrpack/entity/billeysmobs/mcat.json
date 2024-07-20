@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:mercat",
+      "materials": { "default": "skeleton" },
+      "textures": {
+        "default": "textures/entity/cat/fotd"
+      },
+      "geometry": {
+        "default": "geometry.fotd"
+      },
+      "animations": {
+        "flop": "animation.fotd.flop",
+        "swim": "animation.fotd.swim",
+				"look": "animation.fishy.look"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          { "swim": "query.is_in_water" },
+          { "flop": "!query.is_in_water" }
+        ]
+      },
+      "render_controllers": [ "controller.render.salmon" ],
+      "spawn_egg": {
+        "base_color": "#316469",
+        "overlay_color": "#00093F"
+      }
+    }
+  }
+}
