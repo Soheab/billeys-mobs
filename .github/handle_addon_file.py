@@ -38,8 +38,13 @@ major, minor, *patch = version.split(".")
 # create a dir in major.patch if the patch exists
 if patch:
     version = f"{major}.{minor}"
+    # does the main dir exist?
+    main_version_dir = versions_dir / version
+    if not main_version_dir.exists():
+        main_version_dir.mkdir()
+
     # a dir for the patch versions
-    version_dir = versions_dir / version / patch[0]
+    version_dir = main_version_dir / patch[0]
     if not version_dir.exists():
         version_dir.mkdir()
         #print(f"Created {version_dir}")
