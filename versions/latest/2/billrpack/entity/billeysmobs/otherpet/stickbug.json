@@ -1,0 +1,70 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:stick_bug",
+            "materials": {
+                "default": "entity_alphatest",
+                "cat": "cat"
+            },
+            "textures": {
+                "normal": "textures/entity/bill/stickbug",
+                "gay": "textures/entity/bill/stickbug1",
+                "desat": "textures/entity/bill/stickbug2",
+                "hat": "textures/entity/bill/stickbug"
+            },
+            "geometry": {
+                "default": "geometry.billstickbug",
+                "hat": "geometry.billstickbughat"
+            },
+            "animations": {
+                "new": "animation.billduckproj.body",
+                "move": "animation.billstickbug.walk",
+                "look_at_target": "animation.billstickbug.look",
+                "sit": "animation.billstickbug.sit",
+                "controller.ground": "controller.animation.billey.ground",
+                "fall": "animation.billstickbug.flap",
+                "general": "animation.billstickbug.general",
+                "controller.sit": "controller.animation.billey.sit",
+                "eat": "animation.billstickbug.wiggle",
+                "random_idle": "animation.billstickbug.wiggle",
+                "dance": "animation.billstickbug.dance",
+                "eatcont": "controller.animation.billey.eat",
+                "hurt": "animation.billstickbug.hurt",
+                "hide_wings": "animation.billstickbug.hide_wings",
+                "controller.random_idle": "controller.animation.billey.random_idle",
+                "dancecont": "controller.animation.billey.stick_bug_dance",
+                "wingcont": "controller.animation.billey.stick_bug_wings"
+            },
+            "scripts": {
+                "initialize": [
+                    "v.time_to_idle = 0;",
+                    "v.transition_time = 0;"
+                ],
+                "animate": [
+                    "new",
+                    "general",
+                    {
+                        "hurt": "q.health < q.max_health"
+                    },
+                    "controller.random_idle",
+                    "eatcont",
+                    "wingcont",
+                    {
+                        "move": "q.modified_move_speed * 2 * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billhmrshark",
+                {
+                    "controller.render.billbduckhat": "q.is_powered"
+                }
+            ],
+            "spawn_egg": {
+                "overlay_color": "#159F02",
+                "base_color": "#BF9E67"
+            }
+        }
+    }
+}
