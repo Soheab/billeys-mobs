@@ -1,0 +1,150 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:banana_duck",
+      "materials": {
+        "default": "entity_alphatest",
+        "dyeable": "cat",
+        "cat": "cat"
+      },
+      "textures": {
+        "default": "textures/entity/bill/duck5",
+        "endrodpetarmor": "textures/entity/bill/endrodarmor",
+        "hat": "textures/entity/bill/hat",
+        "hatopy": "textures/entity/bill/hatopy",
+        "second": "textures/entity/bill/duck6",
+        "golden": "textures/entity/bill/duck9",
+        "green": "textures/entity/bill/duck8",
+        "purple": "textures/entity/bill/duck7",
+        "white": "textures/entity/bill/duck10",
+        "inverted": "textures/entity/bill/duck11",
+        "leather": "textures/entity/bill/duckbleather",
+        "gold": "textures/entity/bill/duckbgold",
+        "chain": "textures/entity/bill/duckbchain",
+        "iron": "textures/entity/bill/duckbiron",
+        "diamond": "textures/entity/bill/duckbdiamond",
+        "netherite": "textures/entity/bill/duckbnetherite"
+      },
+      "geometry": {
+        "default": "geometry.billbananaduck",
+        "hat": "geometry.billbananaduckhat",
+        "armor": "geometry.billbananaduckarmor",
+        "endrod": "geometry.billbananaduckendrod"
+      },
+      "particle_effects": {
+        "zeelol": "billey:zeeduck",
+        "banana": "billey:eatbanana"
+      },
+      "animations": {
+        "hurt": "animation.billduck.hurt",
+        "pugehenis": "animation.billbananaduck.pugehenis",
+        "move": "animation.billbananaduck.walk",
+        "sit": "animation.billbananaduck.sit",
+        "look_at_target": "animation.billduck.look_at_target",
+        "look_at_target_baby": "animation.common.look_at_target",
+        "baby_transform": "animation.billduck.ling",
+        "fall": "animation.billbananaduck.flappy",
+        "idle": "animation.billbananaduck.idle",
+        "sheared": "animation.billduck.quack",
+        "shearedbaby": "animation.billduck.quackbaby",
+        "saddled": "animation.billduck.flap2",
+        "eat": "animation.billduck.eat",
+        "angry": "animation.billduck.angry2",
+        "new": "animation.billduckproj.pop",
+        "sleep": "animation.billbananaduck.sleep",
+        "sleeptl": "animation.billduck.sleep_particle",
+        "gothurt": "animation.billduck.gothurt",
+        "hitcont": "controller.animation.billey.hitanim",
+        "controller.sit": "controller.animation.billey.sit_or_sleep",
+        "controller.ground": "controller.animation.billey.ground",
+        "controller.sheared": "controller.animation.billey.sheared",
+        "controller.shearedbaby": "controller.animation.billey.shearedbaby",
+        "controller.eat": "controller.animation.billey.eat",
+        "controller.saddled": "controller.animation.billey.saddled",
+        "controller.sleep": "controller.animation.billey.sleep",
+        "angrycon": "controller.animation.billey.buckangry",
+        "cont.scale_transition": "controller.animation.billey.scale_transition",
+        "scale_transition": "animation.billeys_mobs.scale_transition.pop"
+      },
+      "sound_effects": {
+        "quack": "billey.duck.saybanana",
+        "quackbaby": "billey.duck.saybaby",
+        "burp": "random.burp"
+      },
+      "scripts": {
+        "initialize": [
+            //these variables are used to make the mob change scale
+            //smoothly whenever it changes scale
+            "v.curr_scale = 16 * q.model_scale;",
+            "v.prev_scale = 16 * q.model_scale;",
+            "v.scale_timer = 0;"
+        ],
+        "pre_animation": [
+            "v.curr_scale = 16 * q.model_scale;"
+        ],
+        "animate": [
+          "idle",
+          "cont.scale_transition",
+          {
+            "hitcont": "!q.is_sheared"
+          }, "new",
+          {
+            "lovecont": "!q.is_sheared"
+          },
+          "controller.ground",
+          {
+            "controller.sleep": "!q.is_sleeping"
+          },
+          {
+            "hurt": "(q.health < q.max_health) && q.is_alive"
+          },
+          "angrycon",
+          {
+            "controller.saddled": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && v.state != 4 && !q.is_sleeping"
+          },
+          {
+            "controller.sit": "q.is_alive"
+          },
+          {
+            "controller.sheared": "!q.is_baby && v.state != 4 && !q.is_sleeping && q.health >= q.max_health"
+          },
+          {
+            "controller.shearedbaby": "q.is_baby && v.state != 4 && !q.is_sleeping && q.health >= q.max_health"
+          },
+          {
+            "controller.eat": "!q.is_sheared"
+          },
+          {
+            "look_at_target": "!q.is_baby"
+          },
+          {
+            "look_at_target_baby": "q.is_baby"
+          },
+          {
+            "move": "(q.has_rider || !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))) ? q.modified_move_speed * 2"
+          },
+          {
+            "baby_transform": "q.is_baby"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.billbananaduck",
+        {
+          "controller.render.billduckarmor": "q.mark_variant > 0 && q.mark_variant != 7"
+        },
+        {
+          "controller.render.billduckendrod": "q.mark_variant == 7"
+        },
+        {
+          "controller.render.billbduckhat": "q.is_powered"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#fecb32",
+        "overlay_color": "#FFF0BB"
+      }
+    }
+  }
+}

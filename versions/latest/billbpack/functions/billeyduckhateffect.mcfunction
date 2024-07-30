@@ -1,1 +1,0 @@
-effect @e[hasitem={item=billey:duck_hat,location=slot.armor.head}] strength 2 1 true

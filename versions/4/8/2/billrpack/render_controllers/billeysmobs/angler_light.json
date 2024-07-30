@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billangler_light": {
+      "arrays": {
+        "textures": {
+          "Array.variants": [
+            "Texture.glow1",
+            "Texture.glow2",
+            "Texture.glow3",
+            "Texture.glow4",
+            "Texture.glow5",
+            "Texture.glow6",
+            "Texture.glow7",
+            "Texture.glow8"
+          ],
+          "Array.sugar": [
+            "Texture.sugar1",
+            "Texture.sugar2",
+            "Texture.sugar3",
+            "Texture.sugar4",
+            "Texture.sugar5",
+            "Texture.sugar6",
+            "Texture.sugar7"
+          ]
+        }
+      },
+      "geometry": "Geometry.glow",
+      "materials": [ { "*": "Material.glow" } ],
+      "textures": [ "(q.get_name == 'Sugar' || q.get_name == 'sugar' || q.get_name == 'Ζαχαρώτος' || q.get_name == 'Ζαχαρωτος' || q.get_name == 'Ζαχαρωτός' || q.get_name == 'ζαχαρώτος' || q.get_name == 'ζαχαρωτος' || q.get_name == 'ζαχαρωτός' || q.get_name == 'Zacharotos' || q.get_name == 'zacharotos' || q.get_name == 'Zaharotos' || q.get_name == 'zaharotos' || q.get_name == 'Zaxarotos' || q.get_name == 'zaxarotos') ? Array.sugar[q.life_time * 2 + q.variant] : Array.variants[q.variant]" ],
+      "part_visibility": [ { "*": "q.is_in_water" } ],
+      "uv_anim": {
+          "offset": [ "(q.is_in_water) ? (Math.floor(q.life_time * 20.0) + q.frame_alpha) * 0.01 : 0.0",
+                      "(q.is_in_water) ? (Math.floor(q.life_time * 15.0) + q.frame_alpha) * 0.01 : 0.0" ],
+          "scale": [ 1.0, 1.0 ]
+      },
+      "ignore_lighting": true,
+      "overlay_color": {
+          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.get_name == 'Sugar' ? 0.5 : 0.05"
+      },
+      "is_hurt_color": {
+          "r": "-math.sin(q.life_time * 200)",
+          "g": "-math.sin(q.life_time * 200 + 120)",
+          "b": "-math.sin(q.life_time * 200 + 240)",
+          "a": "0.5"
+      }
+    }
+  }
+}
