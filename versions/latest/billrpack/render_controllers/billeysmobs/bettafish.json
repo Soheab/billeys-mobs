@@ -1,0 +1,341 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billey.terraphin": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.base": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three"
+                    ],
+                    "Array.patterns": [
+                        "Texture.zeroa",
+                        "Texture.onea",
+                        "Texture.twoa",
+                        "Texture.threea",
+                        "Texture.zerob",
+                        "Texture.oneb",
+                        "Texture.twob",
+                        "Texture.threeb",
+                        "Texture.zeroc",
+                        "Texture.onec",
+                        "Texture.twoc",
+                        "Texture.threec",
+                        "Texture.zerod",
+                        "Texture.oned",
+                        "Texture.twod",
+                        "Texture.threed"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "back_fin": "q.variant"                    
+                },
+                {
+                    "tail_fin": "q.variant"                    
+                }
+                //white ones shouldnt have a tail fluke and a top fin
+                //since they spawn in cold biomes and it would make them lose heat
+            ],
+            "textures": [
+                "query.get_name == 'lol' ? Array.base[query.life_time] : Array.base[query.variant]",
+                "query.get_name == 'lol' ? Array.patterns[query.life_time*1.33] : Array.patterns[query.mark_variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(query.life_time * 200)",
+                "g": "math.sin(query.life_time * 200 + 120)",
+                "b": "math.sin(query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            }
+        },
+        "controller.render.billbettafish": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four",
+                        "Texture.five",
+                        "Texture.six",
+                        "Texture.seven",
+                        "Texture.eight",
+                        "Texture.nine",
+                        "Texture.ten",
+                        "Texture.eleven",
+                        "Texture.twelve",
+                        "Texture.thirteen",
+                        "Texture.fourteen",
+                        "Texture.fifteen",
+                        "Texture.sixteen",
+                        "Texture.seventeen",
+                        "Texture.eighteen",
+                        "Texture.nineteen",
+                        "Texture.twenty",
+                        "Texture.twentyone"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                },
+                {
+                    "opaque*": "Material.opaque"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[query.variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(variable.colordelay+query.life_time * 200)",
+                "g": "math.sin(variable.colordelay+query.life_time * 200 + 120)",
+                "b": "math.sin(variable.colordelay+query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            }
+        },
+        "controller.render.billbettaglowbody": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four",
+                        "Texture.five",
+                        "Texture.six",
+                        "Texture.seven",
+                        "Texture.eight",
+                        "Texture.nine",
+                        "Texture.ten",
+                        "Texture.eleven",
+                        "Texture.twelve",
+                        "Texture.thirteen",
+                        "Texture.fourteen",
+                        "Texture.fifteen",
+                        "Texture.sixteen",
+                        "Texture.seventeen",
+                        "Texture.eighteen",
+                        "Texture.nineteen",
+                        "Texture.twenty",
+                        "Texture.twentyone"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.opaque"
+                },
+                {
+                    "opaque*": "Material.glow"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[query.variant]"
+            ],
+            "part_visibility": [
+                {
+                    "*": false
+                },
+                {
+                    "opaque*": true
+                }
+            ],
+            "overlay_color": {
+                "r": "math.sin(variable.colordelay+query.life_time * 200)",
+                "g": "math.sin(variable.colordelay+query.life_time * 200 + 120)",
+                "b": "math.sin(variable.colordelay+query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            }
+        },
+        "controller.render.billbettaglowfins": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four",
+                        "Texture.five",
+                        "Texture.six",
+                        "Texture.seven",
+                        "Texture.eight",
+                        "Texture.nine",
+                        "Texture.ten",
+                        "Texture.eleven",
+                        "Texture.twelve",
+                        "Texture.thirteen",
+                        "Texture.fourteen",
+                        "Texture.fifteen",
+                        "Texture.sixteen",
+                        "Texture.seventeen",
+                        "Texture.eighteen",
+                        "Texture.nineteen",
+                        "Texture.twenty",
+                        "Texture.twentyone"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                },
+                {
+                    "opaque*": "Material.opaque"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[query.variant]"
+            ],
+            "part_visibility": [
+                {
+                    "opaque*": false
+                }
+            ],
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            },
+            "ignore_lighting": true,
+            "overlay_color": {
+                "r": "math.sin(variable.colordelay+query.life_time * 200)",
+                "g": "math.sin(variable.colordelay+query.life_time * 200 + 120)",
+                "b": "math.sin(variable.colordelay+query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            }
+        },
+        "controller.render.billbettafishlocators": {
+            "geometry": "Geometry.locators",
+            "materials": [
+                {
+                    "*": "Material.opaque"
+                }
+            ],
+            "textures": [
+                "Texture.one"
+            ]
+        },/////////////////
+        "controller.render.billelectriceel": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'George' ? Texture.two : Array.poohole[query.variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+                "g": "math.sin(query.life_time * 200 + query.variant * 600 + 120)",
+                "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            }
+        },/////////////////
+        "controller.render.billorangepenguin": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.variants": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four",
+                        "Texture.five"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "query.variant > 14 ? Array.variants[query.variant - 12] : Array.variants[query.variant / 5]"
+            ],
+            "part_visibility": [
+                {
+                    "bone5": "(query.health > 29 * query.max_health / 30) && !(query.is_sheared && (query.health >= query.max_health)) && query.is_alive && !query.is_powered"
+                },
+                //im not sure if "* query.max_health / 30" is necessary,
+                //i added it because i might have heard that
+                //the health queries return weird values instead of
+                //just the health in half hearts
+                {
+                    "bone3": "(query.health > 23 * query.max_health / 30) && !(query.is_sheared && (query.health >= query.max_health)) && query.is_alive && !query.is_powered"
+                },
+                {
+                    "bone2": "(query.health > 17 * query.max_health / 30) && !(query.is_sheared && (query.health >= query.max_health)) && query.is_alive && !query.is_powered"
+                },
+                {
+                    "leaf_orange*": "(query.is_sheared && (query.health >= query.max_health)) && query.is_alive && !query.is_powered"
+                }
+            ],
+            "overlay_color": {
+                "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+                "g": "math.sin(query.life_time * 200 + query.variant * 600 + 120)",
+                "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "(query.health < (16 * query.max_health / 30) || !query.is_alive) ? 0.5 + query.is_illager_captain / 3"
+            }
+        }
+    }
+}
