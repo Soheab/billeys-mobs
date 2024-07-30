@@ -25,5 +25,14 @@ jobs:
             git add -A
             git commit -m "Unpacked latest .mcaddon file"
             git push
-            git tag -a v$INPUT_STORE -m "Version $INPUT_STORE"
-            git push origin v$INPUT_STORE
+
+            IFS=$'\n' read -ra STORE_ARRAY <<< "$INPUT_STORE"
+
+            for store in "${STORE_ARRAY[@]}"; do
+              if [[ -n $store ]]; then
+                # Process each store here
+                git tag -a v$store -m "Version $store"
+                git push origin v$store
+                echo "$store"
+              fi
+            done
