@@ -169,8 +169,8 @@ def commit_and_push(version: str, message: str | None = None) -> None:
     commands = [
         'git config --local user.email "action@github.com"',
         'git config --local user.name "GitHub Action"',
-        'git add . -f',
-        f'git commit -m "{message}',
+        'git add -A -f',
+        f'git commit -a -m "{message}',
         'git push',
     ]
 
@@ -184,8 +184,8 @@ def commit_changes_to_latest_dir(version: str) -> None:
     commands = [
         'git config --local user.email "action@github.com"',
         'git config --local user.name "GitHub Action"',
-        "git add . -f",
-        f'git commit -m "Updated latest dirs to version {version}"',
+        "git add -A -f",
+        f'git commit -a -m "Updated latest dirs to version {version}"',
         "git push",
     ]
 
