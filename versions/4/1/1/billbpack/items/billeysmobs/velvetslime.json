@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+      "description": {
+          "identifier": "billey:velvet_slime",
+          "category": "equipment"
+      },
+      "components": {
+          "minecraft:icon": {
+              "texture": "velvetslime"
+          },
+          "minecraft:cooldown": {
+              "category": "gun",//for possible fun with gun addons
+              "duration": 10.0
+          },
+          "minecraft:max_stack_size": 16,
+          "minecraft:throwable": {
+              "do_swing_animation": true
+          },
+          "minecraft:projectile": {
+              "projectile_entity": "billey:velvet_projectile"
+          }
+      }
+  }
+}
