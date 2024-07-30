@@ -119,6 +119,7 @@ def handle_addon_file(addon_file: pathlib.Path) -> str:
     return ".".join(versions)
 
 if __name__ == "__main__":
+    versions = []
     ensure_necessary_files_exist()
     # addon file, search for files ending with .mcaddon in the main directory
     addon_files = list(pathlib.Path(".").glob("*.mcaddon"))
@@ -129,7 +130,9 @@ if __name__ == "__main__":
     for addon_file in addon_files:
         version = handle_addon_file(addon_file)
         if version:
-            print(version)
+            versions.append(version)
             latest_version = get_latest_version()
             if latest_version:
                 update_latest_dir(version, latest_version)
+
+    print(" ".join(versions))
