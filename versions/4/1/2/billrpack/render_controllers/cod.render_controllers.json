@@ -1,0 +1,22 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cod": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 600 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}
