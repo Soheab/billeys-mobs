@@ -1,0 +1,67 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:mergoose",
+            "materials": {
+                "default": "skeleton",
+                "cat": "cat"
+            },
+            "textures": {
+                "zero": "textures/entity/bill/mergoose",
+                "one": "textures/entity/bill/mergoose1",
+                "two": "textures/entity/bill/mergoose2",
+                "three": "textures/entity/bill/mergoose3",
+                "four": "textures/entity/bill/mergoose",
+                "five": "textures/entity/bill/mergoose1",
+                "six": "textures/entity/bill/mergoose2",
+                "eight": "textures/entity/bill/mergoose3",
+                "nine": "textures/entity/bill/mergoose",
+                "hat": "textures/entity/bill/hat"
+            },
+            "geometry": {
+                "default": "geometry.billmergoose",
+                "hat": "geometry.billmergoosehat"
+            },
+            "animations": {
+                "new": "animation.billduckproj.body",
+                "swim": "animation.billmergoose.swim",
+                "eat": "animation.billmergoose.eat",
+                "baby": "animation.cat.baby_transform",
+                "walk": "animation.billmergoose.walk",
+                "attack": "animation.billmergoose.attack",
+                "lookwater": "animation.billmergoose.look_water",
+                "hold_tongue": "animation.billmergoose.hold_tongue",
+                "float": "animation.billmergoose.float",
+                "look_cont": "controller.animation.billey.mercat_look",
+                "tongue_cont": "controller.animation.billey.mergoose_tongue"
+            },
+            "scripts": {
+                "animate": [
+                    "new",
+                    {
+                      "baby": "q.is_baby"
+                    },
+                    {
+                        "swim": "math.max(0.4 * q.is_in_water,query.modified_move_speed * 10)"
+                    },
+                    {
+                        "walk": "!q.is_in_water ? math.min(1,query.modified_move_speed * 8)"
+                    },
+                    "look_cont",
+                    "tongue_cont"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billeyzambie.kiwi",
+                {
+                    "controller.render.billbduckhat": "query.is_saddled"
+                }
+            ],
+            "spawn_egg": {
+                "base_color": "#A5A7AF",
+                "overlay_color": "#B86E65"
+            }
+        }
+    }
+}

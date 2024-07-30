@@ -1,0 +1,82 @@
+{
+  "format_version": "1.8.0",
+  "animation_controllers": {
+    "controller.animation.bcat.baby": {
+      "states": {
+        "baby": {
+          "parameters": [ "query.is_baby" ],
+          "animations": [
+            {
+              "baby_transform": [
+                {
+                  "0.0": 0.0,
+                  "1.0": 1.0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.bcat.look_at_target": {
+      "states": {
+        "default": {
+          "animations": [ { "look_at_target": [] },{ "fix": [] } ]
+        }
+      }
+    },
+    "controller.animation.bcat.move": {
+      "states": {
+        "sneaking": {
+          "animations": [ { "sneak": [] } ],
+          "transitions": [
+            { "sprinting": "variable.state == 1" },
+            { "sitting": "(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))" },
+            { "walking": "!query.is_sneaking" },
+            { "lie_down": "variable.state == 4" }
+          ]
+        },
+        "sprinting": {
+          "parameters": [ "query.modified_move_speed" ],
+          "animations": [ { "sprint": [] } ],
+          "transitions": [
+            { "sneaking": "query.is_sneaking" },
+            { "sitting": "(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))" },
+            { "walking": "variable.state != 1" },
+            { "lie_down": "variable.state == 4" }
+          ]
+        },
+        "sitting": {
+          "animations": [ { "walk": [] } ],
+          "parameters": [ "query.modified_move_speed" ],
+          "transitions": [
+            { "sneaking": "query.is_sneaking" },
+            { "sprinting": "variable.state == 1" },
+            { "walking": "!(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target)) || query.is_riding" },
+            { "lie_down": "variable.state == 4" }
+          ]
+        },
+        "walking": {
+          "parameters": [ "query.modified_move_speed" ],
+          "animations": [ { "walk": [] } ],
+          "transitions": [
+            { "sneaking": "query.is_sneaking" },
+            { "sprinting": "variable.state == 1" },
+            { "sitting": "(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))" },
+            { "lie_down": "variable.state == 4" }
+          ]
+        },
+        "lie_down": {
+          "parameters": [ "query.modified_move_speed" ],
+          "animations": [ { "lie_down": [] } ],
+          "transitions": [
+            { "sneaking": "query.is_sneaking" },
+            { "sprinting": "variable.state == 1" },
+            { "sitting": "(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))" },
+            { "walking": "variable.state != 4" }
+          ]
+        }
+      }
+    }
+  }
+}

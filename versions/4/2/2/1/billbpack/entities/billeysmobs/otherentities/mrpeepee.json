@@ -1,0 +1,50 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "billey:mrpeepee",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+	  "scripts": {
+	    "animate": [ "death" ]
+	  },
+	  "animations": {
+	    "death": "controller.animation.billeyangel_death"
+    }
+    },
+
+    "component_groups": {
+"mrpeepee": {"minecraft:transformation": {
+				"into": "billey:despawn",
+                "delay": 0.1
+}}
+    },
+
+    "components": { "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family":["lightning", "mob"]         
+      },"minecraft:transformation": {
+				"into": "billey:despawn",
+                "delay": 0.1
+				}
+    },
+
+    "events": {     
+      "minecraft:entity_transformed": {
+        "randomize": [
+          {
+            "weight": 95,
+            "remove": {
+            },
+            "add": {
+              "component_groups": [
+                "mrpeepee"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

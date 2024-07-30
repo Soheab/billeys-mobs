@@ -1,0 +1,585 @@
+﻿##FOR TRANSLATOR
+
+
+##everything in this file that is a note instead of a translation string should start with ##
+##if you are not an addon creator and dont know how lang files work,
+##just translate everything after the equal signs
+
+
+##Credits
+##replace these lines with what you want to be credited as on mcpedl
+##eg. youtube channel link, mcpedl profile link, etc
+##
+##
+
+
+##########################
+
+
+##hey there, read the ##notes for translation tips
+
+
+##make sure to follow vanilla bedrock's style eg.
+##translate spawn, end, and netherite to whatever bedrock(not java) translates them to
+
+
+##if any mob name that is two words in english sounds good as one word in your language
+##translate it to that one word, eg. Italian for banana duck: "Bananatra" instead of "Anatra Banana",
+##though try to make the etymology of the combined word obvious
+
+
+##feel free to ask me any other questions
+
+
+##Mobs
+
+
+
+entity.billey:anglerfish.name=Anglerfish
+
+item.spawn_egg.entity.billey:anglerfish.name=Spawn Anglerfish
+
+entity.billey:swordfish.name=Swordfish
+
+item.spawn_egg.entity.billey:swordfish.name=Spawn Swordfish
+
+entity.billey:zombie_cat.name=Zombie Cat
+
+item.spawn_egg.entity.billey:zombie_cat.name=Spawn Zombie Cat
+
+entity.billey:skeleton_cat.name=Skeleton Cat
+
+item.spawn_egg.entity.billey:skeleton_cat.name=Spawn Skeleton Cat
+
+entity.billey:mercat.name=Mercat
+
+item.spawn_egg.entity.billey:mercat.name=Spawn Mercat
+##avoid translating it to mermaid cat, instead translate it to fishcat(as
+##long as it doesnt also mean catfish),
+##watercat, or whatever sounds best in your language
+
+entity.billey:orca.name=Orca
+
+item.spawn_egg.entity.billey:orca.name=Spawn Orca
+
+entity.billey:pigeon.name=Pigeon
+
+item.spawn_egg.entity.billey:pigeon.name=Spawn Pigeon
+
+entity.billey:pizzafish.name=Pizzafish
+
+item.spawn_egg.entity.billey:pizzafish.name=Spawn Pizzafish
+
+entity.billey:poopstain.name=Pigeon Poop
+
+item.spawn_egg.entity.billey:poopstain.name=Pigeon Poop
+##make sure to not translate it to something that
+##the game will censor
+
+entity.billey:gwshark.name=Great White Shark
+
+item.spawn_egg.entity.billey:gwshark.name=Spawn Great White Shark
+
+entity.billey:picklepet.name=Picklepet
+
+item.spawn_egg.entity.billey:picklepet.name=Spawn Picklepet
+##literally translate pickle and pet and stick them together, if they sound bad sticked together,
+##or make no sense in your language then just translate it to pickle pet
+##or walking pickle or alive pickle whatever sounds best
+
+entity.billey:endercat.name=Endercat
+
+item.spawn_egg.entity.billey:endercat.name=Spawn Endercat
+##translate end to whatever bedrock edition translates it to in your language
+##so it doesn't look out of place compared to the rest of the game
+
+entity.billey:flyingcat.name=Angel Cat
+
+item.spawn_egg.entity.billey:flyingcat.name=Spawn Angel Cat
+
+entity.billey:endflyingcat.name=End Angel Cat
+
+item.spawn_egg.entity.billey:endflyingcat.name=Spawn End Angel Cat
+
+entity.billey:duck.name=Duck
+
+item.spawn_egg.entity.billey:duck.name=Spawn Duck
+
+entity.billey:flyingpig.name=Angel Pig
+
+item.spawn_egg.entity.billey:flyingpig.name=Spawn Angel Pig
+
+entity.billey:penguin.name=Penguin
+
+item.spawn_egg.entity.billey:penguin.name=Spawn Penguin
+
+entity.billey:zombified_cat.name=Withered Cat
+
+item.spawn_egg.entity.billey:zombified_cat.name=Spawn Withered Cat
+##wither in this context has no relation to the wither or wither skeletons,
+##it's just the word for rotten in the context of plants
+
+entity.billey:snail.name=Snail
+
+item.spawn_egg.entity.billey:snail.name=Spawn Snail
+
+entity.billey:piranha.name=Piranha
+
+item.spawn_egg.entity.billey:piranha.name=Spawn Piranha
+
+entity.billey:banana_duck.name=Banana Duck
+
+item.spawn_egg.entity.billey:banana_duck.name=Spawn Banana Duck
+
+entity.billey:cucumbeel.name=Cucumbeel
+
+item.spawn_egg.entity.billey:cucumbeel.name=Spawn Cucumbeel
+##translate to any sort of good sounding combination of cucumber/pickle and eel, if there
+##isn't one then just cucumber eel(or pickle eel if that sounds better)
+
+entity.billey:pickle_cat.name=Pickle Cat
+
+item.spawn_egg.entity.billey:pickle_cat.name=Spawn Pickle Cat
+
+entity.billey:velvet_worm.name=Velvet Worm
+
+item.spawn_egg.entity.billey:velvet_worm.name=Spawn Velvet Worm
+
+entity.billey:hamster.name=Hamster
+
+item.spawn_egg.entity.billey:hamster.name=Spawn Hamster
+
+entity.billey:raccoon.name=Raccoon (W.I.P.)
+
+item.spawn_egg.entity.billey:raccoon.name=Spawn Raccoon (W.I.P.)
+
+entity.billey:hammerhead_shark.name=Hammerhead Shark
+
+item.spawn_egg.entity.billey:hammerhead_shark.name=Spawn Hammerhead Shark
+
+entity.billey:catfish.name=Catfish
+
+item.spawn_egg.entity.billey:catfish.name=Spawn Catfish
+
+entity.billey:kiwi.name=Kiwi
+
+entity.billey:amogus.name=Amogus
+##transliterate "Amogus" into your writing system
+
+item.spawn_egg.entity.billey:kiwi.name=Spawn Kiwi
+##if there is a good sounding combination of kiwi the bird and kiwi the fruit
+##in your language, translate it to that,
+##otherwise, translate to kiwi (the bird)
+
+entity.billey:duck_centipede.name=§cDuck Centipede
+
+item.spawn_egg.entity.billey:duck_centipede.name=§cSpawn Duck Centipede
+##do not remove the §c it's for red text
+
+entity.unknown.name=A Custom Mob
+##for the death message
+
+entity.billey:betta_fish.name=Betta Fish
+
+item.spawn_egg.entity.billey:betta_fish.name=Spawn Betta Fish
+
+entity.billey:electric_eel.name=Electric Eel
+
+item.spawn_egg.entity.billey:electric_eel.name=Spawn Electric Eel
+
+entity.billey:orange_penguin.name=Orange Penguin
+
+item.spawn_egg.entity.billey:orange_penguin.name=Spawn Orange Penguin
+##if the phrase "Orange Penguin" turns out to be too long
+##you may use some blend of "orange" and "penguin", eg. oranguin in english
+##also, make sure its etymology is obvious
+
+entity.billey:goose.name=Goose
+
+item.spawn_egg.entity.billey:goose.name=Spawn Goose
+
+entity.billey:flyingpickle_cat.name=Pickle Angel Cat
+
+item.spawn_egg.entity.billey:flyingpickle_cat.name=Spawn Pickle Angel Cat
+
+entity.billey:terraphin.name=Terraphin
+
+item.spawn_egg.entity.billey:terraphin.name=Spawn Terraphin
+##translate to a blend/mix of your word for dophlin, whale, cetacean or porpoise
+##and your word for land, legs, terrain or walking.
+##if you cant come up with something and your language's word for dolphin
+##is something like dolfin or delfin, simply translate it to that
+##but replace "dol" with "terra"
+
+item.spawn_egg.entity.billey:pigeon_vibe.name=Pigeon Vibe
+##you can leave this untranslated or only translate "pigeon" if you want
+
+entity.billey:mergoose.name=Mergoose
+
+item.spawn_egg.entity.billey:mergoose.name=Spawn Mergoose
+
+entity.billey:woodlouse.name=Woodlouse
+
+item.spawn_egg.entity.billey:woodlouse.name=Spawn Woodlouse
+
+entity.billey:deinonychus.name=Deinonychus
+
+item.spawn_egg.entity.billey:deinonychus.name=Spawn Deinonychus
+
+
+##Items
+
+
+
+item.billey:pizzapiece=Sea Pizza
+
+item.billey:picklepet_fertilizer=Picklepet Fertilizer
+
+item.billey:cat_dust=Happy Powder
+
+item.billey:zcat_dust=Sad Powder
+
+item.billey:wcat_dust=Funny Powder
+
+item.billey:scat_dust=Boring Powder
+
+item.billey:cat_bottle=Happy Potion
+
+item.billey:zcat_bottle=Sad Potion
+
+item.billey:wcat_bottle=Funny Potion
+
+item.billey:scat_bottle=Boring Potion
+
+item.billey:swordcooked=Swordfish Steak
+
+item.billey:swordmeat=Swordfish Fillet
+
+item.billey:swordfin=Swordfish Fin
+
+item.billey:swordtail=Swordfish Tail
+
+item.billey:swordfish=Fish Sword
+
+item.billey:swordstick=Swordfish Stick
+
+item.billey:anglerlight=Anglerfish Light
+
+item.billey:colorful_dust=Colorful Powder
+
+item.billey:colorful_bottle=Colorful Potion
+
+item.billey:colorless_dust=Colorless Powder
+
+item.billey:colorless_bottle=Colorless Potion
+
+item.billey:leather_pet_armor=Leather Duck Armor
+
+item.billey:golden_pet_armor=Gold Duck Armor
+
+item.billey:chain_pet_armor=Chainmail Duck Armor
+
+item.billey:iron_pet_armor=Iron Duck Armor
+
+item.billey:diamond_pet_armor=Diamond Duck Armor
+
+item.billey:netherite_pet_armor=Netherite Duck Armor
+
+item.billey:endrod_pet_armor=End Rod Duck Armor
+
+item.billey:velvet_slime=Velvet Slime Ball
+
+item.billey:raw_hamster=Raw Hamster
+
+item.billey:cooked_hamster=Cooked Hamster
+
+item.billey:hamster_ball=Hamster Ball
+
+item.billey:pet_hat=Bird Hat
+
+item.billey:raw_catfish=Raw Catfish
+
+item.billey:cooked_catfish=Cooked Catfish
+
+item.billey:cocoa_beans_catfish=Catfish with Cocoa Beans
+
+item.billey:chocolate_catfish=Chocolate Catfish
+
+item.billey:pickle_juice=Bottle of Pickle Juice
+
+item.billey:shark_tooth=Shark Tooth
+
+item.billey:golden_swordfish=Golden Fish Sword
+
+item.billey:sand_banana=Sand Banana
+
+item.billey:raw_snail=Raw Weakness Snail
+
+item.billey:raw_snail_s=Raw Slowness Snail
+
+item.billey:raw_snail_w=Raw Withering Snail
+
+item.billey:cooked_snail=Cooked Strength Snail
+
+item.billey:cooked_snail_s=Cooked Swiftness Snail
+
+item.billey:cooked_snail_w=Cooked Regeneration Snail
+##make sure your translations of the effects match the official bedrock translations
+
+item.billey:snail_helmet=Snail Helmet
+##helmet made out of snail shells, not a helmet for snails
+
+item.billey:yeet_duck=Throw a Duck
+
+item.billey:snail_shell=Snail Shell
+
+item.billey:kiwi_fur=Kiwi Fur
+
+item.billey:duck_hat=Duck Hat
+##its a hat for players that looks like a duck, not a hat for ducks,
+##translate it to something that would not also mean "hat for ducks"
+##if it's possible
+
+item.billey:betta_fish=Raw Betta Fish
+
+item.billey:cooked_betta_fish=Cooked Betta Fish
+
+item.billey:diamond_nugget=Diamond Nugget
+
+item.billey:copper_nugget=Copper Nugget
+
+item.billey:chicken_nugget=Chicken Nugget
+
+item.billey:poultry_orange=Poultry Orange
+
+item.billey:orange_peel=Orange Peel
+
+item.billey:mercat_milk=Mercat Milk
+
+item.billey:fermented_mercat_milk=Fermented Mercat Milk
+
+item.billey:terraphin_staff=Terraphin Staff
+
+item.billey:terraphin_furball=Terraphin Furball
+
+item.billey:raw_mergoose_tongue=Raw Mergoose Tongue
+
+item.billey:cooked_mergoose_tongue=Cooked Mergoose Tongue
+
+item.billey:mergoose_spikes=Mergoose Spikes
+
+item.billey:shark_tooth_sword=Shark Tooth Sword
+
+item.billey:piranha=Piranha
+
+item.billey:raw_piranha=Raw Piranha
+
+item.billey:cooked_piranha=Cooked Piranha
+
+item.billey:piranha_launcher=Piranha Launcher
+
+item.billey:loaded_piranha_launcher=Loaded Piranha Launcher
+
+item.billey:loaded_piranha_launcher2=Piranha Launcher Loaded with 2 Piranhas
+
+
+##Blocks
+
+
+
+tile.billey:velvet_slime_block.name=Velvet Slime Block
+
+tile.billey:blue_velvet_slime_block.name=Blue Velvet Slime Block
+
+tile.billey:mixed_velvet_slime_block.name=Mixed Velvet Slime Block
+
+tile.billey:zambie.name=§b...
+##if there is a different symbol for awkward silence in your language,
+## change "..." to that
+
+tile.billey:aquarium_gravel.name=Aquarium Gravel
+
+tile.billey:woodlouse_wheat.name=Woodlouse Wheat
+
+
+##Other
+
+
+
+advancements.toast.task=Advancement Made!
+
+chat.advancement.task=%1 has made the advancement §a[%2]§r
+##%1 is the name of the player, §a[%2]§r is the name of the completed advancement in green
+##dont change them
+
+
+##do not translate all of the ride text the same way, some mobs cant
+##be exitted by jumping
+
+action.hint.exit.billey:duck=Jump or sneak get off the Duck
+
+action.hint.exit.billey:banana_duck=Jump or sneak get off the Banana Duck
+
+action.hint.exit.billey:goose=Jump or sneak get off the Goose
+
+action.hint.exit.billey:berry_goose=Jump or sneak get off the Berry Goose
+
+action.hint.exit.billey:orca=Jump or sneak get off the Orca
+
+action.hint.exit.billey:terraphin=Jump or sneak get off the Terraphin
+
+action.hint.exit.billey:cucumbeel=Sneak to get off the Cucumbeel
+##you cant jump off a cucumbeel because they are controlled similarly
+##to vanilla horses, unlike orcas which cant be controlled and
+##the ducks which are controlled like pigs
+
+action.hint.exit.billey:hammerhead_shark=Sneak to get off the Hammerhead Shark
+##the cucumbeel note also applies to hammerhead sharks
+
+action.interact.equip=Equip
+
+action.interact.pet=Pet
+
+action.interact.wander=Wander
+
+action.interact.follow=Follow
+
+action.interact.pick_up=Pick Up
+
+action.interact.use=Use
+
+advancements.billey.golden_duck=Shiny Duck
+
+advancements.billey.angry_duck=HONK!
+
+advancements.billey.howrude=How Rude...
+
+advancements.billey.kindness=Pizzafish Transplantation
+
+advancements.billey.ornithologist=Ornithologist
+
+advancements.billey.color=Pretty
+
+advancements.billey.smelly_fish=Radioactive Fish
+
+advancements.billey.undeadcat=Feline Necromancer
+##you may just translate feline to your word for cat
+
+advancements.billey.spookycat=Spooky Cat
+
+advancements.billey.killcenti=Centipede Stomper(please suggest a better name)
+
+advancements.billey.chocolate_catfish=Le Fishe au Chocolat
+##dont translate this unless you are translating the addon to french,
+##if that then change it to Le Poisson au Chocolat
+
+billmobs.wander=§6
+##the text that appears before the mobs name in the "Mob is now wandering" message
+
+billmobs.wander2= will now wander.
+##the text that appears after the mobs name in the "Mob is now wandering" message
+
+billmobs.follow=§6
+##the text that appears before the mobs name in the "Mob is now following" message
+
+billmobs.follow2= will now follow.
+##the text that appears after the mobs name in the "Mob is now following" message
+##dont translate it to "will now follow "you"" because the 
+##message is visible to all players around the mob
+
+rawtext.billeyhonk=§ehttps://mcpedl.com/billeys-mobs-addon§r is where you should have gotten this addon from, if you got it from anywhere else then the website you got it from steals add-ons from mcpedl and no add-on you find there is actually uploaded by its creator.
+
+itemGroup.name.horseArmor=Animal Equipment
+
+chat.billmobsamogus=Congratulations you found the secret mob, other easter eggs: breed a banana duck with a kiwi, name a pigeon or a kiwi "Perry", a duck or a catfish or a banana duck "Pizza", an anglerfish "Sugar" or a betta fish "Tofu". Also this behaves like a duck if tamed with seeds
+
+chat.billbettainfo=These can also be earned in survival by crossbreeding betta fish variants, you'll get hints when you complete advancements
+
+chat.billbetta1=white + black yellow = yellow
+
+chat.billbetta2=white + dark cyan = cyan
+
+chat.billbetta3=yellow + cyan = green
+
+chat.billbetta4=black orange + cyan = glowing
+
+chat.billbetta5=red white + white = pinkish white
+
+chat.billbetta6=pinkish white + blue purple = blue
+
+chat.billbetta7=green + glowing = green glowing
+
+chat.billbetta8=Congratulations you've gotten most of them, but there is also a purple one and a purple glowing one, can you get them?
+
+chat.billbetta9=this would look good on a glowing betta fish
+
+chat.billbetta10=don't mix up white and pinkish white, they look almost the same
+
+chat.billcatfishpizza=Try naming a catfish, a cat or a duck "Pizza"
+##Special Spawn Eggs
+
+
+##ducklings are not separate mobs from adult ducks,
+##the duckling spawn egg spawns an entity that transforms to a duck that
+##always spawns as a baby
+
+item.spawn_egg.entity.billey:duckling.name=§eSpawn Duckling
+
+item.spawn_egg.entity.billey:glowing_betta_fish.name=§eSpawn Glowing Betta Fish
+##the §e is for yellow text, dont remove it
+
+
+##Planned
+##yes translate these too
+
+item.billey:growth_dust.name=Powder of Growth
+
+item.billey:growth_bottle.name=Potion of Growth
+
+item.billey:youth_dust.name=Powder of Youth
+
+item.billey:youth_bottle.name=Potion of Youth
+
+item.billey:sailor_hat.name=Sailor Hat
+
+item.billey:tall_hat.name=Tall Hat
+
+item.billey:kiwi_egg.name=Kiwi Egg
+
+item.billey:orange_chestplate=Orange Chestplate
+##item.billey:pet_hat.name=Pet Hat
+
+item.billey:skeleton_cat_ears.name=Skeleton Cat Ears
+
+item.billey:manual.name=Billey's Mobs Manual
+##do not translate Billey's Mobs and avoid transliterating it
+##translate manual however
+
+entity.billey:goblin_shark.name=Goblin Shark
+
+item.spawn_egg.entity.billey:goblin_shark.name=Spawn Goblin Shark
+
+entity.billey:caracal.name=Caracal
+
+item.spawn_egg.entity.billey:caracal.name=Spawn Caracal
+
+advancements.billey.golden_duck.desc=Get the secret duck variant, tip after getting it: fish sword
+
+rawtext.billeyhonk2= Popular examples of websites like that would be mcpеhub.оrg, mcpеhub.ru, mc-аddons.com, mcpе-gаme.ru, monstеr-mcpе.com, minеcrаftpе-mods.com and every app where you can download addons, unless mcpеdl made their own app after this was written
+##if theres no good translation for variant you can translate it to type or breed
+
+advancements.billey.angry_duck.desc=Anger a duck
+
+advancements.billey.howrude.desc=Shear a pizzafish
+
+advancements.billey.kindness.desc=Put a sea pizza on a bitten or sheared pizzafish
+
+advancements.billey.ornithologist.desc=Get all the banana duck variants expect the very specific one
+##if theres no good translation for variant you can translate it to color or breed
+
+advancements.billey.color.desc=Use the colorful potion on one of your pets
+
+advancements.billey.undeadcat.desc=Tame any undead cat
+##if theres no good translation for undead translate "any undead cat" it to "a zombie or skeleton cat"
+
+advancements.billey.spookycat.desc=Tame an endercat

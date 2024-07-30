@@ -1,0 +1,37 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:flyingpig",
+      "materials": { "default": "skeleton" },
+      "textures": {
+        "default": "textures/entity/bill/fpig",
+        "angry": "textures/entity/bill/fpig1"
+      },
+      "geometry": {
+        "default": "geometry.billangelpig"
+      },
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "idle": "animation.billangelpig.fly",
+        "baby": "animation.billangelpig.baby_transform",
+        "sit": "animation.billangelpig.sit",
+        "look_at_target": "animation.common.look_at_target",
+        "controller.sit": "controller.animation.billey.sit"
+      },
+      "scripts": {
+        "animate": [ "new",
+          {"look_at_target": "q.has_target ? -1 : 1" },
+          "controller.sit",
+          { "sit": "!q.is_tamed && q.mark_variant == 1 && !q.has_target" },
+          { "idle": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_on_ground" },
+          { "baby": "q.is_baby" }
+        ]
+      },
+      "render_controllers": [ "controller.render.billangelpig" ],
+      "spawn_egg": {
+        "texture": "egg_pig_angel"
+      }
+    }
+  }
+}

@@ -1,0 +1,405 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:rat_minion",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "will_transform": {
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "any_of": [
+                                        {
+                                            "test": "has_damage",
+                                            "value": "fatal"
+                                        },
+                                        {
+                                            "test": "has_damage",
+                                            "value": "void"
+                                        }
+                                    ]
+                                },
+                                "event": "transform",
+                                "target": "self"
+                            },
+                            "deals_damage": false
+                        }
+                    ]
+                },
+                "minecraft:timer": {
+                    "time": [
+                        12,
+                        18
+                    ],
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "transform",
+                        "target": "self"
+                    }
+                },
+                "minecraft:behavior.panic": {
+                    "force": true,
+                    "priority": 1,
+                    "speed_multiplier": 1.5
+                },
+                "minecraft:behavior.avoid_mob_type": {
+                    "max_dist": 0,
+                    "max_flee": 10,
+                    "walk_speed_multiplier": 1.5,
+                    "sprint_speed_multiplier": 1.5,
+                    "entity_types": {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "operator": "not",
+                            "value": "rat_minion"
+                        }
+                    }
+                }
+            },
+            "from_crowned_rat": {
+                "minecraft:tameable": {},
+                "minecraft:is_tamed": {},
+                "minecraft:timer": {
+                    "time": [
+                        60,
+                        64
+                    ],
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "start_despawn",
+                        "target": "self"
+                    }
+                },
+                "minecraft:on_target_escape": {
+                    "event": "start_despawn",
+                    "target": "self"
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 2
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.follow_owner": {
+                    "priority": 4,
+                    "speed_multiplier": 1.5,
+                    "start_distance": 7,
+                    "stop_distance": 5
+                }
+            },
+            "despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "rat",
+                    "mob",
+                    "rat_minion"
+                ]
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0
+            },
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 0.33
+            },
+            "minecraft:nameable": {},
+            "minecraft:health": {
+                "value": 10,
+                "max": 10
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:movement": {
+                "value": 0.2
+            },
+            "minecraft:leashable": {
+                "soft_distance": 4.0,
+                "hard_distance": 6.0,
+                "max_distance": 10.0
+            },
+            "minecraft:balloonable": {
+                "mass": 0.5
+            },
+            "minecraft:navigation.walk": {
+                "can_path_over_water": true,
+                "avoid_damage_blocks": true
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:behavior.float": {
+                "priority": 0
+            },
+            "minecraft:attack": {
+                "damage": 6
+            },
+            "minecraft:behavior.melee_attack": {
+                "require_complete_path": true,
+                "priority": 3,
+                "speed_multiplier": 1.75,
+                "track_target": true,
+                "on_attack": {
+                    "target": "self",
+                    "event": "rob_mob"
+                }
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 6,
+                "speed_multiplier": 1.0
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 8
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "transform": {
+                "queue_command": {
+                    "command": [
+                        "scriptevent billey:rat_minion_transform"
+                    ]
+                }
+            },
+            "from_potion": {
+                "add": {
+                    "component_groups": [
+                        "will_transform"
+                    ]
+                }
+            },
+            "from_crowned_rat": {
+                "add": {
+                    "component_groups": [
+                        "from_crowned_rat"
+                    ]
+                }
+            },
+            "start_despawn": {
+                "queue_command": {
+                    "command": [
+                        "particle minecraft:explosion_particle",
+                        "event entity @s finish_despawn"
+                    ]
+                }
+            },
+            "finish_despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawn"
+                    ]
+                }
+            },
+            "rob_mob": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "target",
+                                    "value": "player",
+                                    "operator": "not"
+                                },
+                                {
+                                    "any_of": [
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "bow"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "crossbow"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "stone_sword"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "golden_sword"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "golden_axe"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "trident"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "iron_sword"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "iron_axe"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "target",
+											"domain": "hand",
+											"value": "iron_shovel"
+										}
+									]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "target": "target",
+                            "command": [
+                                "replaceitem entity @s slot.weapon.mainhand 0 air"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "bow"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/bow\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "crossbow"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/crossbow\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "golden_axe"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/golden_axe\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "golden_sword"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/golden_sword\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "iron_sword"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/iron_sword\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "iron_axe"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/iron_axe\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "stone_sword"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/stone_sword\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "iron_shovel"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/iron_shovel\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "target",
+                            "domain": "hand",
+                            "value": "trident"
+                        },
+                        "queue_command": {
+                            "command": "loot spawn ~ ~1 ~ loot \"entities/billeyratrob/trident\""
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

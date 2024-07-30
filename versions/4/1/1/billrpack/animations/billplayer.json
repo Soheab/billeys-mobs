@@ -1,0 +1,27 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeyplayer.pet": {
+			"animation_length": 0.88,
+			"bones": {
+				"RightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.12": [-40, 0, 0],
+						"0.24": [-40, 20, 20],
+						"0.36": [-40, -27.5, -27.5],
+						"0.56": [-40, 20, 20],
+						"0.68": [-40, -27.5, -27.5],
+						"0.88": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.12": ["variable.is_first_person ? -4 : 0", "variable.is_first_person ? 4.5 : 0", "variable.is_first_person ? 5 : 0"],
+						"0.68": ["variable.is_first_person ? -4 : 0", "variable.is_first_person ? 4.5 : 0", "variable.is_first_person ? 5 : 0"],
+						"0.88": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

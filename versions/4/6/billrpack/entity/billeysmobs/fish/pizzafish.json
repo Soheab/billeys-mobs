@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:pizzafish",
+      "materials": { "default": "skeleton" },
+      "textures": {
+				"default": "textures/entity/bill/pizzafish"
+			},
+      "geometry": {
+        "default": "geometry.billpizzafish"
+      },
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "flop": "animation.billpizzafish.flop",
+        "swim": "animation.billpizzafish.swim",
+				"look": "animation.billfishy.look"
+      },
+      "scripts": {
+        "animate": [ "new",
+          "look",
+          "swim",
+          { "flop": "!q.is_in_water" }
+        ]
+      },
+      "render_controllers": [ "controller.render.billpizzafish" ],
+      "spawn_egg": {
+        "base_color": "#ffd531",
+        "overlay_color": "#ce2121"
+      }
+    }
+  }
+}

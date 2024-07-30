@@ -1,0 +1,24 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "billey:yeet_duck"
+        },
+        "components": {
+            "minecraft:icon": {
+                "texture": "yeet_the_duck"
+            },
+            "minecraft:cooldown": {
+                "category": "duck",
+                "duration": 2.0
+            },
+            "minecraft:max_stack_size": 16,
+            "minecraft:throwable": {
+                "do_swing_animation": true
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "billey:thrown_duck"
+            }
+        }
+    }
+}

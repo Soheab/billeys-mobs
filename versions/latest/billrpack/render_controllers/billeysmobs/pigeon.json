@@ -1,0 +1,60 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billpigeon": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.default",
+            "Texture.mixed",
+            "Texture.gray",
+            "Texture.blend",
+            "Texture.black"
+          ],
+          "Array.changer": [
+            "Texture.default",
+            "Texture.mixed",
+            "Texture.gray",
+            "Texture.blend",
+            "Texture.black",
+            "Texture.white",
+            "Texture.mixedw",
+            "Texture.grayw",
+            "Texture.blendw",
+            "Texture.blackw"
+          ],
+          "Array.sheared": [
+            "Texture.white",
+            "Texture.mixedw",
+            "Texture.grayw",
+            "Texture.blendw",
+            "Texture.blackw"
+          ]
+        }
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" }, { "sack": "Material.cat"} ],
+      "part_visibility": [
+        {
+          "backpack": "q.property('billey:has_backpack')"
+        },
+        {
+          "sack": "q.property('billey:has_backpack')"
+        }
+      ],
+      "textures": [ "(q.get_name == 'Perry' || q.get_name == 'Πέρι') ? (Array.changer[q.life_time * 1.5 + q.variant + q.is_sheared * 5]) : (q.is_sheared ? Array.sheared[q.variant] : Array.skins[q.variant])" ],
+      "overlay_color": {
+          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}
