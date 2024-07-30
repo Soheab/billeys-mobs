@@ -16,6 +16,12 @@
             }
         },
         "component_groups": {
+    "electrocuted": {
+       
+				"minecraft:loot": {
+					"table": "loot_tables/entities/billey_electrocuted.json"
+				}
+  },
             "despawn": {
                 "minecraft:despawn": {}
             }
@@ -48,6 +54,10 @@
             }
         },
         "events": {
+    "get_electrocuted": {
+       "add": { "component_groups": [
+         "electrocuted" ]}
+  },
             "minecraft:entity_spawned": {
                 "randomize": [
                     {

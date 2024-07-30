@@ -1,0 +1,71 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "billey:loaded_piranha_launcher2",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:hand_equipped": true,
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.equipment"
+            },
+            "minecraft:icon": {
+                "texture": "billey.loaded_piranha_launcher"
+            },
+            "minecraft:cooldown": {
+                "category": "duck",
+                "duration": 0.5
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "billey:piranha_projectile"
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "on_use",
+                    "target": "self"
+                }
+            },
+            "minecraft:weapon": {
+                "on_hurt_entity": {
+                    "event": "on_use"
+                },
+                "on_not_hurt_entity": {
+                    "event": "on_use"
+                }
+            }
+        },
+        "events": {
+            "on_use": {
+                "sequence": [
+                    {
+                        "condition": "!q.is_sneaking && !q.is_in_water",
+                        "swing": {}
+                    },
+                    {
+                        "condition": "!q.is_sneaking && !q.is_in_water",
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "!q.is_sneaking && !q.is_in_water",
+                        "shoot": {
+                            "projectile": "billey:piranha_projectile",
+                            "launch_power": 1,
+                            "angle_offset": 0
+                        }
+                    },
+                    {
+                        "condition": "!q.is_sneaking && !q.is_in_water",
+                      "run_command": {
+                        "target": "holder",
+                        "command": [
+                          "give @s[m=!c] billey:loaded_piranha_launcher"
+                        ]
+                      }
+                    }
+                ]
+            }
+        }
+    }
+}
