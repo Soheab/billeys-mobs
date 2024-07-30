@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billanglerfish": {
+      "arrays": {
+        "textures": {
+          "Array.variants": [
+            "Texture.variant1",
+            "Texture.variant2",
+            "Texture.variant3",
+            "Texture.variant4",
+            "Texture.variant5",
+            "Texture.variant6",
+            "Texture.variant7",
+            "Texture.variant8"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "overlay_color": {
+          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "textures": [ "(q.get_name == 'Sugar' || q.get_name == 'Ζαχαρωτός') ? Array.variants[q.life_time * 1.5 + q.variant] : Array.variants[q.variant]" ]
+    }
+  }
+}

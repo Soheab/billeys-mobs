@@ -1,0 +1,65 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billduckarmor": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.leather",
+            "Texture.gold",
+            "Texture.chain",
+            "Texture.iron",
+            "Texture.diamond",
+            "Texture.netherite"
+          ]
+        }
+      },
+      "geometry": "Geometry.armor",
+      "materials": [ { "*": "Material.dyeable" } ],
+      "textures": [ "Array.skins[query.mark_variant - 1]" ],
+      "overlay_color": {
+          "r": "math.sin(query.life_time * 200 + query.variant * 600 + 100)",
+          "g": "math.sin(query.life_time * 200 + query.variant * 600 + 220)",
+          "b": "math.sin(query.life_time * 200 + query.variant * 600 + 340)",
+          //the a stands for alpha and it means opacity
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+          "r": "math.sin(query.life_time * 200 + query.variant * 600 + 100)",
+          "g": "math.sin(query.life_time * 200 + query.variant * 600 + 220)",
+          "b": "math.sin(query.life_time * 200 + query.variant * 600 + 340)",
+          //the a stands for alpha and it means opacity
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billhamsterball": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.ball",
+            "Texture.ballhurt"
+          ],
+          "Array.skinsw": [
+            "Texture.ballw",
+            "Texture.ballhurtw"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.slime" } ],
+      "textures": [ "query.is_illager_captain ? Array.skinsw[query.variant - 1] : Array.skins[query.variant - 1]" ],
+      "overlay_color": {
+          "r": "math.sin(query.life_time * 200 + query.variant * 600 + 100)",
+          "g": "math.sin(query.life_time * 200 + query.variant * 600 + 220)",
+          "b": "math.sin(query.life_time * 200 + query.variant * 600 + 340)",
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+          "r": "math.sin(query.life_time * 200 + query.variant * 600 + 100)",
+          "g": "math.sin(query.life_time * 200 + query.variant * 600 + 220)",
+          "b": "math.sin(query.life_time * 200 + query.variant * 600 + 340)",
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

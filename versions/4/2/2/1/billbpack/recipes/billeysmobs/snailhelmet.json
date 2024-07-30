@@ -1,0 +1,22 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:swgrhtjydjklu"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "pickletrizer",
+      "pattern": [
+        "FFF",
+        "F F"
+      ],
+      "key": {
+        "F": {
+          "item": "billey:snail_shell"
+        }
+      },
+      "result": [
+        { "item": "billey:snail_helmet" }
+      ]
+    }
+  }

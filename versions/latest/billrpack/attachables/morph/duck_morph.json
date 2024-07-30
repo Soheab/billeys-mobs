@@ -1,0 +1,99 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:duck_morph",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/bill/duck",
+                "hurt": "textures/entity/bill/duck_morph_hurt"
+            },
+            "geometry": {
+                "default": "geometry.billduck_morph"
+            },
+            "particle_effects": {
+                "zeelol": "billey:zeeduck"
+            },
+            "animations": {
+                //not sure which ones of all these actually work for the morph
+                "hurt": "animation.billduck.hurt",
+                "move": "animation.billduck.walk32",
+                "sit": "animation.billduck.sit",
+                "swim": "animation.billduck.swim",
+                "look_at_target": "animation.billduck.look_at_target",
+                "flap_wings": "animation.billduck.fall",
+                "quack": "animation.billduck.quack",
+                "sheared": "animation.billduck.flap",
+                "eat": "animation.billduck.eat",
+                "random_idle": "animation.billduck.wiggle_tail",
+                "diphead": "animation.billduck.pickupbread",
+                "sleep": "animation.billduck.sleep",
+                "sleeptl": "animation.billduck.sleep_particle",
+                "gothurt": "animation.billduck.gothurt",
+                "hitcont": "controller.animation.billey.hitanim",
+                "controller.sit": "controller.animation.billey.sit_or_sleep",
+                "controller.quack": "controller.animation.billey.morph_quack",
+                "controller.sheared": "controller.animation.billey.duckidleanim",
+                "controller.swim": "controller.animation.billey.swimduck",
+                "controller.sleep": "controller.animation.billey.sleep",
+                "controller.random_idle_water": "controller.animation.billey.random_idle_water",
+                "controller.random_idle": "controller.animation.billey.random_idle",
+                "morph_hurt": "controller.animation.billey.duck_morph_hurt"
+            },
+            //Ignore blockception extension's error, the sound effects definitely work
+            "sound_effects": {
+                "crack": "billey.duck.hithat",
+                "crack2": "billey.duck.hithat2",
+                "crack3": "billey.duck.hithat3",
+                "crack4": "billey.duck.hithat4",
+                "crack5": "billey.duck.hithat5",
+                "die": "billey.duck.death",
+                "quack": "billey.duck.say"
+            },
+            "scripts": {
+                "initialize": [
+                    "v.time_to_idle = 0;",
+                    "v.prevhealth = 8;",
+                    "v.attack_time = 0;",
+                    "v.state = 0;",
+                    "v.random_integer = 0;",
+                    "v.just_got_hurt = 0;"
+                ],
+                "animate": [
+                    {"morph_hurt": "q.health <= 8"},
+                    {"hitcont": "q.health <= 8"},
+                    {
+                        "hurt": "q.health < 8"
+                    },
+                    {
+                        "controller.sleep": "!q.is_sleeping"
+                    },
+                    {
+                        "controller.sheared": "!q.is_sleeping"
+                    },
+                    {
+                        "controller.random_idle": "!q.is_sleeping"
+                    },
+                    {
+                        "controller.random_idle_water": "!q.is_sleeping"
+                    },
+                    "look_at_target",
+                    {
+                        "controller.quack": "!q.is_in_ui"
+                    },
+                    {
+                        "flap_wings": "!q.is_in_water && !q.has_rider && !q.is_on_ground"
+                    },
+                    {
+                        "move": "q.modified_move_speed"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billey.morph"
+            ]
+        }
+    }
+}

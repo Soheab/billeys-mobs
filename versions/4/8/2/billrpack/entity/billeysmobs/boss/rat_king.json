@@ -1,0 +1,65 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:rat_king",
+            "materials": {
+                "default": "entity_alphatest",
+                "eyes": "spider"
+            },
+            "textures": {
+                "default": "textures/entity/bill/rat_king"
+            },
+            "geometry": {
+                "default": "geometry.billrat_king"
+            },
+            "animations": {
+                "new": "animation.billduckproj.death",
+                "walk_or_run": "controller.animation.billey.rodent_walk_or_run",
+                "squeeze": "animation.billrat_king.move",
+                "squeeze_cont": "controller.animation.billey.rat_king_squeeze",
+                "walk": "animation.billrat_king.walk",
+                "run": "animation.billrat_king.run",
+                "cook": "animation.billrat_king.cook",
+                "cook2": "animation.billrat_king.cook2",
+                "cook3": "animation.billrat_king.cook3",
+                "cook4": "animation.billrat_king.cook4",
+                "cook_cont": "controller.animation.billey.rat_king_cook",
+                "attack": "animation.billrat_king.attack",
+                "attackcont": "controller.animation.billey.simple_attack",
+                "delayed_attack": "animation.billrat_king.spin",
+                "look_at_target": "animation.common.look_at_target",
+                "fold_wings": "animation.billrat_king.fold_wings",
+                "ascend": "animation.billrat_king.ascend",
+                "descend": "animation.billrat_king.descend",
+                "fly": "animation.billrat_king.fly",
+                "movement_cont": "controller.animation.billey.rat_king_fly",
+                "die": "animation.billrat_king.die",
+                "cancel_vanilla_death": "animation.billkiwi.cancelvanilladeath"
+            },
+            "scripts": {
+                "animate": [
+                    "new",
+                    "attackcont",
+                    {
+                        "die": "!q.is_alive"
+                    },
+                    {
+                        "cancel_vanilla_death": "!q.is_alive"
+                    },
+                    "movement_cont",
+                    {
+                        "cook_cont": "q.is_alive && q.property('billey:phase') != 3"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billrat_king"
+            ],
+            "spawn_egg": {
+                "base_color": "#718794",
+                "overlay_color": "#FFFF7F"
+            }
+        }
+    }
+}

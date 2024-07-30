@@ -1,0 +1,11 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:banana_duck_variant",
+			"spawn_egg": {
+				"texture": "egg_bduckcolor"
+			}
+		}
+	}
+}

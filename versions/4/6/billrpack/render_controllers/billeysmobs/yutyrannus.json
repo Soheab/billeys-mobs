@@ -1,0 +1,36 @@
+{//not used
+    "format_version": "1.8.0",
+    "render_controllers": {
+      "controller.render.billyutyrannus": {
+        "geometry": "Geometry.default",
+        "materials": [
+          {
+            "*": "Material.default"
+          },
+          {
+              "hat": "Material.hat"
+          }
+        ],
+        "textures": [
+          "Texture.default"
+        ],
+        "is_hurt_color": {
+            "r": "!q.is_illager_captain",
+            "g": "0",
+            "b": "0",
+            "a": "0.5 + q.is_illager_captain / 3"
+        },
+        "part_visibility": [
+          {
+              "hat": "q.is_powered"
+          }
+        ],
+        "overlay_color": {
+          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+        }
+      }
+    }
+  }

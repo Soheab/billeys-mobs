@@ -1,0 +1,85 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:yutyrannus",
+            "materials": {
+                "default": "entity_alphatest",
+                "cat": "cat"
+            },
+            "textures": {
+                "default": "textures/entity/bill/yutyrannus",
+                "hat": "textures/entity/bill/yutyrannus"
+            },
+            "geometry": {
+                "default": "geometry.billyutyrannus",
+                "hat": "geometry.billyutyrannushat"
+            },
+            "animations": {
+                "new": "animation.billduckproj.body",
+                "move": "animation.billyutyrannus.walk",
+                "look_at_target": "animation.billyutyrannus.look",
+                "death": "animation.billyutyrannus.death",
+                "sit": "animation.billyutyrannus.sit",
+                "general": "animation.billyutyrannus.general",
+                "controller.sit": "controller.animation.billey.sit",
+                "eat": "animation.billyutyrannus.eat",
+                "dance": "animation.billyutyrannus.dance",
+                "eatcont": "controller.animation.billey.eat",
+                "hurt": "animation.billcat.hurt2",
+                "attackcont": "controller.animation.billey.attack",
+                "attack": "animation.billyutyrannus.attack",
+                "roar": "animation.billyutyrannus.roar",
+                "dancecont": "controller.animation.billey.dance",
+                "cont.scale_transition": "controller.animation.billey.scale_transition",
+                "scale_transition": "animation.billeys_mobs.scale_transition"
+            },
+            "scripts": {
+                "initialize": [
+                    "v.transition_time = 0;",
+                    //these variables are used for the scale transition
+                    "v.curr_scale = 16 * q.model_scale;",
+                    "v.prev_scale = 16 * q.model_scale;",
+                    "v.scale_timer = 0;"
+                ],
+                "pre_animation": [
+                    "v.curr_scale = 16 * q.model_scale;"
+                ],
+                "animate": [
+                    "new",
+                    "general",
+                    "cont.scale_transition",
+                    {
+                        "hurt": "q.health < q.max_health"
+                    },
+                    "attackcont",
+                    {
+                        "controller.sit": "q.is_alive"
+                    },
+                    {
+                        "eatcont": "q.is_alive"
+                    },
+                    {
+                        "dancecont": "q.is_alive"
+                    },
+                    {
+                        "death": "!q.is_alive"
+                    },
+                    {
+                        "move": "q.modified_move_speed * 2 / (q.is_baby+1) * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billey_default",
+                {
+                    "controller.render.billbduckhat": "q.is_powered"
+                }
+            ],
+            "spawn_egg": {
+                "overlay_color": "#92A5B5",
+                "base_color": "#e9e9f0"
+            }
+        }
+    }
+}

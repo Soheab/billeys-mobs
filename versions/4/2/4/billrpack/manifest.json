@@ -1,0 +1,25 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "Adds 31 mobs such as banana ducks, skeleton cats, sharks and pizzafish, made by billeyzambie. §e§lGET IT FROM MCPEDL OR BILL'S TWITTER/DISCORD NOT SOME SOME STUPID WEBSITE OR APP LIKE MCPEHUB!!!",
+		"name": "Billey's Mobs 4.2.4",
+		"uuid": "5e4f5194-e04c-4c76-a44c-e862e983a4a6",
+		"min_engine_version": [1, 16, 200],
+		"version": [ 4,2,4 ]
+	},
+	"metadata": {
+		"authors":["billeyzambie"],
+		"url": "https://mcpedl.com/billeys-mobs-addon"
+	},
+	"modules": [{
+		"type": "resources",
+		"uuid": "5e4f5d94-e04c-4c76-a44c-e862e983a4a6",
+		"version": [ 4,2,4 ]
+	}],
+	"dependencies": [
+		{
+			"uuid": "5e4f5194-e04c-4c76-a44c-e862e983a4ad",
+			"version": [ 4,2,4 ]
+		}
+	]
+}

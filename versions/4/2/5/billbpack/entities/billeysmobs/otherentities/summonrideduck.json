@@ -1,0 +1,81 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:raccoon",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "cocc"
+                ]
+            },
+            "animations": {
+                "cocc": "controller.animation.billeysmobs.cocc"
+            }
+        },
+        "component_groups": {
+    "electrocuted": {
+       
+				"minecraft:loot": {
+					"table": "loot_tables/entities/billey_electrocuted.json"
+				}
+  },
+            "despawn": {
+                "minecraft:despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "poop"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:timer": {
+                "time": [
+                    0.09,
+                    0.09
+                ],
+                "looping": true,
+                "time_down_event": {
+                    "event": "despawner",
+                    "target": "self"
+                }
+            },
+            "minecraft:health": {
+                "value": 0,
+                "max": 0
+            }
+        },
+        "events": {
+    "get_electrocuted": {
+       "add": { "component_groups": [
+         "electrocuted" ]}
+  },
+            "minecraft:entity_spawned": {
+                "randomize": [
+                    {
+                        "weight": 95,
+                        "remove": {},
+                        "add": {
+                            "component_groups": [
+                                "despawn"
+                            ]
+                        },
+                        "run_command": {
+                            "command": [
+                                "tellraw @a {\"rawtext\":[{\"translate\":\"rawtext.billeyhonk\"},{\"translate\":\"rawtext.billeyhonk2\"},{\"text\":\"\\n\\n\\n\\n\\n§ehttps://mcpedl.com/billeys-mobs-addon§r is where you should have gotten this addon from, if you got it from anywhere else then the website you got it from steals add-ons from mcpedl and no add-on you find there is actually uploaded by its creator. Popular examples of websites like that would be mcpеhub.ru, mc-аddons.com, mcpе-gаme.ru, monstеr-mcpе.com, minеcrаftpе-mods.com and every app where you can download addons, unless mcpеdl made their own app after this was written\\n\\n\\n\\n\"}]}"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

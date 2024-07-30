@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billpoop": {
+      "arrays": {
+        "textures": {
+          "Array.variants": [
+            "Texture.fall",
+            "Texture.flat"
+          ]
+        },
+          "geometries": {
+          "Array.geos": [
+            "Geometry.fall",
+            "Geometry.flat"
+          ]
+          }
+      },
+      "geometry": "Array.geos[query.is_on_ground]",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.variants[query.is_on_ground]" ],
+      "overlay_color": {
+          "r": "math.sin(query.life_time * 200 + query.variant * 234)",
+          "g": "math.sin(query.life_time * 200 + query.variant * 234 + 120)",
+          "b": "math.sin(query.life_time * 200 + query.variant * 234 + 240)",
+          "a": "0.5"
+      },
+      "is_hurt_color": {
+          "r": "-math.sin(query.life_time * 200)",
+          "g": "-math.sin(query.life_time * 200 + 120)",
+          "b": "-math.sin(query.life_time * 200 + 240)",
+          "a": "0.5"
+      }
+    }
+  }
+}
