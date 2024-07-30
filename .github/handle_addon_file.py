@@ -118,8 +118,12 @@ def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str
         with zipfile.ZipFile(new_file, "r") as zip_ref:
             zip_ref.extractall(version_dir)
     except Exception as e:
-        new_file.unlink()
-        return False, f"Error unzipping file: {e}"
+        try:
+            new_file.unlink()
+            addon_file.unlink()
+        except:
+            pass
+        return False, f"Error unzipping file: new_file: {e}"
 
     new_file.unlink()
     return True, ".".join(versions)
