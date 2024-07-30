@@ -1,0 +1,334 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:random_biome_fish",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "deals_damage": false
+                }
+            }
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_biome_tag",
+                            "value": "ocean"
+                        },
+                        "sequence": [
+                            {
+                                "filters": {
+                                    "test": "has_biome_tag",
+                                    "value": "warm"
+                                },
+                                "randomize": [
+                                    {
+                                        "weight": 1,
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:pizzafish"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 1,
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:cucumbeel"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 1,
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:pickle_cat"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 1,
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:picklepet"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 4,
+                                        "queue_command": {
+                                            "command": [
+                                                "summon tropicalfish"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "filters": {
+                                    "test": "has_biome_tag",
+                                    "value": "warm",
+                                    "operator": "not"
+                                },
+                                "sequence": [
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "deep"
+                                        },
+                                        "randomize": [
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:anglerfish"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:gwshark"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:glowing_betta_fish"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:swordfish"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:mercat"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 3,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon cod"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon salmon"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "deep",
+                                            "operator": "not"
+                                        },
+                                        "randomize": [
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:hammerhead_shark"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:glowing_betta_fish"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:swordfish"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon billey:mercat"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 2,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon cod"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "weight": 1,
+                                                "queue_command": {
+                                                    "command": [
+                                                        "summon salmon"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "filters": {
+                            "test": "has_biome_tag",
+                            "value": "ocean",
+                            "operator": "not"
+                        },
+                        "randomize": [
+                            {
+                                "weight": 20,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:mergoose"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:electric_eel"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 20,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:betta_fish"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 19,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:mercat"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:mercat",
+                                        "event entity @e[type=billey:mercat,c=1] become_variant8"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 20,
+                                "queue_command": {
+                                    "command": [
+                                        "summon salmon"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 20,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:catfish"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:piranha"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+					{
+						"randomize": [
+							{
+								"weight": 99
+							},
+							{
+								"weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "event entity @e[c=1,type=!billey:random_biome_fish,tag=!tamed] kroma"
+                                    ]
+                                }
+							}
+						]
+					},
+                    {
+                        "add": {
+                            "component_groups": [
+                                "despawn"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
