@@ -28,10 +28,15 @@ jobs:
 
             IFS=$' ' read -ra STORE_ARRAY <<< "$INPUT_STORE"
             for store in "${STORE_ARRAY[@]}"; do
+              echo "creating tag for: $store"
               if [[ -n $store ]]; then
               # Process each store here
-              git tag -a v$store -m "Version $store"
-              git push origin v$store
-              echo "$store"
+                if git rev-parse --verify --quiet v$store >/dev/null; then
+                echo "Tag v$store already exists. Deleting..."
+                git tag -d v$store
+                git push --delete origin v$store
+                fi
+                git tag -a v$store -m "Version $store"
+                git push origin v$store
               fi
             done

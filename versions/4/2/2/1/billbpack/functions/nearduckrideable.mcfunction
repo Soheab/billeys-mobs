@@ -1,1 +1,0 @@
-event entity @e[c=1,type=billey:duck,tag=tamed] addgold
