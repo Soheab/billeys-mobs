@@ -1,0 +1,40 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:zombie_cat",
+      "materials": { "default": "cat" },
+      "textures": {
+        "wild": "textures/entity/cat/zcat",
+        "tamed": "textures/entity/cat/zcat_tame"
+      },
+      "geometry": {
+        "default": "geometry.cat"
+      },
+      "animations": {
+        "sneak": "animation.cat.sneak",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "sit": "animation.cat.sit",
+        "stand": "controller.animation.bcat.move",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down",
+        "fix": "animation.cat.fix",
+        "eat": "animation.cat.tailsnek",
+        "beg": "animation.cat.beg"
+      },
+      "animation_controllers": [
+        { "look_at_target": "controller.animation.bcat.look_at_target" },
+        { "sitcont": "controller.animation.billey.sitforcat" },
+        { "baby": "controller.animation.bcat.baby" },
+        { "eatcont": "controller.animation.billey.eat"},
+        { "raising": "controller.animation.billey.eatnoblend"}
+      ],
+      "render_controllers": [ "controller.render.zcat" ],
+      "spawn_egg": {
+        "texture": "egg_cat_zombie"
+      }
+    }
+  }
+}
