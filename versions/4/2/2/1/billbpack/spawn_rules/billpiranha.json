@@ -1,0 +1,45 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "billey:piranha",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underwater": {},
+        "minecraft:weight": {
+          "default": 1
+        },
+        "minecraft:herd": {
+          "min_size": 0,
+          "max_size": 1
+        },
+   
+        "minecraft:biome_filter": {
+          "any_of": [
+            {"test": "has_biome_tag", "operator":"!=", "value": "asdfghjkl"}
+          ]
+        }
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underwater": {},
+        "minecraft:weight": {
+          "default": 15
+        },
+        "minecraft:herd": {
+          "min_size": 3,
+          "max_size": 5
+        },
+   
+        "minecraft:biome_filter": {
+          "any_of": [
+            {"test": "has_biome_tag", "operator":"!=", "value": "ocean"}
+          ]
+        }
+      }
+    ]
+  }
+}
