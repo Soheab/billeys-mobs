@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:swordfish",
+      "materials": { "default": "skeleton" },
+      "textures": {
+        "default": "textures/entity/bill/swordfish"
+      },
+      "geometry": {
+        "default": "geometry.billswordfish"
+      },
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "flop": "animation.billswordfish.flop",
+        "swim": "animation.billswordfish.swim"
+      },
+      "scripts": {
+        "animate": [ "new",
+          { "attack": "query.is_sheared" },
+          { "swim": "query.is_in_water" },
+          { "flop": "!query.is_in_water" }
+        ]
+      },
+      "render_controllers": [ "controller.render.salmon" ],
+      "spawn_egg": {
+        "base_color": "#2D4456",
+        "overlay_color": "#AAC7E2"
+      }
+    }
+  }
+}

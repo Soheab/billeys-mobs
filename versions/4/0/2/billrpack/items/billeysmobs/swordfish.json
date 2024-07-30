@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:swordfish",
+      "category": "Equipment"
+    },
+
+    "components": {
+      "minecraft:icon": "swordfish",
+      "minecraft:use_animation": "eat",
+      "minecraft:render_offsets": "miscellaneous"
+    }
+  }
+}

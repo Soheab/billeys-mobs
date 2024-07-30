@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:piranha",
+      "materials": {
+        "default": "cat"
+      },
+      "textures": {
+        "normal": "textures/entity/bill/piranha",
+        "gay": "textures/entity/bill/piranha1",
+        "desat": "textures/entity/bill/piranha2"
+      },
+      "geometry": {
+        "default": "geometry.billpiranha"
+      },
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "thrown": "animation.billpiranha.thrown",
+        "flop": "animation.billpiranha.flop",
+        "swim": "animation.billpiranha.swim"
+      },
+      "scripts": {
+        "animate": [
+          "new",
+          "swim",
+          {
+            "flop": "!q.is_in_water && q.is_alive &&!q.is_sheared"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.billhmrshark"
+      ],
+      "spawn_egg": {
+        "base_color": "#6C6C6C",
+        "overlay_color": "#802C11"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:throwable_mercat_milk",
+        "materials": {
+          "default": "snowball"
+        },
+        "textures": {
+          "default": "textures/billeyitems/throwable_mercat_milk"
+        },
+        "geometry": {
+          "default": "geometry.item_sprite"
+        },
+        "render_controllers": [ "controller.render.item_sprite" ],
+        "animations": {
+          "new": "animation.billduckproj.body",
+          "flying": "animation.actor.billboard"
+        },
+        "scripts": {
+          "animate": [ "new",
+            "flying"
+          ]
+        }
+      }
+    }
+  }
+  

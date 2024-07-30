@@ -1,0 +1,14 @@
+{
+  "billey:velvet_slime_block": {
+    "sound": "slime"
+  },
+  "billey:blue_velvet_slime_block": {
+    "sound": "slime"
+  },
+   "billey:zambie" : {
+      "sound" : "grass"
+   },
+  "billey:mixed_velvet_slime_block": {
+    "sound": "slime"
+  }
+}

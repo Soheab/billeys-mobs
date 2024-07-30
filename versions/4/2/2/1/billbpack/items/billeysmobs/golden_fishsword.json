@@ -1,0 +1,42 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "billey:golden_swordfish",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.sword"
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:durability": {
+                "max_durability": 1200
+            },
+            "tag:minecraft:is_sword": {},
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:icon": {
+                "texture": "goldswordfish"
+            },
+            "minecraft:damage": 7,
+            "minecraft:mining_speed": 1.5,
+            "minecraft:weapon": {
+                "on_hurt_entity": {
+                    "event": "xd"
+                },
+                "on_not_hurt_entity": {
+                    "event": "xd"
+                }
+            }
+        },
+        "events": {
+            "xd": {
+                "damage": {
+                    "type": "durability",
+                    "amount": 10
+                }
+            }
+        }
+    }
+}

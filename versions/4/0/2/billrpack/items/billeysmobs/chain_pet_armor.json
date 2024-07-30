@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:chain_pet_armor",
+      "category": "Equipment"
+    },
+
+    "components": {
+      "minecraft:icon": "billduckchain",
+      "minecraft:use_animation": "eat",
+      "minecraft:render_offsets": "flesh"
+    }
+  }
+}

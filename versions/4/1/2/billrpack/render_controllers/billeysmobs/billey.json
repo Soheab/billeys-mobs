@@ -1,0 +1,332 @@
+{
+  "format_version": "1.16.0",
+  "render_controllers": {
+    "controller.render.billocator": {
+      //i dont know if this is used
+      "geometry": "Geometry.locator",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "is_hurt_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 1200)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 1200 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 1200 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billduckendrod": {
+      "geometry": "Geometry.endrod",
+      "materials": [
+        {
+          "*": "Material.dyeable"
+        }
+      ],
+      "textures": [
+        "Texture.endrodpetarmor"
+      ],
+      "is_hurt_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 1200)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 1200 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 1200 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "overlay_color": {
+        "r": "math.sin(-query.life_time * 175 + query.variant * 1200)",
+        "g": "math.sin(-query.life_time * 175 + query.variant * 1200 + 120)",
+        "b": "math.sin(-query.life_time * 175 + query.variant * 1200 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billpigeonhat": {
+      "geometry": "Geometry.hat",
+      "materials": [
+        {
+          "*": "Material.cat"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 300 + query.variant * 600 + 100)",
+        "g": "math.sin(query.life_time * 300 + query.variant * 600 + 220)",
+        "b": "math.sin(query.life_time * 300 + query.variant * 600 + 340)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 1200)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 1200 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 1200 + 240)",
+        "a": "0"
+      }
+    },
+    "controller.render.billcentipedehat": {
+      "geometry": "Geometry.hatcenti",
+      "materials": [
+        {
+          "*": "Material.cat"
+        }
+      ],
+      "textures": [
+        "Texture.centipedehat"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 300 + query.variant * 600 + 100)",
+        "g": "math.sin(query.life_time * 300 + query.variant * 600 + 220)",
+        "b": "math.sin(query.life_time * 300 + query.variant * 600 + 340)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(query.life_time * 1200 + query.variant * 1200)",
+        "g": "math.sin(query.life_time * 1200 + query.variant * 1200 + 120)",
+        "b": "math.sin(query.life_time * 1200 + query.variant * 1200 + 240)",
+        "a": "query.is_illager_captain ? 0.5 : 0.0"
+      }
+    },
+    "controller.render.billduckchest": {
+      "geometry": "Geometry.chest",
+      "materials": [
+        {
+          "*": "Material.skeleton"
+        }
+      ],
+      "textures": [
+        "Texture.chest"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 250 - query.variant * 600 + 100)",
+        "g": "math.sin(query.life_time * 250 - query.variant * 600 + 220)",
+        "b": "math.sin(query.life_time * 250 - query.variant * 600 + 340)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 1200)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 1200 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 1200 + 240)",
+        "a": "0"
+      }
+    },
+    "controller.render.billbduckhat": {
+      "geometry": "Geometry.hat",
+      "materials": [
+        {
+          "*": "Material.cat"
+        }
+      ],
+      "textures": [
+        "Texture.hat"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 300 + query.variant * 600 + 100)",
+        "g": "math.sin(query.life_time * 300 + query.variant * 600 + 220)",
+        "b": "math.sin(query.life_time * 300 + query.variant * 600 + 340)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 1200)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 1200 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 1200 + 240)",
+        "a": "0"
+      }
+    },
+    "controller.render.cucumbeel": {
+      "geometry": "Geometry.glowing",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "part_visibility": [
+        {
+          "pickle6": "query.is_alive"
+        },
+        {
+          "pickle4": "!query.is_alive"
+        }
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 170 + query.variant * 600)",
+        "g": "math.sin(query.life_time * 170 + query.variant * 600 + 120)",
+        "b": "math.sin(query.life_time * 170 + query.variant * 600 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "ignore_lighting": true
+    },
+    "controller.render.birdpoopxd": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 600 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "1",
+        "g": "1",
+        "b": "1",
+        "a": "0.5"
+      }
+    },
+    "controller.render.velvetwormbill": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.normal",
+            "Texture.blue"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.variant]"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 590 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billhmrshark": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.normal",
+            "Texture.gay",
+            "Texture.desat"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "saddle*": "query.model_scale >= 0.06"
+        },
+        {
+          "topfin": "query.model_scale < 0.06"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.variant]"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 590 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billcatfish": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.zero",
+            "Texture.one",
+            "Texture.two",
+            "Texture.three",
+            "Texture.four",
+            "Texture.five",
+            "Texture.six",
+            "Texture.seven",
+            "Texture.eight"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "query.get_name == 'Pizza' ? Texture.pizza : (query.get_name == 'Πίτσα' ? Texture.pizza : Array.skins[query.variant])"
+      ], //my cat named pizza sat on my hand and pressed something in paint.net that made the texture look like that
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 590 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeyzambie.kiwi.class": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.zero",
+            "Texture.one",
+            "Texture.two",
+            "Texture.three",
+            "Texture.four",
+            "Texture.five",
+            "Texture.six",
+            "Texture.eight"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "(query.get_name == 'Perry' || query.get_name == 'Peri' || query.get_name == 'Πέρι') ? Array.skins[query.variant+query.life_time*1.5] : Array.skins[query.variant]"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 200 + query.variant * 590)",
+        "g": "math.sin(query.life_time * 200 + query.variant * 600 + 120)",
+        "b": "math.sin(query.life_time * 200 + query.variant * 590 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeyzambie.kiwi.shear": {
+      "geometry": "Geometry.sheared",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "query.is_sheared ? Texture.sheared : (query.is_saddled ? Texture.sheared2 : Texture.nothing)"
+      ],
+      "overlay_color": {
+        "r": "math.sin(query.life_time * 175 + query.variant * 590)",
+        "g": "math.sin(query.life_time * 175 + query.variant * 600 + 120)",
+        "b": "math.sin(query.life_time * 175 + query.variant * 590 + 240)",
+        "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "0",
+        "g": "1",
+        "b": "0",
+        "a": "0.125"
+      }
+    }
+  }
+}

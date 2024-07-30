@@ -1,0 +1,39 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "billey:zambie"
+		},
+		"components": {
+			"minecraft:on_step_on": {
+				"condition": "query.has_any_family('player') || query.is_tamed",
+				"event": "effect"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "billeyzambie",
+					"render_method": "opaque",
+					"ambient_occlusion": true
+				}
+			},
+			"minecraft:destroy_time": 0,
+			"minecraft:explosion_resistance": 0,
+			"minecraft:map_color": "#ffffff",
+			"minecraft:unwalkable": true,
+			"minecraft:block_light_absorption": 0,
+            "minecraft:geometry": "geometry.billeyzambie",
+			"tag:fun": {}
+		},
+		"events": {
+			"effect": {
+				"condition": "query.has_any_family('player') || query.is_tamed",
+				"add_mob_effect": {
+					"effect": "speed",
+					"target": "self",
+					"amplifier": 3,
+					"duration": 1
+				}
+			}
+		}
+	}
+}

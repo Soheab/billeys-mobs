@@ -1,0 +1,69 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:duck_zombie",
+            "is_summonable": true,
+            "is_spawnable": true,
+            "animations": {
+                "check_beta_apis": "animation.billey.check_beta_apis",
+                "lol": "animation.billeysmobs.duckzombie"
+            },
+            "scripts": {
+                "animate": [ "check_beta_apis",
+                    "lol"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:scale": {
+                "value": 0
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            }
+        },
+        "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawned"
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "despawned": {
+                "minecraft:instant_despawn": {}
+            }
+        }
+    }
+}
