@@ -2,6 +2,7 @@ from collections import defaultdict
 import os
 import pathlib
 import sys
+import time
 from typing import final
 
 
@@ -56,11 +57,11 @@ def get_latest_version() -> str | None:
     
     return latest_version.rstrip(".") or None
 
-def update_latest_dir(parsed_version: str, latest_version: str) -> None:
+def update_latest_dir(parsed_version: str, latest_version: str) -> bool:
     # check if the parsed version is greater than the latest version
     if parsed_version < latest_version:
         print(f"Version {parsed_version} is less than the latest version {latest_version}")
-        return
+        return False
 
     latest_version_dir = versions_dir / os.sep.join(latest_version.split("."))
     import shutil
@@ -69,12 +70,11 @@ def update_latest_dir(parsed_version: str, latest_version: str) -> None:
     if latest_version_dir:
         shutil.copytree(latest_version_dir, latest_dir)
 
+    print(f"Updated latest version to {parsed_version}")
+    return True
 
-def handle_addon_file(addon_file: pathlib.Path) -> str:
-    version = get_version_from_file(addon_file)
-    if not version:
-        return ""
 
+def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str]:
     versions = version.split(".")
 
     dirs_to_create = []
@@ -90,12 +90,11 @@ def handle_addon_file(addon_file: pathlib.Path) -> str:
 
         dirs_to_create.append(version_dir)
 
-
     if all(dir_to_create.exists() for dir_to_create in dirs_to_create):
         version = ".".join(versions)
         # delete it
         addon_file.unlink()
-        return ""
+        return False, f"Version {version} already exists"
 
     for dir_to_create in dirs_to_create:
         if not dir_to_create.exists():
@@ -115,9 +114,7 @@ def handle_addon_file(addon_file: pathlib.Path) -> str:
         zip_ref.extractall(version_dir)
 
     new_file.unlink()
-    # print(f"Deleted {new_file}")
-
-    return ".".join(versions)
+    return True, ".".join(versions)
 
 # echo "Output: $INPUT_STORE"
 # IFS=$' ' read -ra STORE_ARRAY <<< "$INPUT_STORE"
@@ -137,6 +134,7 @@ def handle_addon_file(addon_file: pathlib.Path) -> str:
 # git commit -m "Unpacked latest .mcaddon file"
 # git push
 def create_tag(version: str) -> None:
+    time.sleep(1)
     if not version:
         print("No version provided")
         return
@@ -151,7 +149,8 @@ def create_tag(version: str) -> None:
     os.system(" && ".join(commands))
     print(f"Tag created for: v{version}")
 
-def push_and_create_tag(version: str) -> None:
+def commit_and_push(version: str) -> None:
+    time.sleep(1)
     # fmt: off
     commands = [
         'git config --local user.email "action@github.com"',
@@ -163,10 +162,22 @@ def push_and_create_tag(version: str) -> None:
 
     # run all commandds on the ubuntu machine at once
     os.system(" && ".join(commands))
-    print(f"Pushed version {version}")
+    print(f"Committed and pushed changes for version {version}")
     # fmt: on
 
-    create_tag(version)
+def commit_changes_to_latest_dir(version: str) -> None:
+    time.sleep(1)
+    commands = [
+        'git config --local user.email "action@github.com"',
+        'git config --local user.name "GitHub Action"',
+        "git add -A",
+        f'git commit -m "Updated latest dirs to version {version}"',
+        "git push",
+    ]
+
+    os.system(" && ".join(commands))
+    print(f"Committed and pushed changes for latest version {version}")
+
 
 if __name__ == "__main__":
     ensure_necessary_files_exist()
@@ -176,12 +187,36 @@ if __name__ == "__main__":
         print("No .mcaddon files found in the main directory")
         sys.exit(1)
 
+    to_handle: list[tuple[pathlib.Path, str]] = []
     for addon_file in addon_files:
-        version = handle_addon_file(addon_file)
+        version = get_version_from_file(addon_file)
         if version:
-            print(f"Unpacked version {version}")
-            latest_version = get_latest_version()
-            if latest_version:
-                update_latest_dir(version, latest_version)
+            print(f"Found version {version}")
+            to_handle.append((addon_file, version))
 
-            push_and_create_tag(version)
+    for addon_file, version in to_handle:
+        if not version:
+            print(f"Could not find version for {addon_file}")
+            continue
+
+        print(f"Handling {addon_file}")
+        success, version_or_reason = handle_addon_file(addon_file, version)
+        if not success:
+            print(version_or_reason)
+            continue
+
+        if not version_or_reason:
+            print("No valid version returned from handle_addon_file for {version}")
+            continue
+
+        version = version_or_reason
+        commit_and_push(version)
+        create_tag(version)
+
+        latest_version = get_latest_version()
+        if not latest_version:
+            print("Could not get the latest version to update the latest directory")
+        else:
+            updated = update_latest_dir(version, latest_version)
+            if updated:
+                commit_changes_to_latest_dir(version)
