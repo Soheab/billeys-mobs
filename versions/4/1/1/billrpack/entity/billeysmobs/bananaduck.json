@@ -1,0 +1,127 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:banana_duck",
+      "materials": {
+        "default": "cat",
+        "dyeable": "cat",
+        "cat": "cat"
+      },
+      "textures": {
+        "default": "textures/entity/bill/duck5",
+        "endrodpetarmor": "textures/entity/bill/endrodarmor",
+        "hat": "textures/entity/bill/duckhat",
+        "second": "textures/entity/bill/duck6",
+        "golden": "textures/entity/bill/duck9",
+        "green": "textures/entity/bill/duck8",
+        "purple": "textures/entity/bill/duck7",
+        "white": "textures/entity/bill/duck10",
+        "inverted": "textures/entity/bill/duck11",
+        "leather": "textures/entity/bill/duckbleather",
+        "gold": "textures/entity/bill/duckbgold",
+        "chain": "textures/entity/bill/duckbchain",
+        "iron": "textures/entity/bill/duckbiron",
+        "diamond": "textures/entity/bill/duckbdiamond",
+        "netherite": "textures/entity/bill/duckbnetherite"
+      },
+      "geometry": {
+        "default": "geometry.billbananaduck",
+        "hat": "geometry.billbananaduckhat",
+        "armor": "geometry.billbananaduckarmor",
+        "endrod": "geometry.billbananaduckendrod"
+      },
+      "particle_effects": {
+        "zeelol": "billey:zeeduck",
+        "banana": "billey:eatbanana"
+      },
+      "animations": {
+        "hurt": "animation.billduck.hurt",
+        "move": "animation.billbananaduck.walk",
+        "sit": "animation.billbananaduck.sit",
+        "look_at_target": "animation.billduck.look_at_target",
+        "look_at_target_baby": "animation.common.look_at_target",
+        "baby_transform": "animation.billduck.ling",
+        "fall": "animation.billbananaduck.flappy",
+        "sheared": "animation.billduck.quack",
+        "shearedbaby": "animation.billduck.quackbaby",
+        "saddled": "animation.billduck.flap",
+        "eat": "animation.billduck.eat",
+        "angry": "animation.billduck.angry2",
+        "sleep": "animation.billbananaduck.sleep",
+        "gothurt": "animation.billduck.gothurt",
+        "hitcont": "controller.animation.billey.hitanim",
+        "controller.sit": "controller.animation.billey.sit",
+        "controller.ground": "controller.animation.billey.ground",
+        "controller.sheared": "controller.animation.billey.sheared",
+        "controller.shearedbaby": "controller.animation.billey.shearedbaby",
+        "controller.eat": "controller.animation.billey.eat",
+        "controller.saddled": "controller.animation.billey.saddled",
+        "controller.sleep": "controller.animation.billey.sleep",
+        "angrycon": "controller.animation.billey.buckangry"
+      },
+      "sound_effects": {
+        "quack": "billey.duck.saybanana",
+        "quackbaby": "billey.duck.saybaby",
+        "burp": "random.burp"
+      },
+      "scripts": {
+        "animate": [
+          { "hitcont": "!query.is_sheared"},
+          { "lovecont": "!query.is_sheared"},
+          "controller.ground",
+          {
+            "controller.sleep": "!query.is_sleeping"
+          },
+          {
+            "hurt": "(query.health < query.max_health) && query.is_alive"
+          },
+          "angrycon",
+          {
+            "controller.saddled": "!query.is_sitting && variable.state != 4 && !query.is_sleeping"
+          },
+          {
+            "controller.sit": "!query.has_rider"
+          },
+          {
+            "controller.sheared": "!query.is_baby && variable.state != 4 && !query.is_sleeping && query.health >= query.max_health"
+          },
+          {
+            "controller.shearedbaby": "query.is_baby && variable.state != 4 && !query.is_sleeping && query.health >= query.max_health"
+          },
+          {
+            "controller.eat": "!query.is_sheared"
+          },
+          {
+            "look_at_target": "!query.is_baby"
+          },
+          {
+            "look_at_target_baby": "query.is_baby"
+          },
+          {
+            "move": "(query.has_rider || !query.is_sitting) ? query.modified_move_speed * 2"
+          },
+          {
+            "baby_transform": "query.is_baby"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.bananaduck",
+        {
+          "controller.render.billduckarmor": "query.mark_variant > 0 && query.mark_variant != 7"
+        },
+        {
+          "controller.render.billduckendrod": "query.mark_variant == 7"
+        },
+        {
+          "controller.render.billbduckhat": "query.is_powered"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#F5DB18",
+        "overlay_color": "#FAEAD2"
+      }
+    }
+  }
+}

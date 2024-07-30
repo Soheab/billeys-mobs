@@ -1,0 +1,27 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:amogus",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/entity/billamogus"
+			},
+			"geometry": {
+				"default": "geometry.billamogus"
+			},
+			"animations": {
+				"xd": "animation.billamogus.new4",
+				"lol": "animation.billamogus.new"
+			},
+			"scripts": {
+				"animate": [
+                    { "lol": "!query.is_sitting" }, {"xd": "!query.is_sitting"}
+				]
+			},
+			"render_controllers": ["controller.render.salmon"]
+		}
+	}
+}

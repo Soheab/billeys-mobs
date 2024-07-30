@@ -1,0 +1,40 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:pickle_cat",
+      "materials": { "default": "cat" },
+      "textures": {
+        "default": "textures/entity/cat/pickle"
+      },
+      "geometry": {
+        "default": "geometry.picklecat",
+        "glowing": "geometry.picklecatglow"
+      },
+      "animations": {
+        "sneak": "animation.cat.sneak",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "sit": "animation.cat.sitpickle",
+        "stand": "controller.animation.bcat.move",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down",
+        "fix": "animation.bcat.fix",
+        "eat": "animation.cat.tailsnek",
+        "beg": "animation.cat.beg"
+      },
+      "animation_controllers": [
+        { "look_at_target": "controller.animation.bcat.look_at_target" },
+        { "sitcont": "controller.animation.billey.sitforpcat" },
+        { "baby": "controller.animation.cat.baby" },
+        { "eatcont": "controller.animation.billey.eat"},
+        { "raising": "controller.animation.billey.eatnoblend"}
+      ],
+      "render_controllers": [ "controller.render.salmon", "controller.render.cucumbeel" ],
+      "spawn_egg": {
+        "texture": "egg_cat_pickle"
+      }
+    }
+  }
+}

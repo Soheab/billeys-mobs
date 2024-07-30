@@ -1,0 +1,160 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "billey:birdpoop",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {},
+    "components": { "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [ "poop" ]
+      },
+      "minecraft:breathable": {
+        "totalSupply": 0, 
+        "suffocateTime": 0
+      },
+        "minecraft:collision_box": {
+            "width": 0.08,
+           "height": 0.1
+        },
+      "minecraft:hurt_when_wet": {
+        "value": true
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:health": {
+        "value": 0,
+        "max": 0
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:scale": {
+        "value": 0.1
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0,
+        "on_leash": {
+          "event": "minecraft:on_leash",
+          "target": "self"
+        },
+        "on_unleash": {
+          "event": "minecraft:on_unleash",
+          "target": "self"
+        }
+      },
+      "minecraft:balloonable": {
+        "mass": 0.01
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {
+        
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:behavior.panic": {
+        "priority": 1,
+        "speed_multiplier": 1.5
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.0,
+        "items": [
+          "wheat_seeds",
+          "beetroot_seeds",
+          "melon_seeds",
+          "pumpkin_seeds"
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 6.0,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+	  "minecraft:physics": {
+      }
+    },
+
+    "events": {
+      "from_egg": {
+        "add": { "component_groups": [ "minecraft:chicken_baby" ] }
+      },
+      
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 95,
+            "remove": {
+            },
+            "add": {
+              "component_groups": [
+                "poop"
+              ]
+            }
+          }
+        ]
+      },
+
+      "minecraft:entity_born": {
+        "remove": {
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:chicken_baby"
+          ]
+        } 
+      },
+
+      "melt": {
+        "remove": {
+          "component_groups": [
+            "poop"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "melted"
+          ]
+        }
+      },
+
+      "minecraft:on_leash": {
+        "add": {
+          "component_groups": [
+            "minecraft:chicken_leashed"
+          ]
+        }
+      },
+      "minecraft:on_unleash": {
+        "remove": {
+          "component_groups": [
+            "minecraft:chicken_leashed"
+          ]
+        }
+      }
+    }
+  }
+}

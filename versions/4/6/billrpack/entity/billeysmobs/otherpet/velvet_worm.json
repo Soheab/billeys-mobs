@@ -1,0 +1,84 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:velvet_worm",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"normal": "textures/entity/bill/velvet_worm",
+				"blue": "textures/entity/bill/velvet_worm1",
+				"red": "textures/entity/bill/velvet_worm2",
+				"orange": "textures/entity/bill/velvet_worm3"
+			},
+			"geometry": {
+				"default": "geometry.billvelvet_worm"
+			},
+			"animations": {
+				"new": "animation.billduckproj.body",
+				"sheared": "animation.billvelvet_worm.antennas",
+				"walk": "animation.billvelvet_worm.walk",
+				"turn": "animation.billvelvet_worm.turn",
+				"sit": "animation.billvelvet_worm.sit",
+				"controller.sheared": "controller.animation.billey.shearedd",
+				"controller.climb": "controller.animation.billey.climbb",
+				"controller.attack": "controller.animation.billey.velvet_attack",
+				"melt": "controller.animation.billey.sit",
+				"climb": "animation.billvelvet_worm.climb",
+				"c.fall": "controller.animation.billey.ground",
+				"fall": "animation.billvelvet_worm.fall",
+				"angry": "animation.billvelvet_worm.angry",
+				"hurt": "animation.billvelvet_worm.hurt",
+				"death2": "animation.billkiwi.cancelvanilladeath",
+				"death": "animation.billvelvet_worm.death",
+				"attacking": "animation.billvelvet_worm.attacking",
+				"attacked": "animation.billvelvet_worm.attacked"
+			},
+			"particle_effects": {
+				"zeelol": "billey:zee"
+			},
+			"scripts": {
+				"initialize": [
+					"v.time_to_transition = 0;"
+				],
+				"animate": [
+					"new",
+					"controller.attack",
+					{
+						"death2": "!q.is_alive"
+					},
+					{
+						"death": "!q.is_alive"
+					},
+					"controller.sheared",
+					{
+						"controller.climb": "!q.is_in_water"
+					},
+					{
+						"c.fall": "!q.is_in_water && q.is_alive"
+					},
+					{
+						"turn": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && q.is_alive"
+					},
+					{
+						"hurt": "q.max_health > q.health"
+					},
+					{
+						"angry": "q.has_target"
+					},
+					{
+						"walk": "(q.has_rider || !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))) ? q.modified_move_speed * 4"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.velvetwormbill"
+			],
+			"spawn_egg": {
+				"base_color": "#a44a34",
+				"overlay_color": "#c87d52"
+			}
+		}
+	}
+}

@@ -1,0 +1,62 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.picklepet": {
+      "arrays": {
+        "textures": {
+          "Array.variants": [
+            "Texture.s1"
+          ]
+        }
+      },
+      "geometry": "Geometry.s1",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.variants[query.is_sheared]" ],
+      "overlay_color": {
+          "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+          "g": "math.sin(query.life_time * 200 + query.variant * 600 + 120)",
+          "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },   
+    "controller.render.picklepetglow": {
+      "arrays": {
+        "textures": {
+          "Array.variants": [
+            "Texture.s1"
+          ]
+        }
+      },
+      "geometry": "Geometry.s1glow",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.variants[query.is_sheared]" ],
+      "ignore_lighting": true,
+      "part_visibility": [ { "*": "query.variant > 1 ? query.is_alive : query.is_in_water" } ],
+      "overlay_color": {
+          "r": "-math.sin(query.life_time * 300)",
+          "g": "-math.sin(query.life_time * 300 + 120)",
+          "b": "-math.sin(query.life_time * 300 + 240)",
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    },   
+    "controller.render.picklepetwater": {
+      "arrays": {
+        "textures": {
+          "Array.variants": [
+            "Texture.s1"
+          ]
+        }
+      },
+      "geometry": "Geometry.s1glow",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.variants[query.is_sheared]" ],
+      "part_visibility": [ { "*": "query.is_in_water ? 0 : query.variant == 1" } ],
+      "overlay_color": {
+          "r": "math.sin(query.life_time * 200 + query.variant * 600)",
+          "g": "math.sin(query.life_time * 200 + query.variant * 600 + 120)",
+          "b": "math.sin(query.life_time * 200 + query.variant * 600 + 240)",
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

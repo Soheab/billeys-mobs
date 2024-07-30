@@ -1,0 +1,41 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "billey:poultry_orange",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.miscFood"
+            },
+            "minecraft:max_stack_size": 64,
+            "minecraft:use_duration": 1.0,
+            "minecraft:use_animation": "eat",
+            "minecraft:icon": {
+                "texture": "billeyorange"
+            },
+            "minecraft:food": {
+                "nutrition": 5,
+                "saturation_modifier": "normal",
+                "can_always_eat": false,
+                "using_converts_to": "billey:orange_peel",
+                "on_consume": {
+                    "event": "on_consume"
+                }
+            }
+        },
+        "events": {
+            "on_consume": {
+                "run_command": {
+                    "command": [
+                        "effect @s poison 0 255 true",
+                        "effect @s fatal_poison 0 255 true",
+                        "effect @s wither 0 255 true"
+                    ],
+                    "target": "holder"
+                }
+            }
+        }
+    }
+}

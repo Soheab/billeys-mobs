@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:amogus",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/entity/billamogus"
+			},
+			"geometry": {
+				"default": "geometry.billamogus"
+			},
+			"animations": {
+        "new": "animation.billduckproj.body",
+				"xd": "animation.billamogus.new4",
+				"lol": "animation.billamogus.new"
+			},
+			"scripts": {
+				"animate": [ "new",
+                    { "lol": "!(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))" }, {"xd": "!(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))"}
+				]
+			},
+			"render_controllers": ["controller.render.salmon"]
+		}
+	}
+}

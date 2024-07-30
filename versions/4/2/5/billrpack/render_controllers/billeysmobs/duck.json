@@ -1,0 +1,115 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billduck": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.golden",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole"
+          ],
+          "Array.changer": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.golden",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole",
+            "Texture.whiteling",
+            "Texture.brownling"
+          ],
+          "Array.skinscolor": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.white",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole"
+          ],
+          "Array.baby": [
+            "Texture.whiteling",
+            "Texture.brownling",
+            "Texture.golden",
+            "Texture.brownling",
+            "Texture.brownling",
+            "Texture.whiteling",
+            "Texture.whiteling",
+            "Texture.whole"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [ { "bone9": "variable.state == 4 || query.is_sleeping" },
+        { "bone8": "!query.is_baby && query.mark_variant == 0" },
+        { "dontshowonbaby": "!query.is_baby" }],
+      "textures": [ "((!query.is_sleeping && !query.is_sheared && !query.is_saddled) || query.is_baby) ? ((query.get_name == 'Pizza' || query.get_name == 'Πίτσα') ? (Array.changer[query.life_time * 1.5 + query.variant + query.is_baby * 8]) : (query.is_baby ? Array.baby[query.variant] : (query.is_illager_captain ? Array.skinscolor[query.variant] : Array.skins[query.variant]))) : (query.is_illager_captain ? Array.skinscolor[query.variant] : Array.skins[query.variant])" ],
+      "overlay_color": {
+          "r": "query.variant == 2 ? math.sin(query.life_time * 500 + query.variant * 234) : math.sin(query.life_time * 200 + query.variant * 234)",
+          "g": "query.variant == 2 ? math.sin(query.life_time * 400 + query.variant * 234 + 120) : math.sin(query.life_time * 200 + query.variant * 234 + 120)",
+          "b": "query.variant == 2 ? math.sin(query.life_time * 300 + query.variant * 234 + 240) : math.sin(query.life_time * 200 + query.variant * 234 + 240)",
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+          "r": "!query.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + query.is_illager_captain / 3"
+      }
+    },
+    "controller.render.billduckcentipede": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.golden",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole"
+          ],
+          "Array.baby": [
+            "Texture.whiteling",
+            "Texture.brownling",
+            "Texture.golden",
+            "Texture.brownling",
+            "Texture.brownling",
+            "Texture.whiteling",
+            "Texture.whiteling",
+            "Texture.whole"
+          ]
+        }
+      },
+      "is_hurt_color": {
+          "r": "!query.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + query.is_illager_captain / 3"
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [ { "bone9": "variable.state == 4 || query.is_sleeping" },
+        { "bone8": "!query.is_baby && query.mark_variant == 0" },
+        { "dontshowonbaby": "!query.is_baby" }],
+      "textures": [ "query.is_baby ? Array.baby[query.variant] : Array.skins[query.variant]" ],
+      "overlay_color": {
+          "r": "query.variant == 2 ? math.sin(query.life_time * 500 + query.variant * 234) : math.sin(query.life_time * 200 + query.variant * 234)",
+          "g": "query.variant == 2 ? math.sin(query.life_time * 400 + query.variant * 234 + 120) : math.sin(query.life_time * 200 + query.variant * 234 + 120)",
+          "b": "query.variant == 2 ? math.sin(query.life_time * 300 + query.variant * 234 + 240) : math.sin(query.life_time * 200 + query.variant * 234 + 240)",
+          "a": "query.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:duck_zombie",
+            "is_experimental": false,
+            "is_summonable": true,
+            "is_spawnable": false,
+            "animations": {
+                "lol": "animation.billeysmobs.duckzombie"
+            },
+            "scripts": {
+                "animate": [
+                    "lol"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:scale": {
+                "value": 0
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            }
+        },
+        "events": {
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawned"
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "despawned": {
+                "minecraft:instant_despawn": {}
+            }
+        }
+    }
+}
