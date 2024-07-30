@@ -1,9 +1,0 @@
-{
-    "values": [
-        "billeyduckhateffect",
-        "billeysharkarmoreffects", //also the penguin boot effects
-        "billeyiteminfo"
-    ]
-}
-//do not delete this file, it only runs 3 functions
-//and thus has a negligible impact on the performance
