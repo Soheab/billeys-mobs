@@ -1,0 +1,46 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:electric_eel",
+        "materials": { "default": "cat" },
+        "textures": {
+          "zero": "textures/entity/bill/electriceel",
+          "one": "textures/entity/bill/electriceel1",
+          "two": "textures/entity/bill/electriceel2",
+          "three": "textures/entity/bill/electriceel3",
+          "four": "textures/entity/bill/electriceel4"
+        },
+        "geometry": {
+          "default": "geometry.billelectriceel"
+        },
+        "animations": {
+          "new": "animation.billduckproj.body",
+          "swim": "animation.billelectriceel.swim",
+          "sleep": "animation.billelectriceel.sleep",
+          "turn": "animation.billelectriceel.turn",
+          "death1": "animation.billbettafish.cancelvanilladeathanim",
+          "death": "animation.billelectriceel.die",
+          "flop": "animation.billelectriceel.flop"
+        },
+        "particle_effects": {
+          "zee": "billey:zeeduck"
+        },
+        "scripts": {
+          "animate": [ "new",
+            { "sleep": "query.is_sheared" },
+            { "death1": "!query.is_alive" },
+            { "death": "!query.is_alive" },
+            { "swim": "query.is_in_water * math.max(0.3,query.modified_move_speed / 0.2)" },
+            { "turn": "!query.is_sheared * query.target_y_rotation / 60" },
+            { "flop": "!query.is_in_water" }
+          ]
+        },
+        "render_controllers": [ "controller.render.billelectriceel" ],
+        "spawn_egg": {
+          "base_color": "#2b2e37",
+          "overlay_color": "#aea478"
+        }
+      }
+    }
+  }

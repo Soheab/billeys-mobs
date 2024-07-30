@@ -1,0 +1,226 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billbettafish": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four",
+                        "Texture.five",
+                        "Texture.six",
+                        "Texture.seven",
+                        "Texture.eight",
+                        "Texture.nine",
+                        "Texture.ten",
+                        "Texture.eleven",
+                        "Texture.twelve",
+                        "Texture.thirteen",
+                        "Texture.fourteen",
+                        "Texture.fifteen",
+                        "Texture.sixteen",
+                        "Texture.seventeen",
+                        "Texture.eighteen",
+                        "Texture.nineteen",
+                        "Texture.twenty",
+                        "Texture.twentyone"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                },
+                {
+                    "opaque*": "Material.opaque"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[query.variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(variable.colordelay+query.life_time * 200)",
+                "g": "math.sin(variable.colordelay+query.life_time * 200 + 120)",
+                "b": "math.sin(variable.colordelay+query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            }
+        },
+        "controller.render.billbettaglowbody": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four",
+                        "Texture.five",
+                        "Texture.six",
+                        "Texture.seven",
+                        "Texture.eight",
+                        "Texture.nine",
+                        "Texture.ten",
+                        "Texture.eleven",
+                        "Texture.twelve",
+                        "Texture.thirteen",
+                        "Texture.fourteen",
+                        "Texture.fifteen",
+                        "Texture.sixteen",
+                        "Texture.seventeen",
+                        "Texture.eighteen",
+                        "Texture.nineteen",
+                        "Texture.twenty",
+                        "Texture.twentyone"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.opaque"
+                },
+                {
+                    "opaque*": "Material.glow"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[query.variant]"
+            ],
+            "part_visibility": [
+                {
+                    "*": false
+                },
+                {
+                    "opaque*": true
+                }
+            ],
+            "overlay_color": {
+                "r": "math.sin(variable.colordelay+query.life_time * 200)",
+                "g": "math.sin(variable.colordelay+query.life_time * 200 + 120)",
+                "b": "math.sin(variable.colordelay+query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            }
+        },
+        "controller.render.billbettaglowfins": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four",
+                        "Texture.five",
+                        "Texture.six",
+                        "Texture.seven",
+                        "Texture.eight",
+                        "Texture.nine",
+                        "Texture.ten",
+                        "Texture.eleven",
+                        "Texture.twelve",
+                        "Texture.thirteen",
+                        "Texture.fourteen",
+                        "Texture.fifteen",
+                        "Texture.sixteen",
+                        "Texture.seventeen",
+                        "Texture.eighteen",
+                        "Texture.nineteen",
+                        "Texture.twenty",
+                        "Texture.twentyone"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                },
+                {
+                    "opaque*": "Material.opaque"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[query.variant]"
+            ],
+            "part_visibility": [
+                {
+                    "opaque*": false
+                }
+            ],
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            },
+            "ignore_lighting": true,
+            "overlay_color": {
+                "r": "math.sin(variable.colordelay+query.life_time * 200)",
+                "g": "math.sin(variable.colordelay+query.life_time * 200 + 120)",
+                "b": "math.sin(variable.colordelay+query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            }
+        },
+        "controller.render.billbettafishlocators": {
+            "geometry": "Geometry.locators",
+            "materials": [
+                {
+                    "*": "Material.opaque"
+                }
+            ],
+            "textures": [
+                "Texture.one"
+            ]
+        },/////////////////
+        "controller.render.billelectriceel": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "Array.poohole": [
+                        "Texture.zero",
+                        "Texture.one",
+                        "Texture.two",
+                        "Texture.three",
+                        "Texture.four"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "query.get_name == 'George' ? Texture.two : Array.poohole[query.variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(query.life_time * 200)",
+                "g": "math.sin(query.life_time * 200 + 120)",
+                "b": "math.sin(query.life_time * 200 + 240)",
+                "a": "query.is_illager_captain ? 0.4 : 0.0"
+            },
+            "is_hurt_color": {
+                "r": "!query.is_illager_captain",
+                "g": "0",
+                "b": "0",
+                "a": "0.5 + query.is_illager_captain / 3"
+            }
+        }
+    }
+}

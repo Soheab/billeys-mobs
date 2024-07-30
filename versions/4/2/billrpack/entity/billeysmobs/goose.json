@@ -1,0 +1,83 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:goose",
+      "materials": { "default": "skeleton" },
+      "textures": {
+        "white": "textures/entity/bill/goose",
+        "brown": "textures/entity/bill/goose",
+        "golden": "textures/entity/bill/goose",
+        "whiteling": "textures/entity/bill/gooseling",
+        "brownling": "textures/entity/bill/gooseling",
+        "mandarin": "textures/entity/bill/goose",
+        "blue": "textures/entity/bill/goose",
+        "black": "textures/entity/bill/gooseling",
+        "head": "textures/entity/bill/goose",
+        "whole": "textures/entity/bill/goose"
+      },
+      "geometry": {
+        "default": "geometry.billgoose"
+      },
+      "particle_effects": {
+        "zeelol": "billey:zeeduck"
+      },
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "hurt": "animation.billduck.hurt",
+        "shrinkitem": "animation.billduck.shrinkitem",
+        "move": "animation.billduck.walk",
+        "sit": "animation.billduck.sit2",
+        "swim": "animation.billduck.swim",
+        "look_at_target": "animation.billduck.look_at_target",
+        "look_at_target_baby": "animation.common.look_at_target",
+        "baby_transform": "animation.billduck.ling2",
+        "flap_wings": "animation.billduck.fall",
+        "sheared": "animation.billduck.quack",
+        "shearedbaby": "animation.billduck.quackbaby",
+        "saddled": "animation.billduck.flap",
+        "eat": "animation.billduck.eat",
+        "angry": "animation.billduck.angry",
+        "sleep": "animation.billduck.sleep2",
+        "mandarin": "animation.billduck.mandarin",
+        "controller.sit": "controller.animation.billey.sit",
+        "controller.sheared": "controller.animation.billey.sheared",
+        "controller.shearedbaby": "controller.animation.billey.shearedbaby",
+        "controller.eat": "controller.animation.billey.eat",
+        "controller.saddled": "controller.animation.billey.saddled",
+        "controller.swim": "controller.animation.billey.swim",
+        "controller.sleep": "controller.animation.billey.sleep"
+      },
+      "sound_effects": {
+          "quack": "billey.goose.say",
+          "quackbaby": "billey.goose.saybaby"
+      },
+      "scripts": {
+        "animate": [ "new",
+          "shrinkitem",
+          { "eat": "query.is_item_equipped && !query.is_interested && !query.is_sheared"},
+          { "controller.sleep": "!query.is_sleeping" },
+          { "controller.saddled": "variable.state != 4 && !query.is_sleeping" },
+          { "hurt": "(query.health < query.max_health) && query.is_alive" },
+          { "angry": "(query.has_target && !query.is_baby && !(query.is_sitting&&query.is_alive&&!query.is_avoiding_mobs&&!(query.has_target&&query.is_moving)) && variable.state != 4 && !query.is_sleeping) ? 1 - variable.attack_time" },
+          { "controller.sit": "!query.has_rider" },
+          { "controller.sheared": "!query.is_baby && variable.state != 4 && !query.is_sleeping && query.health >= query.max_health" },
+          { "controller.shearedbaby": "query.is_baby && variable.state != 4 && !query.is_sleeping && query.health >= query.max_health" },
+          { "controller.eat": "!query.is_sheared"},
+          { "controller.swim": "!query.has_rider" },
+          { "look_at_target": "!query.is_baby" },
+          { "mandarin": "!query.is_baby && query.variant == 3 && !query.has_target" },
+          { "look_at_target_baby": "query.is_baby" },
+          { "flap_wings": "!query.is_in_water && !query.is_saddled && !query.has_rider && !query.is_on_ground" },
+          { "move": "query.modified_move_speed * 1.5" },
+          { "baby_transform": "query.is_baby" }
+        ]
+      },
+      "render_controllers": [ "controller.render.billduck"],
+      "spawn_egg": {
+        "base_color": "#FEFFFF",
+        "overlay_color": "#FF6E04"
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+read behaviorpack/entities/billeysmobs/readme.txt

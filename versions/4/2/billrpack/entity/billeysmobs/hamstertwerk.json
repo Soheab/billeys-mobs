@@ -1,0 +1,59 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:hamster",
+			"materials": {
+        "default": "cat",
+        "slime": "slime_outer"
+			},
+			"textures": {
+        "default": "textures/entity/bill/billhamster6",
+        "ball": "textures/entity/bill/billhamsterball",
+        "ballhurt": "textures/entity/bill/billhamsterballhurt",
+        "ballw": "textures/entity/bill/billhamsterballw",
+        "ballhurtw": "textures/entity/bill/billhamsterballhurtw"
+			},
+			"geometry": {
+				"default": "geometry.billhamster"
+			},
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "sit": "animation.billhamster.sit",
+        "sit2": "animation.billhamster.sit2",
+        "walk": "animation.billhamster.walk",
+        "saddled": "animation.billhamster.shake_ass",
+        "sheared": "animation.billhamster.sniff",
+        "run": "animation.billhamster.run",
+        "moveinball": "animation.billhamster.run_in_ball",
+        "hurt": "animation.billhamster.hurt",
+        "look_at_target": "animation.common.look_at_target",
+        "contsit": "controller.animation.billey.sithamster",
+        "contsheared": "controller.animation.billey.hamstersniff",
+     		"contsad": "controller.animation.billey.saddled",
+        "move": "controller.animation.billey.amogus",
+        "runstatic": "animation.billhamster.run_static",
+        "hamsterpower": "controller.animation.billey.hamsterpower"
+      },
+      "scripts": {
+        "initialize": [
+          "v.shouldtwerk = 1;"
+        ],
+        "animate": [ "new",
+          {"hamsterpower": "query.is_alive"},
+          { "move": "!(query.is_sitting&&query.is_alive&&!query.is_avoiding_mobs&&!(query.has_target&&query.is_moving)) && query.variant == 0"},
+          { "moveinball": "(!(query.is_sitting&&query.is_alive&&!query.is_avoiding_mobs&&!(query.has_target&&query.is_moving)) && (query.variant > 0)) ? q.modified_move_speed : 0"},
+          { "hurt": "(query.max_health - query.health) / 3"},
+          "contsheared",
+          { "contsad": "v.shouldtwerk" },
+          { "look_at_target": "query.is_alive"}
+        ]
+      },
+			"render_controllers": ["controller.render.cod", {"controller.render.billhamsterball": "query.variant > 0"}],
+			"spawn_egg": {
+				"base_color": "#ef9a4d",
+				"overlay_color": "#FFDEDE"
+			}
+		}
+	}
+}
