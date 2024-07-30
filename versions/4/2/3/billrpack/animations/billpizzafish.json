@@ -1,0 +1,41 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.pizzafish.swim": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["math.sin(query.life_time * 352) * 2 + query.target_x_rotation / 2", "math.cos(query.life_time * 345) * 6 + query.target_y_rotation", "math.sin(query.life_time * 360) * 2"],
+					"scale": ["(math.abs(math.cos(query.life_time * 307) * 10) * 0.005) + 1", "(math.abs(math.sin(query.life_time * 322) * 10) * 0.005) + 1", "(math.abs(math.cos(query.life_time * 315) * 10) * 0.015) + 1"]
+				},
+				"body0": {
+					"rotation": [0, "math.sin(query.life_time * 300) * 30", 0]
+				},
+				"tail": {
+					"rotation": [0, "math.cos(query.life_time * 300) * 30", 0]
+				},
+				"body2": {
+					"rotation": [0, "math.sin(query.life_time * 300) * (-30)", 0]
+				}
+			}
+		},
+		"animation.pizzafish.flop": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["math.sin(query.life_time * 528) * 2 + query.target_x_rotation / 2", "math.cos(query.life_time * 517.5) * 6 + query.target_y_rotation + query.life_time * 400", "math.sin(query.life_time * 540) * 2"],
+					"scale": ["(math.abs(math.cos(query.life_time * 453) * 10) * 0.005) + 1", "(math.abs(math.sin(query.life_time * 483) * 10) * 0.005) + 1", "(math.abs(math.cos(query.life_time * 472.5) * 10) * 0.015) + 1"]
+				},
+				"body0": {
+					"rotation": [0, "math.sin(query.life_time * 450) * 30", 0]
+				},
+				"tail": {
+					"rotation": [0, "math.cos(query.life_time * 450) * 30", 0]
+				},
+				"body2": {
+					"rotation": [0, "math.sin(query.life_time * 450) * (-30)", 0]
+				}
+			}
+		}
+	}
+}

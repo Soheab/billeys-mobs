@@ -1,0 +1,917 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.billey.sleeping": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "sleeping": "query.is_sleeping"
+            }
+          ],
+          "on_entry": [
+            "@s do_ambient"
+          ],
+          "on_exit": [
+            "@s dont_ambient"
+          ]
+        },
+        "sleeping": {
+          "transitions": [
+            {
+              "default": "!query.is_sleeping"
+            }
+          ],
+          "on_entry": [
+            "@s dont_ambient"
+          ],
+          "on_exit": [
+            "@s do_ambient"
+          ]
+        }
+      }
+    },
+    "controller.animation.bill.bananafire": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_on_fire || query.has_target || query.is_in_water || query.is_interested"
+            }
+          ],
+          "on_entry": [
+            "@s nofire"
+          ],
+          "on_exit": [
+            "@s givefire"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_on_fire && !query.has_target && !query.is_in_water && !query.is_interested"
+            }
+          ],
+          "on_entry": [
+            "@s givefire"
+          ],
+          "on_exit": [
+            "@s nofire"
+          ]
+        }
+      }
+    },
+    "controller.animation.bill.standhamster": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))"
+            }
+          ],
+          "on_exit": [
+            "@s stop_dust"
+          ]
+        }
+      }
+    },
+    "controller.animation.bill.kiwialb": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "!query.variant && (query.is_avoiding_mobs || (query.health < query.max_health))"
+            }
+            //!query.variant is basically just query.variant == 0
+          ]
+        },
+        "bebe": {
+          "animations": [
+            "kiwipear"
+          ],
+          "transitions": [
+            {
+              "default": "query.is_tamed && query.health >= query.max_health"
+            }
+          ],
+          "on_entry": [
+            "@s addpanic"
+          ],
+          "on_exit": [
+            "@s removepanic"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.hmrbill": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.has_rider"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.has_rider && !query.is_tamed"
+            }
+          ],
+          "on_exit": [
+            "@s lostrider"
+          ]
+        }
+      }
+    },
+    "controller.animation.billduckhat.exdehe": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_riding"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_riding"
+            }
+          ],
+          "on_exit": [
+            "/kill"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.despawn": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_alive"
+            }
+          ],
+          "on_entry": [
+            "/tp 0 0 0"
+          ],
+          "on_exit": [
+            "/tp 0 0 0"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.has_rider && !query.is_tamed"
+            }
+          ],
+          "on_entry": [
+            "/tp 0 0 0"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.mercatbreathing": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "q.is_breathing"
+            }
+          ],
+          "on_entry": [
+            "/tag @s remove is_breathing"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!q.is_breathing"
+            }
+          ],
+          "on_entry": [
+            "/tag @s add is_breathing"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.mercatwater": {
+      "states": {
+          "default": {
+          "transitions": [
+            {
+              "bebe": "!query.is_in_water"
+            }
+          ],
+          "on_entry": [
+            "@s enter_water",
+            "/effect @s water_breathing 1 0 true"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "query.is_in_water"
+            }
+          ],
+          "on_entry": [
+            "@s exit_water"
+          ]
+        }
+      }
+    },
+    "controller.animation.cucumba.vitamin": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.has_rider || !query.is_in_water"
+            }
+          ],
+          "on_exit": [
+            "@s horse"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "query.is_in_water && !query.has_rider"
+            }
+          ],
+          "on_exit": [
+            "@s fish"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeyangel_death": {
+      "states": {
+        "default": {
+          "on_entry": [
+            "/function billeyangel_death"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.pigeon": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_avoiding_mobs && !query.is_tamed"
+            }
+          ],
+          "on_exit": [
+            "@s exdee"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "query.is_on_ground"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.eelflee": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_avoiding_mobs"
+            }
+          ],
+          "on_exit": [
+            "@s electrocute_event"
+          ]
+        },
+        "bebe": {
+          "on_entry": [
+            "v.pigeon_time=q.life_time + Math.Random(1,3);"
+          ],
+          "transitions": [
+            {
+              "default": "v.pigeon_time < q.life_time"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.cucumba.bacteria": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "!query.is_in_water"
+            }
+          ],
+          "on_exit": [
+            "/effect @p water_breathing 5 0 true"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "query.has_rider"
+            }
+          ],
+          "on_exit": [
+            "/effect @p water_breathing 5 0 true"
+          ]
+        }
+      }
+    },
+    "controller.animation.cucumba.veryhighnumba": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "!query.is_in_water"
+            }
+          ],
+          "on_exit": [
+            "@s horse"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "query.is_in_water"
+            }
+          ],
+          "on_exit": [
+            "@s fish"
+          ]
+        }
+      }
+    },
+    "controller.animation.velvet.billeyzambie": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "variable.attack_time"
+            }
+          ],
+          "on_exit": [
+            "/summon billey:slimedrop"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!variable.attack_time"
+            }
+          ],
+          "on_exit": [
+            "/summon billey:slimedrop"
+          ]
+        }
+      }
+    },
+    "controller.animation.picklepet.birth": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_shaking"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_shaking"
+            }
+          ],
+          "on_exit": [
+            "/function picklepetbirth"
+          ]
+        }
+      }
+    },
+    "controller.animation.picklepet.birthair": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_shaking"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_shaking"
+            }
+          ],
+          "on_exit": [
+            "/summon ~~~ billey:birdpoop"
+          ]
+        }
+      }
+    },
+    "controller.animation.billey.sneak": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "v.attack_time"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!v.attack_time"
+            }
+          ],
+          "on_entry": [
+            "/summon ~~~ billey:summon_xp_orb"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.tame": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_tamed"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "hurt": "query.health < query.max_health"
+            }
+          ],
+          "on_entry": [
+            "/execute @s[tag=!tamed] ~~~ tag @p add tamed_parrot",
+            //this makes you get the best friends forever advancment when playing
+            //with the advancement addon
+            "/tag @s add tamed"
+            //read behavior pack/entities/billeysmobs/readme.txt for what the
+            //tamed tag is used for
+          ]
+        },
+        "hurt": {
+          "transitions": [
+            {
+              "bebe": "query.health == query.max_health"
+            }
+          ],
+          "on_exit": [
+            "/particle billey:sprinkles ~ ~.4 ~"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.cocc": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "1"
+            }
+          ]
+        },
+        "bebe": {
+          "on_entry": [
+            "/particle billey:sprinkles ~ ~.5 ~",
+            "/tellraw @a {\"rawtext\":[{\"translate\":\"rawtext.billeyhonk\"},{\"translate\":\"rawtext.billeyhonk2\"},{\"text\":\"\\n\\n\\n\\n\\n§ehttps://mcpedl.com/billeys-mobs-addon§r is where you should have gotten this addon from, if you got it from anywhere else then the website you got it from steals add-ons from mcpedl and no add-on you find there is actually uploaded by its creator. Popular examples of websites like that would be mcpеhub.ru, mc-аddons.com, mcpе-gаme.ru, monstеr-mcpе.com, minеcrаftpе-mods.com and every app where you can download addons, unless mcpеdl made their own app after this was written\\n\\n\\n\\n\"}]}",
+            "/setblock ~~~ billey:zambie",
+            "/playsound billey.goose.say @a ~~~",
+            "/tp 0 0 0"
+          ]
+        }
+      }
+    },
+    "controller.animation.billey.place_pickle": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "1"
+            }
+          ]
+        },
+        "bebe": {
+          "on_entry": [
+            "/particle minecraft:crop_growth_emitter ~ ~.4 ~",
+            "/fill ~~~~~~ sea_pickle 3 replace sea_pickle 2",
+            "/fill ~~~~~~ sea_pickle 2 replace sea_pickle 1",
+            "/fill ~~~~~~ sea_pickle 1 replace sea_pickle 0",
+            "/fill ~~~~~~ sea_pickle 0 replace water 0",
+            "/fill ~~~~~~ sea_pickle 7 replace sea_pickle 6",
+            "/fill ~~~~~~ sea_pickle 6 replace sea_pickle 5",
+            "/fill ~~~~~~ sea_pickle 5 replace sea_pickle 4",
+            "/fill ~~~~~~ sea_pickle 4 replace air",
+            "/tp ~ 0 ~",
+            "@s despawn"
+          ]
+        }
+      }
+    },
+    "controller.animation.fuck.fly": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_saddled"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_saddled"
+            }
+          ],
+          "on_entry": [
+            "/effect @s levitation 1 2 true",
+            "/effect @s slow_falling 2 0 true"
+          ]
+        }
+      }
+    },
+    "controller.animation.billey.can_sleep": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "cant_sleep": "!q.is_sitting"
+            }
+          ],
+          "on_exit": [
+            "/tag @s add cantsleep"
+          ],
+          "on_entry": [
+            "/tag @s remove cantsleep"
+          ]
+        },
+        "cant_sleep": {
+          "transitions": [
+            {
+              "default": "q.is_sitting "
+            }
+          ],
+          "on_entry": [
+            "/tag @s add cantsleep"
+          ],
+          "on_exit": [
+            "/tag @s remove cantsleep"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.shouldgetanorange": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "orange": "query.health >= query.max_health && !query.is_baby"
+            }
+          ],
+          "on_exit": [
+            "/tag @s add shouldgetanorange"
+          ],
+          "on_entry": [
+            "/tag @s remove shouldgetanorange"
+          ]
+        },
+        "orange": {
+          "transitions": [
+            {
+              "default": "query.health < query.max_health || query.is_baby"
+            }
+          ],
+          "on_entry": [
+            "/tag @s add shouldgetanorange"
+          ],
+          "on_exit": [
+            "/tag @s remove shouldgetanorange"
+          ]
+        }
+      }
+    },
+    "controller.animation.billeysmobs.panicompo": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "panicompo": "(query.health < (16 * query.max_health / 30) || query.is_on_fire)"
+            }
+          ],
+          "on_exit": [
+            "@s getpanic"
+          ],
+          "on_entry": [
+            "@s losepanic"
+          ]
+        },
+        "panicompo": {
+          "transitions": [
+            {
+              "default": "!(query.health < (16 * query.max_health / 30) || query.is_on_fire)"
+            }
+          ],
+          "on_entry": [
+            "@s getpanic",
+            "@s hit_orange"
+          ],
+          "on_exit": [
+            "@s losepanic"
+          ]
+        }
+      }
+    },
+    "controller.animation.billbetta.boost": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_sheared"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_sheared"
+            }
+          ],
+          "animations": [
+            "boost"
+          ]
+        }
+      }
+    },
+    "controller.animation.billgoose.eat": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "eating": "query.is_item_equipped && query.is_eating"
+            },
+            {
+              "glistering_melon": "query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glistering_melon_slice')"
+            },
+            {
+              "melon_block": "query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:melon_block')"
+            }
+          ]
+        },
+        "melon_block": {
+          "transitions": [
+            {
+              "default": "!query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:melon_block')"
+            }
+          ],
+          "on_entry": [
+            "/replaceitem entity @s slot.weapon.mainhand 0 melon",
+            "/loot spawn ~~~ loot \"entities/billeightmelonslices\""
+          ]
+        },
+        "eating": {
+          "transitions": [
+            {
+              "default": "!q.is_eating"
+            }
+          ],
+          "on_exit": [
+            "/effect @s regeneration 2 3 true"
+          ]
+        },
+        "glistering_melon": {
+          "transitions": [
+            {
+              "default": "!query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glistering_melon_slice')"
+            }
+          ],
+          "on_entry": [
+            "/replaceitem entity @s slot.weapon.mainhand 0 billey:glistering_melon_goose"
+          ]
+        }
+      }
+    },
+    "controller.animation.billgoose.isholdingitem": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_item_equipped"
+            }
+          ],
+          "on_exit": [
+            "/tag @s add isholdingitem"
+          ],
+          "on_entry": [
+            "/tag @s remove isholdingitem"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_item_equipped"
+            }
+          ],
+          "on_entry": [
+            "/tag @s add isholdingitem"
+          ],
+          "on_exit": [
+            "/tag @s remove isholdingitem"
+          ]
+        }
+      }
+    },
+    "controller.animation.bill.checkifsitting": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!(query.is_sitting&&query.is_alive&&!q.has_rider&&!query.is_avoiding_mobs&&!(query.is_moving&&query.has_target))"
+            }
+          ],
+          "on_entry": [
+            "/tag @s add sitting"
+          ],
+          "on_exit": [
+            "/tag @s remove sitting"
+          ]
+        }
+      }
+    },
+    "controller.animation.billcucumbeel.fix": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_in_water && !query.has_rider"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_in_water || query.has_rider"
+            }
+          ],
+          "on_entry": [
+            "@s fish"
+          ],
+          "on_exit": [
+            "@s horse"
+          ]
+        }
+      }
+    },
+    "controller.animation.bill.falconlowhealth": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "dothing": "query.health <= 4"
+            }
+          ]
+        },
+        "dothing": {
+          "transitions": [
+            {
+              "default": "query.health > 4"
+            }
+          ],
+          "on_entry": [
+            "@s wild_fly_count_down",
+            "/tag @s add lowhealth"
+          ]
+        }
+      }
+    },
+    "controller.animation.bill.fixredstone": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_powered"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_powered"
+            }
+          ],
+          "on_exit": [
+            "/fill ~~~~~~ redstone_wire 0 replace redstone_torch"
+          ]
+        }
+      }
+    },
+    "controller.animation.bill.asspower": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_saddled"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_saddled"
+            }
+          ],
+          "on_exit": [
+            "/effect @s regeneration 1 1 true"
+          ]
+        }
+      }
+    },
+    "controller.animation.billduck.gold": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.variant == 2 && !query.is_baby && query.is_tamed"
+            }
+          ]
+        },
+        "bebe": {
+          "on_entry": [
+            "@s addgold"
+          ]
+        }
+      }
+    },
+    "controller.animation.billsnail.fix": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_in_water"
+            }
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_in_water"
+            }
+          ],
+          "on_entry": [
+            "/effect @s levitation 3000 3 true",
+            "/effect @s speed 3000 0 true"
+          ],
+          "on_exit": [
+            "/effect @s speed 0 255 true",
+            "/effect @s levitation 0 255 true"
+          ]
+        }
+      }
+    },
+    "controller.animation.billsnail.fix2": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "bebe": "query.is_in_water"
+            }
+          ],
+          "on_entry": [
+            "/effect @s clear"
+          ]
+        },
+        "bebe": {
+          "transitions": [
+            {
+              "default": "!query.is_in_water"
+            }
+          ],
+          "on_entry": [
+            "/effect @s speed 3000 2 true"
+          ]
+        }
+      }
+    }
+  }
+}

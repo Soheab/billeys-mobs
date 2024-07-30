@@ -1,0 +1,124 @@
+##Mobs
+
+entity.billey:anglerfish.name=Pez luminoso
+item.spawn_egg.entity.billey:anglerfish.name=Generar pez luminoso
+entity.billey:swordfish.name=Pez espada
+item.spawn_egg.entity.billey:swordfish.name=Generar pez espada
+entity.billey:zombie_cat.name=Gato zombi
+item.spawn_egg.entity.billey:zombie_cat.name=Generar gato zombi
+entity.billey:skeleton_cat.name=Gato esqueleto
+item.spawn_egg.entity.billey:skeleton_cat.name=Generar gato esqueleto
+entity.billey:mercat.name=Sirenogato
+item.spawn_egg.entity.billey:mercat.name=Generar sirenogato
+entity.billey:orca.name=Orca
+item.spawn_egg.entity.billey:orca.name=Generar orca
+entity.billey:pigeon.name=Paloma
+item.spawn_egg.entity.billey:pigeon.name=Generar paloma
+entity.billey:pizzafish.name=Pizzatún
+item.spawn_egg.entity.billey:pizzafish.name=Generar pizzatún
+entity.billey:poopstain.name=Hez de paloma
+item.spawn_egg.entity.billey:poopstain.name=Heces de paloma
+entity.billey:gwshark.name=Gran tiburón blanco
+item.spawn_egg.entity.billey:gwshark.name=Generar gran tiburón blanco
+entity.billey:picklepet.name=Pepinillo
+item.spawn_egg.entity.billey:picklepet.name=Generar pepinillo
+entity.billey:endercat.name=Endergato
+item.spawn_egg.entity.billey:endercat.name=Generar endergato
+entity.billey:flyingcat.name=Gato ángel
+item.spawn_egg.entity.billey:flyingcat.name=Generar gato ángel
+entity.billey:endflyingcat.name=Endergato ángel
+item.spawn_egg.entity.billey:endflyingcat.name=Generar endergato ángel
+entity.billey:duck.name=Pato
+item.spawn_egg.entity.billey:duck.name=Generar pato
+entity.billey:flyingpig.name=Cerdo ángel
+item.spawn_egg.entity.billey:flyingpig.name=Generar cerdo ángel
+entity.billey:penguin.name=Pingüino
+item.spawn_egg.entity.billey:penguin.name=Generar pingüino
+entity.billey:zombified_cat.name=Gato descompuesto
+item.spawn_egg.entity.billey:zombified_cat.name=Generar gato descompuesto
+entity.billey:snail.name=Caracol
+item.spawn_egg.entity.billey:snail.name=Generar caracol
+entity.billey:piranha.name=Piraña
+item.spawn_egg.entity.billey:piranha.name=Generar piraña
+entity.billey:banana_duck.name=Pato banana
+item.spawn_egg.entity.billey:banana_duck.name=Generar pato banana
+entity.billey:cucumbeel.name=Anguila pepino
+item.spawn_egg.entity.billey:cucumbeel.name=Generar anguila pepino
+entity.billey:pickle_cat.name=Gato pepino
+item.spawn_egg.entity.billey:pickle_cat.name=Generar gato pepino
+entity.billey:velvet_worm.name=Gusano aterciopelado
+item.spawn_egg.entity.billey:velvet_worm.name=Generar gusano aterciopelado
+entity.billey:goose.name=Ganso
+item.spawn_egg.entity.billey:goose.name=Generar ganso
+##yes keep the wip
+entity.billey:hamster.name=Hámster
+item.spawn_egg.entity.billey:hamster.name=Generar Hámster
+
+##Items
+
+item.billey:pizzapiece=Pizza marina
+item.billey:picklepet_fertilizer=Fertilizante de pepinillo
+item.billey:cat_dust=Polvo alegre
+item.billey:zcat_dust=Polvo triste
+item.billey:wcat_dust=Polvo divertido
+item.billey:scat_dust=Polvo apático
+item.billey:cat_bottle=Poción de alegría
+item.billey:zcat_bottle=Poción de tristeza
+item.billey:wcat_bottle=Poción de diversión
+item.billey:scat_bottle=Poción de apatía
+item.billey:swordcooked=Filete de pez espada cocinado
+item.billey:swordmeat=Filete de pez espada
+item.billey:swordfin=Aleta de pez espada
+item.billey:swordtail=Cola de pez espada
+item.billey:swordfish=Pez espada
+item.billey:swordstick=Palo de pez espada
+item.billey:anglerlight=Luz de pez luminoso
+item.billey:colorful_dust=Polvo colorido
+item.billey:colorful_bottle=Poción de colores
+item.billey:colorless_dust=Polvo descolorido
+item.billey:colorless_bottle=Poción de descolor
+item.billey:growth_dust=Polvo de crecimiento
+item.billey:growth_bottle=Poción de crecimiento
+item.billey:youth_dust=Polvo de juventud
+item.billey:youth_bottle=Poción de juventud
+item.billey:leather_pet_armor=Armadura de cuero para pato
+item.billey:golden_pet_armor=Armadura de oro para pato
+item.billey:chain_pet_armor=Armadura de cota de malla para pato
+item.billey:iron_pet_armor=Armadura de hierro para pato
+item.billey:diamond_pet_armor=Armadura de diamante para pato
+item.billey:netherite_pet_armor=Armadura de netherita para pato
+item.billey:endrod_pet_armor=Armadura de vara del end para pato
+item.billey:velvet_slime=Bola de slime aterciopelada
+item.billey:raw_hamster=Hámster crudo
+item.billey:cooked_hamster=Hámster cocinado
+
+##Blocks
+
+tile.billey:velvet_slime_block.name=Bloque de slime aterciopelado
+tile.billey:blue_velvet_slime_block.name=Bloque de slime aterciopelado azul
+tile.billey:mixed_velvet_slime_block.name=Bloque de slime aterciopelado mixto
+
+##Other
+
+action.hint.exit.billey:duck=Salta o agachate para bajar del pato
+action.hint.exit.billey:orca=Salta o agachate para bajar de la orca
+action.hint.exit.billey:cucumbeel=Salta o agachate para bajar de la anguila pepino
+action.hint.exit.billey:pickle_cat=Salta o agachate para bajar del gato pepino
+action.hint.exit.billey:banana_duck=Salta o agachate para bajar del pato banana
+action.interact.equip=Equipar
+advancements.billey.golden_duck=Pato brillante
+##breed duck and penguin
+advancements.billey.angry_duck=QUACK!
+##anger a duck
+##That probably doesn't make sense in every single language so you can
+## translate it to "you deserve this", "you get what you deserve" or whatever
+advancements.billey.howrude=¿Una rebanada?
+##shear a pizzafish
+advancements.billey.kindness=Transplante de queso
+##put a piece of pizza on an eaten/sheared pizzafish
+advancements.billey.ornithologist=Ornitólogo
+##get every banana duck variant
+advancements.billey.color=Luces navideñas
+##when you give a tamed mob from the addon the colorful potion it gets a color changing overlay
+advancements.billey.undeadcat=Nigromante de felinos
+advancements.billey.spookycat=Lindo gatito

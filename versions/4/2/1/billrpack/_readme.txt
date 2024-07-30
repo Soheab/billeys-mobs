@@ -1,0 +1,1 @@
+read behaviorpack/readme.txt

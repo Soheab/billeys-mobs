@@ -1,0 +1,88 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:woodlouse",
+      "materials": {
+        "default": "entity_alphatest",
+        "cat": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/bill/woodlouse",
+        "one": "textures/entity/bill/woodlouse1",
+        "two": "textures/entity/bill/woodlouse2",
+        "three": "textures/entity/bill/woodlouse3",
+        "four": "textures/entity/bill/woodlouse4",
+        "five": "textures/entity/bill/woodlouse5",
+        "six": "textures/entity/bill/woodlouse6",
+        "seven": "textures/entity/bill/woodlouse7",
+        "eight": "textures/entity/bill/woodlouse8",
+        "nine": "textures/entity/bill/woodlouse9",
+        "ten": "textures/entity/bill/woodlouse10",
+        "eleven": "textures/entity/bill/woodlouse11",
+        "twelve": "textures/entity/bill/woodlouse12",
+        "thirteen": "textures/entity/bill/woodlouse13",
+        "fourteen": "textures/entity/bill/woodlouse14",
+        "fifteen": "textures/entity/bill/woodlouse15",
+        "sixteen": "textures/entity/bill/woodlouse16",
+        "seventeen": "textures/entity/bill/woodlouse17",
+        "eighteen": "textures/entity/bill/woodlouse18",
+        "nineteen": "textures/entity/bill/woodlouse19",
+        "twenty": "textures/entity/bill/woodlouse20",
+        "twentyone": "textures/entity/bill/woodlouse21",
+        "hat": "textures/entity/bill/hat"
+      },
+      "geometry": {
+        "default": "geometry.billwoodlouse",
+        "hat": "geometry.billwoodlousehat"
+      },
+      "animations": {
+        "controller.sit": "controller.animation.billey.sit",
+        "sit": "animation.billwoodlouse.sit",
+        "random_idle": "animation.billwoodlouse.idle",
+        "sheared": "animation.billwoodlouse.curl",
+        "climb": "animation.billwoodlouse.climb",
+        "look_at_target": "animation.common.look_at_target",
+        "controller.random_idle": "controller.animation.billey.random_idle",
+				"c.climb": "controller.animation.billey.climbb",
+        "c.sheared": "controller.animation.billey.sheared",
+        "walk": "animation.billwoodlouse.walk"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.colordelay=math.random_integer(0,1)*math.random_integer(0,360);"
+        ],
+        "animate": [
+          { "controller.sit": "!q.is_moving" },
+          { "c.sheared": "q.is_alive" },
+          {
+            "walk": "q.is_moving || !q.is_sitting ? query.modified_move_speed * 2.15"
+          },
+          "controller.random_idle",
+          { "c.climb": "!query.is_in_water && query.is_alive"},
+          {
+            "look_at_target": "0.5"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.billbettafish",
+        {
+          "controller.render.billbduckhat": "query.is_powered"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#8c8f96",
+        "overlay_color": "#df971b"
+      }
+    }
+  }
+}
+//how to make your vs code smooth:
+//  1. press ctrl+p
+//  2. type >preferences:open settings (UI)
+//  3. press enter
+//  4. set cursor blinking to smooth
+//  5. turn on cursor smooth caret animation
+//  6. enjoy
+//  7. credit https://youtube.com/watch?v=PWCkrHHyvjE

@@ -1,0 +1,47 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.rhino.new": {
+			"loop": true,
+			"bones": {
+				"bone": {
+					"rotation": ["variable.is_in_water ? query.target_x_rotation : math.sin(query.life_time * 500) * 30", "query.target_y_rotation", "variable.is_in_water ? math.sin(query.life_time * 500) * 30 : 0"]
+				},
+				"bone2": {
+					"rotation": [0, 0, "math.cos(query.life_time * 500) * 25"]
+				},
+				"body": {
+					"rotation": ["variable.is_in_water ? 90 : 0", 0, 0],
+					"position": [0, "variable.is_in_water ? 1 : 0", "variable.is_in_water ? 10 : 0"]
+				}
+			}
+		},
+		"animation.rhino.new2": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"bone2": {
+					"rotation": {
+						"0.0": [-15, 0, 0],
+						"0.7167": [30, 0, 0],
+						"1.0": [-15, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.rhino.new3": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"scale": 1
+				},
+				"bone2": {
+					"scale": ["1 + math.sin(query.life_time * 500) / 3", 1, 1]
+				}
+			}
+		},
+		"animation.rhino.new4": {
+			"loop": true
+		}
+	}
+}

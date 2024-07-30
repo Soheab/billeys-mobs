@@ -1,0 +1,66 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:anglerfish",
+			"materials": {
+				"default": "spider",
+				"glow": "wither_boss_armor"
+			},
+			"textures": {
+				"variant1": "textures/entity/bill/angler",
+				"variant2": "textures/entity/bill/angler2",
+				"variant3": "textures/entity/bill/angler3",
+				"variant4": "textures/entity/bill/angler4",
+				"variant5": "textures/entity/bill/angler5",
+				"variant6": "textures/entity/bill/angler6",
+				"variant7": "textures/entity/bill/angler7",
+				"variant8": "textures/entity/bill/angler8",
+				"glow1": "textures/entity/bill/anglerlight",
+				"glow2": "textures/entity/bill/anglerlight2",
+				"glow3": "textures/entity/bill/anglerlight3",
+				"glow4": "textures/entity/bill/anglerlight4",
+				"glow5": "textures/entity/bill/anglerlight5",
+				"glow6": "textures/entity/bill/anglerlight6",
+				"glow7": "textures/entity/bill/anglerlight7",
+				"glow8": "textures/entity/bill/anglerlight8",
+				"sugar1": "textures/entity/bill/sugarlight",
+				"sugar2": "textures/entity/bill/sugarlight2",
+				"sugar3": "textures/entity/bill/sugarlight3",
+				"sugar4": "textures/entity/bill/sugarlight4",
+				"sugar5": "textures/entity/bill/sugarlight5",
+				"sugar6": "textures/entity/bill/sugarlight6",
+				"sugar7": "textures/entity/bill/sugarlight7"
+			},
+			"geometry": {
+				"default": "geometry.billangler",
+				"glow": "geometry.billanglerlight"
+			},
+			"animations": {
+				"flop": "animation.billangler.flop",
+				"death": "animation.billangler.death",
+				"flip": "animation.billangler.flip",
+				"swim": "animation.billangler.swim",
+				"glow_effect_7": "animation.billangler.sugar",
+				"attack": "animation.billangler.attack"// /playanimation animations dont need to be listed here
+				//i did it for blockbench
+            },
+       	  "scripts": {
+       	    "animate": [
+	   	     { "death": "!query.is_alive" },
+             { "attack": "query.is_sheared" },
+             { "swim": "query.is_in_water" },
+             { "glow_effect_7": "(query.get_name == 'Sugar' || query.get_name == 'sugar' || query.get_name == 'Ζαχαρώτος' || query.get_name == 'Ζαχαρωτος' || query.get_name == 'Ζαχαρωτός' || query.get_name == 'ζαχαρώτος' || query.get_name == 'ζαχαρωτος' || query.get_name == 'ζαχαρωτός' || query.get_name == 'Zacharotos' || query.get_name == 'zacharotos' || query.get_name == 'Zaharotos' || query.get_name == 'zaharotos' || query.get_name == 'Zaxarotos' || query.get_name == 'zaxarotos')"},
+             { "look": "query.is_in_water" },
+             { "flip": "!query.is_in_water" },
+             { "flop": "!query.is_in_water && query.is_alive" }
+           ]
+        },
+			"render_controllers": ["controller.render.billanglerfish", "controller.render.billangler_light"],
+			"spawn_egg": {
+				"base_color": "#583F44",
+				"overlay_color": "#B19F9B"
+			}
+		}
+	}
+}

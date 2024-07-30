@@ -1,0 +1,61 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:mercat",
+      "materials": {
+        "default": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/cat/fotd",
+        "one": "textures/entity/cat/fotd1",
+        "two": "textures/entity/cat/fotd2",
+        "three": "textures/entity/cat/fotd3",
+        "four": "textures/entity/cat/fotd4",
+        "five": "textures/entity/cat/fotd5",
+        "six": "textures/entity/cat/fotd6",
+        "eight": "textures/entity/cat/fotd1",
+        "nine": "textures/entity/cat/fotd"
+      },
+      "geometry": {
+        "default": "geometry.billmercat"
+      },
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "flop": "animation.billmercat.flop",
+        "upside_down": "animation.billmercat.upside_down",
+        "lookwater": "animation.billmercat.lookwater",
+        "walk": "animation.billmercat.walk",
+        "sit": "animation.billmercat.sit",
+        "float": "animation.billmercat.float",
+        "baby": "animation.cat.baby_transform",
+        "general": "controller.animation.billey.mercat",
+        "look_cont": "controller.animation.billey.mercat_look",
+        "spin_cont": "controller.animation.billey.mercat_spin",
+        "ups_cont": "controller.animation.billey.mercat_upside_down",
+        "swim": "animation.billmercat.swim",
+        "spin": "animation.billmercat.spin"
+      },
+      "scripts": {
+        "animate": [
+          "new",
+          "general",
+          {
+            "baby": "q.is_baby"
+          },
+          "look_cont",
+          {
+            "spin_cont": "q.is_in_water"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.billeyzambie.kiwi"
+      ],
+      "spawn_egg": {
+        "base_color": "#316469",
+        "overlay_color": "#00093F"
+      }
+    }
+  }
+}
