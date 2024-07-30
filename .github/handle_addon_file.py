@@ -76,11 +76,14 @@ def update_latest_dir(parsed_version: str, latest_version: str) -> bool:
 
 def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str]:
     versions = version.split(".")
+    print(f"Handling addon file: {addon_file} with version: {version}")
 
     dirs_to_create = []
 
     version_dir: pathlib.Path | None = None
     # create a dir in major.patch if the patch exists
+
+    required_files = ["billbpack", "billrpack"]
 
     for version in versions:
         if version_dir is None:
@@ -90,7 +93,9 @@ def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str
 
         dirs_to_create.append(version_dir)
 
-    if all(dir_to_create.exists() for dir_to_create in dirs_to_create):
+    if all(dir_to_create.exists() for dir_to_create in dirs_to_create) and all(
+        (version_dir / file).exists() for file in required_files  # type: ignore
+    ):
         version = ".".join(versions)
         # delete it
         addon_file.unlink()
