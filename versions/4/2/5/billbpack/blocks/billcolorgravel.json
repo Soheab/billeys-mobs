@@ -1,0 +1,25 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:block": {
+        "description": {
+            "identifier": "billey:aquarium_gravel"
+        },
+        "components": {
+			"minecraft:creative_category": {
+				"category": "construction",
+				"group": "itemGroup.name.construction"
+			},
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "billcolorgravel",
+                    "render_method": "opaque",
+                    "ambient_occlusion": true
+                }
+            },
+            "minecraft:destroy_time": 0.15,
+            "minecraft:explosion_resistance": 0,
+            "minecraft:map_color": "#127aff",
+            "minecraft:unit_cube": {}
+        }
+    }
+}

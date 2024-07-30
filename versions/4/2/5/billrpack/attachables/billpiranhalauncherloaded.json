@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:loaded_piranha_launcher",
+            "materials": {
+                "default": "entity_alphatest",
+                "enchanted": "armor_enchanted"
+            },
+            "textures": {
+                "default": "textures/entity/bill/piranhalauncher"
+            },
+            "geometry": {
+                "default": "geometry.billpiranhashooter"
+            },
+            "animations": {
+                "no_piranha": "animation.billpiranhashooter.no_piranha",
+                "first_person": "animation.billpiranhashooter.first_person"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "first_person": "c.is_first_person"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.armor"
+            ]
+        }
+    }
+} //go to the add-on's mcpedl page right now and comment potato i dare you
