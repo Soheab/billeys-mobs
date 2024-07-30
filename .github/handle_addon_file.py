@@ -113,8 +113,13 @@ def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str
 
     # unzip the file and move the zip and contents to the versions directory per version
     # unzip the file
-    import time
     import zipfile
+    # make sure it's a zip file
+    if not zipfile.is_zipfile(new_file):
+        # make it a ZIP file
+        new_file = new_file.with_suffix(".zip")
+        addon_file.rename(new_file)
+
     with zipfile.ZipFile(new_file, "r") as zip_ref:
         zip_ref.extractall(version_dir)
 
