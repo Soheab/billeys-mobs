@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:thrown_duck",
+        "materials": {
+          "default": "entity_alphatest"
+        },
+        "textures": {
+          "default": "textures/entity/bill/duck"
+        },
+        "sound_effects": {
+          "quack": "billey.duck.saybananaquiet"
+        },
+        "geometry": {
+          "default": "geometry.billduckitem"
+        },
+        "render_controllers": [ "controller.render.item_sprite" ],
+        "animations": {
+        "new": "animation.billduckproj.pop",
+          "thrown": "animation.billduckitem.thrown"
+        },
+        "scripts": {
+          "animate": [ "new",
+            "thrown"
+          ]
+        }
+      }
+    }
+  }
+  
