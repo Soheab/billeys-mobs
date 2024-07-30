@@ -59,6 +59,7 @@ def get_latest_version() -> str | None:
 def update_latest_dir(parsed_version: str, latest_version: str) -> None:
     # check if the parsed version is greater than the latest version
     if parsed_version < latest_version:
+        print(f"Version {parsed_version} is less than the latest version {latest_version}")
         return
 
     latest_version_dir = versions_dir / os.sep.join(latest_version.split("."))
@@ -118,8 +119,56 @@ def handle_addon_file(addon_file: pathlib.Path) -> str:
 
     return ".".join(versions)
 
+# echo "Output: $INPUT_STORE"
+# IFS=$' ' read -ra STORE_ARRAY <<< "$INPUT_STORE"
+# echo "Array: ${STORE_ARRAY[@]}"
+# for store in "${STORE_ARRAY[@]}"; do
+#    echo "creating tag for: $store"
+#    if [[ -n $store ]]; then
+#    # Process each store here
+#    git tag -a v$store -m "Version $store"
+#    git push origin v$store
+#    echo "Tag created for: v$store"
+#    fi
+
+# git config --local user.email "action@github.com"
+# git config --local user.name "GitHub Action"
+# git add -A
+# git commit -m "Unpacked latest .mcaddon file"
+# git push
+def create_tag(version: str) -> None:
+    if not version:
+        print("No version provided")
+        return
+
+    commands = [
+        'git config --local user.email "action@github.com"',
+        'git config --local user.name "GitHub Action"',
+        f"git tag -a v{version} -m 'Version {version}'",
+        f"git push origin v{version}",
+    ]
+
+    os.system(" && ".join(commands))
+    print(f"Tag created for: v{version}")
+
+def push_and_create_tag(version: str) -> None:
+    # fmt: off
+    commands = [
+        'git config --local user.email "action@github.com"',
+        'git config --local user.name "GitHub Action"',
+        'git add -A',
+        f'git commit -m "Unpacked addon version {version}"',
+        'git push',
+    ]
+
+    # run all commandds on the ubuntu machine at once
+    os.system(" && ".join(commands))
+    print(f"Pushed version {version}")
+    # fmt: on
+
+    create_tag(version)
+
 if __name__ == "__main__":
-    versions = []
     ensure_necessary_files_exist()
     # addon file, search for files ending with .mcaddon in the main directory
     addon_files = list(pathlib.Path(".").glob("*.mcaddon"))
@@ -130,9 +179,9 @@ if __name__ == "__main__":
     for addon_file in addon_files:
         version = handle_addon_file(addon_file)
         if version:
-            versions.append(version)
+            print(f"Unpacked version {version}")
             latest_version = get_latest_version()
             if latest_version:
                 update_latest_dir(version, latest_version)
 
-    print(" ".join(versions))
+            push_and_create_tag(version)

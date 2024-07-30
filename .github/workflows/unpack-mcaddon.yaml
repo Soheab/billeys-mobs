@@ -15,26 +15,6 @@ jobs:
           with:
             python-version: 3.12
 
-        - name: Execute Python script & Commit changes & Create Tag
-          run: |
-            export INPUT_STORE=$(python .github/handle_addon_file.py)
-            echo "Access direct: "
-            echo $INPUT_STORE
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git add -A
-            git commit -m "Unpacked latest .mcaddon file"
-            git push
+        - name: Execute Python Script
+          run: python .github/handle_addon_file.py
 
-            echo "Output: $INPUT_STORE"
-            IFS=$' ' read -ra STORE_ARRAY <<< "$INPUT_STORE"
-            echo "Array: ${STORE_ARRAY[@]}"
-            for store in "${STORE_ARRAY[@]}"; do
-              echo "creating tag for: $store"
-              if [[ -n $store ]]; then
-              # Process each store here
-              git tag -a v$store -m "Version $store"
-              git push origin v$store
-              echo "Tag created for: v$store"
-              fi
-            done
