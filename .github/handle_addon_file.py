@@ -157,14 +157,15 @@ def create_tag(version: str) -> None:
     os.system(" && ".join(commands))
     print(f"Tag created for: v{version}")
 
-def commit_and_push(version: str) -> None:
+def commit_and_push(version: str, message: str | None = None) -> None:
     time.sleep(1)
     # fmt: off
+    message = message or f"Unpacked addon version {version}"
     commands = [
         'git config --local user.email "action@github.com"',
         'git config --local user.name "GitHub Action"',
         'git add -A',
-        f'git commit -m "Unpacked addon version {version}"',
+        f'git commit -m "{message}',
         'git push',
     ]
 
@@ -228,3 +229,6 @@ if __name__ == "__main__":
             updated = update_latest_dir(version, latest_version)
             if updated:
                 commit_changes_to_latest_dir(version)
+
+    # commit any changes
+    commit_and_push("misc", "Committing all changes.")
