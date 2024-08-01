@@ -1,24 +1,24 @@
-from collections import defaultdict
 import os
 import pathlib
 import sys
 import time
-from typing import final
+from typing import Any
 
 
 # versions dir
 versions_dir = pathlib.Path("versions")
 latest_dir = versions_dir / "latest"
 
+
 def ensure_necessary_files_exist() -> None:
     # create the versions directory if it doesn't exist
     if not versions_dir.exists():
         versions_dir.mkdir()
-        #print(f"Created {versions_dir}")
+        # print(f"Created {versions_dir}")
 
     if not latest_dir.exists():
         latest_dir.mkdir()
-        #print(f"Created {latest_dir}")
+        # print(f"Created {latest_dir}")
 
 
 def get_version_from_file(file: pathlib.Path) -> str | None:
@@ -31,12 +31,15 @@ def get_version_from_file(file: pathlib.Path) -> str | None:
 
     return version
 
+
 def get_latest_version() -> str | None:
     a = ["billbpack", "billrpack", "latest"]
-    final_versions = {}
+    final_versions: dict[Any, Any] = {}
 
     # recursively traverse the versions directory and collect all version files
-    def traverse_directory(directory: pathlib.Path, version_dict: dict) -> None:
+    def traverse_directory(
+        directory: pathlib.Path, version_dict: dict[str, Any]
+    ) -> None:
         for file in directory.iterdir():
             if file.name in a:
                 continue
@@ -54,13 +57,16 @@ def get_latest_version() -> str | None:
         latest_key = max(version_dict.keys())
         latest_version += f"{latest_key}."
         version_dict = version_dict[latest_key]
-    
+
     return latest_version.rstrip(".") or None
+
 
 def update_latest_dir(parsed_version: str, latest_version: str) -> bool:
     # check if the parsed version is greater than the latest version
     if parsed_version < latest_version:
-        print(f"Version {parsed_version} is less than the latest version {latest_version}")
+        print(
+            f"Version {parsed_version} is less than the latest version {latest_version}"
+        )
         return False
 
     latest_version_dir = versions_dir / os.sep.join(latest_version.split("."))
@@ -78,7 +84,7 @@ def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str
     versions = version.split(".")
     print(f"Handling addon file: {addon_file} with version: {version}")
 
-    dirs_to_create = []
+    dirs_to_create: list[Any] = []
 
     version_dir: pathlib.Path | None = None
     # create a dir in major.patch if the patch exists
@@ -114,6 +120,7 @@ def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str
     # unzip the file and move the zip and contents to the versions directory per version
     # unzip the file
     import zipfile
+
     try:
         with zipfile.ZipFile(new_file, "r") as zip_ref:
             zip_ref.extractall(version_dir)
@@ -129,6 +136,7 @@ def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str
     new_file.unlink()
     return True, ".".join(versions)
 
+
 # echo "Output: $INPUT_STORE"
 # IFS=$' ' read -ra STORE_ARRAY <<< "$INPUT_STORE"
 # echo "Array: ${STORE_ARRAY[@]}"
@@ -140,6 +148,7 @@ def handle_addon_file(addon_file: pathlib.Path, version: str) -> tuple[bool, str
 #    git push origin v$store
 #    echo "Tag created for: v$store"
 #    fi
+
 
 # git config --local user.email "action@github.com"
 # git config --local user.name "GitHub Action"
@@ -159,8 +168,9 @@ def create_tag(version: str) -> None:
         f"git push origin v{version}",
     ]
 
-    os.system(" && ".join(commands))
+    #os.system(" && ".join(commands))
     print(f"Tag created for: v{version}")
+
 
 def commit_and_push(version: str, message: str | None = None) -> None:
     time.sleep(1)
@@ -170,7 +180,7 @@ def commit_and_push(version: str, message: str | None = None) -> None:
         'git config --local user.email "action@github.com"',
         'git config --local user.name "GitHub Action"',
         'git add -A -f',
-        f'git commit -a -m "{message}',
+        f'git commit -a -m "{message}"',
         'git push',
     ]
 
@@ -178,6 +188,7 @@ def commit_and_push(version: str, message: str | None = None) -> None:
     os.system(" && ".join(commands))
     print(f"Committed and pushed changes for version {version}")
     # fmt: on
+
 
 def commit_changes_to_latest_dir(version: str) -> None:
     time.sleep(1)
