@@ -1,7 +1,7 @@
-import { world } from '@minecraft/server';
-import { beneficalEffects } from './utility';
-import { trueBeneficialEffects } from './utility';
-import { ActionFormData, MessageFormData, ModalFormData } from '@minecraft/server-ui';
+import { world } from "@minecraft/server";
+import { beneficalEffects } from "./utility";
+import { trueBeneficialEffects } from "./utility";
+import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/server-ui";
 
 //will switch to custom component when hcf is removed,
 //since currently turning it on breaks them

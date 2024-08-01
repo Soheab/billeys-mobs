@@ -769,8 +769,7 @@
                     ]
                 },
                 "minecraft:is_tamed": {},
-                "minecraft:tameable": {
-                }
+                "minecraft:tameable": {} //for the script to be able to get and set owner
             }
         },
         "components": {

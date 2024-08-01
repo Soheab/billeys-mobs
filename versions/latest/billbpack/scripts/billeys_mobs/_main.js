@@ -1,20 +1,21 @@
-import { world, system, Player, } from '@minecraft/server';
-import './food';
-import './interactions';
-import './shooters';
-import './interval';
-import './blocks';
-import './swords';
-import './ratPotions';
-import './infoBook';
-import './pigeonMission';
-import './advancements';
-import './morph';
-import './ratKing';
-import './betterPetOwnerSaving';
-import './mobEquipment';
-import { playSound } from './utility';
-import { loadPiranhaLauncher } from './interactions';
+import { world, system, Player, ItemStack } from "@minecraft/server";
+import "./food";
+import "./interactions";
+import "./shooters";
+import "./interval";
+import "./blocks";
+import "./swords";
+import "./ratPotions";
+import "./infoBook";
+import "./pigeonMission";
+import "./advancements";
+import "./morph";
+import "./ratKing";
+import "./betterPetOwnerSaving";
+import "./mobEquipment";
+import "./catfishSyringe";
+import { playSound } from "./utility";
+import { loadPiranhaLauncher } from "./interactions";
 
 //im aware that this file needs to be split into other files
 
@@ -162,6 +163,16 @@ world.beforeEvents.chatSend.subscribe((data) => {
 			data.sender.getTags().forEach(tag => {
 				if (tag.includes("billey")) data.sender.removeTag(tag);
 			});
+		})
+	}
+	else if (data.message == "!givebilleyinfobook") {
+		data.cancel = true;
+		system.run(() => {
+			const container = data.sender.getComponent("inventory").container;
+			if (container.emptySlotsCount)
+				container.addItem(new ItemStack("billey:info_book"));
+			else
+				data.sender.sendMessage("§cThere are no empty slots in your inventory.");
 		})
 	}
 });

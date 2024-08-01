@@ -1,6 +1,6 @@
-import { world, system, Entity, ItemStack, Player, Dimension, ItemLockMode } from '@minecraft/server';
-import { ModalFormData } from '@minecraft/server-ui';
-import { dropAll } from './utility';
+import { world, system, Entity, ItemStack, Player, Dimension, ItemLockMode } from "@minecraft/server";
+import { ModalFormData } from "@minecraft/server-ui";
+import { dropAll } from "./utility";
 
 
 system.afterEvents.scriptEventReceive.subscribe(data => {
@@ -79,9 +79,9 @@ export function addItemToPigeon(player, mob, item, dimension) {
  * @param {Dimension} dimension
  */
 export function pigeonUI(player, pigeon, dimension) {
-    const players = dimension.getPlayers({ excludeNames: [player.name], minDistance: 50, location: pigeon.location });
+    const players = dimension.getPlayers({ minDistance: 50, location: pigeon.location });
     if (players.length) {
-        let form = new ModalFormData();
+        const form = new ModalFormData();
         form.title({ translate: "ui.billey.select_player" })
             .dropdown("", players.map(p => p.name), 0)
             .show(player).then(e => {

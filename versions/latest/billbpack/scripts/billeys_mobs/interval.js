@@ -1,6 +1,6 @@
-import { world, system, EquipmentSlot, EntityDamageCause, Dimension } from '@minecraft/server';
-import { add, headPets, normalize, ridePets, scale } from './utility';
-import { isMorph, morphTick } from './morph';
+import { world, system, EquipmentSlot, EntityDamageCause, Dimension } from "@minecraft/server";
+import { add, headPets, normalize, ridePets, scale } from "./utility";
+import { isMorph, morphTick } from "./morph";
 
 system.runInterval(() => {
 	const players = world.getPlayers();

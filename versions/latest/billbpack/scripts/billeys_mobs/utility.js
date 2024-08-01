@@ -1,9 +1,10 @@
-import { world, ItemStack, system, EquipmentSlot, Player, Container, Dimension, Entity, GameMode } from '@minecraft/server';
+import { world, ItemStack, system, EquipmentSlot, Player, Container, Dimension, Entity, GameMode } from "@minecraft/server";
 
 export const headPets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern"];
 export const ridePets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern", "billey:pigeon"];
 export const beneficalEffects = ["speed", "regeneration", "absorption", "night_vision", "water_breathing", "strength", "saturation", "fire_resistance", "conduit_power", "jump_boost"];
 export const trueBeneficialEffects = ["speed", "regeneration", "absorption", "night_vision", "water_breathing", "strength", "saturation", "fire_resistance", "conduit_power"];
+export const detrimentalEffects = ["weakness", "hunger", "levitation", "blindness", "darkness", "instant_damage", "mining_fatigue", "nausea", "poison", "slowness", "wither"];
 export const duckArmors = ["no", "leather", "golden", "chain", "iron", "diamond", "netherite", "endrod"];
 
 /**
@@ -128,3 +129,18 @@ export function add(vector1, vector2) {
 	vector1.z += vector2.z;
 	return vector1;
 }
+
+/**
+ * @param {ItemStack} oldItem
+ * @param {string} newTypeId
+ * @returns {ItemStack} Returns the new item. This function doesn't make any changes to the old item.
+ */
+export function changeItemType(oldItem, newTypeId) {
+	let newItem = new ItemStack(newTypeId, oldItem.amount);
+	newItem.nameTag = oldItem.nameTag;
+	newItem.getComponent("durability").damage = oldItem.getComponent("durability").damage;
+	newItem.setLore(oldItem.getLore());
+	newItem.getComponent("enchantable").addEnchantments(oldItem.getComponent("enchantable").getEnchantments());
+	return newItem;
+}
+

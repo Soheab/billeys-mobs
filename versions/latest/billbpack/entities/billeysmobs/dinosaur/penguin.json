@@ -1,7 +1,7 @@
 {
-	//this file was originally coded 4 years ago,
+	//this file was originally coded in late 2019,
 	//lots of weird stuff in here
-	"format_version": "1.10.0",
+	"format_version": "1.16.0",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "billey:penguin",
@@ -10,7 +10,8 @@
 			"is_summonable": true,
 			"is_experimental": false,
 			"scripts": {
-                "animate": [ "check_beta_apis",
+				"animate": [
+					"check_beta_apis",
 					{
 						"rainbow_effects": "q.is_illager_captain"
 					},
@@ -29,8 +30,8 @@
 					"tame"
 				]
 			},
-            "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
+			"animations": {
+				"check_beta_apis": "animation.billey.check_beta_apis",
 				"rainbow_effects": "animation.billey.rainbow_effects",
 				"stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
 				"info": "animation.billeyinfo.penguin",
@@ -730,7 +731,7 @@
 					"damage": 8
 				},
 				"minecraft:is_tamed": {},
-                "minecraft:tameable": {}, //for the script to be able to get the mob's owner
+				"minecraft:tameable": {}, //for the script to be able to get the mob's owner
 				"minecraft:behavior.follow_owner": {
 					"priority": 2,
 					"speed_multiplier": 1,
@@ -744,389 +745,342 @@
 					"avoid_damage_blocks": true,
 					"can_walk": true
 				},
-				"minecraft:interact": {"interactions":[
-					{
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "sugar"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "has_component",
-										"subject": "self",
-										"value": "minecraft:is_saddled"
-									}
-								]
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "sugar"
+										},
+										{
+											"test": "has_component",
+											"subject": "self",
+											"value": "minecraft:is_saddled"
+										}
+									]
+								}
+							},
+							"admire": true,
+							"use_item": true,
+							"cooldown": 10,
+							"interact_text": "action.interact.make_ice_cream"
+						},
+						{
+							"play_sounds": "plop",
+							"swing": true,
+							"interact_text": "action.interact.get_info",
+							"on_interact": {
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "feather"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "book"
+										}
+									]
+								},
+								"event": "send_info",
+								"target": "self"
 							}
 						},
-						"admire": true,
-						"use_item": true,
-						"cooldown": 10,
-						"interact_text": "action.interact.make_ice_cream"
-					},
-					{
-						"play_sounds": "plop",
-						"swing": true,
-						"interact_text": "action.interact.get_info",
-						"on_interact": {
-							"filters": {
-								"any_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "feather"
-									},
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "book"
-									}
-								]
-							},
-							"event": "send_info",
-							"target": "self"
-						}
-					},
-					{
-						"play_sounds": "plop",
-						"swing": true,
-						"interact_text": "action.interact.untame",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "billey:untaming_stick"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "untame",
-							"target": "self"
-						}
-					},
-					{
-						"play_sounds": "plop",
-						"swing": true,
-						"interact_text": "action.interact.wander",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "stick"
-									},
-									{
-										"test": "has_component",
-										"subject": "self",
-										"value": "minecraft:behavior.follow_owner"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "eventwander",
-							"target": "self"
-						}
-					},
-					{
-						"play_sounds": "plop",
-						"swing": true,
-						"interact_text": "action.interact.follow",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "stick"
-									},
-									{
-										"test": "has_component",
-										"subject": "self",
-										"operator": "not",
-										"value": "minecraft:behavior.follow_owner"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "eventfollow",
-							"target": "self"
-						}
-					},
-					{
-						"interact_text": "action.interact.pet",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"operator": "!=",
-										"value": "billey:swordfish"
-									},
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"operator": "!=",
-										"value": "billey:golden_swordfish"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_sleeping",
-										"subject": "self",
-										"value": false
-									},
-									{
-										"test": "is_sneaking",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "bepetted",
-							"target": "self"
-						}
-					},
-					{
-						"use_item": true,
-						"play_sounds": "eat",
-						"interact_text": "action.interact.feed",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "billey:sand_banana"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									}
-								]
-							},
-							"event": "beenfedabanana",
-							"target": "self"
-						}
-					},
-					{
-						"use_item": true,
-						"play_sounds": "milk",
-						"interact_text": "action.interact.use",
-						"transform_to_item": "glass_bottle",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "billey:colorful_bottle"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "kroma",
-							"target": "self"
-						}
-					},
-					{
-						"use_item": true,
-						"play_sounds": "milk",
-						"interact_text": "action.interact.use",
-						"transform_to_item": "glass_bottle",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "billey:colorless_bottle"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "nokroma",
-							"target": "self"
-						}
-					},
-					{
-						"use_item": true,
-						"play_sounds": "armor.equip_generic",
-						"interact_text": "action.interact.equip",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "billey:pet_hat"
-									},
-									{
-										"test": "has_component",
-										"subject": "self",
-										"operator": "not",
-										"value": "minecraft:is_saddled"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "wearhat",
-							"target": "self"
-						}
-					},
-					{
-						"use_item": true,
-						"play_sounds": "armor.equip_generic",
-						"interact_text": "action.interact.use",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "minecraft:dried_kelp"
-									},
-									{
-										"test": "has_component",
-										"subject": "self",
-										"value": "minecraft:is_saddled"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
-							},
-							"event": "blackstripehat",
-							"target": "self"
-						}
-					},
-					{
-						"use_item": false,
-						"play_sounds": "armor.equip_generic",
-						"spawn_items": {
-							"table": "loot_tables/entities/billeyhat.json"
+						{
+							"play_sounds": "plop",
+							"swing": true,
+							"interact_text": "action.interact.untame",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "billey:untaming_stick"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "untame",
+								"target": "self"
+							}
 						},
-						"interact_text": "action.interact.equip",
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "has_equipment",
-										"subject": "other",
-										"domain": "hand",
-										"value": "billey:pet_hat"
-									},
-									{
-										"test": "has_component",
-										"subject": "self",
-										"value": "minecraft:is_saddled"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "is_owner",
-										"subject": "other",
-										"value": true
-									}
-								]
+						{
+							"play_sounds": "plop",
+							"swing": true,
+							"interact_text": "action.interact.wander",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "stick"
+										},
+										{
+											"test": "has_component",
+											"subject": "self",
+											"value": "minecraft:behavior.follow_owner"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "eventwander",
+								"target": "self"
+							}
+						},
+						{
+							"play_sounds": "plop",
+							"swing": true,
+							"interact_text": "action.interact.follow",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "stick"
+										},
+										{
+											"test": "has_component",
+											"subject": "self",
+											"operator": "not",
+											"value": "minecraft:behavior.follow_owner"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "eventfollow",
+								"target": "self"
+							}
+						},
+						{
+							"interact_text": "action.interact.pet",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"operator": "!=",
+											"value": "billey:swordfish"
+										},
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"operator": "!=",
+											"value": "billey:golden_swordfish"
+										},
+										{
+											"test": "is_sneaking",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "bepetted",
+								"target": "self"
+							}
+						},
+						{
+							"use_item": true,
+							"play_sounds": "eat",
+							"interact_text": "action.interact.feed",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "billey:sand_banana"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								},
+								"event": "beenfedabanana",
+								"target": "self"
+							}
+						},
+						{
+							"use_item": true,
+							"play_sounds": "milk",
+							"interact_text": "action.interact.use",
+							"transform_to_item": "glass_bottle",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "billey:colorful_bottle"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "kroma",
+								"target": "self"
+							}
+						},
+						{
+							"use_item": true,
+							"play_sounds": "milk",
+							"interact_text": "action.interact.use",
+							"transform_to_item": "glass_bottle",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "billey:colorless_bottle"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "nokroma",
+								"target": "self"
+							}
+						},
+						{
+							"use_item": true,
+							"play_sounds": "armor.equip_generic",
+							"interact_text": "action.interact.equip",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "billey:pet_hat"
+										},
+										{
+											"test": "has_component",
+											"subject": "self",
+											"operator": "not",
+											"value": "minecraft:is_saddled"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "wearhat",
+								"target": "self"
+							}
+						},
+						{
+							"use_item": false,
+							"play_sounds": "armor.equip_generic",
+							"spawn_items": {
+								"table": "loot_tables/entities/billeyhat.json"
 							},
-							"event": "nohat",
-							"target": "self"
+							"interact_text": "action.interact.equip",
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "billey:pet_hat"
+										},
+										{
+											"test": "has_component",
+											"subject": "self",
+											"value": "minecraft:is_saddled"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "nohat",
+								"target": "self"
+							}
 						}
-					}
-				]},
+					]
+				},
 				"minecraft:behavior.stay_while_sitting": {
 					"priority": 1
 				},
@@ -1188,83 +1142,93 @@
 			}
 		},
 		"components": {
-			"minecraft:interact": [
-				{
-					"play_sounds": "plop",
-					"swing": true,
-					"interact_text": "action.interact.get_info",
-					"on_interact": {
-						"filters": {
-							"any_of": [
-								{
-									"test": "has_equipment",
-									"subject": "other",
-									"domain": "hand",
-									"value": "feather"
-								},
-								{
-									"test": "has_equipment",
-									"subject": "other",
-									"domain": "hand",
-									"value": "book"
-								}
-							]
-						},
-						"event": "send_info",
-						"target": "self"
-					}
-				}
-			],
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "play_sounds": "plop",
+                        "swing": true,
+                        "interact_text": "action.interact.get_info",
+                        "on_interact": {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "feather"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "book"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:info_book"
+                                    }
+                                ]
+                            },
+                            "event": "send_info",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
 			"minecraft:behavior.hurt_by_target": {
 				"priority": 0
 			},
 			"minecraft:is_hidden_when_invisible": {},
-			"minecraft:damage_sensor": [
-				{
-					"on_damage": {
-						"filters": {
-							"test": "has_equipment",
-							"subject": "other",
-							"domain": "hand",
-							"value": "billey:golden_swordfish"
-						}
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"domain": "hand",
+								"value": "billey:golden_swordfish"
+							}
+						},
+						"damage_multiplier": 2.333
 					},
-					"damage_multiplier": 2.333
-				},
-				{
-					"on_damage": {
-						"filters": {
-							"test": "has_equipment",
-							"subject": "other",
-							"domain": "hand",
-							"value": "billey:swordfish"
-						}
+					{
+						"on_damage": {
+							"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"domain": "hand",
+								"value": "billey:swordfish"
+							}
+						},
+						"damage_multiplier": 2.333
 					},
-					"damage_multiplier": 2.333
-				},
-				{
-					"cause": "all",
-					"deals_damage": false,
-					"on_damage_sound_event": "armor.equip_generic",
-					"on_damage": {
-						"event": "nohat",
-						"target": "self",
-						"filters": {
-							"all_of": [
-								{
-									"test": "has_damage",
-									"operator": "not",
-									"value": "magic"
-								},
-								{
-									"test": "has_component",
-									"value": "minecraft:is_saddled"
-								}
-							]
+					{
+						"cause": "all",
+						"deals_damage": false,
+						"on_damage_sound_event": "armor.equip_generic",
+						"on_damage": {
+							"event": "nohat",
+							"target": "self",
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_damage",
+										"operator": "not",
+										"value": "magic"
+									},
+									{
+										"test": "has_component",
+										"value": "minecraft:is_saddled"
+									}
+								]
+							}
 						}
 					}
-				}
-			],
+				]
+			},
 			"minecraft:type_family": {
 				"family": [
 					"penguin",
@@ -1425,8 +1389,7 @@
 			"minecraft:behavior.look_at_player": {
 				"probability": 0.01,
 				"priority": 7,
-				"look_distance": 6,
-				"probability": 0.02
+				"look_distance": 6
 			},
 			"minecraft:behavior.random_look_around": {
 				"priority": 8
@@ -2173,14 +2136,14 @@
 			},
 			"untame": {
 				"sequence": [
-                    {
-                        "queue_command": {
-                            "command": [
-                                "playsound random.orb @a ~~~ 1.00 0.8 0.5",
-                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.untame\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.untame2\"}] }"
-                            ]
-                        }
-                    },
+					{
+						"queue_command": {
+							"command": [
+								"playsound random.orb @a ~~~ 1.00 0.8 0.5",
+								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.untame\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.untame2\"}] }"
+							]
+						}
+					},
 					{
 						"remove": {
 							"component_groups": [

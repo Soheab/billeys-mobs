@@ -2,6 +2,8 @@
 //velvet slime blocks were suggested by someone who constantly changes his discord name
 //at the time of writing this his name was "DeletedUser" but he's known as Dark
 //in my discord server
+
+//Edit 3 years later: He either deleted or abandonded all of his known social media a while ago.
 {
     "format_version": "1.16.0",
     "minecraft:entity": {
@@ -2505,8 +2507,7 @@
             },
             "tamed_component": {
                  "minecraft:is_tamed": {},
-                "minecraft:tameable": {
-                }
+                "minecraft:tameable": {} //for the script to be able to get and set owner
             },
             "untamed": {
                  "minecraft:tameable": {

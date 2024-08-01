@@ -374,8 +374,7 @@
                     ]
                 },
                 "minecraft:is_tamed": {},
-                "minecraft:tameable": {
-                }
+                "minecraft:tameable": {} //for the script to be able to get and set owner
             }
         },
         "components": {
@@ -389,6 +388,9 @@
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:experience_reward": {
                 "on_death": "q.last_hit_by_player ? Math.Random(1,3) : 0"
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 2
             },
             "minecraft:behavior.nearest_attackable_target": {
                 "priority": 0,
@@ -446,6 +448,24 @@
                 ]
             },
             "minecraft:interact": [
+                {
+                    "play_sounds": "shear",
+                    "swing": true,
+                    "use_item": false,
+                    "hurt_item": 1,
+                    "cooldown": 5,
+                    "interact_text": "action.interact.use",
+                    "on_interact": {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "other",
+                            "domain": "hand",
+                            "value": "billey:catfish_syringe"
+                        },
+                        "event": "syringe_used",
+                        "target": "self"
+                    }
+                },
                 {
                     "play_sounds": "plop",
                     "swing": true,
@@ -861,6 +881,21 @@
             "minecraft:nameable": {}
         },
         "events": {
+            "syringe_used": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": "scriptevent billey:set_catfish_injector",
+                            "target": "other"
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": "scriptevent billey:catfish_syringe_used"
+                        }
+                    }
+                ]
+            },
             "add_sittable": {
                 "add": {
                     "component_groups": [

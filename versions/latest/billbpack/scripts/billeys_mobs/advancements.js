@@ -1,8 +1,11 @@
 //file currently mostly unused
-import { world, system, ItemStack, Player } from '@minecraft/server';
-import { ActionFormData, FormResponse } from '@minecraft/server-ui';
-import { playSound } from './utility';
+import { world, system, ItemStack, Player } from "@minecraft/server";
+import { ActionFormData, FormResponse } from "@minecraft/server-ui";
+import { playSound } from "./utility";
 
+/**
+ * @type {{name: string; icon: string; xp: number; powerBananas: number; isChallenge: boolean; completionMessage?: string | undefined;}}
+ */
 const advancements = [
     {
         name: "golden_duck",

@@ -1,5 +1,5 @@
-import { Entity, Player, world } from '@minecraft/server';
-import { playSound } from './utility';
+import { Entity, Player, world, system } from "@minecraft/server";
+import { playSound } from "./utility";
 
 /**
  * @param {Entity} projectile
@@ -116,17 +116,10 @@ world.afterEvents.entityLoad.subscribe(({ entity }) => {
 		});
 		entity.setDynamicProperty("center_on_load", undefined);
 	}*/
-	if (entity.getDynamicProperty("kill_on_load")) {
+	if (entity.getDynamicProperty("kill_on_load"))
 		entity.kill();
-	}
 	if (entity.getDynamicProperty("looking_for_owner")) {
-		/**
-		* @type {string}
-		*/
 		const id = entity.getDynamicProperty("owner_id");
-		/**
-		 * @type {string}
-		 */
 		const name = entity.getDynamicProperty("owner_name");
 		const players = world.getAllPlayers();
 		let player = players.find(p => p.id == id);
@@ -141,6 +134,16 @@ world.afterEvents.entityLoad.subscribe(({ entity }) => {
 				entity.setDynamicProperty("looking_for_owner", undefined);
 			}
 		}
+		/*
+		Some mobs sat when turning back into themselves 
+		after the rat king turning them into a rat, which might make some people
+		think their pet disappeared.
+		The 2 lines below make the pet stand up
+		*/
+		system.run(() => {
+			entity.triggerEvent("remove_sittable");
+			system.run(() => entity.triggerEvent("add_sittable"))
+		});
 	}
 });
 

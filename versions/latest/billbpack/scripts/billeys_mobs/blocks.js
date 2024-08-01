@@ -1,5 +1,5 @@
-import { world, BlockPermutation } from '@minecraft/server';
-import { playSound } from './utility';
+import { world, BlockPermutation } from "@minecraft/server";
+import { playSound } from "./utility";
 
 
 world.beforeEvents.worldInitialize.subscribe(({ blockTypeRegistry }) => {

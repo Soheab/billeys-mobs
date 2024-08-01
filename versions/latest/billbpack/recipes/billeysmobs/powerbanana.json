@@ -5,7 +5,7 @@
       "identifier": "billey:power_banana"
       },
       "tags": [ "crafting_table" ],
-      "group": "pickletrizer",
+      "group": "what_does_this_do",
       "pattern": [
         "gdg",
         "dbd",

@@ -320,12 +320,12 @@
 			"start_delay": "math.random(0,2)",
 			"loop": true,
 			"timeline": {
-				"0.0": "/execute @a[r=10,tag=!billeyinfocatfish] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.catfish\"}]}",
-				"0.05": "/execute @a[r=10,tag=!billeyinfocatfish] ~~~ playsound random.orb @s",
-				"0.1": "/tag @a[r=10,tag=!billeyinfocatfish] add billeyinfocatfish",
+				"0.0": "/execute @a[r=10,tag=!billeyinfocatfish_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.catfish\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfocatfish_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfocatfish_v2] add billeyinfocatfish_v2",
 				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
-				"7.0": "/execute @a[r=10,tag=billeyinfocatfish,tag=!billeyinfocatfish2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.formore\"}]}",
-				"7.05": "/tag @a[r=10,tag=billeyinfocatfish,tag=!billeyinfocatfish2] add billeyinfocatfish2"
+				"7.0": "/execute @a[r=10,tag=billeyinfocatfish_v2,tag=!billeyinfocatfish2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfocatfish_v2,tag=!billeyinfocatfish2] add billeyinfocatfish2"
 			}
 		},
 		"animation.billeyinfo.hammerhead_shark": {

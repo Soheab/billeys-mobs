@@ -379,6 +379,15 @@
     },
     "billey.rat_crown": {
       "textures": "textures/billeyitems/rat_crown"
+    },
+    "billey.catfish_syringe": {
+      "textures": "textures/billeyitems/catfish_syringe"
+    },
+    "billey.catfish_blood": {
+      "textures": "textures/billeyitems/catfish_blood"
+    },
+    "billey.catfish_antibodies": {
+      "textures": "textures/billeyitems/catfish_antibodies"
     }
     //stfu blockception extension
   }

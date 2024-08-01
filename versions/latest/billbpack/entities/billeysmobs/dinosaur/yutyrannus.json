@@ -889,16 +889,6 @@
                 }
             },
             "wild": {
-                "minecraft:tameable": {
-                    "probability": 1.0,
-                    "tame_event": {
-                        "event": "on_tame",
-                        "target": "self"
-                    },
-                    "tame_items": [
-                        "billey:power_banana"
-                    ]
-                },
                 "minecraft:despawn": {
                     "despawn_from_distance": {},
                     "remove_child_entities": true
@@ -1107,6 +1097,16 @@
                 "minecraft:on_target_escape": {
                     "event": "calmery",
                     "target": "self"
+                },
+                "minecraft:tameable": {
+                    "probability": 1.0,
+                    "tame_event": {
+                        "event": "on_tame",
+                        "target": "self"
+                    },
+                    "tame_items": [
+                        "billey:power_banana"
+                    ]
                 },
                 "minecraft:health": {
                     "value": 200,

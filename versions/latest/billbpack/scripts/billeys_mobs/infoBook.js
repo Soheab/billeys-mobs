@@ -1,6 +1,6 @@
-import { world, ItemStack } from '@minecraft/server';
-import { ActionFormData } from '@minecraft/server-ui';
-import { showAdvancementForm } from './advancements';
+import { world, ItemStack } from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
+import { showAdvancementForm } from "./advancements";
 
 /**
  * @type {{id: string; category: string[] | string;}[]}
@@ -212,11 +212,10 @@ world.afterEvents.itemUse.subscribe(({ itemStack, source: player }) => {
 		});
 		form.show(player).then(({ canceled, selection }) => {
 			if (!canceled) {
-
 				/**
 				 * @type {string}
 				*/
-				const c = categories[selection * 1];
+				const c = categories[selection];
 
 				//if the player chose advancements then stop this lambda
 				//and show the advancement form instead
@@ -239,6 +238,9 @@ world.afterEvents.itemUse.subscribe(({ itemStack, source: player }) => {
 				});
 				form.show(player).then(({ canceled, selection }) => {
 					if (!canceled) {
+						/** 
+						 * @type {string}
+						 */
 						const mob = mobs[selection * 1];
 						player.sendMessage({
 							rawtext: [
@@ -249,11 +251,11 @@ world.afterEvents.itemUse.subscribe(({ itemStack, source: player }) => {
 								}
 							]
 						});
-						const randomTipNumber = Math.floor(Math.random() * tipCount) + 1;
+						const tipNumber = player.getDynamicProperty("next_tip") ?? 1;
 						player.sendMessage({
 							rawtext: [
 								{ text: "\n" },
-								{ translate: "chat.billeyinfo.tip" + randomTipNumber },
+								{ translate: "chat.billeyinfo.tip" + tipNumber },
 								{ text: "\n\n§fOpen the chat to read " },
 								{ translate: `entity.billey:${mob.id}.name` },
 								{ text: "'s info." }
@@ -261,6 +263,10 @@ world.afterEvents.itemUse.subscribe(({ itemStack, source: player }) => {
 								translateable but eventually i gave up*/
 							]
 						});
+						if (tipNumber == tipCount)
+							player.setDynamicProperty("next_tip", 1);
+						else
+							player.setDynamicProperty("next_tip", tipNumber + 1);
 					}
 				});
 			}

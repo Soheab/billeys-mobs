@@ -1,5 +1,5 @@
-import { world, system, Player, Entity } from '@minecraft/server';
-import { add, normalize, subtract, validateHeightOf } from './utility';
+import { world, system, Player, Entity } from "@minecraft/server";
+import { add, normalize, subtract, validateHeightOf } from "./utility";
 
 system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) => {
     if (!entity?.isValid()) return;
@@ -101,11 +101,19 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
         tags: ["tamed"]
     }));
     if (rats.length < 7) return;
-    //TODO: optimize this
+    for (const rat of rats) {
+        /*
+        save the variant of the rats as a temporary custom
+        property so that getComponent is only called 7 times instead of 42.
+        Hopefully helps with performance
+        */
+        rat.variant = rat.getComponent("variant").value;
+    }
+    //TODO: optimize this more with system.runJob
     for (const rat of rats) for (const otherRat of rats) {
         if (rat == otherRat) 
             continue;
-        if (rat.typeId == otherRat.typeId && variantOf(rat) == variantOf(otherRat))
+        if (rat.typeId == otherRat.typeId && rat.variant == otherRat.variant)
             return;
     }
     let unnamedRatAmount = 0;
@@ -128,12 +136,3 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
         world.sendMessage(unnamedRatAmount + " unnamed rats were sacrificed to the Rat King by " + player.name);
     dimension.spawnEntity("billey:rat_king", location);
 });
-
-/**
- * @param {Entity} entity
- * @throws Throws if the entity doesn't have the variant component.
- * @returns {number} The variant of the entity.
- */
-function variantOf(entity) {
-    return entity.getComponent("variant").value;
-}

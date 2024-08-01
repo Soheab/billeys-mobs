@@ -1,5 +1,5 @@
-import { world, ItemStack, system, GameMode, Entity, Player } from '@minecraft/server';
-import { addItemToPigeon, pigeonUI } from './pigeonMission';
+import { world, ItemStack, system, GameMode, Entity, Player } from "@minecraft/server";
+import { addItemToPigeon, pigeonUI } from "./pigeonMission";
 
 const lvl10XP = 10 * 810 //xp_level10
 
