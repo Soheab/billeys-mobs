@@ -1,0 +1,101 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:penguin",
+			"materials": {
+				"default": "skeleton",
+				"dyeable": "cat"
+			},
+			"textures": {
+				"adelie": "textures/entity/bill/penguin_adelie",
+				"adelie1": "textures/entity/bill/penguin_adelie1",
+				"emperor": "textures/entity/bill/penguin_emperor",
+				"emperor1": "textures/entity/bill/penguin_emperor1",
+				"humboldt": "textures/entity/bill/penguin_humboldt",
+				"humboldt1": "textures/entity/bill/penguin_humboldt1",
+				"little": "textures/entity/bill/penguin_little",
+				"little1": "textures/entity/bill/penguin_little1",
+				"hat": "textures/entity/bill/rat"
+			},
+			"geometry": {
+				"adelie": "geometry.billpenguin_adelie",
+				"emperor": "geometry.billpenguin_emperor",
+				"humboldt": "geometry.billpenguin_humboldt",
+				"little": "geometry.billpenguin_little",
+				"adeliehat": "geometry.billpenguin_adeliehat",
+				"emperorhat": "geometry.billpenguin_emperorhat",
+				"humboldthat": "geometry.billpenguin_humboldthat",
+				"littlehat": "geometry.billpenguin_littlehat"
+			},
+			"animations": {
+				"new": "animation.billduckproj.body",
+				"hurt": "animation.billcat.hurt",
+				"look": "animation.common.look_at_target",
+				"controller.eat": "controller.animation.billey.eat",
+				"bob": "animation.humanoid.bob",
+				"controller.movement": "controller.animation.billey.penguin_movement",
+				"controller.should_crawl": "controller.animation.billey.should_crawl",
+				"walk": "animation.billpenguin.walk",
+				"swim_pose": "animation.billpenguin.swim_pose",
+				"swim": "animation.billpenguin.swim",
+				"crawl_pose": "animation.billpenguin.crawl_pose",
+				"crawl_move": "animation.billpenguin.crawl_move",
+				"fix_emperor": "animation.billpenguin.fix_emperor",
+				"angry": "animation.billpenguin.angry",
+				"sit": "animation.billpenguin.sit",
+				"sit_emperor": "animation.billpenguin.sit_emperor",
+				"baby": "animation.billpenguin.baby",
+				"eat": "animation.billpenguin.eat",
+				"controller.admire": "controller.animation.billey.simple_admire",
+				"admire": "animation.billpenguin.cook"
+			},
+			"scripts": {
+				"initialize": [
+					"v.should_crawl=q.is_powered;",
+					"v.crawl_stop_time=0;",
+					"v.swim_stop_time=0;"
+				],
+				"pre_animation": [
+					"v.sitting=q.is_admiring || (q.is_sitting&&q.is_alive&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target));",
+					"v.swimming=(q.is_swimming || (q.is_in_water && q.is_moving));"
+				],
+				"animate": [
+					"new",
+					"bob",
+					"controller.should_crawl",
+					"controller.movement",
+					"controller.swim",
+					"controller.eat",
+					{
+						"hurt": "q.health < q.max_health"
+					},
+					{
+						"baby": "q.is_baby"
+					},
+					{
+						"angry": "!q.is_baby && q.has_target && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+					},
+					{
+						"look": "!q.is_swimming"
+					},
+					{
+						"hurt": "q.health < q.max_health"
+					},
+					"controller.admire"
+				]
+			},
+			"render_controllers": [
+				{
+					"controller.render.billpenguinhat": "q.is_saddled"
+				},
+				"controller.render.billpenguin"
+				//in the duck file
+			],
+			"spawn_egg": {
+				"overlay_color": "#c76172",
+				"base_color": "#2e2f33"
+			}
+		}
+	}
+}
