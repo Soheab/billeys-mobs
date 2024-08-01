@@ -168,7 +168,7 @@ def create_tag(version: str) -> None:
         f"git push origin v{version}",
     ]
 
-    #os.system(" && ".join(commands))
+    os.system(" && ".join(commands))
     print(f"Tag created for: v{version}")
 
 
