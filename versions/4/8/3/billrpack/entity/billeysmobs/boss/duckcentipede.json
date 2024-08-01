@@ -1,0 +1,136 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:duck_centipede",
+        "materials": {
+          "default": "skeleton",
+          "dyeable": "cat",
+          "cat": "cat",
+          "skeleton": "skeleton"
+        },
+        "textures": {
+          "white": "textures/entity/bill/duck",
+          "brown": "textures/entity/bill/duck2",
+          "golden": "textures/entity/bill/duck1",
+          "whiteling": "textures/entity/bill/duck3",
+          "brownling": "textures/entity/bill/duck4",
+          "mandarin": "textures/entity/bill/duck12",
+          "blue": "textures/entity/bill/duck14",
+          "black": "textures/entity/bill/duck15",
+          "head": "textures/entity/bill/duck16",
+          "whole": "textures/entity/bill/duck17",
+          "leather": "textures/entity/bill/duckleather",
+          "gold": "textures/entity/bill/duckgold",
+          "chain": "textures/entity/bill/duckchain",
+          "iron": "textures/entity/bill/duckiron",
+          "diamond": "textures/entity/bill/duckdiamond",
+          "chest": "textures/entity/bill/billduckchest",
+          "centipedehat": "textures/entity/bill/hat",
+          "endrodpetarmor": "textures/entity/bill/endrodarmor",
+          "default": "textures/entity/bill/hat",
+          "netherite": "textures/entity/bill/ducknetherite"
+        },
+        "geometry": {
+          "default": "geometry.billduck2",
+          "chest": "geometry.billduckchest",
+          "hatcenti": "geometry.billduckhat",
+          "armor": "geometry.billduckarmor",
+          "endrod": "geometry.billduckendrod"
+        },
+        "particle_effects": {
+          "zeelol": "billey:zeeduck"
+        },
+        "animations": {
+          "hurt": "animation.billduck.hurt",
+          "move": "animation.billduck.walk",
+          "sit": "animation.billduck.sit",
+          "swim": "animation.billduck.swim",
+          "look_at_target": "animation.billduck.look_at_target",
+          "look_at_target_baby": "animation.billduckling.look_at_target",
+          "baby_transform": "animation.billduck.ling",
+          "flap_wings": "animation.billduck.fall",
+          "quack": "animation.billduck.quack",
+          "quackbaby": "animation.billduck.quackbaby",
+          "sheared": "animation.billduck.flap",
+          "eat": "animation.billduck.eat",
+          "angry": "animation.billduck.angry",
+          "diphead": "animation.billduck.pickupbread",
+          "sleep": "animation.billduck.sleep",
+          "centipede": "animation.billduck.centipede",
+          "mandarin": "animation.billduck.mandarin",
+          "controller.sit": "controller.animation.billey.sit",
+          "controller.quack": "controller.animation.billey.quack",
+          "controller.quackbaby": "controller.animation.billey.quackbaby",
+          "controller.eat": "controller.animation.billey.eat",
+          "controller.swim": "controller.animation.billey.swim",
+          "controller.sleep": "controller.animation.billey.sleep",
+          "angrycon": "controller.animation.billey.duckangry",
+          "ccentipede": "controller.animation.billey.centipede"
+        },
+        "sound_effects": {
+          "quack": "billey.duck.say",
+          "quackbaby": "billey.duck.saybaby"
+        },
+        "scripts": {
+          "animate": [
+            "ccentipede",
+            {
+              "hurt": "(query.health < query.max_health) && query.is_alive"
+            },
+            "angrycon",
+            {
+              "controller.eat": "!query.is_stunned"
+            },
+            {
+              "controller.swim": "!query.has_rider"
+            },
+            {
+              "look_at_target": "!query.is_baby ? 1 - variable.attack_time"
+            },
+            {
+              "controller.quack": "!query.is_baby && !query.is_alive && !query.has_target && !query.is_sleeping && query.health >= query.max_health"
+            },
+            {
+              "controller.quackbaby": "query.is_baby && !query.is_alive && !query.has_target && !query.is_sleeping && query.health >= query.max_health"
+            },
+            {
+              "mandarin": "!query.is_baby && query.variant == 3 && !query.has_target"
+            },
+            {
+              "look_at_target_baby": "query.is_baby - variable.attack_time"
+            },
+            {
+              "flap_wings": "!query.is_in_water && !query.is_saddled && !query.has_rider && !query.is_on_ground"
+            },
+            {
+              "move": "query.modified_move_speed * 1.5"
+            },
+            {
+              "baby_transform": "query.is_baby"
+            }
+           
+          ]
+        },
+        "render_controllers": [
+          "controller.render.billduckcentipede",
+          {
+            "controller.render.billduckarmor": "query.mark_variant > 0 && query.mark_variant != 7"
+          },
+          {
+            "controller.render.billduckendrod": "query.mark_variant == 7"
+          },
+          {
+            "controller.render.billcentipedehat": "query.is_saddled"
+          },
+          {
+            "controller.render.billduckchest": "query.is_chested"
+          }
+        ],
+        "spawn_egg": {
+          "overlay_color": "#FF2448",
+          "base_color": "#ffffff"
+        }
+      }
+    }
+  }
