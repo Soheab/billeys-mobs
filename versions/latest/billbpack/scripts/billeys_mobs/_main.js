@@ -14,6 +14,7 @@ import "./ratKing";
 import "./betterPetOwnerSaving";
 import "./mobEquipment";
 import "./catfishSyringe";
+import "./pygmyDunkleosteus";
 import { playSound } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
 

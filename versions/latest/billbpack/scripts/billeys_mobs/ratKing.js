@@ -104,12 +104,11 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
     for (const rat of rats) {
         /*
         save the variant of the rats as a temporary custom
-        property so that getComponent is only called 7 times instead of 42.
+        property so that getComponent is only called 7 times instead of 22.
         Hopefully helps with performance
         */
         rat.variant = rat.getComponent("variant").value;
     }
-    //TODO: optimize this more with system.runJob
     for (const rat of rats) for (const otherRat of rats) {
         if (rat == otherRat) 
             continue;

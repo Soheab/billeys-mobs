@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "billey:penguin",
 			"materials": {
-				"default": "skeleton",
+				"default": "entity_alphatest",
 				"dyeable": "cat"
 			},
 			"textures": {

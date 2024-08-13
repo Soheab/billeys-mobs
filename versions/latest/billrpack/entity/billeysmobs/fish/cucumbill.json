@@ -4,7 +4,7 @@
     "description": {
       "identifier": "billey:cucumbeel",
       "materials": {
-        "default": "skeleton"
+        "default": "entity_alphatest"
       },
       "textures": {
         "cucumbeel": "textures/entity/bill/cucumbeel",

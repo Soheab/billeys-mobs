@@ -1,4 +1,4 @@
-import { world, ItemStack, system, EquipmentSlot, Player, Container, Dimension, Entity, GameMode } from "@minecraft/server";
+import { ItemStack, Player, Container, Dimension, Entity } from "@minecraft/server";
 
 export const headPets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern"];
 export const ridePets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern", "billey:pigeon"];
@@ -8,6 +8,23 @@ export const detrimentalEffects = ["weakness", "hunger", "levitation", "blindnes
 export const duckArmors = ["no", "leather", "golden", "chain", "iron", "diamond", "netherite", "endrod"];
 
 /**
+ * @param {string} str 
+ */
+export function titleCase(str) {
+	return str.replace(
+		/\w\S*/g,
+		text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+	);
+}
+
+/**
+ * @param {ItemStack} item 
+ */
+export function itemEnglishName(item) {
+	return titleCase(item.typeId.replaceAll("_", " ").split(":")[1]);
+}
+
+/**
  * @param {Entity} entity 
  * @param {import('@minecraft/server').Vector3|undefined} y 
  */
@@ -15,6 +32,19 @@ export function validateHeightOf(entity, y) {
 	y ??= entity.location.y;
 	const { min, max } = entity.dimension.heightRange;
 	return y > min && y < max;
+}
+
+/**
+ * @param {Entity} entity 
+ * @returns {import('@minecraft/server').RawMessage}
+ */
+export function nameOf(entity) {
+	if (entity.nameTag) return {
+		text: entity.nameTag
+	};
+	else return {
+		translate: `entity.${entity.typeId}.name`
+	};
 }
 
 /** 
@@ -87,14 +117,16 @@ export function damageItem(entity, amount) {
 
 /**
  * @param {Player} player 
+ * @returns True if the item stack was decremented to nothing(the player had 1 in their hand).
  */
 export function decrementStack(player) {
-	if (player.getGameMode() == "creative") return;
+	if (player.getGameMode() == "creative") return false;
 	const slot = player.getComponent("equippable").getEquipmentSlot("Mainhand");
 	let item = slot.getItem();
 	if (item.amount == 1) item = undefined;
 	else item.amount--;
-	system.run(() => slot.setItem(item));
+	system.run(()=>slot.setItem(item));
+	return !item;
 }
 
 export function magnitude(vector) {

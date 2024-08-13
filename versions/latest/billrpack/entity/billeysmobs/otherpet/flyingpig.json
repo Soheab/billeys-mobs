@@ -3,7 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "billey:flyingpig",
-      "materials": { "default": "skeleton" },
+      "materials": { "default": "entity_alphatest" },
       "textures": {
         "default": "textures/entity/bill/fpig",
         "angry": "textures/entity/bill/fpig1"

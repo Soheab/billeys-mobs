@@ -4,7 +4,7 @@
     "description": {
       "identifier": "billey:duck",
       "materials": {
-        "default": "skeleton",
+        "default": "entity_alphatest",
         "skeleton": "skeleton",
         "dyeable": "cat",
         "cat": "cat"

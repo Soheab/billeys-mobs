@@ -536,17 +536,17 @@
 				"7.05": "/tag @a[r=10,tag=billeyinfonetherrat,tag=!billeyinfonetherrat2] add billeyinfonetherrat2"
 			}
 		},
-		"animation.billeyinfo.duckatrice": {
+		"animation.billeyinfo.pygmy_dunkleosteus": {
 			"animation_length": 40.0,
 			"start_delay": "math.random(0,2)",
 			"loop": true,
 			"timeline": {
-				"0.0": "/execute @a[r=10,tag=!billeyinfoduckatrice] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.duckatrice\"}]}",
-				"0.05": "/execute @a[r=10,tag=!billeyinfoduckatrice] ~~~ playsound random.orb @s",
-				"0.1": "/tag @a[r=10,tag=!billeyinfoduckatrice] add billeyinfoduckatrice",
+				"0.0": "/execute @a[r=10,tag=!billeyinfopygmy_dunkleosteus] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.pygmy_dunkleosteus\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopygmy_dunkleosteus] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopygmy_dunkleosteus] add billeyinfopygmy_dunkleosteus",
 				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
-				"7.0": "/execute @a[r=10,tag=billeyinfoduckatrice,tag=!billeyinfoduckatrice2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.formore\"}]}",
-				"7.05": "/tag @a[r=10,tag=billeyinfoduckatrice,tag=!billeyinfoduckatrice2] add billeyinfoduckatrice2"
+				"7.0": "/execute @a[r=10,tag=billeyinfopygmy_dunkleosteus,tag=!billeyinfopygmy_dunkleosteus2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopygmy_dunkleosteus,tag=!billeyinfopygmy_dunkleosteus2] add billeyinfopygmy_dunkleosteus2"
 			}
 		}
 	}

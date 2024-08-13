@@ -4,7 +4,7 @@
       "description": {
         "identifier": "billey:duck_centipede",
         "materials": {
-          "default": "skeleton",
+          "default": "entity_alphatest",
           "dyeable": "cat",
           "cat": "cat",
           "skeleton": "skeleton"

@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "billey:orange_penguin",
 			"materials": {
-				"default": "skeleton",
+				"default": "entity_alphatest",
 				"cat": "cat"
 			},
 			"textures": {

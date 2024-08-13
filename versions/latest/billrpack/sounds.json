@@ -1246,6 +1246,32 @@
           "attack": "mob.phantom.bite",
           "swoop": "mob.phantom.swoop"
         }
+      },
+      "billey:pygmy_dunkleosteus": {
+        "events": {
+          "flop": {
+            "pitch": 1.0,
+            "sound": "mob.fish.flop",
+            "volume": 1.0
+          },
+          "hurt": "mob.fish.hurt",
+          "hurt.in.water": "mob.fish.hurt",
+          "step": {
+            "pitch": 1.0,
+            "sound": "mob.fish.step",
+            "volume": 0.150
+          },
+          "death": {
+            "pitch": [0.75, 0.85],
+            "sound": "billey.fish.die",
+            "volume": 0.150
+          }
+        },
+        "pitch": [
+          0.80,
+          1.20
+        ],
+        "volume": 1.0
       }
     }
   }

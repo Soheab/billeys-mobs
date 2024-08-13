@@ -3,7 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "billey:picklepet",
-      "materials": { "default": "skeleton" },
+      "materials": { "default": "entity_alphatest" },
       "textures": {
         "s1": "textures/entity/bill/picklepet"
       },

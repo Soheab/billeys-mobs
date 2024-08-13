@@ -4,7 +4,7 @@
     "description": {
       "identifier": "billey:catfish",
       "materials": {
-        "default": "skeleton"
+        "default": "entity_alphatest"
       },
       "textures": {
         "zero": "textures/entity/bill/billcatfish",
@@ -17,6 +17,7 @@
         "seven": "textures/entity/bill/billcatfish7",
         "eight": "textures/entity/bill/billcatfish8",
         "nine": "textures/entity/bill/billcatfish9",
+        "ten": "textures/entity/bill/billcatfish10",
         "pizza": "textures/entity/bill/billcatfishpizza"
       },
       "geometry": {

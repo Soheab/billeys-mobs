@@ -7,11 +7,14 @@
             "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
-                    {"info":"!q.is_tamed"},
+                    {
+                        "info": "!q.is_tamed"
+                    },
                     "tame"
                 ]
             },
@@ -68,7 +71,7 @@
             },
             "following": {
                 "minecraft:behavior.follow_owner": {
-					"can_teleport": false,
+                    "can_teleport": false,
                     "priority": 4,
                     "speed_multiplier": 1.25,
                     "start_distance": 7,
@@ -356,6 +359,11 @@
                                         "test": "has_component",
                                         "subject": "other",
                                         "value": "minecraft:is_charged"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "pygmy_dunk"
                                     }
                                 ]
                             },
@@ -366,9 +374,19 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "eatscod"
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "eatscod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "pygmy_dunk"
+                                    }
+                                ]
                             },
                             "event": "minecraft:die1"
                         },
@@ -612,9 +630,19 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "eatscod"
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "eatscod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "pygmy_dunk"
+                                    }
+                                ]
                             },
                             "event": "minecraft:die2"
                         },
@@ -856,9 +884,19 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "eatscod"
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "eatscod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "pygmy_dunk"
+                                    }
+                                ]
                             },
                             "event": "minecraft:die3"
                         },
@@ -1100,9 +1138,19 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "eatscod"
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "eatscod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "pygmy_dunk"
+                                    }
+                                ]
                             },
                             "event": "minecraft:die4"
                         },
@@ -1344,9 +1392,19 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "eatscod"
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "eatscod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "pygmy_dunk"
+                                    }
+                                ]
                             },
                             "event": "minecraft:die5"
                         },
@@ -1593,9 +1651,19 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "eatscod"
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "eatscod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "pygmy_dunk"
+                                    }
+                                ]
                             },
                             "event": "minecraft:die7"
                         },
@@ -1772,6 +1840,13 @@
                 }
             },
             "tamed": {
+                "minecraft:type_family": {
+                    "family": [
+                        "pizzafish",
+                        "eatscod",
+                        "mob"
+                    ]
+                },
                 "minecraft:persistent": {},
                 "minecraft:leashable": {
                     "soft_distance": 6.0,
@@ -1780,12 +1855,12 @@
                 },
                 "minecraft:healable": {
                     "items": [
-                        
-                    {
-                        "item": "billey:poultry_orange",
-                        "heal_amount": 10
-                    },{
-                        "item": "billey:cooked_snail",
+                        {
+                            "item": "billey:poultry_orange",
+                            "heal_amount": 10
+                        },
+                        {
+                            "item": "billey:cooked_snail",
                             "heal_amount": 10,
                             "effects": [
                                 {
@@ -1908,13 +1983,6 @@
                     }
                 ]
             },
-            "minecraft:type_family": {
-                "family": [
-                    "pizzafish",
-                    "eatscod",
-                    "mob"
-                ]
-            },
             "minecraft:collision_box": {
                 "width": 0.5,
                 "height": 0.4
@@ -1965,9 +2033,7 @@
                 "interval": 60
             },
             "minecraft:attack": {
-                "damage": 1,
-                "effect_name": "speed",
-                "effect_duration": 10
+                "damage": 1
             },
             "minecraft:behavior.melee_attack": {
                 "require_complete_path": true,
@@ -2647,9 +2713,11 @@
             "tamed_yay": {
                 "queue_command": {
                     "target": "other",
-                    "command": ["tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                    "command": [
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
                         "tellraw @a[r=6,tag=!billeyinfotip1] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip1\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}","tag @a[r=6,tag=!billeyinfotip1] add billeyinfotip1"
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                        "tag @a[r=6,tag=!billeyinfotip1] add billeyinfotip1"
                     ]
                 },
                 "add": {

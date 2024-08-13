@@ -162,6 +162,10 @@ const billeysMobs = [
 		id: "rat_king",
 		category: ["boss", "recommended"]
 	},
+	{
+		id: "pygmy_dunkleosteus",
+		category: "water"
+	},
 	/*this list is mostly in the order the mobs were added
 	but i didn't want snails and angel pigs to be so high up
 	because they are shitty looking and goofy respectively.*/

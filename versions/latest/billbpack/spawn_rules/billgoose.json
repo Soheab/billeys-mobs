@@ -14,7 +14,7 @@
         "minecraft:spawns_underwater": {},
         "minecraft:brightness_filter": {
           "min": 0,
-          "max": 7,
+          "max": 11,
           "adjust_for_weather": false
         },
         "minecraft:weight": {

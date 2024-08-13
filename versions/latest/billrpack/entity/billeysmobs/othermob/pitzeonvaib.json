@@ -3,7 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "billey:pigeon_vibe",
-      "materials": { "default": "skeleton","cat": "cat" },
+      "materials": { "default": "entity_alphatest","cat": "cat" },
       "textures": {
         "default": "textures/entity/bill/pigeon",
         "hat": "textures/entity/bill/hat"

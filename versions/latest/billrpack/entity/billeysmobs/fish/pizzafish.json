@@ -3,7 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "billey:pizzafish",
-      "materials": { "default": "skeleton" },
+      "materials": { "default": "entity_alphatest" },
       "textures": {
 				"default": "textures/entity/bill/pizzafish"
 			},

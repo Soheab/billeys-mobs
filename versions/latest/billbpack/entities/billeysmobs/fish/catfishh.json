@@ -136,6 +136,11 @@
                     "value": 9
                 }
             },
+            "ten": {
+                "minecraft:variant": {
+                    "value": 10
+                }
+            },
             "dead": {
                 "minecraft:transformation": {
                     "into": "billey:despawn",
@@ -1319,6 +1324,14 @@
                                 "add": {
                                     "component_groups": [
                                         "nine"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "add": {
+                                    "component_groups": [
+                                        "ten"
                                     ]
                                 }
                             }

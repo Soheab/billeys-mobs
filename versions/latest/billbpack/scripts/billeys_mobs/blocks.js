@@ -2,8 +2,8 @@ import { world, BlockPermutation } from "@minecraft/server";
 import { playSound } from "./utility";
 
 
-world.beforeEvents.worldInitialize.subscribe(({ blockTypeRegistry }) => {
-	blockTypeRegistry.registerCustomComponent("billey:banana_peel", {
+world.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry }) => {
+	blockComponentRegistry.registerCustomComponent("billey:banana_peel", {
 		onStepOn: (({ entity, block }) => {
 			if (!entity.getComponent("is_tamed") && (entity.typeId != "minecraft:player" || block.typeId == "billey:banana_peel_player_block")) {
 				entity.addEffect("slowness", 20 * 2, { amplifier: 5 });
@@ -16,7 +16,7 @@ world.beforeEvents.worldInitialize.subscribe(({ blockTypeRegistry }) => {
 			}
 		})
 	});
-	blockTypeRegistry.registerCustomComponent("billey:on_step_on_beneficial", {
+	blockComponentRegistry.registerCustomComponent("billey:on_step_on_beneficial", {
 		onStepOn: (({ entity, block }) => {
 			if (entity.getComponent("is_tamed") || entity.typeId == "minecraft:player") {
 				switch (block.typeId) {
@@ -31,7 +31,7 @@ world.beforeEvents.worldInitialize.subscribe(({ blockTypeRegistry }) => {
 			}
 		})
 	});
-	blockTypeRegistry.registerCustomComponent("billey:on_step_on_detrimental", {
+	blockComponentRegistry.registerCustomComponent("billey:on_step_on_detrimental", {
 		onStepOn: (({ entity, block }) => {
 			if (!entity.getComponent("is_tamed") && entity.getComponent("type_family").hasTypeFamily("monster")) {
 				switch (block.typeId) {

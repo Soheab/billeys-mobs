@@ -279,12 +279,39 @@
                                 }
                             },
                             {
-                                "weight": 20,
+                                "weight": 10,
                                 "queue_command": {
                                     "command": [
                                         "summon salmon"
                                     ]
                                 }
+                            },
+                            {
+                                "sequence": [
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "swamp",
+                                            "operator": "not"
+                                        },
+                                        "queue_command": {
+                                            "command": [
+                                                "summon salmon"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "swamp"
+                                        },
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:tiktaalik"
+                                            ]
+                                        }
+                                    }
+                                ]
                             },
                             {
                                 "weight": 20,
@@ -304,21 +331,21 @@
                             }
                         ]
                     },
-					{
-						"randomize": [
-							{
-								"weight": 99
-							},
-							{
-								"weight": 1,
+                    {
+                        "randomize": [
+                            {
+                                "weight": 99
+                            },
+                            {
+                                "weight": 1,
                                 "queue_command": {
                                     "command": [
                                         "event entity @e[c=1,type=!billey:random_biome_fish,tag=!tamed] kroma"
                                     ]
                                 }
-							}
-						]
-					},
+                            }
+                        ]
+                    },
                     {
                         "add": {
                             "component_groups": [

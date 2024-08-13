@@ -2271,6 +2271,22 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "wear_armor": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "target": "other",
+                            "command": "scriptevent billey:set_duck_armor"
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            //"target": "self", is assumed when not providing one
+                            "command": "scriptevent billey:duck_equip_armor"
+                        }
+                    }
+                ]
+            },
             "add_sittable": {
                 "add": {
                     "component_groups": [

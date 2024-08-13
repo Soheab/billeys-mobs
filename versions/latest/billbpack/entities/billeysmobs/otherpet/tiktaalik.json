@@ -61,7 +61,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 1.5,
                     "reach_multiplier": 1,
                     "on_attack": {
@@ -85,7 +85,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 1.55,
                     "reach_multiplier": 1.05,
                     "on_attack": {
@@ -109,7 +109,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 1.6,
                     "reach_multiplier": 1.1,
                     "on_attack": {
@@ -133,7 +133,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 1.7,
                     "reach_multiplier": 1.15,
                     "on_attack": {
@@ -157,7 +157,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 1.8,
                     "reach_multiplier": 2.2,
                     "on_attack": {
@@ -181,7 +181,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 1.85,
                     "reach_multiplier": 2.25,
                     "on_attack": {
@@ -205,7 +205,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 1.9,
                     "reach_multiplier": 2.3,
                     "on_attack": {
@@ -229,7 +229,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 2.0,
                     "reach_multiplier": 2.35,
                     "on_attack": {
@@ -253,7 +253,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 2.05,
                     "reach_multiplier": 2.4,
                     "on_attack": {
@@ -277,7 +277,7 @@
                 "minecraft:behavior.melee_attack": {
                     "require_complete_path": true,
                     "track_target": true,
-                    "priority": 4,
+                    "priority": 2,
                     "speed_multiplier": 2.1,
                     "reach_multiplier": 2.5,
                     "on_attack": {
@@ -1456,7 +1456,7 @@
             },
             "minecraft:behavior.melee_attack": {
                 "require_complete_path": true,
-                "priority": 4,
+                "priority": 2,
                 "speed_multiplier": 1.5,
                 "reach_multiplier": 1,
                 "track_target": true,

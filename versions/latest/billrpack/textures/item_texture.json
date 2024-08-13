@@ -388,6 +388,9 @@
     },
     "billey.catfish_antibodies": {
       "textures": "textures/billeyitems/catfish_antibodies"
+    },
+    "billey.pygmy_dunkleosteus_scutes": {
+      "textures": "textures/billeyitems/pygmy_dunkleosteus_scutes"
     }
     //stfu blockception extension
   }

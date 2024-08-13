@@ -3,7 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "billey:hammerhead_shark",
-      "materials": { "default": "skeleton" },
+      "materials": { "default": "entity_alphatest" },
       "textures": {
         "normal": "textures/entity/bill/billhmrshark",
         "gay": "textures/entity/bill/billhmrsharkgray",

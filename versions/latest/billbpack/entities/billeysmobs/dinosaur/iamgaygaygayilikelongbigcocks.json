@@ -1,8 +1,8 @@
 {
     "format_version": "1.16.0",
-    //im not actually gay if youre wondering,
-    //it's just that orange penguins where made during the first days of the
-    //Russian 2022 Invasion of Ukraine, and a particular video got recommended to me
+    /*im not actually gay if youre wondering,
+    it's just that orange penguins where made during the first days of the
+    Russian 2022 Invasion of Ukraine, and a particular relevant video got recommended to me*/
     "minecraft:entity": {
         "description": {
             "identifier": "billey:orange_penguin",

@@ -46,7 +46,8 @@
 				//only used for mating animations
 				"billey:is_male": {
 					"type": "bool",
-					"default": false, //i dont remember why i set the default to false
+					"default": false, 
+					//i dont remember if there's a reason i set the default to false
 					"client_sync": true
 				},
 				"billey:mob_nearby": {
