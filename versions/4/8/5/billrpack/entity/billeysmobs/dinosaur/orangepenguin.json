@@ -1,0 +1,76 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:orange_penguin",
+			"materials": {
+				"default": "entity_alphatest",
+				"cat": "cat"
+			},
+			"textures": {
+				"zero": "textures/entity/bill/orangepenguin",
+				"one": "textures/entity/bill/orangepenguin1",
+				"two": "textures/entity/bill/orangepenguin2",
+				"three": "textures/entity/bill/orangepenguin3",
+				"four": "textures/entity/bill/orangepenguin4",
+				"five": "textures/entity/bill/orangepenguin5",
+				"hat": "textures/entity/bill/hat"
+			},
+			"geometry": {
+				"default": "geometry.billorangepenguin",
+				"hat": "geometry.billorangepenguinhat"
+			},
+			"animations": {
+				"new": "animation.billduckproj.body",
+				"move": "animation.billorange_penguin.walk",
+				"leaf_rotation": "animation.billorange_penguin.leaf_rotation",
+				"swim_not_angry": "animation.billorange_penguin.swim_not_angry",
+				"look_at_target": "animation.billorange_penguin.look_at_target",
+				"bob": "animation.humanoid.bob",
+				"angry": "animation.billorange_penguin.angry",
+				"sit": "animation.billorange_penguin.sit",
+				"gothurt": "animation.billorange_penguin.gothurt",
+				"hitcont": "controller.animation.billey.hitanim",
+				"hurt": "animation.billorange_penguin.hurt",
+				"baby_transform": "animation.billorange_penguin.baby2",
+				"controller.eat": "controller.animation.billey.eat",
+				"eat": "animation.billorange_penguin.eat",
+				"controller.sit": "controller.animation.billey.sit"
+			},
+			"scripts": {
+				"animate": [
+					"new",
+					"bob",
+					"hitcont",
+					"leaf_rotation",
+					"controller.sit",
+					"controller.eat",
+					{
+						"hurt": "(q.health < 16 * q.max_health / 30) && q.is_alive"
+					},
+						"look_at_target",
+					{
+						"baby_transform": "q.is_baby"
+					},
+					{
+						"angry": "!q.is_baby && q.has_target && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+					},
+					{
+						"move": "q.modified_move_speed * 1.5"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.billorangepenguin",
+				//in the betta fish file
+				{
+					"controller.render.billbduckhat": "q.is_powered"
+				}
+			],
+			"spawn_egg": {
+				"overlay_color": "#118101",
+				"base_color": "#D16800"
+			}
+		}
+	}
+}
