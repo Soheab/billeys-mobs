@@ -1,0 +1,22 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "billey:slime_wyvern_plushie",
+			"materials": {
+				"default": "armor",
+				"enchanted": "armor_enchanted"
+			},
+			"textures": {
+				"default": "textures/entity/bill/plushies/slime_wyvern",
+				"enchanted": "textures/misc/enchanted_item_glint"
+			},
+			"geometry": {
+				"default": "geometry.billslime_wyvern_plushie"
+			},
+			"render_controllers": [
+				"controller.render.armor"
+			]
+		}
+	}
+}
