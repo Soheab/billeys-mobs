@@ -5,7 +5,7 @@ import { world, system, Entity } from "@minecraft/server";
  * Adds the mob owner's name and id as dynamic properties so they can be accessed even when owner is offline.
  * Used for making pets remember their owner after being loaded by a script structure
  */
-function addOwnerAsDynamicProperty(mob) {
+export function addOwnerAsDynamicProperty(mob) {
     const tameable = mob.getComponent("tameable");
     if (!tameable)
         return world.sendMessage(mob.nameTag + " the " + mob.typeId.split(":")[1].replaceAll("_", " ") +

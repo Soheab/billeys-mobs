@@ -6,7 +6,13 @@
             "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
+                    {
+                        "set_follow_state": "q.is_tamed && q.property('billey:follow_owner_state') == 'unknown'"
+                    },
+                    {
+                        "set_sitting_property": "q.is_tamed"
+                    }, "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
@@ -29,6 +35,8 @@
             },
             "animations": {
                 "check_beta_apis": "animation.billey.check_beta_apis",
+                "set_follow_state": "animation.billey.set_follow_state",
+                "set_sitting_property": "controller.animation.billey.set_sitting_property",
                 "rainbow_effects": "animation.billey.rainbow_effects",
                 "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
                 "info": "animation.billeyinfo.slime_wyvern",
@@ -54,6 +62,21 @@
                         10
                     ],
                     "default": 1
+                },
+                "billey:follow_owner_state": {
+                    //only used so scripts can know whether it's following or wandering
+                    "type": "enum",
+                    "default": "unknown",
+                    "values": [
+                        "unknown",
+                        "following",
+                        "wandering"
+                    ]
+                },
+                "billey:is_sitting": {
+                    //only used so scripts can know whether or not it's sitting
+                    "type": "bool",
+                    "default": false
                 }
             }
         },
@@ -643,6 +666,10 @@
                 "minecraft:follow_range": {
                     "value": 20,
                     "max": 30
+                },
+                "minecraft:on_target_escape": {
+                    "event": "calmery",
+                    "target": "self"
                 },
                 "minecraft:angry": {
                     "duration": 30,
@@ -1431,6 +1458,54 @@
             "minecraft:damage_sensor": {
                 "triggers": [
                     {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "billey:can_hit_own_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_owner_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "value": "billey:cant_hit_other_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_other_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
                         "cause": "all",
                         "deals_damage": false,
                         "on_damage_sound_event": "armor.equip_generic",
@@ -1658,6 +1733,57 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "set_follow_state": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "operator": "not",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "set_sitting_property_false": {
+                "set_property": {
+                    "billey:is_sitting": false
+                }
+            },
+            "set_sitting_property_true": {
+                "set_property": {
+                    "billey:is_sitting": true
+                }
+            },
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                }
+            },
             "start_big": {
                 "add": {
                     "component_groups": [
@@ -1731,6 +1857,9 @@
                         "set_property": {
                             "billey:xp": "q.property('billey:xp') + 0.8"
                         }
+                    },
+                    {
+                        "trigger": "check_level"
                     }
                 ]
             },
@@ -1740,8 +1869,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "execute @s[tag=!billeycumadv] ~~~ function billeycumadv",
-                                "tag @s add billeycumadv"
+                                "execute @s[tag=!billeyadv_cum] ~~~ scriptevent billey:advancement cum"
                             ]
                         }
                     },
@@ -2215,7 +2343,8 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5",
+                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.oneshot\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}"
                             ]
                         }
                     }
@@ -2389,7 +2518,10 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5",
+                                "tag @s add billey:level10",
+                                "scriptevent billey:slime_wyvern_level_10",
+                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.slime_wyvern10\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}"
                             ]
                         }
                     }
@@ -2463,6 +2595,11 @@
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
                             ]
                         }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
                     }
                 ]
             },
@@ -2485,6 +2622,11 @@
                             "command": [
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
                             ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
                         }
                     }
                 ]
@@ -2602,6 +2744,26 @@
             },
             "bepetted": {
                 "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "operator": ">=",
+                                    "domain": "billey:level",
+                                    "value": 10
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "not",
+                                    "value": "billey:has_given_lvl10_adv"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": "scriptevent billey:slime_wyvern_level_10"
+                        }
+                    },
                     {
                         "filters": {
                             "all_of": [
@@ -2748,11 +2910,6 @@
                         }
                     },
                     {
-                        "filters": {
-                            "test": "has_component",
-                            "value": "minecraft:is_stunned",
-                            "operator": "not"
-                        },
                         "add": {
                             "component_groups": [
                                 "timer"

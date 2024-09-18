@@ -11,7 +11,13 @@
             "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
+                    {
+                        "set_follow_state": "q.is_tamed && q.property('billey:follow_owner_state') == 'unknown'"
+                    },
+                    {
+                        "set_sitting_property": "q.is_tamed"
+                    }, "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
@@ -30,6 +36,8 @@
             },
             "animations": {
                 "check_beta_apis": "animation.billey.check_beta_apis",
+                "set_follow_state": "animation.billey.set_follow_state",
+                "set_sitting_property": "controller.animation.billey.set_sitting_property",
                 "rainbow_effects": "animation.billey.rainbow_effects",
                 "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
                 "info": "animation.billeyinfo.goose",
@@ -38,6 +46,23 @@
                 "urwn": "controller.animation.billgoose.isholdingitem",
                 "eat": "controller.animation.billgoose.eat",
                 "can_sleep": "controller.animation.billey.can_sleep"
+            },
+            "properties": {
+                "billey:follow_owner_state": {
+                    //only used so scripts can know whether it's following or wandering
+                    "type": "enum",
+                    "default": "unknown",
+                    "values": [
+                        "unknown",
+                        "following",
+                        "wandering"
+                    ]
+                },
+                "billey:is_sitting": {
+                    //only used so scripts can know whether or not it's sitting
+                    "type": "bool",
+                    "default": false
+                }
             }
         },
         "component_groups": {
@@ -121,1107 +146,6 @@
                 "minecraft:behavior.follow_parent": {
                     "priority": 5,
                     "speed_multiplier": 1.1
-                }
-            },
-            "no_armor": {
-                "minecraft:mark_variant": {
-                    "value": 0
-                }
-            },
-            "leather_armor": {
-                "minecraft:color": {
-                    "value": 12
-                },
-                "minecraft:is_dyeable": {
-                    "interact_text": "action.interact.dye"
-                },
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "cause": "all",
-                            "damage_multiplier": 0.9
-                        },
-                        {
-                            "cause": "fall",
-                            "deals_damage": false
-                        }
-                    ]
-                },
-                "minecraft:interact": {
-                    "interactions": [
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.get_info",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "feather"
-                                        },
-                                        {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
-                                    ]
-                                },
-                                "event": "send_info",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "transform_to_item": "billey:leather_pet_armor",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeydirt.json"
-                            },
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "dirt"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "beno",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorful_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "kroma",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.untame",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:untaming_stick"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "untame",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorless_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nokroma",
-                                "target": "self"
-                            }
-                        }
-                    ]
-                },
-                "minecraft:mark_variant": {
-                    "value": 1
-                }
-            },
-            "golden_armor": {
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "cause": "all",
-                            "damage_multiplier": 0.8
-                        }
-                    ]
-                },
-                "minecraft:fire_immune": {},
-                "minecraft:mark_variant": {
-                    "value": 2
-                },
-                "minecraft:interact": {
-                    "interactions": [
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.get_info",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "feather"
-                                        },
-                                        {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
-                                    ]
-                                },
-                                "event": "send_info",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "transform_to_item": "billey:golden_pet_armor",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeydirt.json"
-                            },
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "dirt"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "beno",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorful_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "kroma",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.untame",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:untaming_stick"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "untame",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorless_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nokroma",
-                                "target": "self"
-                            }
-                        }
-                    ]
-                }
-            },
-            "chain_armor": {
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "cause": "all",
-                            "damage_multiplier": 0.75
-                        },
-                        {
-                            "cause": "fall",
-                            "deals_damage": false
-                        }
-                    ]
-                },
-                "minecraft:mark_variant": {
-                    "value": 3
-                },
-                "minecraft:interact": {
-                    "interactions": [
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.get_info",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "feather"
-                                        },
-                                        {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
-                                    ]
-                                },
-                                "event": "send_info",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "transform_to_item": "billey:chain_pet_armor",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeydirt.json"
-                            },
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "dirt"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "beno",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorful_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "kroma",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.untame",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:untaming_stick"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "untame",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorless_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nokroma",
-                                "target": "self"
-                            }
-                        }
-                    ]
-                }
-            },
-            "iron_armor": {
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "cause": "all",
-                            "damage_multiplier": 0.7
-                        },
-                        {
-                            "cause": "fall",
-                            "deals_damage": false
-                        }
-                    ]
-                },
-                "minecraft:mark_variant": {
-                    "value": 4
-                },
-                "minecraft:interact": {
-                    "interactions": [
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.get_info",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "feather"
-                                        },
-                                        {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
-                                    ]
-                                },
-                                "event": "send_info",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "transform_to_item": "billey:iron_pet_armor",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeydirt.json"
-                            },
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "dirt"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "beno",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorful_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "kroma",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.untame",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:untaming_stick"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "untame",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorless_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nokroma",
-                                "target": "self"
-                            }
-                        }
-                    ]
-                }
-            },
-            "diamond_armor": {
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "cause": "all",
-                            "damage_multiplier": 0.6
-                        },
-                        {
-                            "cause": "fall",
-                            "deals_damage": false
-                        }
-                    ]
-                },
-                "minecraft:mark_variant": {
-                    "value": 5
-                },
-                "minecraft:interact": {
-                    "interactions": [
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.get_info",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "feather"
-                                        },
-                                        {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
-                                    ]
-                                },
-                                "event": "send_info",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "transform_to_item": "billey:diamond_pet_armor",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeydirt.json"
-                            },
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "dirt"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "beno",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorful_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "kroma",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.untame",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:untaming_stick"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "untame",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorless_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nokroma",
-                                "target": "self"
-                            }
-                        }
-                    ]
-                }
-            },
-            "netherite_armor": {
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "cause": "all",
-                            "damage_multiplier": 0.5
-                        },
-                        {
-                            "cause": "fall",
-                            "deals_damage": false
-                        }
-                    ]
-                },
-                "minecraft:mark_variant": {
-                    "value": 6
-                },
-                "minecraft:interact": {
-                    "interactions": [
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.get_info",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "feather"
-                                        },
-                                        {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
-                                    ]
-                                },
-                                "event": "send_info",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "transform_to_item": "billey:netherite_pet_armor",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeydirt.json"
-                            },
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "dirt"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "beno",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorful_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "kroma",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.untame",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:untaming_stick"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "untame",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorless_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nokroma",
-                                "target": "self"
-                            }
-                        }
-                    ]
-                }
-            },
-            "endrod_armor": {
-                "minecraft:shooter": {
-                    "def": "billey:end_rod_projectile"
-                },
-                "minecraft:behavior.ranged_attack": {
-                    "priority": 3,
-                    "attack_interval_min": 1.0,
-                    "attack_interval_max": 3.5,
-                    "attack_radius": 7.0
-                },
-                "minecraft:color": {
-                    "value": 0
-                },
-                "minecraft:is_dyeable": {
-                    "interact_text": "action.interact.dye"
-                },
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "cause": "all",
-                            "damage_multiplier": 0.4
-                        },
-                        {
-                            "cause": "fall",
-                            "deals_damage": false
-                        }
-                    ]
-                },
-                "minecraft:mark_variant": {
-                    "value": 7
-                },
-                "minecraft:interact": {
-                    "interactions": [
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.get_info",
-                            "on_interact": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "feather"
-                                        },
-                                        {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
-                                    ]
-                                },
-                                "event": "send_info",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "transform_to_item": "billey:endrod_pet_armor",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeydirt.json"
-                            },
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "dirt"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "beno",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorful_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "kroma",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "play_sounds": "plop",
-                            "swing": true,
-                            "interact_text": "action.interact.untame",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:untaming_stick"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "untame",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "milk",
-                            "interact_text": "action.interact.use",
-                            "transform_to_item": "glass_bottle",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:colorless_bottle"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nokroma",
-                                "target": "self"
-                            }
-                        }
-                    ]
                 }
             },
             "wildbaby": {
@@ -2138,6 +1062,54 @@
             "minecraft:damage_sensor": {
                 "triggers": [
                     {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "billey:can_hit_own_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_owner_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "value": "billey:cant_hit_other_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_other_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
                         "cause": "all",
                         "deals_damage": false,
                         "on_damage_sound_event": "armor.equip_generic",
@@ -2455,6 +1427,57 @@
             "minecraft:physics": {}
         },
         "events": {
+            "set_follow_state": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "operator": "not",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "set_sitting_property_false": {
+                "set_property": {
+                    "billey:is_sitting": false
+                }
+            },
+            "set_sitting_property_true": {
+                "set_property": {
+                    "billey:is_sitting": true
+                }
+            },
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                }
+            },
             "add_sittable": {
                 "add": {
                     "component_groups": [
@@ -2543,6 +1566,11 @@
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
                             ]
                         }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
                     }
                 ]
             },
@@ -2560,6 +1588,11 @@
                             "command": [
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
                             ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
                         }
                     }
                 ]

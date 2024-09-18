@@ -4,8 +4,7 @@
       "description": {
         "identifier": "billey:raw_snail_s",
         "menu_category": {
-          "category": "nature",
-          "group": "itemGroup.name.rawFood"
+                "category": "none"
         }
       },
       "components": {

@@ -1,4 +1,4 @@
-import { system, Player, ItemStack, Entity } from "@minecraft/server";
+import { system, world, Player, ItemStack, Entity } from "@minecraft/server";
 import { add, decrementStack, duckArmors, validateHeightOf } from "./utility";
 
 let duckArmor = "";
@@ -95,11 +95,11 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) =
                     cause: "entityAttack"
                 });
             }
-            system.run(
+            system.runTimeout(
                 () => ratMinions.forEach(ratMinion => {
                     //crownedRatOwner is undefined if the crowned rat's owner is offline
                     //getComponent("tameable") was also undefined once, i forgot in what situation
-                    if (crownedRatOwner) ratMinion.getComponent("tameable")?.tame(crownedRatOwner);
+                    if (crownedRatOwner?.isValid()) ratMinion.getComponent("tameable")?.tame(crownedRatOwner);
 
                     //make the rat minions angry at the crowned rat's target
                     if (entity.target) {
@@ -110,7 +110,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) =
                         ratMinion.clearVelocity();
                         ratMinion.applyImpulse(entity.getVelocity());
                     }
-                })
+                }), 2
             );
             return;
         case "billey:rat_crown_calm":
@@ -128,5 +128,19 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) =
                     r.remove();
                 });
             return;
+        case "billey:cant_shoot_projectiles":
+            if (entity.isValid())
+                entity.setDynamicProperty("cant_shoot_projectiles", true);
+            return;
     }
+});
+
+world.afterEvents.entitySpawn.subscribe(({ entity }) => {
+    if (!entity.isValid()) return;
+    const projectile = entity.getComponent("projectile");
+    if (!projectile) return;
+    const owner = projectile.owner;
+    if (!owner?.isValid()) return;
+    if (owner.getDynamicProperty("cant_shoot_projectiles"))
+        entity.remove();
 });

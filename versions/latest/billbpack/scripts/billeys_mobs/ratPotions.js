@@ -1,5 +1,5 @@
 import { Entity, Player, world, system } from "@minecraft/server";
-import { playSound } from "./utility";
+import { playSound, titleCase } from "./utility";
 
 /**
  * @param {Entity} projectile
@@ -25,12 +25,13 @@ function ratPotionOnHit(projectile) {
 			/** check if the entity has the "movement" component to further ensure it's an actual mob,
 			 *	and not a painting or something. */
 			mobs.forEach(mob => {
-				if ((mob.getComponent("health").effectiveMax >= 100) && !ofRatKing) return;
+				if ((mob.getComponent("health").effectiveMax > 100) && !ofRatKing) return;
 				if (mob.location.y + 5 > maxHeight) return;
 				if (mob.location.y - 1 < projectile.dimension.heightRange.min) return;
 				let rat = projectile.dimension.spawnEntity("billey:rat_minion", mob.location);
 				rat.triggerEvent("from_potion");
-				rat.nameTag = mob.nameTag || "§7" + mob.typeId.split(":")[1].replaceAll("_", " ");
+				rat.nameTag = mob.nameTag || "§7" +
+					titleCase(mob.typeId.split(":")[1].replaceAll("_", " ")) + "§r";
 				rat.setRotation(mob.getRotation());
 				//teleport the mob up there so the structure will (hopefully) only contain it
 				mob.teleport({
@@ -39,9 +40,8 @@ function ratPotionOnHit(projectile) {
 					z: Math.floor(mob.location.z) + 0.5
 				});
 				if (ofRatKing)
-					mob.setDynamicProperty("looking_for_owner", true);
-				else if (mob.getComponent("health").currentValue < 20 && mob.getComponent("health").currentValue < mob.getComponent("health").effectiveMax)
-					mob.setDynamicProperty("kill_on_load", true);
+					mob.setDynamicProperty("looking_for_owner", true)
+				rat.setDynamicProperty("of_rat_king", ofRatKing);
 				world.structureManager.createFromWorld("billey:" + rat.id, mob.dimension, mob.location, mob.location, { includeBlocks: false });
 				mob.remove();
 			});
@@ -74,20 +74,20 @@ function ratPotionOnHit(projectile) {
 		}
 		case "billey:rat_king_deter_potion": {
 			if (!projectile.isValid()) return;
-			const mobs = projectile.dimension.getEntities({
-				location: projectile.location,
-				maxDistance: 6,
-				excludeTypes: ["minecraft:item", "minecraft:xp_orb", "billey:rat_minion"],
-				excludeFamilies: ["inanimate", "rat"]
-			}).filter(mob => mob.getComponent("movement") &&
-				(mob.getComponent("is_tamed") || mob instanceof Player)
-			);
 			const king = projectile.dimension.getEntities({
 				location: projectile.location,
 				type: "billey:rat_king",
 				closest: 1
 			})[0];
 			if (!king) return;
+			const mobs = projectile.dimension.getEntities({
+				location: projectile.location,
+				maxDistance: 6,
+				excludeTypes: ["minecraft:item", "minecraft:xp_orb", "billey:rat_minion"],
+				excludeFamilies: ["inanimate", "rat"]
+			}).filter(mob => mob.getComponent("movement") &&
+				(mob instanceof Player || mob.target == king)
+			);
 			mobs.forEach(mob => {
 				mob.applyDamage(16, {
 					damagingEntity: king,
@@ -107,17 +107,16 @@ function ratPotionOnHit(projectile) {
 world.afterEvents.projectileHitEntity.subscribe(({ projectile }) => ratPotionOnHit(projectile));
 world.afterEvents.projectileHitBlock.subscribe(({ projectile }) => ratPotionOnHit(projectile));
 
+let killNextLoad = false;
+export function setKillNextLoad(bool) {
+	killNextLoad = bool;
+}
+
 world.afterEvents.entityLoad.subscribe(({ entity }) => {
-	/*if (entity.getDynamicProperty("center_on_load")) {
-		entity.teleport({
-			x: Math.floor(entity.location.x) + 0.5,
-			y: Math.floor(entity.location.y),
-			z: Math.floor(entity.location.z) + 0.5
-		});
-		entity.setDynamicProperty("center_on_load", undefined);
-	}*/
-	if (entity.getDynamicProperty("kill_on_load"))
-		entity.kill();
+	if (killNextLoad) {
+		killNextLoad = false;
+		return entity.kill();
+	}
 	if (entity.getDynamicProperty("looking_for_owner")) {
 		const id = entity.getDynamicProperty("owner_id");
 		const name = entity.getDynamicProperty("owner_name");

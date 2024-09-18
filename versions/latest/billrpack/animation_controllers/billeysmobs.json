@@ -2026,7 +2026,12 @@
 			"states": {
 				"default": {
 					"animations": [
-						"on_head"
+						{
+							"on_head": "!q.is_baby"
+						},
+						{
+							"sit": "q.is_baby"
+						}
 					],
 					"blend_transition": 0.2,
 					"transitions": [
@@ -2037,7 +2042,12 @@
 				},
 				"fly": {
 					"animations": [
-						"on_head_fly"
+						{
+							"on_head_fly": "!q.is_baby"
+						},
+						{
+							"fly": "q.is_baby"
+						}
 					],
 					"blend_transition": 0.2,
 					"transitions": [

@@ -1185,8 +1185,7 @@
           "ambient": "mob.phantom.idle",
           "hurt": "mob.phantom.hurt",
           "death": "mob.phantom.death",
-          "attack": "mob.phantom.bite",
-          "swoop": "mob.phantom.swoop"
+          "attack": "mob.phantom.bite"
         }
       },
       "billey:netherrat": {
@@ -1196,8 +1195,7 @@
           "ambient": "mob.phantom.idle",
           "hurt": "mob.phantom.hurt",
           "death": "mob.phantom.death",
-          "attack": "mob.phantom.bite",
-          "swoop": "mob.phantom.swoop"
+          "attack": "mob.phantom.bite"
         }
       },
       "billey:slime_wyvern": {
@@ -1209,7 +1207,6 @@
         "events": {
           "ambient": "billey.terraphin.say",
           "death": "billey.terraphin.death",
-          "swoop": "mob.phantom.swoop",
           "hurt": {
             "sound": "billey.terraphin.hurt",
             "volume": 1.0,

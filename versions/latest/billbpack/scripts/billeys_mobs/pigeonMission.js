@@ -25,9 +25,9 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
             }
             break;
         case "finish":
-            player?.sendMessage({ translate: "chat.billey.pigeon_success" });
-            player?.dimension.playSound("random.level", player.location);
             if (player) {
+                player.sendMessage({ translate: "chat.billey.pigeon_success" });
+                player.dimension.playSound("random.level", player.location);
                 pigeon.teleport(player.location, { dimension: player.dimension })
             }
             else {
@@ -38,8 +38,8 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
             }
             break;
         case "abort":
-            player?.sendMessage({ translate: "chat.billey.pigeon_fail" });
             if (player) {
+                player.sendMessage({ translate: "chat.billey.pigeon_fail" });
                 pigeon.teleport(player.location, { dimension: player.dimension });
             }
             else {
@@ -80,24 +80,21 @@ export function addItemToPigeon(player, mob, item, dimension) {
  */
 export function pigeonUI(player, pigeon, dimension) {
     const players = dimension.getPlayers({ minDistance: 50, location: pigeon.location });
-    if (players.length) {
-        const form = new ModalFormData();
-        form.title({ translate: "ui.billey.select_player" })
-            .dropdown("", players.map(p => p.name), 0)
-            .show(player).then(e => {
-                if (!e.canceled) {
-                    if (players[e.formValues[0]].isValid()) {
-                        pigeon.triggerEvent("start_mission");
-                        pigeon.setDynamicProperty("target_name", players[e.formValues[0]].name);
-                        pigeon.setDynamicProperty("original_location", pigeon.location);
-                        pigeon.setDynamicProperty("original_dimension", pigeon.dimension.id);
-                    }
-                    else player.sendMessage({
-                        translate: "chat.billey.player_left",
-                        with: [pigeon.getDynamicProperty("target_name")]
-                    });
-                }
+    if (!players.length) return;
+    const form = new ModalFormData();
+    form.title({ translate: "ui.billey.select_player" })
+        .dropdown("", players.map(p => p.name), 0)
+        .show(player).then(e => {
+            if (e.canceled) return;
+            if (players[e.formValues[0]].isValid()) {
+                pigeon.triggerEvent("start_mission");
+                pigeon.setDynamicProperty("target_name", players[e.formValues[0]].name);
+                pigeon.setDynamicProperty("original_location", pigeon.location);
+                pigeon.setDynamicProperty("original_dimension", pigeon.dimension.id);
             }
-            )
-    }
+            else player.sendMessage({
+                translate: "chat.billey.player_left",
+                with: [pigeon.getDynamicProperty("target_name")]
+            });
+        });
 }

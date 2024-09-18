@@ -391,6 +391,12 @@
     },
     "billey.pygmy_dunkleosteus_scutes": {
       "textures": "textures/billeyitems/pygmy_dunkleosteus_scutes"
+    },
+    "billey.scroll": {
+      "textures": "textures/billeyitems/scroll"
+    },
+    "billey.slime_wyvern_plushie": {
+      "textures": "textures/billeyitems/slime_wyvern_plushie"
     }
     //stfu blockception extension
   }

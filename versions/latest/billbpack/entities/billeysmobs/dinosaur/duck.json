@@ -9,7 +9,14 @@
             "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
+                    {
+                        "set_follow_state": "q.is_tamed && q.property('billey:follow_owner_state') == 'unknown'"
+                    },
+                    {
+                        "set_sitting_property": "q.is_tamed"
+                    },
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
@@ -37,6 +44,8 @@
             },
             "animations": {
                 "check_beta_apis": "animation.billey.check_beta_apis",
+                "set_follow_state": "animation.billey.set_follow_state",
+                "set_sitting_property": "controller.animation.billey.set_sitting_property",
                 "rainbow_effects": "animation.billey.rainbow_effects",
                 "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
                 "info": "animation.billeyinfo.duck",
@@ -65,6 +74,21 @@
                         10
                     ],
                     "default": 1
+                },
+                "billey:follow_owner_state": {
+                    //only used so scripts can know whether it's following or wandering
+                    "type": "enum",
+                    "default": "unknown",
+                    "values": [
+                        "unknown",
+                        "following",
+                        "wandering"
+                    ]
+                },
+                "billey:is_sitting": {
+                    //only used so scripts can know whether or not it's sitting
+                    "type": "bool",
+                    "default": false
                 }
             }
         },
@@ -354,6 +378,54 @@
                     "triggers": [
                         {
                             "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
                                 "event": "add_damaged_tag"
                             },
                             "cause": "all"
@@ -555,6 +627,54 @@
                 "minecraft:damage_sensor": {
                     "triggers": [
                         {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
                             "cause": "all",
                             "on_damage": {
                                 "filters": {
@@ -621,6 +741,54 @@
                 "minecraft:damage_sensor": {
                     "triggers": [
                         {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
                             "cause": "all",
                             "on_damage": {
                                 "filters": {
@@ -685,6 +853,54 @@
                 "minecraft:damage_sensor": {
                     "triggers": [
                         {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
                             "cause": "all",
                             "on_damage": {
                                 "filters": {
@@ -747,6 +963,54 @@
             "chain_armor": {
                 "minecraft:damage_sensor": {
                     "triggers": [
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
                         {
                             "cause": "all",
                             "on_damage": {
@@ -811,6 +1075,54 @@
                 "minecraft:damage_sensor": {
                     "triggers": [
                         {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
                             "cause": "all",
                             "on_damage": {
                                 "filters": {
@@ -874,6 +1186,54 @@
                 "minecraft:damage_sensor": {
                     "triggers": [
                         {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
                             "cause": "all",
                             "on_damage": {
                                 "filters": {
@@ -936,6 +1296,54 @@
             "netherite_armor": {
                 "minecraft:damage_sensor": {
                     "triggers": [
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
                         {
                             "cause": "all",
                             "on_damage": {
@@ -1017,6 +1425,54 @@
                 },
                 "minecraft:damage_sensor": {
                     "triggers": [
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "operator": "not",
+                                            "value": "billey:can_hit_own_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_owner_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
+                        {
+                            "on_damage": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_owner",
+                                            "subject": "other",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "has_tag",
+                                            "subject": "other",
+                                            "value": "billey:cant_hit_other_pet"
+                                        }
+                                    ]
+                                },
+                                "event": "say_other_hit_pet_info"
+                            },
+                            "cause": "all",
+                            "deals_damage": false
+                        },
                         {
                             "cause": "all",
                             "on_damage": {
@@ -1753,7 +2209,7 @@
                             }
                         },
                         {
-                            "use_item": true,
+                            "use_item": false,
                             "play_sounds": "armor.equip_generic",
                             "interact_text": "action.interact.equip",
                             "on_interact": {
@@ -2302,6 +2758,54 @@
             "minecraft:damage_sensor": {
                 "triggers": [
                     {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "billey:can_hit_own_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_owner_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "value": "billey:cant_hit_other_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_other_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
                         "cause": "all",
                         "on_damage": {
                             "filters": {
@@ -2630,6 +3134,57 @@
             "minecraft:physics": {}
         },
         "events": {
+            "set_follow_state": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "operator": "not",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "set_sitting_property_false": {
+                "set_property": {
+                    "billey:is_sitting": false
+                }
+            },
+            "set_sitting_property_true": {
+                "set_property": {
+                    "billey:is_sitting": true
+                }
+            },
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                }
+            },
             "wear_armor": {
                 "sequence": [
                     {
@@ -3781,51 +4336,84 @@
                     },
                     {
                         "filters": {
-                            "test": "is_color",
+                            "test": "int_property",
+                            "domain": "billey:level",
                             "subject": "other",
-                            "value": 16
+                            "value": 2
                         },
-                        "add": {
-                            "component_groups": [
-                                "sixteen"
-                            ]
-                        }
+                        "trigger": "to_level2"
                     },
                     {
                         "filters": {
-                            "test": "is_color",
+                            "test": "int_property",
+                            "domain": "billey:level",
                             "subject": "other",
-                            "value": 17
+                            "value": 3
                         },
-                        "add": {
-                            "component_groups": [
-                                "seventeen"
-                            ]
-                        }
+                        "trigger": "to_level3"
                     },
                     {
                         "filters": {
-                            "test": "is_color",
+                            "test": "int_property",
+                            "domain": "billey:level",
                             "subject": "other",
-                            "value": 18
+                            "value": 4
                         },
-                        "add": {
-                            "component_groups": [
-                                "eighteen"
-                            ]
-                        }
+                        "trigger": "to_level4"
                     },
                     {
                         "filters": {
-                            "test": "is_color",
+                            "test": "int_property",
+                            "domain": "billey:level",
                             "subject": "other",
-                            "value": 19
+                            "value": 5
                         },
-                        "add": {
-                            "component_groups": [
-                                "nineteen"
-                            ]
-                        }
+                        "trigger": "to_level5"
+                    },
+                    {
+                        "filters": {
+                            "test": "int_property",
+                            "domain": "billey:level",
+                            "subject": "other",
+                            "value": 6
+                        },
+                        "trigger": "to_level6"
+                    },
+                    {
+                        "filters": {
+                            "test": "int_property",
+                            "domain": "billey:level",
+                            "subject": "other",
+                            "value": 7
+                        },
+                        "trigger": "to_level7"
+                    },
+                    {
+                        "filters": {
+                            "test": "int_property",
+                            "domain": "billey:level",
+                            "subject": "other",
+                            "value": 8
+                        },
+                        "trigger": "to_level8"
+                    },
+                    {
+                        "filters": {
+                            "test": "int_property",
+                            "domain": "billey:level",
+                            "subject": "other",
+                            "value": 9
+                        },
+                        "trigger": "to_level9"
+                    },
+                    {
+                        "filters": {
+                            "test": "int_property",
+                            "domain": "billey:level",
+                            "subject": "other",
+                            "value": 10
+                        },
+                        "trigger": "to_level10"
                     }
                 ]
             },
@@ -3850,6 +4438,11 @@
                             "command": [
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
                             ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
                         }
                     }
                 ]
@@ -3903,6 +4496,11 @@
                             "command": [
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
                             ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
                         }
                     }
                 ]
@@ -5449,7 +6047,7 @@
                             ]
                         },
                         "queue_command": {
-                            "target": "other",//other in this context means the other parent
+                            "target": "other", //other in this context means the other parent
                             "command": "scriptevent billey:handle_crossbreed other"
                         }
                     },

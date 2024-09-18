@@ -293,6 +293,10 @@
                             "operator": ">"
                         }
                     }
+                },
+                "minecraft:on_death": {
+                    "event": "on_death",
+                    "target": "self"
                 }
             },
             "temp_flying_timer": {
@@ -438,6 +442,22 @@
             }
         },
         "events": {
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                }
+            },
             "minecraft:entity_spawned": {
                 "sequence": [
                     {
@@ -751,6 +771,35 @@
                 "queue_command": {
                     "command": "tp ~ ~1 ~"
                 }
+            },
+            "on_death": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "phase3",
+                                "temp_flying_timer",
+                                "actual_phase3",
+                                "cooking",
+                                "chef_hitbox",
+                                "chef2_hitbox",
+                                "chef3_hitbox",
+                                "chef4_hitbox",
+                                "not_cooking"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "phase1and2"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:phase": "1"
+                        }
+                    }
+                ]
             }
         }
     }

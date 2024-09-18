@@ -7,7 +7,8 @@
             "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
@@ -141,6 +142,11 @@
                                         "value": "creeper"
                                     },
                                     {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "wawla"
+                                    },
+                                    {
                                         "test": "is_owner",
                                         "subject": "other"
                                     },
@@ -159,7 +165,6 @@
                     "value": 0
                 },
                 "minecraft:is_tamed": {},
-                "minecraft:tameable": {}, //for the script to be able to get the mob's owner
                 "minecraft:is_sheared": {}
             },
             "electrocuted": {
@@ -956,57 +961,6 @@
                     {
                         "on_damage": {
                             "filters": {
-                                "test": "has_equipment",
-                                "subject": "other",
-                                "domain": "hand",
-                                "value": "billey:golden_swordfish"
-                            }
-                        },
-                        "damage_multiplier": 2.333
-                    },
-                    {
-                        "on_damage": {
-                            "filters": {
-                                "test": "has_equipment",
-                                "subject": "other",
-                                "domain": "hand",
-                                "value": "billey:swordfish"
-                            },
-                            "event": "dokillgroup"
-                        },
-                        "deals_damage": false
-                    },
-                    {
-                        "on_damage": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "any_of": [
-                                            {
-                                                "test": "is_family",
-                                                "subject": "other",
-                                                "value": "eatscod"
-                                            },
-                                            {
-                                                "test": "is_family",
-                                                "subject": "other",
-                                                "value": "piranha"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "test": "has_damage",
-                                        "value": "fatal"
-                                    }
-                                ]
-                            },
-                            "event": "die"
-                        },
-                        "deals_damage": false
-                    },
-                    {
-                        "on_damage": {
-                            "filters": {
                                 "all_of": [
                                     {
                                         "any_of": [
@@ -1059,6 +1013,105 @@
                                 ]
                             },
                             "event": "load_launcher"
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "billey:can_hit_own_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_owner_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "value": "billey:cant_hit_other_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_other_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "test": "has_equipment",
+                                "subject": "other",
+                                "domain": "hand",
+                                "value": "billey:golden_swordfish"
+                            }
+                        },
+                        "damage_multiplier": 2.333
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "test": "has_equipment",
+                                "subject": "other",
+                                "domain": "hand",
+                                "value": "billey:swordfish"
+                            },
+                            "event": "dokillgroup"
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "any_of": [
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "eatscod"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "piranha"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "test": "has_damage",
+                                        "value": "fatal"
+                                    }
+                                ]
+                            },
+                            "event": "die"
                         },
                         "deals_damage": false
                     }
@@ -1152,6 +1205,22 @@
             "minecraft:nameable": {}
         },
         "events": {
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                }
+            },
             "load_launcher": {
                 "sequence": [
                     {

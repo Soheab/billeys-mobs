@@ -483,7 +483,7 @@
 					"parent": "leftbackleg5",
 					"pivot": [0, 1, -7.5],
 					"cubes": [
-						{"origin": [-1, 0, -7.5], "size": [2, 1, 0], "uv": [85, 6], "mirror": true}
+						{"origin": [-1, 0, -7.5], "size": [2, 1, 0], "uv": [47, 2], "mirror": true}
 					]
 				},
 				{
@@ -507,7 +507,7 @@
 					"parent": "rightbackleg5",
 					"pivot": [4, 1, -7.5],
 					"cubes": [
-						{"origin": [3, 0, -7.5], "size": [2, 1, 0], "uv": [85, 6]}
+						{"origin": [3, 0, -7.5], "size": [2, 1, 0], "uv": [47, 2]}
 					]
 				},
 				{

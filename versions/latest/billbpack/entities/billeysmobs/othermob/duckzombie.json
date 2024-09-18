@@ -6,11 +6,10 @@
             "is_summonable": true,
             "is_spawnable": true,
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
                 "lol": "animation.billeysmobs.duckzombie"
             },
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
                     "lol"
                 ]
             }
@@ -33,6 +32,22 @@
             }
         },
         "events": {
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                }
+            },
             "add_sittable": {
                 "add": {
                     "component_groups": [

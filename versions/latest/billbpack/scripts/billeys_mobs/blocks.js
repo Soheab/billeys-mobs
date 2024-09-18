@@ -5,6 +5,7 @@ import { playSound } from "./utility";
 world.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry }) => {
 	blockComponentRegistry.registerCustomComponent("billey:banana_peel", {
 		onStepOn: (({ entity, block }) => {
+			if (!entity) return;
 			if (!entity.getComponent("is_tamed") && (entity.typeId != "minecraft:player" || block.typeId == "billey:banana_peel_player_block")) {
 				entity.addEffect("slowness", 20 * 2, { amplifier: 5 });
 				entity.addEffect("nausea", 20 * 12, { amplifier: 5 });
@@ -18,6 +19,7 @@ world.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry }) => {
 	});
 	blockComponentRegistry.registerCustomComponent("billey:on_step_on_beneficial", {
 		onStepOn: (({ entity, block }) => {
+			if (!entity) return;
 			if (entity.getComponent("is_tamed") || entity.typeId == "minecraft:player") {
 				switch (block.typeId) {
 					case "billey:blue_velvet_slime_block":
@@ -33,6 +35,7 @@ world.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry }) => {
 	});
 	blockComponentRegistry.registerCustomComponent("billey:on_step_on_detrimental", {
 		onStepOn: (({ entity, block }) => {
+			if (!entity) return;
 			if (!entity.getComponent("is_tamed") && entity.getComponent("type_family").hasTypeFamily("monster")) {
 				switch (block.typeId) {
 					case "billey:velvet_slime_block":

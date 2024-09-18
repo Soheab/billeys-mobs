@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.60",
+    "format_version": "1.21.30",
     "minecraft:item": {
       "description": {
         "identifier": "billey:info_book",
@@ -15,6 +15,9 @@
           "textures": {
             "default": "billey.info_book"
           }
+        },
+        "minecraft:rarity": {
+          "value": "rare"
         }
       }
     }

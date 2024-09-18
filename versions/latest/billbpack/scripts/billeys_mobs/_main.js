@@ -15,6 +15,8 @@ import "./betterPetOwnerSaving";
 import "./mobEquipment";
 import "./catfishSyringe";
 import "./pygmyDunkleosteus";
+import "./qualityOfLife";
+import "./plushies";
 import { playSound } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
 
@@ -49,9 +51,7 @@ let ratOtherParentVariant = 0;
 let ratParentMarkVariant = 0;
 let ratOtherParentMarkVariant = 0;
 
-/**
- * @type {Player}
- */
+/** @type {Player} */
 let piranhaLoader;
 
 system.afterEvents.scriptEventReceive.subscribe(data => {

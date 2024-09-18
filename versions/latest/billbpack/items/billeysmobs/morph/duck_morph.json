@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.60",
+	"format_version": "1.21.30",
 	"minecraft:item": {
 		"description": {
 			"identifier": "billey:duck_morph_potion",
@@ -27,6 +27,9 @@
 			"minecraft:food": {
 				"using_converts_to": "glass_bottle",
 				"can_always_eat": true
+			},
+			"minecraft:rarity": {
+			  "value": "uncommon"
 			}
 		}
 	}

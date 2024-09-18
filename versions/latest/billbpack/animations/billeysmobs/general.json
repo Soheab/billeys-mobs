@@ -1,14 +1,26 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.billey.set_follow_state": {
+			"animation_length": 1.0,
+			"loop": false,
+			"timeline": {
+				"0.0": [
+					"@s set_follow_state"
+				]
+			}
+		},
 		"animation.billey.check_beta_apis": {
 			"animation_length": 30.0,
 			"loop": false,
 			"timeline": {
-				"0.0": [
+				"0.1": [
 					"/scriptevent billey:add_script_tag"
 				],
 				"15.0": [
+					"/scriptevent billey:add_script_tag"
+				],
+				"15.1": [
 					"/execute @s[tag=!billey_script_working] ~~~ tellraw @a {\"rawtext\":[{\"translate\":\"chat.billey.turn_on_beta_apis\",\"with\":[\"\\n\"]}]}",
 					"/tag @s remove billey_script_working"
 				]
@@ -49,7 +61,7 @@
 			"timeline": {
 				"0.0": [
 					"/effect @p slow_falling 2 0 true",
-					"/effect @p slowness 2 1 true"
+					"/execute @s[tag=!billey:level10] ~~~ effect @p slowness 2 1 true"
 				]
 			}
 		},

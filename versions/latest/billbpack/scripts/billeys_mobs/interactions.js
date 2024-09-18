@@ -56,8 +56,9 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
 		let currentXP = Math.floor(10 * mob.getProperty("billey:xp"));
 		let level = mob.getProperty("billey:level");
 		player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Health:§9 " + Math.floor(mob.getComponent("health").currentValue) + " / " + mob.getComponent("health").effectiveMax + "\"}]}");
-		let levelText = level?.toString();
 		let nextXP = 100 * Math.floor(3 * level ** 1.5);
+		if (level)
+		player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Level:§9 " + level + "\"}]}");
 		if (level < 10) {
 			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP:§9 " + currentXP + "\"}]}");
 			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP required for Level " + (level + 1) + ":§a " + nextXP + " §7(" + (nextXP - currentXP) + " left)" + "\"}]}");

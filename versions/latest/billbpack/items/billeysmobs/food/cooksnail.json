@@ -4,8 +4,7 @@
         "description": {
             "identifier": "billey:cooked_snail",
             "menu_category": {
-                "category": "equipment",
-                "group": "itemGroup.name.cookedFood"
+                "category": "none"
             }
         },
         "components": {

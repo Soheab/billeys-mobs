@@ -1,4 +1,4 @@
-import { world, system, Player, TicksPerSecond, ContainerSlot, Entity, ItemStack } from "@minecraft/server";
+import { world, system, Player, TicksPerSecond, ContainerSlot, Entity, ItemStack, EntityTypes } from "@minecraft/server";
 import { detrimentalEffects, playSound } from "./utility";
 
 /**
@@ -20,6 +20,10 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity, id }) => {
             catfishInjector.getComponent("equippable")
                 .setEquipment("Mainhand", new ItemStack("billey:catfish_blood"));
             catfishInjector = undefined;
+            return;
+        case "billey:shame_bucket_mercat":
+            if (world.getAllPlayers().length == 1) return;
+            world.sendMessage(`SHAME ON §c${sourceEntity.name.toUpperCase()}§r for trying to crash the realm by bucketing a yellow or pink mercat!`);
             return;
     }
 });

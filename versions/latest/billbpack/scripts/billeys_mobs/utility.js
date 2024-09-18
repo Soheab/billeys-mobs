@@ -1,11 +1,12 @@
-import { ItemStack, Player, Container, Dimension, Entity } from "@minecraft/server";
+import { ItemStack, Player, Container, Dimension, Entity, system, DimensionTypes, world } from "@minecraft/server";
 
 export const headPets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern"];
 export const ridePets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern", "billey:pigeon"];
-export const beneficalEffects = ["speed", "regeneration", "absorption", "night_vision", "water_breathing", "strength", "saturation", "fire_resistance", "conduit_power", "jump_boost"];
-export const trueBeneficialEffects = ["speed", "regeneration", "absorption", "night_vision", "water_breathing", "strength", "saturation", "fire_resistance", "conduit_power"];
+export const trueBeneficialEffects = ["speed", "regeneration", "absorption", "night_vision", "water_breathing", "strength", "saturation", "fire_resistance", "conduit_power" , "haste"];
+export const beneficalEffects = [...trueBeneficialEffects, "jump_boost"];
 export const detrimentalEffects = ["weakness", "hunger", "levitation", "blindness", "darkness", "instant_damage", "mining_fatigue", "nausea", "poison", "slowness", "wither"];
 export const duckArmors = ["no", "leather", "golden", "chain", "iron", "diamond", "netherite", "endrod"];
+export const DIMENSIONS = DimensionTypes.getAll().map(d => world.getDimension(d.typeId));
 
 /**
  * @param {string} str 
@@ -13,12 +14,28 @@ export const duckArmors = ["no", "leather", "golden", "chain", "iron", "diamond"
 export function titleCase(str) {
 	return str.replace(
 		/\w\S*/g,
-		text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+		text => text[0].toUpperCase() + text.substring(1).toLowerCase()
 	);
 }
 
+/** 
+ * @param {string} typeId 
+ * @returns {import("@minecraft/server").RawMessage}
+ */
+export function translateItem(typeId) {
+	if (typeId.startsWith("minecraft:"))
+		return {
+			translate: `item.${typeId.slice(10)}.name`
+		};
+	else
+		return {
+			translate: `item.${typeId}`
+		};
+}
+
 /**
- * @param {ItemStack} item 
+ * @param {ItemStack} item
+ * Deprecated
  */
 export function itemEnglishName(item) {
 	return titleCase(item.typeId.replaceAll("_", " ").split(":")[1]);
@@ -39,12 +56,14 @@ export function validateHeightOf(entity, y) {
  * @returns {import('@minecraft/server').RawMessage}
  */
 export function nameOf(entity) {
-	if (entity.nameTag) return {
-		text: entity.nameTag
-	};
-	else return {
-		translate: `entity.${entity.typeId}.name`
-	};
+	if (entity.nameTag)
+		return {
+			text: entity.nameTag
+		};
+	else
+		return {
+			translate: `entity.${entity.typeId}.name`
+		};
 }
 
 /** 
@@ -93,6 +112,9 @@ export function playSound(entity, sound, options) {
  * @param {number} power
  * Not used because setting owner didn't work, meaning neutral mobs 
  * wouldn't get mad at you when you shoot them.
+ * 
+ * Later comment: it works not but there's still no way to make
+ * the player's hand swing with this so I'm keeping the other one
  */
 export function shoot(entity, projectileId, power) {
 	const location = add(entity.getHeadLocation(), entity.getViewDirection());
@@ -125,8 +147,16 @@ export function decrementStack(player) {
 	let item = slot.getItem();
 	if (item.amount == 1) item = undefined;
 	else item.amount--;
-	system.run(()=>slot.setItem(item));
+	system.run(() => slot.setItem(item));
 	return !item;
+}
+
+/**
+ * @param {import("@minecraft/server").VectorXZ} vector1 
+ * @param {import("@minecraft/server").VectorXZ} vector2 
+ */
+export function getDistanceXZ({ x: x1, z: z1 }, { x: x2, z: z2 }) {
+	return Math.hypot(x2 - x1, z2 - z1);
 }
 
 export function magnitude(vector) {

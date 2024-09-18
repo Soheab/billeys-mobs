@@ -1,5 +1,6 @@
 import { world, system, EquipmentSlot, ContainerSlot, ItemStack } from "@minecraft/server";
 import { decrementStack, itemEnglishName, nameOf, playSound, titleCase } from "./utility";
+import { addOwnerAsDynamicProperty } from "./betterPetOwnerSaving";
 
 //This entire file is a fucking mess because I wanted to do it in an hour
 
@@ -55,6 +56,7 @@ world.afterEvents.entityDie.subscribe(({ deadEntity, damageSource: { damagingEnt
 	}
 	damagingEntity.getComponent("tameable").tame(pizzafishOwner);
 	pizzafishOwner.sendMessage(["§7You have tamed ", nameOf(damagingEntity)]);
+	addOwnerAsDynamicProperty(damagingEntity);
 });
 
 world.afterEvents.itemUse.subscribe(({ source: player, itemStack }) => {
@@ -66,7 +68,11 @@ world.afterEvents.itemUse.subscribe(({ source: player, itemStack }) => {
 		if (armorSlot2?.hasItem()) {
 			if (armorSlot2.getDynamicProperty("reinforcement"))
 				continue;
-			if (!REINFORCIBLE_ITEM_TYPE_IDS.includes(armorSlot2.typeId))
+			if (
+				!REINFORCIBLE_ITEM_TYPE_IDS.includes(armorSlot2.typeId)
+				&&
+				!armorSlot2.typeId.endsWith("_plushie")
+			)
 				continue;
 			if (armorSlot?.hasItem())
 				break;
@@ -76,13 +82,10 @@ world.afterEvents.itemUse.subscribe(({ source: player, itemStack }) => {
 	if (!armorSlot) return;
 	const newArmorItem = armorSlot.getItem();
 	newArmorItem.setDynamicProperty("reinforcement", PYGMY_DUNK_SCUTE_DURABILITY);
-	let color = "§f";
-	if (newArmorItem.getComponent("enchantable").getEnchantments().length)
-		color = "§b";
-	if (newArmorItem.nameTag)
-		newArmorItem.nameTag = `§r${color}Reinforced ${newArmorItem.nameTag}`;
-	else
-		newArmorItem.nameTag = `§r${color}Reinforced ${itemEnglishName(newArmorItem)}`;
+	newArmorItem.setLore([
+		...newArmorItem.getLore(),
+		"§r§6Reinforced"
+	]);
 	armorSlot.setItem(newArmorItem);
 	decrementStack(player);
 });
@@ -90,7 +93,7 @@ world.afterEvents.itemUse.subscribe(({ source: player, itemStack }) => {
 world.afterEvents.entityHurt.subscribe(
 	({ hurtEntity, damage }) => {
 		if (!hurtEntity.isValid()) return;
-		let reinforcedArmorCount = 0;
+		let reinforcedArmorProtection = 0;
 		for (const slotName of ARMOR_SLOT_NAMES) {
 			const armor = hurtEntity.getComponent("equippable").getEquipment(slotName);
 			if (!armor) continue;
@@ -102,21 +105,25 @@ world.afterEvents.entityHurt.subscribe(
 				armor.setDynamicProperty("reinforcement", newReinforcementDurability);
 			else {
 				armor.setDynamicProperty("reinforcement", undefined);
+				armor.setLore(
+					armor.getLore().filter(l => l != "§r§6Reinforced")
+				);
 				playSound(hurtEntity, "random.break", { pitch: 1.5 });
 				let color = "§f";
 				if (armor.getComponent("enchantable").getEnchantments().length)
-					color = "§b";			
+					color = "§b";
 				if (armor.nameTag == `§r${color}Reinforced ${itemEnglishName(armor)}`)
 					armor.nameTag = "";
-				else
-					armor.nameTag = armor.nameTag.slice(15);
 			}
 			hurtEntity.getComponent("equippable").setEquipment(slotName, armor);
-			reinforcedArmorCount++;
+			if (armor.typeId.startsWith("minecraft:iron_"))
+				reinforcedArmorProtection += 0.125;
+			else
+				reinforcedArmorProtection += 0.25;
 		};
-		if (!reinforcedArmorCount) return;
+		if (!reinforcedArmorProtection) return;
 		const health = hurtEntity.getComponent("health");
-		health.setCurrentValue(health.currentValue + damage * reinforcedArmorCount / 8);
+		health.setCurrentValue(health.currentValue + damage * reinforcedArmorProtection);
 	},
 	{
 		entityTypes: ["minecraft:player"] //just found out this is a thing, pretty cool

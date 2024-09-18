@@ -23,27 +23,54 @@
             }
         },
         "events": {
-            "add_sittable": {
-                "add": {
-                    "component_groups": [
-                        "sittable"
-                    ]
-                }
-            },
-            "remove_sittable": {
-                "remove": {
-                    "component_groups": [
-                        "sittable"
-                    ]
-                }
-            },
-            "check_if_experiments_on": {
-                "queue_command": {
-                    "command": "tag @s add billey_exp_on"
-                }
-            },
             "minecraft:entity_spawned": {
                 "sequence": [
+                    {
+                        "filters": {
+                            "test": "is_altitude",
+                            "operator": "<",
+                            "value": 30
+                        },
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "sequence": [
+                                    {
+                                        "queue_command": {
+                                            "command": "summon billey:pygmy_dunkleosteus"
+                                        }
+                                    },
+                                    {
+                                        "add": {
+                                            "component_groups": [
+                                                "despawn"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "weight": 1,
+                                "sequence": [
+                                    {
+                                        "queue_command": {
+                                            "command": "summon billey:anglerfish"
+                                        }
+                                    },
+                                    {
+                                        "add": {
+                                            "component_groups": [
+                                                "despawn"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "weight": 1
+                            }
+                        ]
+                    },
                     {
                         "filters": {
                             "test": "has_biome_tag",
@@ -144,14 +171,6 @@
                                                 }
                                             },
                                             {
-                                                "weight": 1,
-                                                "queue_command": {
-                                                    "command": [
-                                                        "summon billey:mercat"
-                                                    ]
-                                                }
-                                            },
-                                            {
                                                 "weight": 3,
                                                 "queue_command": {
                                                     "command": [
@@ -238,12 +257,40 @@
                         },
                         "randomize": [
                             {
-                                "weight": 20,
+                                "weight": 5,
                                 "queue_command": {
                                     "command": [
                                         "summon billey:mergoose"
                                     ]
                                 }
+                            },
+                            {
+                                "weight": 15,
+                                "sequence": [
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "swamp",
+                                            "operator": "not"
+                                        },
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:mergoose"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "swamp"
+                                        },
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:tiktaalik"
+                                            ]
+                                        }
+                                    }
+                                ]
                             },
                             {
                                 "weight": 10,
@@ -254,7 +301,7 @@
                                 }
                             },
                             {
-                                "weight": 20,
+                                "weight": 10,
                                 "queue_command": {
                                     "command": [
                                         "summon billey:betta_fish"
@@ -262,12 +309,40 @@
                                 }
                             },
                             {
-                                "weight": 19,
+                                "weight": 10,
                                 "queue_command": {
                                     "command": [
                                         "summon billey:mercat"
                                     ]
                                 }
+                            },
+                            {
+                                "weight": 9,
+                                "sequence": [
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "swamp",
+                                            "operator": "not"
+                                        },
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:mercat"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "filters": {
+                                            "test": "has_biome_tag",
+                                            "value": "swamp"
+                                        },
+                                        "queue_command": {
+                                            "command": [
+                                                "summon billey:tiktaalik"
+                                            ]
+                                        }
+                                    }
+                                ]
                             },
                             {
                                 "weight": 1,
@@ -287,6 +362,7 @@
                                 }
                             },
                             {
+                                "weight": 10,
                                 "sequence": [
                                     {
                                         "filters": {

@@ -6,26 +6,54 @@
             "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
+                    {
+                        "set_follow_state": "q.is_tamed && q.property('billey:follow_owner_state') == 'unknown'"
+                    },
+                    {
+                        "set_sitting_property": "q.is_tamed"
+                    },
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
                     {
                         "stand_up_when_hit": "q.is_tamed"
                     },
-                    {"info":"!q.is_tamed"},
+                    {
+                        "info": "!q.is_tamed"
+                    },
                     "sugoma",
                     "tame"
                 ]
             },
             "animations": {
                 "check_beta_apis": "animation.billey.check_beta_apis",
+                "set_follow_state": "animation.billey.set_follow_state",
+                "set_sitting_property": "controller.animation.billey.set_sitting_property",
                 "rainbow_effects": "animation.billey.rainbow_effects",
                 "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
                 "info": "animation.billeyinfo.kiwi",
                 "kiwipear": "animation.billkiwi.albino",
                 "sugoma": "controller.animation.bill.kiwialb",
                 "tame": "controller.animation.billeysmobs.tame"
+            },
+            "properties": {
+                "billey:follow_owner_state": {
+                    //only used so scripts can know whether it's following or wandering
+                    "type": "enum",
+                    "default": "unknown",
+                    "values": [
+                        "unknown",
+                        "following",
+                        "wandering"
+                    ]
+                },
+                "billey:is_sitting": {
+                    //only used so scripts can know whether or not it's sitting
+                    "type": "bool",
+                    "default": false
+                }
             }
         },
         "component_groups": {
@@ -155,6 +183,11 @@
                         "billey:cooked_snail",
                         "billey:cooked_snail_s",
                         "billey:cooked_snail_w",
+                        "spider_eye",
+                        "fermented_spider_eye",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
                         "billey:sand_banana"
                     ]
                 },
@@ -174,6 +207,11 @@
                         "billey:cooked_snail",
                         "billey:cooked_snail_s",
                         "billey:cooked_snail_w",
+                        "spider_eye",
+                        "fermented_spider_eye",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
                         "billey:sand_banana"
                     ]
                 },
@@ -242,6 +280,11 @@
                         "billey:cooked_snail",
                         "billey:cooked_snail_s",
                         "billey:cooked_snail_w",
+                        "spider_eye",
+                        "fermented_spider_eye",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
                         "billey:raw_snail",
                         "billey:raw_snail_s",
                         "billey:raw_snail_w"
@@ -305,6 +348,8 @@
                         "billey:cooked_snail",
                         "billey:cooked_snail_s",
                         "billey:cooked_snail_w",
+                        "spider_eye",
+                        "fermented_spider_eye",
                         "billey:raw_snail",
                         "billey:raw_snail_s",
                         "billey:raw_snail_w"
@@ -366,7 +411,8 @@
                             }
                         }
                     ],
-                    "breed_items": [ "billey:poultry_orange",
+                    "breed_items": [
+                        "billey:poultry_orange",
                         "wheat_seeds",
                         "beetroot_seeds",
                         "melon_seeds",
@@ -377,6 +423,10 @@
                         "billey:cooked_snail",
                         "billey:cooked_snail_s",
                         "billey:cooked_snail_w",
+                        "spider_eye",
+                        "fermented_spider_eye",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
                         "billey:raw_snail_w"
                     ]
                 },
@@ -413,6 +463,8 @@
                         "billey:cooked_snail",
                         "billey:cooked_snail_s",
                         "billey:cooked_snail_w",
+                        "spider_eye",
+                        "fermented_spider_eye",
                         "billey:raw_snail",
                         "billey:raw_snail_s",
                         "billey:raw_snail_w",
@@ -450,6 +502,64 @@
             },
             "minecraft:interact": {
                 "interactions": [
+                    {
+                        "swing": true,
+                        "use_item": true,
+                        "interact_text": "action.interact.use",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "bone_meal"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_sheared"
+                                    }
+                                ]
+                            },
+                            "event": "on_shearfinish",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "swing": true,
+                        "use_item": true,
+                        "interact_text": "action.interact.use",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "bone_meal"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_saddled"
+                                    }
+                                ]
+                            },
+                            "event": "on_saddlefinish",
+                            "target": "self"
+                        }
+                    },
                     {
                         "play_sounds": "plop",
                         "swing": true,
@@ -874,6 +984,54 @@
                     {
                         "on_damage": {
                             "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "billey:can_hit_own_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_owner_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "value": "billey:cant_hit_other_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_other_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
                                 "test": "is_family",
                                 "value": "snail",
                                 "subject": "other"
@@ -1011,11 +1169,11 @@
                         "item": "billey:raw_snail_w",
                         "heal_amount": 4
                     },
-                    
                     {
                         "item": "billey:poultry_orange",
                         "heal_amount": 7
-                    },{
+                    },
+                    {
                         "item": "billey:cooked_snail",
                         "heal_amount": 4,
                         "effects": [
@@ -1086,7 +1244,8 @@
                 "priority": 6,
                 "speed_multiplier": 1.0
             },
-            "minecraft:behavior.look_at_player": { "probability": 0.01,
+            "minecraft:behavior.look_at_player": {
+                "probability": 0.01,
                 "priority": 7,
                 "look_distance": 6.0
             },
@@ -1101,6 +1260,57 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "set_follow_state": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "operator": "not",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "set_sitting_property_false": {
+                "set_property": {
+                    "billey:is_sitting": false
+                }
+            },
+            "set_sitting_property_true": {
+                "set_property": {
+                    "billey:is_sitting": true
+                }
+            },
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_tried_to_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_tried_to_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                }
+            },
             "add_sittable": {
                 "add": {
                     "component_groups": [
@@ -1118,9 +1328,11 @@
             "send_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": ["tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.kiwi\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeyinfo.formore\"}]}"
-                    ,"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"]
+                    "command": [
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.kiwi\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeyinfo.formore\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
+                    ]
                 }
             },
             "get_electrocuted": {
@@ -1152,6 +1364,11 @@
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
                             ]
                         }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
                     }
                 ]
             },
@@ -1170,6 +1387,11 @@
                                 "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
                             ]
                         }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
                     }
                 ]
             },
@@ -1182,24 +1404,42 @@
                 }
             },
             "on_shearfinish": {
-                "add": {
-                    "component_groups": [
-                        "saddled"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "sheared"
-                    ]
-                }
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "saddled"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "sheared"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": "particle minecraft:crop_growth_emitter"
+                        }
+                    }
+                ]
             },
             "on_saddlefinish": {
-                "remove": {
-                    "component_groups": [
-                        "saddled",
-                        "sheared"
-                    ]
-                }
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "saddled",
+                                "sheared"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": "particle minecraft:crop_growth_emitter"
+                        }
+                    }
+                ]
             },
             "untame": {
                 "sequence": [

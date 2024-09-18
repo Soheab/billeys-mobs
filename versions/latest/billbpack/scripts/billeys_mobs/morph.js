@@ -91,7 +91,7 @@ export function morphTick(player, morphName) {
         case "duck":
             maxHealthValue = 8;
             player.getComponent("underwater_movement").setCurrentValue(0.07);
-            if (player.isSneaking && !player.wasSneaking) {
+            if (player.isSneaking && !player.__wasSneaking) {
                 const duckTarget = player.getEntitiesFromViewDirection({
                     maxDistance: 15,
                     excludeFamilies: ["duck", "inanimate"]
@@ -111,7 +111,6 @@ export function morphTick(player, morphName) {
     }
     health.setCurrentValue(Math.min(health.currentValue, maxHealthValue));
     //wasSneaking[player.id] = player.isSneaking;
-    player.wasSneaking = player.isSneaking;
 }
 
 world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {

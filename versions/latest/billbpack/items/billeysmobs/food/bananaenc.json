@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.60",
+  "format_version": "1.21.30",
   "minecraft:item": {
     "description": {
       "identifier": "billey:power_banana",
@@ -33,6 +33,9 @@
         "nutrition": 12,
         "saturation_modifier": 2.4, //supernatural
         "can_always_eat": true
+      },
+      "minecraft:rarity": {
+        "value": "rare"
       }
     }
     //eating effects, if any, were done with scripts.

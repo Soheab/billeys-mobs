@@ -7,6 +7,9 @@ import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/serve
 //since currently turning it on breaks them
 
 //also, this way of doing it only works for players and not foxes, geese, etc.
+
+
+//Later comment: HCF is now finally gone, will switch to custom components soon
 world.afterEvents.itemCompleteUse.subscribe(data => {
 	switch (data.itemStack.typeId) {
 		case "billey:pizzapiece":
