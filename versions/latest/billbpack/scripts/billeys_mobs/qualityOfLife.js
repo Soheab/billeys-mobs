@@ -6,18 +6,11 @@ world.afterEvents.entityDie.subscribe(
     ({ deadEntity }) => {
         if (!deadEntity.isValid())
             return;
-        const chunkLoader = deadEntity.dimension.spawnEntity(
-            "billey:chunk_loader",
-            deadEntity.location
-        );
         const subscription = world.afterEvents.playerSpawn.subscribe(({ player }) => {
             if (player.id != deadEntity.id)
                 return;
             world.afterEvents.playerSpawn.unsubscribe(subscription);
             tpAllFollowingPets(player, true);
-            system.runTimeout(() => {
-                chunkLoader.remove();
-            }, 2);
         });
     },
     {
@@ -108,27 +101,3 @@ function isFollowingOwner(pet) {
 world.afterEvents.playerDimensionChange.subscribe(({ player }) => {
     tpAllFollowingPets(player, true);
 });
-
-/** @param {Player} player 
-export function removeWaystoneLoader(player) {
-    const waystoneLoader = player.__waystoneLoader;
-    /** @type {Entity|undefined}
-    if (waystoneLoader?.isValid())
-        waystoneLoader.remove();
-    player.__waystoneLoader = undefined;
-} */
-
-world.afterEvents.entityLoad.subscribe(({ entity }) => {
-    if (entity.typeId.startsWith("billey:chunk_"))
-        entity.remove();
-});
-
-/*world.afterEvents.playerInteractWithBlock.subscribe(({ block, player }) => {
-    if (!block.isValid() || !block.typeId.includes("waystone"))
-        return;
-    removeWaystoneLoader(player);
-    player.__waystoneLoader = player.dimension.spawnEntity(
-        "billey:chunk_loader",
-        block.location
-    );
-});*/

@@ -3,9 +3,9 @@
 	"animations": {
 		"animation.billey.set_follow_state": {
 			"animation_length": 1.0,
-			"loop": false,
+			"loop": true,
 			"timeline": {
-				"0.0": [
+				"0.1": [
 					"@s set_follow_state"
 				]
 			}
