@@ -2,10 +2,10 @@
 	"format_version": 2,
 	"header": {
 		"description": "§eYou §c!MUST!§e turn on the experiment \"§c§lBeta APIs§r§e\" or the add-on §cwill not work!§r Adds §auseful§r pets and fish to your game, intended to contribute to survival gameplay as much as possible. Made by billeyzambie.",
-		"name": "Billey's Mobs 4.8.8",
+		"name": "Billey's Mobs 4.8.9", //skip 4.8.7
 		"uuid": "bd3853a7-d812-4c65-ab9c-e5b0a4b3fbce",
 		"min_engine_version": [1, 16, 200],
-		"version": [ 4,8,8 ]
+		"version": [ 4, 8, 9 ]
 	},
 	"metadata": {
 		"authors":["billeyzambie"],
@@ -14,12 +14,12 @@
 	"modules": [{
 		"type": "resources",
 		"uuid": "b33c14f8-5dfb-468d-a115-8eef36e44947",
-		"version": [ 4,8,8 ]
+		"version": [ 4, 8, 9 ]
 	}],
 	"dependencies": [
 		{
 			"uuid": "b5feb5d2-78b5-4753-ac22-dd37f271b279",		
-			"version": [ 4,8,8 ]
+			"version": [ 4, 8, 9 ]
 		}
 	]
 }

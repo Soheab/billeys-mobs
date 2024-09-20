@@ -1,7 +1,7 @@
 import { world, system, EquipmentSlot, EntityDamageCause, Dimension } from "@minecraft/server";
 import { add, getDistanceXZ, headPets, normalize, ridePets, scale, DIMENSIONS } from "./utility";
 import { isMorph, morphTick } from "./morph";
-import { tpAllFollowingPets } from "./qualityOfLife";
+import { /*removeWaystoneLoader,*/ tpAllFollowingPets } from "./qualityOfLife";
 
 system.runInterval(() => {
 	const players = world.getPlayers();
@@ -9,12 +9,23 @@ system.runInterval(() => {
 		if (!player.isValid()) continue;
 		
 		if (
-			player.__prevLoc
+			player.__prevLoc //is not undefined
 			&& getDistanceXZ(player.location, player.__prevLoc) > 60
-			&& player.__prevDimension == player.dimension
+			&& player.__prevDimension.id == player.dimension.id
 		) {
+			player.dimension.spawnEntity("billey:chunk_loader2", player.__prevLoc);
 			tpAllFollowingPets(player, true);
 		}
+
+		/*if (
+			player.__waystoneLoader
+			&&
+			player.__prevLoc
+			&&
+			distanceXZ > 0.173
+		) {
+			removeWaystoneLoader(player);
+		}*/
 
 		player.__prevLoc = player.location;
 		player.__prevDimension = player.dimension;
