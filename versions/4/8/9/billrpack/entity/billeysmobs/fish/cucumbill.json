@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:cucumbeel",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "cucumbeel": "textures/entity/bill/cucumbeel",
+        "default": "textures/blocks/sea_pickle"
+      },
+      "geometry": {
+        "default": "geometry.cucumbeel",
+        "glowing": "geometry.cucumbeelglow"
+      },
+      "animations": {
+        "new": "animation.billduckproj.body",
+        "flop": "animation.cucumbeel.flop",
+        "swim": "animation.cucumbeel.swim"
+      },
+      "scripts": {
+        "animate": [ "new",
+          {
+            "swim": "q.is_alive"
+          },
+          {
+            "flop": "!q.is_alive"
+          }
+        ]
+      },
+      "render_controllers": [ 
+        "controller.render.billcucumbeel", 
+        {
+          "controller.render.cucumbeel": "q.is_in_water"
+        }
+      ],
+      "spawn_egg": {
+        "base_color": "#4B531E",
+        "overlay_color": "#B4E3B1"
+      }
+    }
+  }
+}
