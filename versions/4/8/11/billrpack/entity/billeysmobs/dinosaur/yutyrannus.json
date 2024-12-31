@@ -1,0 +1,87 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:yutyrannus",
+            "materials": {
+                "default": "entity_alphatest",
+                "cat": "cat"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/yutyrannus",
+                "hat": "textures/entity/billeys_mobs/yutyrannus"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.yutyrannus",
+                "hat": "geometry.billeys_mobs.yutyrannushat"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.yutyrannus.walk",
+                "look_at_target": "animation.billeys_mobs.yutyrannus.look",
+                "death": "animation.billeys_mobs.yutyrannus.death",
+                "sit": "animation.billeys_mobs.yutyrannus.sit",
+                "general": "animation.billeys_mobs.yutyrannus.general",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "eat": "animation.billeys_mobs.yutyrannus.eat",
+                "dance": "animation.billeys_mobs.yutyrannus.dance",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "hurt": "animation.billeys_mobs.cat.hurt2",
+                "attackcont": "controller.animation.billeys_mobs.attack",
+                "attack": "animation.billeys_mobs.yutyrannus.attack",
+                "roar": "animation.billeys_mobs.yutyrannus.roar",
+                "dancecont": "controller.animation.billeys_mobs.dance",
+                "cont.scale_transition": "controller.animation.billeys_mobs.scale_transition",
+                "scale_transition": "animation.billeys_mobs.scale_transition"
+            },
+            "scripts": {
+                "initialize": [
+                    "v.transition_time = 0;",
+                    //these variables are used for the scale transition
+                    "v.curr_scale = 16 * q.model_scale;",
+                    "v.prev_scale = 16 * q.model_scale;",
+                    "v.scale_timer = 0;"
+                ],
+                "pre_animation": [
+                    "v.curr_scale = 16 * q.model_scale;"
+                ],
+                "animate": [
+                    "new",
+                    "general",
+                    "cont.scale_transition",
+                    {
+                        "hurt": "q.health < q.max_health"
+                    },
+                    "attackcont",
+                    {
+                        "controller.sit": "q.is_alive"
+                    },
+                    {
+                        "eatcont": "q.is_alive"
+                    },
+                    {
+                        "dancecont": "q.is_alive"
+                    },
+                    {
+                        "death": "!q.is_alive"
+                    },
+                    {
+                        "move": "q.modified_move_speed * 2 / (q.is_baby+1) * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+                    }
+                ]
+            },
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs_default",
+                {
+                    "controller.render.billeys_mobs.bduckhat": "q.is_powered"
+                }
+            ],
+            "spawn_egg": {
+                "overlay_color": "#92A5B5",
+                "base_color": "#e9e9f0"
+            }
+        }
+    }
+}

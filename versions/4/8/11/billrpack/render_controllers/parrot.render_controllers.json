@@ -1,0 +1,44 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.parrot": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.red_blue",
+            "Texture.blue",
+            "Texture.green",
+            "Texture.yellow_blue",
+            "Texture.grey"
+          ]
+        }
+      },
+      "part_visibility": [
+        {
+          "feather": "!q.is_saddled"
+        }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "textures": [
+        "Array.skins[q.variant]"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

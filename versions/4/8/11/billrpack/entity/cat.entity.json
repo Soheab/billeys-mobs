@@ -1,0 +1,91 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:cat",
+      "materials": { "default": "cat","cat": "cat" },
+      "textures": {
+        "white": "textures/entity/cat/white",
+        "black": "textures/entity/cat/tuxedo",
+        "hat": "textures/entity/billeys_mobs/hat",
+        "hatopy": "textures/entity/billeys_mobs/hatopy",
+        "red": "textures/entity/cat/redtabby",
+        "siamese": "textures/entity/cat/siamesecat",
+        "british": "textures/entity/cat/britishshorthair",
+        "calico": "textures/entity/cat/calico",
+        "persian": "textures/entity/cat/persian",
+        "ragdoll": "textures/entity/cat/ragdoll",
+        "tabby": "textures/entity/cat/tabby",
+        "jellie": "textures/entity/cat/jellie",
+        "blackorange": "textures/entity/cat/blackorange",
+        "blackwhite": "textures/entity/cat/blackwhite",
+        "perry": "textures/entity/cat/perry",
+        "pizza": "textures/entity/cat/pizza",
+        "sugar": "textures/entity/cat/sugar",
+        "all_black": "textures/entity/cat/allblackcat",
+        "white_tame": "textures/entity/cat/white_tame",
+        "black_tame": "textures/entity/cat/tuxedo_tame",
+        "red_tame": "textures/entity/cat/redtabby_tame",
+        "siamese_tame": "textures/entity/cat/siamesecat_tame",
+        "british_tame": "textures/entity/cat/britishshorthair_tame",
+        "calico_tame": "textures/entity/cat/calico_tame",
+        "persian_tame": "textures/entity/cat/persian_tame",
+        "ragdoll_tame": "textures/entity/cat/ragdoll_tame",
+        "tabby_tame": "textures/entity/cat/tabby_tame",
+        "all_black_tame": "textures/entity/cat/allblackcat_tame",
+        "jellie_tame":  "textures/entity/cat/jellie_tame",
+        "blackorange_tame": "textures/entity/cat/blackorange_tame",
+        "blackwhite_tame": "textures/entity/cat/blackwhite_tame",
+        "perry_tame": "textures/entity/cat/perry_tame",
+        "pizza_tame": "textures/entity/cat/pizza_tame",
+        "sugar_tame": "textures/entity/cat/sugar_tame"
+      },
+      "geometry": {
+        "hat": "geometry.billeys_mobs.cathat",
+        "default": "geometry.cat"
+      },
+      "scripts": {
+        "animate": [ "new",
+          {"hat": "q.is_powered"},
+          "raising", "eatcont", "sitcont", "baby", "look_at_target_cont",
+          { "hurt": "q.health < q.max_health" }
+        ]
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "look_at_target_cont": "controller.animation.bcat.look_at_target" ,
+        "baby": "controller.animation.cat.baby" ,
+        "sitcont": "controller.animation.billeys_mobs.sitforcat" ,
+        "eatcont": "controller.animation.billeys_mobs.eat",
+        "raising": "controller.animation.billeys_mobs.eatnoblend",
+        "sneak": "animation.cat.sneak",
+        "hat": "animation.billeys_mobs.cat.hat",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "sit": "animation.cat.sit",
+        "hurt": "animation.billeys_mobs.cat.hurt",
+        "stand": "controller.animation.bcat.move",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down",
+        "fix": "animation.bcat.fix",
+        "eat": "animation.cat.tailsnek",
+        "beg": "animation.cat.beg",
+        "petted3": "animation.billeys_mobs.cat.petted3"// /playanimation animations dont need tobe listed here
+//i did it to preview it in blockbench
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ 
+        "controller.render.cat",
+        {
+            "controller.render.billeys_mobs.bduckhat": "q.is_powered"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 53
+      }
+    }
+  }
+}

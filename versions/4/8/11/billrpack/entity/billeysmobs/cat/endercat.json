@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:endercat",
+      "materials": { "default": "spider" },
+      "textures": {
+        "default": "textures/entity/cat/endercat"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.endercat"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "sneak": "animation.cat.sneak",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "stand": "controller.animation.bcat.move",
+        "sit": "animation.endercat.sit",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down",
+        "fix": "animation.cat.fix"
+      },
+      "animation_controllers": [
+        { "look_at_target": "controller.animation.bcat.look_at_target" },
+        { "sitcont": "controller.animation.billeys_mobs.sitforcat" },
+        { "baby": "controller.animation.bcat.baby" }
+      ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs_default" ],
+      "spawn_egg": {
+        "texture": "egg_cat_enderman"
+      }
+    }
+  }
+}
