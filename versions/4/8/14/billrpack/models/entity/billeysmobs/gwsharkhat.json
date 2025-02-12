@@ -1,0 +1,91 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.billeys_mobs.gwsharkhat",
+				"texture_width": 48,
+				"texture_height": 48,
+				"visible_bounds_width": 6,
+				"visible_bounds_height": 2,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 5, 0]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 4, -13]
+				},
+				{
+					"name": "jaw",
+					"parent": "head",
+					"pivot": [0, 4, -13]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 9, -16],
+					"cubes": [
+						{"origin": [-3, 9, -20], "size": [6, 1, 6], "uv": [19, 15]},
+						{"origin": [-1.5, 10, -18.5], "size": [3, 4, 3], "uv": [0, 21]}
+					]
+				},
+				{
+					"name": "top_fin",
+					"parent": "body",
+					"pivot": [0, 10, -3],
+					"rotation": [-32.5, 0, 0]
+				},
+				{
+					"name": "back_body",
+					"parent": "body",
+					"pivot": [0, 5, 0]
+				},
+				{
+					"name": "tail",
+					"parent": "back_body",
+					"pivot": [0, 5, 13]
+				},
+				{
+					"name": "tail_fin",
+					"parent": "tail",
+					"pivot": [0, 5, 26]
+				},
+				{
+					"name": "left_hind_fin",
+					"parent": "back_body",
+					"pivot": [5, 1, 7],
+					"rotation": [0, -35, 40]
+				},
+				{
+					"name": "right_hind_fin",
+					"parent": "back_body",
+					"pivot": [-5, 1, 7],
+					"rotation": [0, 35, -40]
+				},
+				{
+					"name": "back_top_fin",
+					"parent": "back_body",
+					"pivot": [0, 10, -3],
+					"rotation": [-32.5, 0, 0]
+				},
+				{
+					"name": "left_fin",
+					"parent": "body",
+					"pivot": [5, 2, -8],
+					"rotation": [0, -35, 40]
+				},
+				{
+					"name": "right_fin",
+					"parent": "body",
+					"pivot": [-5, 2, -8],
+					"rotation": [0, 35, -40]
+				}
+			]
+		}
+	]
+}
