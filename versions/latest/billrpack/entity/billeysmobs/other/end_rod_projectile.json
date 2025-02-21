@@ -7,7 +7,7 @@
         "default": "arrow"
       },
       "textures": {
-        "default": "textures/entity/billeys_mobs/endrodarmor"
+        "default": "textures/entity/bill/endrodarmor"
       },
       "geometry": {
         "default": "geometry.billduckproj"

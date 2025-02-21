@@ -1029,6 +1029,9 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
             "billey:pet_target_acquired": {},
             "billey:pet_target_escape": {},
             "destroy_head_equipment": {

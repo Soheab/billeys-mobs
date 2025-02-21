@@ -3,6 +3,7 @@ import { subtract, getDistanceXZ, headPets, normalize, ridePets, scale, DIMENSIO
 import { isMorph, morphTick } from "./morph";
 import { /*removeWaystoneLoader,*/ tpAllFollowingPets } from "./quality_of_life";
 import { decrementDuckatriceStares, duckatriceBossStare, duckatriceStareDamage } from "./duckatrice";
+import { giveInfoBookOnMove } from "./info_book";
 
 system.runInterval(() => {
 	const { currentTick } = system;
@@ -80,11 +81,33 @@ system.runInterval(() => {
 			&& ride.typeId == "billey:duckatrice"
 			&& !ride.getProperty("billey:is_fly_attacking")
 		) {
-			if (!ride.isOnGround && !ride.isInWater) {
-				let { x } = player.getRotation();
-				x -= 10;
-				x *= 2;
-				ride.applyImpulse({ x: 0, y: 0.04 - x * 0.04 / 45, z: 0 });
+			if (!ride.isOnGround) {
+				if (ride.isInWater) {
+					if (player.isJumping)
+						ride.applyImpulse({ x: 0, y: 1, z: 0 });
+				}
+				else {
+					ride.__stamina ??= 40;
+					let { x } = player.getRotation();
+					x -= 10;
+					x *= 1.5;
+					if (x < 0) {
+						if (ride.__stamina <= 0) {
+							if (!ride.getEffect("speed"))
+								x = 0;
+							if (!player.getDynamicProperty("has_gotten_duckatrice_rise_tip")) {
+								player.playSound("random.orb");
+								player.sendMessage({ translate: "chat.billeys_mobs.duckatrice_rise_need_sugar" });
+								player.setDynamicProperty("has_gotten_duckatrice_rise_tip", true);
+							}
+						}
+						ride.__stamina = Math.max(0, ride.__stamina - 2);
+					}
+					else {
+						ride.__stamina = Math.min(40, ride.__stamina + 1);
+					}
+					ride.applyImpulse({ x: 0, y: 0.04 - x * 0.04 / 45, z: 0 });
+				}
 			}
 		}
 
@@ -102,7 +125,7 @@ system.runInterval(() => {
 		) {
 			//The duckatrice boss's ability
 			const raycast = player.getEntitiesFromViewDirection({
-				families: ["duckatrice_boss"]
+				families: ["duckatrice"]
 			})[0] ?? player.getEntitiesFromViewDirection({
 				families: ["duck_minion_hostile"]
 			})[0];
@@ -117,14 +140,19 @@ system.runInterval(() => {
 				player.teleport(player.location);
 		}
 
+		if (player.__toGetInfoBook) {
+			giveInfoBookOnMove(player);
+		}
+
 		player.__wasSneaking = player.isSneaking;
 		player.__wasJumping = player.isJumping;
 	}
 	for (const dimension of DIMENSIONS) {
 		//this is for the mating animation, only rats have mating animations right now but more mobs will soon
-		dimension.getEntities({ tags: ["in_love"], type: "billey:rat" }).forEach(mob => {
-			mob.setProperty("billey:mob_nearby",
-				dimension.getEntities({ location: mob.location, maxDistance: 1.2, type: "billey:rat", tags: ["in_love"] }).length > 1)
+		//mating animations also require a pack in the discord to become visible
+		dimension.getEntities({ tags: ["in_love"], type: "billey:rat" }).forEach(pet => {
+			pet.setProperty("billey:mob_nearby",
+				dimension.getEntities({ location: pet.location, maxDistance: 1.2, type: "billey:rat", tags: ["in_love"] }).length > 1)
 		});
 	}
 });

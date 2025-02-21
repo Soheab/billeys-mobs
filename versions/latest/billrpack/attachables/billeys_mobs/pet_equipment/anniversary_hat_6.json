@@ -7,7 +7,7 @@
                 "billey:anniversary_pet_hat_6": "q.owner_identifier != 'minecraft:player'"
             },
             "materials": {
-                "default": "armor"
+                "default": "entity_emissive_alpha"
             },
             "textures": {
                 "default": "textures/entity/billeys_mobs/anniversary_pet_hat_6"

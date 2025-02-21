@@ -3,6 +3,7 @@ import { ActionFormData } from "@minecraft/server-ui";
 import { playSound, translateItem } from "./utility";
 import { showInfoBookForm } from "./info_book";
 import { ADVANCEMENTS } from "./advancement_list";
+import { getIsAnniversary } from "./pet_equipment/anniversary_hats";
 
 const XP_PER_POWER_BANANA = 35;
 
@@ -51,6 +52,13 @@ function giveAdvancement(player, advancementName) {
         "advancement_player_completion_order",
         JSON.stringify(advancementPlayerCompletionOrder)
     );
+    if (getIsAnniversary()) {
+        const anniversaryPetHat = new ItemStack("billey:anniversary_pet_hat_6");
+        anniversaryPetHat.setLore(["§r§b" + player.name]);
+        anniversaryPetHat.setDynamicProperty("owner_name", player.name);
+        player.dimension.spawnItem(anniversaryPetHat, player.location);
+        player.sendMessage({ translate: "chat.billeys_mobs.anniversary_hat" });
+    }
 }
 
 /**

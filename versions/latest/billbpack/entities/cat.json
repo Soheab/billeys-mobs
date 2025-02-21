@@ -1509,6 +1509,9 @@
 			"minecraft:physics": {}
 		},
 		"events": {
+            "reset_target": {
+                "reset_target": {}
+            },
 			"spawn_lily": {
 				"sequence": [
 					{

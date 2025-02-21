@@ -166,6 +166,14 @@ export function getDistanceXZ({ x: x1, z: z1 }, { x: x2, z: z2 }) {
 export function magnitude(vector) {
 	return Math.sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
 }
+
+export function magnitudeXZ(vector) {
+	return Math.sqrt(vector.x * vector.x + vector.z * vector.z);
+}
+
+export function magnitudeXY(vector) {
+	return Math.sqrt(vector.x * vector.x + vector.y * vector.y);
+}
 /**
  * @returns {import('@minecraft/server').Vector3}
  */

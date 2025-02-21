@@ -270,6 +270,9 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
             "friendly_despawn": {
                 "queue_command": {
                     "command": "scriptevent billey:friendly_rat_minion_despawn"

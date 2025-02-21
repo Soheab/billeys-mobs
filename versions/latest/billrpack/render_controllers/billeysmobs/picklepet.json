@@ -13,9 +13,10 @@
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Array.variants[q.is_sheared]" ],
       "overlay_color": {
-          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
-          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
-          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
           "a": "q.is_illager_captain ? 0.4 : 0.0"
       },
       "is_hurt_color": {
@@ -64,9 +65,10 @@
       "textures": [ "Array.variants[q.is_sheared]" ],
       "part_visibility": [ { "*": "q.is_in_water ? 0 : q.variant == 1" } ],
       "overlay_color": {
-          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
-          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
-          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
           "a": "q.is_illager_captain ? 0.4 : 0.0"
       },
       "is_hurt_color": {

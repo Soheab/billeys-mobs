@@ -65,7 +65,7 @@ world.beforeEvents.itemUse.subscribe(data => {
     /** @type {BilleySweetInfo} */
     const { duration, speedAmplifier, giveBottle } = SWEETNESS[itemTypeId];
     system.run(() => {
-        duckatrice.addEffect("speed", duration * TicksPerSecond, { amplifier: (speedAmplifier + 2) * 3 + 3 * duckatrice.getProperty("billey:level") });
+        duckatrice.addEffect("speed", 2 * duration * TicksPerSecond, { amplifier: (speedAmplifier + 2) * 3 + 3 * duckatrice.getProperty("billey:level") });
         decrementStack(player);
         playSound(duckatrice, "random.eat");
         playSound(duckatrice, "billey.duckatrice.summon", { pitch: 1.2 + speedAmplifier / 10 });
@@ -195,7 +195,8 @@ function turnNearestFrogspawnToDuckatriceEgg(duck) {
             // Replace frogspawn with a frog and exit loop (only converts the first one found)
             dimension.spawnEntity("billey:duckatrice_egg", blockPos);
             block.setPermutation(BlockPermutation.resolve("minecraft:air"));
-            playSound(duck, "billey.grow", {pitch: 0.5});
+            playSound(duck, "billey.grow", { pitch: 0.5 });
+            return;
         }
     }
 }
@@ -269,6 +270,7 @@ export function duckatriceStareDamage(helmetSlot, player) {
     if (
         raycast
         && raycast.distance < 7
+        && !(raycast.entity instanceof Player)
         && raycast.entity.target?.id == player.id
     ) {
         /*Level 1 deals 1 damage, level 10 deals 4 damage, 

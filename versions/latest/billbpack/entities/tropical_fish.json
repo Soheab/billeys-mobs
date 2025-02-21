@@ -1299,7 +1299,10 @@
       "minecraft:nameable": {}
     },
     
-        "events": {"destroy_head_equipment": {
+        "events": {
+            "reset_target": {
+                "reset_target": {}
+            },"destroy_head_equipment": {
     "queue_command":{
 "command": "scriptevent billey:destroy_pet_head_equipment"
 }

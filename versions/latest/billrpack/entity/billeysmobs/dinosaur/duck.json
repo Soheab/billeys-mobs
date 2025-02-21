@@ -27,7 +27,7 @@
         "iron": "textures/entity/billeys_mobs/duckiron",
         "diamond": "textures/entity/billeys_mobs/duckdiamond",
         "chest": "textures/entity/billeys_mobs/cuteduckchest",
-        "endrodpetarmor": "textures/entity/billeys_mobs/endrodarmor",
+        "endrodpetarmor": "textures/entity/bill/endrodarmor",
         "hat": "textures/entity/billeys_mobs/hat",
         "netherite": "textures/entity/billeys_mobs/ducknetherite",
         "centipedehat": "textures/entity/billeys_mobs/centipedehat"

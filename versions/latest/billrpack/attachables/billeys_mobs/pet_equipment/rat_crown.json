@@ -7,7 +7,8 @@
                 "billey:rat_crown": "q.owner_identifier != 'minecraft:player'"
             },
             "materials": {
-                "default": "armor"
+                //The gems have a slight glow
+                "default": "entity_emissive_alpha"
             },
             "textures": {
                 "default": "textures/entity/billeys_mobs/rat_crown"

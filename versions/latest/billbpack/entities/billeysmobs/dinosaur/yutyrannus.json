@@ -1880,6 +1880,9 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
             "add_saddle": {
                 "add": {
                     "component_groups": [

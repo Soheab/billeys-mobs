@@ -3157,6 +3157,9 @@
             "minecraft:physics": {}
         },
         "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
             "transform_frogspawn": {
                 "queue_command": {
                     "command": "scriptevent billey:duck_transform_frogspawn"

@@ -2255,11 +2255,6 @@
                             "max_amount": 1
                         },
                         {
-                            "item": "billey:pizzapiece",
-                            "priority": 0,
-                            "max_amount": 1
-                        },
-                        {
                             "item": "billey:raw_piranha",
                             "priority": 0,
                             "max_amount": 1
@@ -2545,6 +2540,9 @@
             }
         },
         "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
             "billey:pet_target_acquired": {},
             "billey:pet_target_escape": {},
             "destroy_head_equipment": {

@@ -1580,6 +1580,9 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
             "on_tame": {
                 "add": {
                     "component_groups": [

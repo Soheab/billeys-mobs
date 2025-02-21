@@ -1400,6 +1400,9 @@
             "minecraft:physics": {}
         },
         "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
             "billey:pet_target_acquired": {
                 "add": {
                     "component_groups": [

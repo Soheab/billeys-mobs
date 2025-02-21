@@ -36,9 +36,10 @@
       },
       "ignore_lighting": true,
       "overlay_color": {
-          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
-          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
-          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
           "a": "q.get_name == 'Sugar' ? 0.5 : 0.05"
       },
       "is_hurt_color": {

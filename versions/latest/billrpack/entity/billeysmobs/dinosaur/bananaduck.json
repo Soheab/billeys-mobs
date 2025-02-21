@@ -10,7 +10,7 @@
       },
       "textures": {
         "default": "textures/entity/billeys_mobs/duck5",
-        "endrodpetarmor": "textures/entity/billeys_mobs/endrodarmor",
+        "endrodpetarmor": "textures/entity/bill/endrodarmor",
         "hat": "textures/entity/billeys_mobs/hat",
         "hatopy": "textures/entity/billeys_mobs/hatopy",
         "second": "textures/entity/billeys_mobs/duck6",

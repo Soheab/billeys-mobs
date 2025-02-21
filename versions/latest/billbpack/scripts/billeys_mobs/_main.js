@@ -63,7 +63,7 @@ if (DEBUG_MODE) {
 	});
 }
 
-world.afterEvents.dataDrivenEntityTrigger.subscribe(({entity, eventId }) => {
+world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
 	if (eventId == "minecraft:ageable_grow_up")
 		playSound(entity, "billey.grow");
 });
@@ -214,5 +214,26 @@ world.beforeEvents.chatSend.subscribe((data) => {
 			else
 				data.sender.sendMessage("§cThere are no empty slots in your inventory.");
 		})
+	}
+	else if (data.message == "!resetinfobook") {
+		data.cancel = true;
+		system.run(() => {
+			data.sender.setDynamicProperty("got_info_book2", undefined);
+		})
+	}
+});
+
+world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
+	if (eventId != "billey:pet_target_acquired"
+		|| !entity.isValid()
+	)
+		return;
+
+	if (
+		entity.target?.getComponent("tameable")?.tamedToPlayerId
+		== entity.getComponent("tameable")?.tamedToPlayerId
+	) {
+		//didn't work
+		entity.triggerEvent("reset_target");
 	}
 });
