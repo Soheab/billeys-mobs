@@ -1,0 +1,181 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.duck": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.golden",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole"
+          ],
+          "Array.changer": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.golden",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole",
+            "Texture.whiteling",
+            "Texture.brownling"
+          ],
+          "Array.skinscolor": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.white",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole"
+          ],
+          "Array.baby": [
+            "Texture.whiteling",
+            "Texture.brownling",
+            "Texture.golden",
+            "Texture.brownling",
+            "Texture.brownling",
+            "Texture.whiteling",
+            "Texture.whiteling",
+            "Texture.whole"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [ 
+        { "dontshowonbaby": "!q.is_baby" }],
+      "textures": [ "((!q.is_sleeping && !q.is_sheared && !q.is_saddled) || q.is_baby) ? ((q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? (Array.changer[q.life_time * 1.5 + q.variant + q.is_baby * 8]) : (q.is_baby ? Array.baby[q.variant] : (q.is_illager_captain ? Array.skinscolor[q.variant] : Array.skins[q.variant]))) : (q.is_illager_captain ? Array.skinscolor[q.variant] : Array.skins[q.variant])" ],
+      "overlay_color": {
+          "r": "q.variant == 2 ? math.sin(q.life_time * 500 + q.variant * 234) : math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "q.variant == 2 ? math.sin(q.life_time * 400 + q.variant * 234 + 120) : math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "q.variant == 2 ? math.sin(q.life_time * 300 + q.variant * 234 + 240) : math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      }
+    },
+    "controller.render.billeys_mobs.duckcentipede": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.white",
+            "Texture.brown",
+            "Texture.golden",
+            "Texture.mandarin",
+            "Texture.blue",
+            "Texture.black",
+            "Texture.head",
+            "Texture.whole"
+          ],
+          "Array.baby": [
+            "Texture.whiteling",
+            "Texture.brownling",
+            "Texture.golden",
+            "Texture.brownling",
+            "Texture.brownling",
+            "Texture.whiteling",
+            "Texture.whiteling",
+            "Texture.whole"
+          ]
+        }
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [ { "bone9": "v.state == 4 || q.is_sleeping" },
+        { "bone8": "!q.is_baby && q.mark_variant == 0" },
+        { "dontshowonbaby": "!q.is_baby" }],
+      "textures": [ "q.is_baby ? Array.baby[q.variant] : Array.skins[q.variant]" ],
+      "overlay_color": {
+          "r": "q.variant == 2 ? math.sin(q.life_time * 500 + q.variant * 234) : math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "q.variant == 2 ? math.sin(q.life_time * 400 + q.variant * 234 + 120) : math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "q.variant == 2 ? math.sin(q.life_time * 300 + q.variant * 234 + 240) : math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.penguin": {
+      "arrays": {
+        "textures": {
+          "Array.normal": [
+            "Texture.adelie",
+            "Texture.emperor",
+            "Texture.humboldt",
+            "Texture.little"
+          ],
+          "Array.leucistic": [
+            "Texture.adelie1",
+            "Texture.emperor1",
+            "Texture.humboldt1",
+            "Texture.little1"
+          ]
+        },
+        "geometries": {
+          "Array.models": [
+            "Geometry.adelie",
+            "Geometry.emperor",
+            "Geometry.humboldt",
+            "Geometry.little"
+          ]
+        }
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "geometry": "Array.models[q.mark_variant]",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "q.variant ? Array.normal[q.mark_variant] : Array.leucistic[q.mark_variant]" ],
+      "overlay_color": {
+          "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.penguinhat": {
+      "arrays": {
+        "geometries": {
+          "Array.models": [
+            "Geometry.adeliehat",
+            "Geometry.emperorhat",
+            "Geometry.humboldthat",
+            "Geometry.littlehat"
+          ]
+        }
+      },
+      "is_hurt_color": {
+          "a": "0"
+      },
+      "geometry": "Array.models[q.mark_variant]",
+      "materials": [ { "*": "Material.dyeable" } ],
+      "textures": [
+        "Texture.hat"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
+        "g": "math.sin(q.life_time * 300 + q.variant * 234 + 220)",
+        "b": "math.sin(q.life_time * 300 + q.variant * 234 + 340)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

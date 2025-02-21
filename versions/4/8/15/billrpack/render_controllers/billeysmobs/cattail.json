@@ -1,0 +1,58 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cattail": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.white",
+            "Texture.black",
+            "Texture.red",
+            "Texture.siamese",
+            "Texture.british",
+            "Texture.calico",
+            "Texture.persian",
+            "Texture.ragdoll",
+            "Texture.tabby",
+            "Texture.all_black",
+            "Texture.jellie",
+            "Texture.blackorange",
+            "Texture.blackwhite",
+            "Texture.perry",
+            "Texture.pizza",
+            "Texture.sugar"
+          ],
+          "Array.tame": [
+            "Texture.white_tame",
+            "Texture.black_tame",
+            "Texture.red_tame",
+            "Texture.siamese_tame",
+            "Texture.british_tame",
+            "Texture.calico_tame",
+            "Texture.persian_tame",
+            "Texture.ragdoll_tame",
+            "Texture.tabby_tame",
+            "Texture.all_black_tame",
+            "Texture.jellie_tame",
+            "Texture.blackorange_tame",
+            "Texture.blackwhite_tame",
+            "Texture.perry_tame",
+            "Texture.pizza_tame",
+            "Texture.sugar_tame"
+          ]
+        }
+      },
+      "geometry": "Geometry.tail",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "q.is_tamed ? Array.tame[q.variant] : Array.skins[q.variant]" ],
+      "part_visibility": [ { "*": "q.variant == 1" } ],
+      "ignore_lighting": true,
+      "overlay_color": {
+          "r": "-math.sin(q.life_time * 200)",
+          "g": "-math.sin(q.life_time * 200 + 120)",
+          "b": "-math.sin(q.life_time * 200 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}
