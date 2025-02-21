@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billbananaduck.pugehenis": {
+		"animation.billeys_mobs.banana_duck.pugehenis": {
 			"animation_length": 1.8,
 			"bones": {
 				"lol": {
@@ -121,7 +121,7 @@
 				}
 			}
 		},
-		"animation.billbananaduck.walk": {
+		"animation.billeys_mobs.banana_duck.walk": {
 			"loop": true,
 			"animation_length": 0.48,
 			"anim_time_update": "q.modified_distance_moved / 16",
@@ -184,7 +184,7 @@
 				}
 			}
 		},
-		"animation.billbananaduck.sit": {
+		"animation.billeys_mobs.banana_duck.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -231,10 +231,13 @@
 				"duck_tail": {
 					"rotation": [0, 47.5, 0],
 					"position": [0, -0.25, -0.25]
+				},
+				"bowtie": {
+					"position": [0, -1, 0]
 				}
 			}
 		},
-		"animation.billbananaduck.flappy": {
+		"animation.billeys_mobs.banana_duck.flappy": {
 			"loop": true,
 			"bones": {
 				"wing1": {
@@ -315,7 +318,7 @@
 				}
 			}
 		},
-		"animation.billbananaduck.sleep": {
+		"animation.billeys_mobs.banana_duck.sleep": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -368,10 +371,13 @@
 				},
 				"bone9": {
 					"scale": [1, 1.375, 1.1]
+				},
+				"bowtie": {
+					"position": [0, -1, 0]
 				}
 			}
 		},
-		"animation.billbananaduck.idle": {
+		"animation.billeys_mobs.banana_duck.idle": {
 			"loop": true,
 			"bones": {
 				"head": {

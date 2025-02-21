@@ -1,5 +1,6 @@
-import { world, ItemStack, system, GameMode, Entity, Player } from "@minecraft/server";
-import { addItemToPigeon, pigeonUI } from "./pigeonMission";
+import { world, ItemStack, system, GameMode, Entity, Player, EntityMovementAmphibiousComponent } from "@minecraft/server";
+import { addItemToPigeon, pigeonUI } from "./pigeon_mission";
+import { playerPetDuckatrice } from "./duckatrice";
 
 const lvl10XP = 10 * 810 //xp_level10
 
@@ -12,12 +13,16 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
 		if (player.isSneaking && mob.typeId.startsWith("billey:") && mob.getComponent("is_tamed")) {
 			data.cancel = true;
 			system.run(() => {
-				player.playAnimation("animation.billeyplayer.pet");
+				player.playAnimation("animation.billeys_mobsplayer.pet");
 				mob.triggerEvent("bepetted");
-				if (mob.typeId.includes("cat")) dimension.playSound("mob.cat.purr", mob.location);
+				if (mob.typeId.includes("cat"))
+					dimension.playSound("mob.cat.purr", mob.location);
 				if (mob.typeId == "billey:pigeon" && mob.getProperty("billey:has_backpack")
 					&& player.name == mob.getDynamicProperty("owner_name")) {
 					pigeonUI(player, mob, dimension);
+				}
+				if (mob.typeId == "billey:duckatrice") {
+					playerPetDuckatrice(player, mob);
 				}
 			});
 		}
@@ -52,25 +57,25 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
 		}
 		if (mob.typeId.startsWith("billey:") && mob.getComponent("is_tamed"))
 			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Owner:§9 " +
-		 mob.getDynamicProperty("owner_name") + "\"}]}");
+				mob.getDynamicProperty("owner_name") + "\"}]}");
 		let currentXP = Math.floor(10 * mob.getProperty("billey:xp"));
 		let level = mob.getProperty("billey:level");
 		player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Health:§9 " + Math.floor(mob.getComponent("health").currentValue) + " / " + mob.getComponent("health").effectiveMax + "\"}]}");
 		let nextXP = 100 * Math.floor(3 * level ** 1.5);
 		if (level)
-		player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Level:§9 " + level + "\"}]}");
+			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Level:§9 " + level + "\"}]}");
 		if (level < 10) {
 			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP:§9 " + currentXP + "\"}]}");
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP required for Level " + (level + 1) + ":§a " + nextXP + " §7(" + (nextXP - currentXP) + " left)" + "\"}]}");
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP required for Level 10" + ":§a " + lvl10XP + " §7(" + (lvl10XP - currentXP) + " left)" + "\"}]}");
+			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP required for Level " + (level + 1) + ":§a " + nextXP + " §7(" + Math.max(nextXP - currentXP, 1) + " left)" + "\"}]}");
 		}
-		//player.runCommandAsync("tellraw @s {\"rawtext\":[{\"translate\":\"chat.billey.not_levelable\"}]}");
+		//player.runCommandAsync("tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.not_levelable\"}]}");
 	}
 	else if (item.typeId.startsWith("billey:to_level") && mob.getProperty("billey:level")
 		&& mob.hasComponent("is_tamed") && !mob.hasComponent("is_baby")) {
 		data.cancel = true;
 		system.run(() => {
 			mob.triggerEvent(item.typeId.slice(7));
+			mob.addEffect("instant_health", 1, { amplifier: 255 });
 			if (player.getGameMode() != GameMode.creative)
 				player.getComponent("equippable").setEquipment("Mainhand", undefined);
 		});
@@ -106,7 +111,7 @@ export function loadPiranhaLauncher(player, piranha, item) {
 		player.getComponent("equippable").setEquipment("Mainhand", item);
 		player.startItemCooldown("piranha_launcher", 20);
 		piranha.remove();
-	} else player.sendMessage({ translate: "chat.billey.piranha64" });
+	} else player.sendMessage({ translate: "chat.billeys_mobs.piranha64" });
 }
 
 world.afterEvents.playerInteractWithEntity.subscribe((data) => {

@@ -6,76 +6,76 @@
             "materials": {
                 "default": "villager_v2_masked",
                 "cat": "cat",
-                "eyes": "spider"
+                "eyes": "entity_emissive_alpha"
             },
             "textures": {
-                "zero": "textures/entity/bill/netherrat",
-                "hat": "textures/entity/bill/rat",
-                "one": "textures/entity/bill/netherrat1",
-                "two": "textures/entity/bill/netherrat2",
-                "three": "textures/entity/bill/netherrat3",
-                "four": "textures/entity/bill/netherrat4",
-                "five": "textures/entity/bill/netherrat5",
-                "zeroa": "textures/entity/bill/netherrata",
-                "onea": "textures/entity/bill/netherrat1a",
-                "twoa": "textures/entity/bill/netherrat2a",
-                "threea": "textures/entity/bill/netherrat3a",
-                "zerob": "textures/entity/bill/netherratb",
-                "oneb": "textures/entity/bill/netherrat1b",
-                "twob": "textures/entity/bill/netherrat2b",
-                "threeb": "textures/entity/bill/netherrat3b",
-                "zeroc": "textures/entity/bill/netherratc",
-                "onec": "textures/entity/bill/netherrat1c",
-                "twoc": "textures/entity/bill/netherrat2c",
-                "threec": "textures/entity/bill/netherrat3c",
-                "zerod": "textures/entity/bill/netherratd",
-                "oned": "textures/entity/bill/netherrat1d",
-                "twod": "textures/entity/bill/netherrat2d",
-                "threed": "textures/entity/bill/netherrat3d",
-                "foura": "textures/entity/bill/netherrat4a",
-                "fourb": "textures/entity/bill/netherrat4b",
-                "fourc": "textures/entity/bill/netherrat4c",
-                "fourd": "textures/entity/bill/netherrat4d",
-                "fivea": "textures/entity/bill/netherrat5a",
-                "fiveb": "textures/entity/bill/netherrat5b",
-                "fivec": "textures/entity/bill/netherrat5c",
-                "fived": "textures/entity/bill/netherrat5d"
+                "zero": "textures/entity/billeys_mobs/netherrat",
+                "hat": "textures/entity/billeys_mobs/rat",
+                "one": "textures/entity/billeys_mobs/netherrat1",
+                "two": "textures/entity/billeys_mobs/netherrat2",
+                "three": "textures/entity/billeys_mobs/netherrat3",
+                "four": "textures/entity/billeys_mobs/netherrat4",
+                "five": "textures/entity/billeys_mobs/netherrat5",
+                "zeroa": "textures/entity/billeys_mobs/netherrata",
+                "onea": "textures/entity/billeys_mobs/netherrat1a",
+                "twoa": "textures/entity/billeys_mobs/netherrat2a",
+                "threea": "textures/entity/billeys_mobs/netherrat3a",
+                "zerob": "textures/entity/billeys_mobs/netherratb",
+                "oneb": "textures/entity/billeys_mobs/netherrat1b",
+                "twob": "textures/entity/billeys_mobs/netherrat2b",
+                "threeb": "textures/entity/billeys_mobs/netherrat3b",
+                "zeroc": "textures/entity/billeys_mobs/netherratc",
+                "onec": "textures/entity/billeys_mobs/netherrat1c",
+                "twoc": "textures/entity/billeys_mobs/netherrat2c",
+                "threec": "textures/entity/billeys_mobs/netherrat3c",
+                "zerod": "textures/entity/billeys_mobs/netherratd",
+                "oned": "textures/entity/billeys_mobs/netherrat1d",
+                "twod": "textures/entity/billeys_mobs/netherrat2d",
+                "threed": "textures/entity/billeys_mobs/netherrat3d",
+                "foura": "textures/entity/billeys_mobs/netherrat4a",
+                "fourb": "textures/entity/billeys_mobs/netherrat4b",
+                "fourc": "textures/entity/billeys_mobs/netherrat4c",
+                "fourd": "textures/entity/billeys_mobs/netherrat4d",
+                "fivea": "textures/entity/billeys_mobs/netherrat5a",
+                "fiveb": "textures/entity/billeys_mobs/netherrat5b",
+                "fivec": "textures/entity/billeys_mobs/netherrat5c",
+                "fived": "textures/entity/billeys_mobs/netherrat5d"
             },
             "geometry": {
-                "default": "geometry.billnetherrat",
-                "hat": "geometry.billrathat"
+                "default": "geometry.billeys_mobs.netherrat",
+                "hat": "geometry.billeys_mobs.rathat"
             },
             "animations": {
-                "new": "animation.billduckproj.body",
-                "move": "controller.animation.billey.rodent_walk_or_run",
-                "sit": "animation.billrat.sit",
-                "sit2": "animation.billrat.sit2",
-                "walk": "animation.billrat.walk",
-                "sheared": "animation.billrat.sniff",
-                "random_idle": "animation.billrat.wiggle_ears",
-                "run": "animation.billrat.run",
-                "hurt": "animation.billcat.hurt",
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "controller.animation.billeys_mobs.rodent_walk_or_run",
+                "sit": "animation.billeys_mobs.rat.sit",
+                "sit2": "animation.billeys_mobs.rat.sit2",
+                "walk": "animation.billeys_mobs.rat.walk",
+                "sheared": "animation.billeys_mobs.rat.sniff",
+                "random_idle": "animation.billeys_mobs.rat.wiggle_ears",
+                "run": "animation.billeys_mobs.rat.run",
+                "hurt": "animation.billeys_mobs.cat.hurt",
                 "look_at_target": "animation.common.look_at_target",
-                "contsit": "controller.animation.billey.rodent_sit",
-                "contsniff": "controller.animation.billey.rodent_sniff",
-                "contadmire": "controller.animation.billey.admire",
-                "contrandom_idle": "controller.animation.billey.random_idle",
-                "death2": "animation.billkiwi.cancelvanilladeath",
-                "death": "animation.billrat.die",
-                "player_head": "animation.billrat.player_head",
-                "admire": "animation.billrat.cook",
-                "attackcont": "controller.animation.billey.random_attack",
-                "attack1": "animation.billyutyrannus.attack",
-                "attack3": "animation.billyutyrannus.attack",
-                "attack2": "animation.billyutyrannus.attack",
-                "fold_wings": "animation.billnetherrat.fold_wings",
-                "fly": "animation.billnetherrat.fly",
-                "flycont": "controller.animation.billey.netherrat_fly"
+                "contsit": "controller.animation.billeys_mobs.rodent_sit",
+                "contsniff": "controller.animation.billeys_mobs.rodent_sniff",
+                "contadmire": "controller.animation.billeys_mobs.admire",
+                "contrandom_idle": "controller.animation.billeys_mobs.random_idle",
+                "death2": "animation.billeys_mobs.kiwi.cancelvanilladeath",
+                "death": "animation.billeys_mobs.rat.die",
+                "player_head": "animation.billeys_mobs.rat.player_head",
+                "admire": "animation.billeys_mobs.rat.cook",
+                "attackcont": "controller.animation.billeys_mobs.random_attack",
+                "attack1": "animation.billeys_mobs.yutyrannus.attack",
+                "attack3": "animation.billeys_mobs.yutyrannus.attack",
+                "attack2": "animation.billeys_mobs.yutyrannus.attack",
+                "fold_wings": "animation.billeys_mobs.netherrat.fold_wings",
+                "fly": "animation.billeys_mobs.netherrat.fly",
+                "flycont": "controller.animation.billeys_mobs.netherrat_fly"
             },
             "scripts": {
                 "initialize": [
                     "v.time_to_idle = 0;",
-                    "v.can_use_sit_two = 1;"
+                    "v.can_use_sit2 = 1;"
                     //hamsters' animation code was written 2.5 years ago
                     //i dont remember if this variable actually has something to do with twerking
                     //it probably doesnt
@@ -105,10 +105,12 @@
                     }
                 ]
             },
-            "render_controllers": [
-                "controller.render.billey.netherrat", //in the rat render controller file
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs.netherrat", //in the rat render controller file
                 {
-                    "controller.render.billbduckhat": "q.is_saddled"
+                    "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
                 }
             ],
             "spawn_egg": {

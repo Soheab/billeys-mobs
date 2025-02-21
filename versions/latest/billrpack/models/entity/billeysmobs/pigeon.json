@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billpigeon",
+				"identifier": "geometry.billeys_mobs.pigeon",
 				"texture_width": 32,
 				"texture_height": 32,
 				"visible_bounds_width": 3,
@@ -179,6 +179,11 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "necc",
+					"pivot": [0, 8, -3.5]
 				},
 				{
 					"name": "leg0",

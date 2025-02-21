@@ -1,7 +1,7 @@
 {
     "format_version": "1.8.0",
     "render_controllers": {
-        "controller.render.billey.terraphin": {
+        "controller.render.billeys_mobs.terraphin": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -63,7 +63,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             }
         },
-        "controller.render.billbettafish": {
+        "controller.render.billeys_mobs.bettafish": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -117,7 +117,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             }
         },
-        "controller.render.billbettaglowbody": {
+        "controller.render.billeys_mobs.bettaglowbody": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -179,7 +179,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             }
         },
-        "controller.render.billbettaglowfins": {
+        "controller.render.billeys_mobs.bettaglowfins": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -239,7 +239,7 @@
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
             }
         },
-        "controller.render.billbettafishlocators": {
+        "controller.render.billeys_mobs.bettafishlocators": {
             "geometry": "Geometry.locators",
             "materials": [
                 {
@@ -250,7 +250,7 @@
                 "Texture.one"
             ]
         },/////////////////
-        "controller.render.billelectriceel": {
+        "controller.render.billeys_mobs.electriceel": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -284,7 +284,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             }
         },/////////////////
-        "controller.render.billorangepenguin": {
+        "controller.render.billeys_mobs.orangepenguin": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {

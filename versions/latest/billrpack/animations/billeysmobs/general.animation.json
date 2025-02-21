@@ -17,7 +17,7 @@
 				}
 			}
 		},
-		"animation.billduckproj.body": {
+		"animation.billeys_mobs.duckproj.body": {
 			"animation_length": 0.24,
 			"bones": {
 				"body": {
@@ -30,7 +30,7 @@
 				}
 			}
 		},
-		"animation.billduckproj.pop": {
+		"animation.billeys_mobs.duckproj.pop": {
 			"animation_length": 0.2,
 			"bones": {
 				"pop": {
@@ -43,7 +43,7 @@
 				}
 			}
 		},
-		"animation.billduckproj.ooo": {
+		"animation.billeys_mobs.duckproj.ooo": {
 			"animation_length": 0.24,
 			"bones": {
 				"ooo": {
@@ -56,7 +56,7 @@
 				}
 			}
 		},
-		"animation.billduckproj.death": {
+		"animation.billeys_mobs.duckproj.death": {
 			"animation_length": 0.24,
 			"bones": {
 				"death": {

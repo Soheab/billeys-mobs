@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billlandolphin",
+				"identifier": "geometry.billeys_mobs.landolphin",
 				"texture_width": 80,
 				"texture_height": 80,
 				"visible_bounds_width": 5,
@@ -69,6 +69,12 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "body",
+					"pivot": [0, 7.45, -6],
+					"rotation": [45, 0, 0]
 				},
 				{
 					"name": "head",
@@ -222,6 +228,11 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 15.45, -7.5]
 				},
 				{
 					"name": "tail",

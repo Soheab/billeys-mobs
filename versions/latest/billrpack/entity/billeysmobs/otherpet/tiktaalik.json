@@ -8,38 +8,38 @@
         "cat": "cat"
       },
       "textures": {
-        "zero": "textures/entity/bill/tiktaalik",
-        "one": "textures/entity/bill/tiktaalik1",
-        "two": "textures/entity/bill/tiktaalik2",
-        "three": "textures/entity/bill/tiktaalik3",
-        "four": "textures/entity/bill/tiktaalik4",
-        "five": "textures/entity/bill/tiktaalik5",
-        "six": "textures/entity/bill/tiktaalik6",
-        "seven": "textures/entity/bill/tiktaalik7",
-        "eight": "textures/entity/bill/tiktaalik8",
-        "nine": "textures/entity/bill/tiktaalik9",
-        "hat": "textures/entity/bill/hat"
+        "zero": "textures/entity/billeys_mobs/tiktaalik",
+        "one": "textures/entity/billeys_mobs/tiktaalik1",
+        "two": "textures/entity/billeys_mobs/tiktaalik2",
+        "three": "textures/entity/billeys_mobs/tiktaalik3",
+        "four": "textures/entity/billeys_mobs/tiktaalik4",
+        "five": "textures/entity/billeys_mobs/tiktaalik5",
+        "six": "textures/entity/billeys_mobs/tiktaalik6",
+        "seven": "textures/entity/billeys_mobs/tiktaalik7",
+        "eight": "textures/entity/billeys_mobs/tiktaalik8",
+        "nine": "textures/entity/billeys_mobs/tiktaalik9",
+        "hat": "textures/entity/billeys_mobs/hat"
       },
       "geometry": {
-        "default": "geometry.billtiktaalik",
-        "hat": "geometry.billtiktaalikhat"
+        "default": "geometry.billeys_mobs.tiktaalik",
+        "hat": "geometry.billeys_mobs.tiktaalikhat"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "look": "animation.common.look_at_target",
-        "lookwater": "animation.billangler.look",
-        "walk": "animation.billtiktaalik.walk",
-        "sit": "animation.billtiktaalik.sit",
+        "lookwater": "animation.billeys_mobs.angler.look",
+        "walk": "animation.billeys_mobs.tiktaalik.walk",
+        "sit": "animation.billeys_mobs.tiktaalik.sit",
         "baby": "animation.cat.baby_transform",
-        "general": "controller.animation.billey.tiktaalik",
-        "fin_cont": "controller.animation.billey.tiktaalik_fins",
-        "attack_cont": "controller.animation.billey.simple_attack",
-        "random_idle_cont": "controller.animation.billey.random_idle",
-        "swim": "animation.billtiktaalik.swim",
-        "random_idle": "animation.billtiktaalik.blink",
-        "swim2": "animation.billtiktaalik.swim_pose",
-        "attack": "animation.billtiktaalik.attack",
-        "hurt": "animation.billcat.hurt2"
+        "general": "controller.animation.billeys_mobs.tiktaalik",
+        "fin_cont": "controller.animation.billeys_mobs.tiktaalik_fins",
+        "attack_cont": "controller.animation.billeys_mobs.simple_attack",
+        "random_idle_cont": "controller.animation.billeys_mobs.random_idle",
+        "swim": "animation.billeys_mobs.tiktaalik.swim",
+        "random_idle": "animation.billeys_mobs.tiktaalik.blink",
+        "swim2": "animation.billeys_mobs.tiktaalik.swim_pose",
+        "attack": "animation.billeys_mobs.tiktaalik.attack",
+        "hurt": "animation.billeys_mobs.cat.hurt2"
       },
       "scripts": {
         "initialize": [
@@ -61,10 +61,12 @@
           }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
-        "controller.render.billey.tiktaalik",
+        "controller.render.billeys_mobs.tiktaalik",
         {
-          "controller.render.billbduckhat": "q.is_saddled"
+          "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
         }
       ],
       "spawn_egg": {

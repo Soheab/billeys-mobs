@@ -1,7 +1,7 @@
 {
   "format_version": "1.8.0",
   "render_controllers": {
-    "controller.render.billpoop": {
+    "controller.render.billeys_mobs.poop": {
       "arrays": {
         "textures": {
           "Array.variants": [

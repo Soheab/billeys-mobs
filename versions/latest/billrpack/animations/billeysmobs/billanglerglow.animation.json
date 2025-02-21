@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billangler.sugar": {
+		"animation.billeys_mobs.angler.sugar": {
 			"loop": true,
 			"bones": {
 				"bone": {

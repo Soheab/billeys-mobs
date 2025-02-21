@@ -5,17 +5,17 @@
       "identifier": "billey:hammerhead_shark",
       "materials": { "default": "entity_alphatest" },
       "textures": {
-        "normal": "textures/entity/bill/billhmrshark",
-        "gay": "textures/entity/bill/billhmrsharkgray",
-        "desat": "textures/entity/bill/billhmrsharkdesat"
+        "normal": "textures/entity/billeys_mobs/billhmrshark",
+        "gay": "textures/entity/billeys_mobs/billhmrsharkgray",
+        "desat": "textures/entity/billeys_mobs/billhmrsharkdesat"
       },
       "geometry": {
-        "default": "geometry.billhmrshark"
+        "default": "geometry.billeys_mobs.hmrshark"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "swim": "animation.billhmrshark.swim",
-        "turn": "animation.billhmrshark.turn"
+        "new": "animation.billeys_mobs.duckproj.body",
+        "swim": "animation.billeys_mobs.hmrshark.swim",
+        "turn": "animation.billeys_mobs.hmrshark.turn"
       },
       "scripts": {
         "animate": [ "new",
@@ -24,7 +24,9 @@
           { "swim": "!q.is_in_water ? math.sin(q.life_time * 200) + 1 : 0" }
         ]
       },
-      "render_controllers": [ "controller.render.billhmrshark" ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs.hmrshark" ],
       "spawn_egg": {
         "base_color": "#739cb9",
         "overlay_color": "#ecffff"

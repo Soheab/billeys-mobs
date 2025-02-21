@@ -1,6 +1,6 @@
 {
 	"format_version": "1.10.0",
-	"geometry.billice_golem": {
+	"geometry.billeys_mobs.ice_golem": {
 		"texturewidth": 64,
 		"textureheight": 64,
 		"visible_bounds_width": 3,

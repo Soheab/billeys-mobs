@@ -9,66 +9,63 @@
                 "dyeable": "cat"
             },
             "textures": {
-                "zero": "textures/entity/bill/rat", //also the normal chef hat's texture
-                "royal_hat": "textures/entity/bill/rat_royal_chef_hat",
-                "crown": "textures/entity/bill/rat_crown",
-                "one": "textures/entity/bill/rat1",
-                "two": "textures/entity/bill/rat2",
-                "three": "textures/entity/bill/rat3",
-                "four": "textures/entity/bill/rat4",
-                "five": "textures/entity/bill/rat5",
-                "zeroa": "textures/entity/bill/rata",
-                "onea": "textures/entity/bill/rat1a",
-                "twoa": "textures/entity/bill/rat2a",
-                "threea": "textures/entity/bill/rat3a",
-                "zerob": "textures/entity/bill/ratb",
-                "oneb": "textures/entity/bill/rat1b",
-                "twob": "textures/entity/bill/rat2b",
-                "threeb": "textures/entity/bill/rat3b",
-                "zeroc": "textures/entity/bill/ratc",
-                "onec": "textures/entity/bill/rat1c",
-                "twoc": "textures/entity/bill/rat2c",
-                "threec": "textures/entity/bill/rat3c",
-                "zerod": "textures/entity/bill/ratd",
-                "oned": "textures/entity/bill/rat1d",
-                "twod": "textures/entity/bill/rat2d",
-                "threed": "textures/entity/bill/rat3d",
-                "foura": "textures/entity/bill/rat4a",
-                "fourb": "textures/entity/bill/rat4b",
-                "fourc": "textures/entity/bill/rat4c",
-                "fourd": "textures/entity/bill/rat4d"
+                "zero": "textures/entity/billeys_mobs/rat",
+                "one": "textures/entity/billeys_mobs/rat1",
+                "two": "textures/entity/billeys_mobs/rat2",
+                "three": "textures/entity/billeys_mobs/rat3",
+                "four": "textures/entity/billeys_mobs/rat4",
+                "five": "textures/entity/billeys_mobs/rat5",
+                "zeroa": "textures/entity/billeys_mobs/rata",
+                "onea": "textures/entity/billeys_mobs/rat1a",
+                "twoa": "textures/entity/billeys_mobs/rat2a",
+                "threea": "textures/entity/billeys_mobs/rat3a",
+                "zerob": "textures/entity/billeys_mobs/ratb",
+                "oneb": "textures/entity/billeys_mobs/rat1b",
+                "twob": "textures/entity/billeys_mobs/rat2b",
+                "threeb": "textures/entity/billeys_mobs/rat3b",
+                "zeroc": "textures/entity/billeys_mobs/ratc",
+                "onec": "textures/entity/billeys_mobs/rat1c",
+                "twoc": "textures/entity/billeys_mobs/rat2c",
+                "threec": "textures/entity/billeys_mobs/rat3c",
+                "zerod": "textures/entity/billeys_mobs/ratd",
+                "oned": "textures/entity/billeys_mobs/rat1d",
+                "twod": "textures/entity/billeys_mobs/rat2d",
+                "threed": "textures/entity/billeys_mobs/rat3d",
+                "foura": "textures/entity/billeys_mobs/rat4a",
+                "fourb": "textures/entity/billeys_mobs/rat4b",
+                "fourc": "textures/entity/billeys_mobs/rat4c",
+                "fourd": "textures/entity/billeys_mobs/rat4d"
             },
             "geometry": {
-                "default": "geometry.billrat",
-                "hat": "geometry.billrathat"
+                "default": "geometry.billeys_mobs.rat"
             },
             "animations": {
-                "new": "animation.billduckproj.body",
-                "sit": "animation.billrat.sit",
-                "move": "controller.animation.billey.rodent_walk_or_run",
-                "sit2": "animation.billrat.sit2",
-                "walk": "animation.billrat.walk",
-                "sheared": "animation.billrat.sniff",
-                "random_idle": "animation.billrat.wiggle_ears",
-                "run": "animation.billrat.run",
-                "hurt": "animation.billcat.hurt",
+                "new": "animation.billeys_mobs.duckproj.body",
+                "sit": "animation.billeys_mobs.rat.sit",
+                "move": "controller.animation.billeys_mobs.rodent_walk_or_run",
+                "sit2": "animation.billeys_mobs.rat.sit2",
+                "walk": "animation.billeys_mobs.rat.walk",
+                "sheared": "animation.billeys_mobs.rat.sniff",
+                "random_idle": "animation.billeys_mobs.rat.wiggle_ears",
+                "run": "animation.billeys_mobs.rat.run",
+                "hurt": "animation.billeys_mobs.cat.hurt",
                 "look_at_target": "animation.common.look_at_target",
-                "contsit": "controller.animation.billey.rodent_sit",
-                "contsniff": "controller.animation.billey.rodent_sniff",
-                "contadmire": "controller.animation.billey.admire",
-                "contrandom_idle": "controller.animation.billey.random_idle",
-                "death2": "animation.billkiwi.cancelvanilladeath",
-                "death": "animation.billrat.die",
-                "player_head": "animation.billrat.player_head",
-                "admire": "animation.billrat.cook",
-                "contmate": "controller.animation.billey.mate",
+                "contsit": "controller.animation.billeys_mobs.rodent_sit",
+                "contsniff": "controller.animation.billeys_mobs.rodent_sniff",
+                "contadmire": "controller.animation.billeys_mobs.admire",
+                "contrandom_idle": "controller.animation.billeys_mobs.random_idle",
+                "death2": "animation.billeys_mobs.kiwi.cancelvanilladeath",
+                "death": "animation.billeys_mobs.rat.die",
+                "player_head": "animation.billeys_mobs.rat.player_head",
+                "admire": "animation.billeys_mobs.rat.cook",
+                "contmate": "controller.animation.billeys_mobs.mate",
                 "mate_male": "animation.billrat.mate_male",
                 "mate_female": "animation.billrat.mate_female"
             },
             "scripts": {
                 "initialize": [
                     "v.time_to_idle = 0;",
-                    "v.can_use_sit_two = 1;"
+                    "v.can_use_sit2 = 1;"
                     //hamsters' animation code was written 2.5 years ago
                     //i dont remember if this variable actually has something to do with twerking
                     //it probably doesnt
@@ -107,17 +104,16 @@
                     }
                 ]
             },
-            "render_controllers": [
-                "controller.render.billey.rat",
-                {
-                    "controller.render.billrat_head_equipment": "q.property('billey:head_equipment') != 'none'"
-                }
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs.rat"
             ],
             "spawn_egg": {
                 "base_color": "#718794",
                 "overlay_color": "#ffd1b3"
             }
-            //"animation.billrat.player_head_duck_hat"
+            //"animation.billeys_mobs.rat.player_head_duck_hat"
         }
     }
 }

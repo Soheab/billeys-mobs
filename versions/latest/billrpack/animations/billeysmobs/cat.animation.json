@@ -106,7 +106,7 @@
 				}
 			}
 		},
-		"animation.billcat.petted": {
+		"animation.billeys_mobs.cat.petted": {
 			"animation_length": 0.98,
 			"bones": {
 				"head": {
@@ -122,7 +122,7 @@
 				}
 			}
 		},
-		"animation.billcat.petted2": {
+		"animation.billeys_mobs.cat.petted2": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.32,
 			"bones": {
@@ -170,7 +170,7 @@
 				}
 			}
 		},
-		"animation.billcat.petted4": {
+		"animation.billeys_mobs.cat.petted4": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 2.4,
 			"override_previous_animation": true,
@@ -472,7 +472,7 @@
 				}
 			}
 		},
-		"animation.billcat.hurt2": {
+		"animation.billeys_mobs.cat.hurt2": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -550,7 +550,7 @@
 				}
 			}
 		},
-		"animation.billcat.petted3": {
+		"animation.billeys_mobs.cat.petted3": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 2.4,
 			"override_previous_animation": true,
@@ -716,7 +716,7 @@
 				}
 			}
 		},
-		"animation.billcat.hat": {
+		"animation.billeys_mobs.cat.hat": {
 			"loop": true,
 			"bones": {
 				"ear": {
@@ -729,7 +729,7 @@
 				}
 			}
 		},
-		"animation.billcat.hurt": {
+		"animation.billeys_mobs.cat.hurt": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -859,6 +859,17 @@
 					"rotation": [-90, 0, 0],
 					"position": [0, 1, -1],
 					"scale": [2, 1, 1]
+				}
+			}
+		},
+		"animation.billeys_mobs.cat.tigerlily": {
+			"loop": true,
+			"bones": {
+				"tongue": {
+					"position": [0, 0, -1]
+				},
+				"tongue4": {
+					"rotation": [45, 0, 0]
 				}
 			}
 		}

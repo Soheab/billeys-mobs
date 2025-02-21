@@ -5,16 +5,16 @@
       "identifier": "billey:pizzafish",
       "materials": { "default": "entity_alphatest" },
       "textures": {
-				"default": "textures/entity/bill/pizzafish"
+				"default": "textures/entity/billeys_mobs/pizzafish"
 			},
       "geometry": {
-        "default": "geometry.billpizzafish"
+        "default": "geometry.billeys_mobs.pizzafish"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "flop": "animation.billpizzafish.flop",
-        "swim": "animation.billpizzafish.swim",
-				"look": "animation.billfishy.look"
+        "new": "animation.billeys_mobs.duckproj.body",
+        "flop": "animation.billeys_mobs.pizzafish.flop",
+        "swim": "animation.billeys_mobs.pizzafish.swim",
+				"look": "animation.billeys_mobs.fishy.look"
       },
       "scripts": {
         "animate": [ "new",
@@ -23,7 +23,9 @@
           { "flop": "!q.is_in_water" }
         ]
       },
-      "render_controllers": [ "controller.render.billpizzafish" ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs.pizzafish" ],
       "spawn_egg": {
         "base_color": "#ffd531",
         "overlay_color": "#ce2121"

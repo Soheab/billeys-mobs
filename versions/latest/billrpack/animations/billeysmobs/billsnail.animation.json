@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billsnail.move": {
+		"animation.billeys_mobs.snail.move": {
 			"loop": true,
 			"animation_length": 0.32,
 			"bones": {
@@ -21,7 +21,7 @@
 				}
 			}
 		},
-		"animation.billsnail.climb": {
+		"animation.billeys_mobs.snail.climb": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -30,7 +30,7 @@
 				}
 			}
 		},
-		"animation.billsnail.sit": {
+		"animation.billeys_mobs.snail.sit": {
 			"loop": true,
 			"animation_length": 1.5,
 			"bones": {
@@ -60,7 +60,7 @@
 				}
 			}
 		},
-		"animation.billsnail.new": {
+		"animation.billeys_mobs.snail.new": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -68,7 +68,7 @@
 				}
 			}
 		},
-		"animation.billsnail.poison": {
+		"animation.billeys_mobs.snail.poison": {
 			"loop": true,
 			"bones": {
 				"bone4": {

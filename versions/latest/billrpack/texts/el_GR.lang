@@ -1,0 +1,594 @@
+##Mobs
+
+entity.billey:anglerfish.name=Λοφιόμορφο
+
+item.spawn_egg.entity.billey:anglerfish.name=Αυγό Γεννήσεως Λοφιόμορφου
+
+entity.billey:swordfish.name=Ξιφίας
+
+item.spawn_egg.entity.billey:swordfish.name=Αυγό Γεννήσεως Ξιφία
+
+entity.billey:zombie_cat.name=Ζόμπι Γάτα
+
+item.spawn_egg.entity.billey:zombie_cat.name=Αυγό Γεννήσεως Ζόμπι Γάτας
+
+entity.billey:skeleton_cat.name=Σκελετός Γάτα
+
+item.spawn_egg.entity.billey:skeleton_cat.name=Αυγό Γεννήσεως Σκελετού Γάτας
+
+entity.billey:mercat.name=Ψαρόγατα
+
+item.spawn_egg.entity.billey:mercat.name=Αυγό Γεννήσεως Ψαρόγατας
+
+entity.billey:orca.name=Όρκα (Υ.Ε.)
+
+item.spawn_egg.entity.billey:orca.name=Αυγό Γεννήσεως Όρκας (Υ.Ε.)
+
+entity.billey:pigeon.name=Περιστέρι
+
+item.spawn_egg.entity.billey:pigeon.name=Αυγό Γεννήσεως Περιστεριού
+
+entity.billey:pizzafish.name=Πιτσόψαρο
+
+item.spawn_egg.entity.billey:pizzafish.name=Αυγό Γεννήσεως Πιτσόψαρου
+
+entity.billey:poopstain.name=Κουτσουλιά Περιστεριού
+
+item.spawn_egg.entity.billey:poopstain.name=Αυγό Γεννήσεως Κουτσουλιάς Περιστεριού
+
+entity.billey:gwshark.name=Καρχαρίας
+
+item.spawn_egg.entity.billey:gwshark.name=Αυγό Γεννήσεως Καρχαρία
+
+entity.billey:picklepet.name=Πικλοκατοικίδιο
+
+item.spawn_egg.entity.billey:picklepet.name=Αυγό Γεννήσεως Πικλοκατοικιδίου
+
+entity.billey:endercat.name=Εντεραγγελόγατα
+
+item.spawn_egg.entity.billey:endercat.name=Αυγό Γεννήσεως Εντεραγγελόγατας
+
+entity.billey:flyingcat.name=Αγγελόγατα
+
+item.spawn_egg.entity.billey:flyingcat.name=Αυγό Γεννήσεως Αγγελόγατας
+
+entity.billey:endflyingcat.name=Εντεραγγελόγατα
+
+item.spawn_egg.entity.billey:endflyingcat.name=Αυγό Γεννήσεως Εντεραγγελόγατας
+
+entity.billey:duck.name=Πάπια
+
+item.spawn_egg.entity.billey:duck.name=Αυγό Γεννήσεως Πάπιας
+
+entity.billey:flyingpig.name=Αγγελογούρουνο
+
+item.spawn_egg.entity.billey:flyingpig.name=Αυγό Γεννήσεως Αγγελογουρουνιού
+
+entity.billey:penguin.name=Πιγκουίνος
+
+item.spawn_egg.entity.billey:penguin.name=Αυγό Γεννήσεως Πιγκουίνου
+
+entity.billey:zombified_cat.name=Σαπισμένη Γάτα
+
+item.spawn_egg.entity.billey:zombified_cat.name=Αυγό Γεννήσεως Σαπισμένης Γάτας
+
+entity.billey:snail.name=Σαλιγκάρι
+
+item.spawn_egg.entity.billey:snail.name=Αυγό Γεννήσεως Σαλιγκαριού
+
+entity.billey:piranha.name=Πιράνχα
+
+item.spawn_egg.entity.billey:piranha.name=Αυγό Γεννήσεως Πιράνχα
+
+entity.billey:banana_duck.name=Μπανανόπαπια
+
+item.spawn_egg.entity.billey:banana_duck.name=Αυγό Γεννήσεως Μπανανόπαπιας
+
+entity.billey:cucumbeel.name=Αγγουροχέλι
+
+item.spawn_egg.entity.billey:cucumbeel.name=Αυγό Γεννήσεως Αγγουροχελιού
+
+entity.billey:pickle_cat.name=Αγγουρόγατα
+
+item.spawn_egg.entity.billey:pickle_cat.name=Αυγό Γεννήσεως Αγγουρόγατας
+
+entity.billey:velvet_worm.name=Βελούδινο Σκουλήκι
+
+item.spawn_egg.entity.billey:velvet_worm.name=Αυγό Γεννήσεως Βελούδινου Σκουληκιού
+
+entity.billey:hamster.name=Χάμστερ
+
+item.spawn_egg.entity.billey:hamster.name=Αυγό Γεννήσεως Χάμστερ
+
+entity.billey:hammerhead_shark.name=Σφυροκέφαλος Καρχαρίας
+
+item.spawn_egg.entity.billey:hammerhead_shark.name=Αυγό Γεννήσεως Σφυροκέφαλου Καρχαρία
+
+entity.billey:catfish.name=Γατόψαρο
+
+item.spawn_egg.entity.billey:catfish.name=Αυγό Γεννήσεως Γατόψαρου
+
+entity.billey:kiwi.name=Κίουι
+
+item.spawn_egg.entity.billey:kiwi.name=Αυγό Γεννήσεως Κίουι
+
+entity.billey:amogus.name=Αμόγκους
+
+entity.billey:duck_centipede.name=Παπιοσαραντοποδαρούσα
+
+item.spawn_egg.entity.billey:duck_centipede.name=§cΑυγό Γεννήσεως Παπιοσαραντοποδαρούσας§r
+
+entity.unknown.name=Προσαρμοσμένο Πλάσμα
+
+entity.billey:betta_fish.name=Μονομάχος
+
+item.spawn_egg.entity.billey:betta_fish.name=Αυγό Γεννήσεως Μονομάχου
+
+entity.billey:electric_eel.name=Ηλεκτρικό Χέλι
+
+item.spawn_egg.entity.billey:electric_eel.name=Αυγό Γεννήσεως Ηλεκτρικού Χελιού
+
+entity.billey:orange_penguin.name=Πορτοκαλουίνος
+
+item.spawn_egg.entity.billey:orange_penguin.name=Αυγό Γεννήσεως Πορτοκαλουίνου
+
+entity.billey:goose.name=Χήνα
+
+item.spawn_egg.entity.billey:goose.name=Αυγό Γεννήσεως Χήνας
+
+entity.billey:flyingpickle_cat.name=Πικλοαγγελόγατα
+
+item.spawn_egg.entity.billey:flyingpickle_cat.name=Αυγό Γεννήσεως Πικλοαγγελόγατας
+
+entity.billey:terraphin.name=Τεραφίνι
+
+item.spawn_egg.entity.billey:terraphin.name=Αυγό Γεννήσεως Τεραφινιού
+
+item.spawn_egg.entity.billey:pigeon_vibe.name=Αυγό Γεννήσεως Περιστεριού Vibe
+
+entity.billey:mergoose.name=Ψαρόχηνα
+
+item.spawn_egg.entity.billey:mergoose.name=Αυγό Γεννήσεως Ψαρόχηνας
+
+entity.billey:woodlouse.name=Ονίσκος
+
+item.spawn_egg.entity.billey:woodlouse.name=Αυγό Γεννήσεως Ονίσκου
+
+entity.billey:deinonychus.name=Δεινόνυχος
+
+item.spawn_egg.entity.billey:deinonychus.name=Αυγό Γεννήσεως Δεινόνυχου
+
+entity.billey:yutyrannus.name=Γιουτύραννος
+
+item.spawn_egg.entity.billey:yutyrannus.name=Αυγό Γεννήσεως Γιουτύραννου
+
+entity.billey:stick_bug.name=Έντομο-Κλαδί
+
+entity.billey:stick_bug_attack.name=getting stick bugged lol
+
+entity.billey:stick_bug_attack2.name=getting stick bugged lol
+
+item.spawn_egg.entity.billey:stick_bug.name=Αυγό Γεννήσεως Έντομου-Κλαδιού
+
+item.spawn_egg.entity.billey:random_biome_fish.name=§eΤυχαίο Ψάρι του Τρέχοντος Βιότοπου (Αυγό Γεννήσεως)§r
+
+item.spawn_egg.entity.billey:duck_zombie.name=§eΑυγό Γεννήσεως Ζόμπι Πάπιας§r
+##είναι ένα ζόμπι που έχει μια πάπια στο κεφάλι και κρατάει μια πάπια,
+##όχι μια ζωντανή πάπια ζόμπι
+
+item.spawn_egg.entity.billey:glowing_betta_fish.name=§eΑυγό Γεννήσεως Φωτεινού Μονομάχου§r
+
+entity.billey:tiktaalik.name=Τικταλίκ
+
+item.spawn_egg.entity.billey:tiktaalik.name=Αυγό Γεννήσεως Τικταλίκ
+
+entity.billey:rat.name=Αρουραίος
+
+item.spawn_egg.entity.billey:rat.name=Αυγό Γεννήσεως Αρουραίου
+
+entity.billey:netherrat.name=Αρουραίος Κόλασης
+
+item.spawn_egg.entity.billey:netherrat.name=Αυγό Γεννήσεως Αρουραίου Κόλασης
+
+entity.billey:banana_slipper.name=Γλιστρώντας σε Φλούδα Μπανάνας
+
+entity.billey:slime_wyvern.name=Γουάιβερν Γλίτσας
+
+item.spawn_egg.entity.billey:slime_wyvern.name=Αυγό Γεννήσεως Γουάιβερν Γλίτσας
+
+entity.billey:rat_king.name=Βασιλιάς των Αρουραίων
+
+entity.billey:rat_king_chef_hitbox.name=Βασιλιάς των Αρουραίων Κουζίνα
+
+item.spawn_egg.entity.billey:rat_king.name=§cΑυγό Γεννήσεως Βασιλιά των Αρουραίων§r
+##μην αφαιρέσετε το §c, είναι για κόκκινο κείμενο
+
+entity.billey:rat_minion.name=Υπηρέτης του Αρουραίου
+
+entity.billey:pygmy_dunkleosteus.name=Μικρός Ντανκλεοστόους
+
+item.spawn_egg.entity.billey:pygmy_dunkleosteus.name=Αυγό Γεννήσεως Μικρού Ντανκλεοστόους
+
+entity.billey:plushie.name=Λούτρινο Μπινόρ
+
+##Items
+
+item.billey:pizzapiece=Θαλασσινή Πίτσα
+
+item.billey:picklepet_fertilizer=Λίπασμα Πικλοκατοικιδίου
+
+item.billey:cat_dust=Χαρούμενη Σκόνη
+
+item.billey:zcat_dust=Λυπημένη Σκόνη
+
+item.billey:wcat_dust=Αστεία Σκόνη
+
+item.billey:scat_dust=Αδιάφορη Σκόνη
+
+item.billey:cat_bottle=Χαρούμενο Μπουκάλι
+
+item.billey:zcat_bottle=Λυπημένο Μπουκάλι
+
+item.billey:wcat_bottle=Αστείο Μπουκάλι
+
+item.billey:scat_bottle=Αδιάφορο Μπουκάλι
+
+item.billey:swordcooked=Σπαθί Ψαριού Ψητό
+
+item.billey:swordmeat=Φιλέτο Ψαριού Σπαθί
+
+item.billey:swordfin=Πτερύγιο Ψαριού Σπαθί
+
+item.billey:swordtail=Ουρά Ψαριού Σπαθί
+
+item.billey:swordfish=Ψάρι Σπαθί
+
+item.billey:swordstick=Ράβδος Ψαριού Σπαθί
+
+item.billey:anglerlight=Φως Λοφιόμορφου
+
+item.billey:colorful_dust=Χρωματιστή Σκόνη
+
+item.billey:colorful_bottle=Χρωματιστό Μπουκάλι
+
+item.billey:colorless_dust=Άχρωμη Σκόνη
+
+item.billey:colorless_bottle=Άχρωμο Μπουκάλι
+
+item.billey:leather_pet_armor=Δερμάτινη Πανοπλία Πάπιας
+
+item.billey:golden_pet_armor=Χρυσή Πανοπλία Πάπιας
+
+item.billey:chain_pet_armor=Αλυσίδα Πανοπλία Πάπιας
+
+item.billey:iron_pet_armor=Σιδερένια Πανοπλία Πάπιας
+
+item.billey:diamond_pet_armor=Διαμαντένια Πανοπλία Πάπιας
+
+item.billey:netherite_pet_armor=Netherite Πανοπλία Πάπιας
+
+item.billey:endrod_pet_armor=Αρμοσμένη Πανοπλία Πάπιας
+
+item.billey:velvet_slime=Βελούδινη Γλίτσα
+
+item.billey:raw_hamster=Ωμό Χάμστερ
+
+item.billey:cooked_hamster=Μαγειρεμένο Χάμστερ
+
+item.billey:pet_hat=Καπέλο για Κατοικίδιο
+
+item.billey:raw_catfish=Ωμό Γατόψαρο
+
+item.billey:cooked_catfish=Μαγειρεμένο Γατόψαρο
+
+item.billey:cocoa_beans_catfish=Γατόψαρο με Κακάο
+
+item.billey:chocolate_catfish=Σοκολατένιο Γατόψαρο
+
+item.billey:pickle_juice=Μπουκάλι Χυμού Αγγουριού
+
+item.billey:shark_tooth=Δόντι Καρχαρία
+
+item.billey:golden_swordfish=Χρυσό Ψάρι Σπαθί
+
+item.billey:sand_banana=Μπανάνα Ερήμου
+
+item.billey:raw_snail=Ωμός Σαλιγκάρι Αδυναμίας
+
+item.billey:raw_snail_s=Ωμός Σαλιγκάρι Αργόστωνα
+
+item.billey:raw_snail_w=Ωμός Σαλιγκάρι Αποσύνθεσης
+
+item.billey:cooked_snail=Μαγειρεμένο Σαλιγκάρι Δύναμης
+
+item.billey:cooked_snail_s=Μαγειρεμένο Σαλιγκάρι Ταχύτητας
+
+item.billey:cooked_snail_w=Μαγειρεμένο Σαλιγκάρι Ανάστασης
+
+item.billey:snail_helmet=Κράνος Σαλιγκαριού
+##κράνος φτιαγμένο από κελύφη σαλιγκαριών, όχι κράνος για σαλιγκάρια
+
+item.billey:yeet_duck=Ρίξε μια Πάπια
+
+item.billey:snail_shell=Κέλυφος Σαλιγκαριού
+
+item.billey:kiwi_fur=Φτερά Κίουι
+
+item.billey:duck_hat=Καπέλο Πάπιας
+##είναι καπέλο για παίκτες που μοιάζει με πάπια, όχι καπέλο για πάπιες,
+##μεταφράστε το σε κάτι που δεν σημαίνει "καπέλο για πάπιες"
+
+item.billey:betta_fish=Ωμός Μονομάχος
+
+item.billey:cooked_betta_fish=Μαγειρεμένος Μονομάχος
+
+item.billey:diamond_nugget=Διαμαντένιο Νάγκκετ
+
+item.billey:copper_nugget=Χαλκός Νάγκκετ
+
+item.billey:chicken_nugget=Κοτομπουκιά
+
+item.billey:poultry_orange=Πουλερικό Πορτοκάλι
+
+item.billey:orange_peel=Φλούδα Πορτοκαλιού
+
+item.billey:mercat_milk=Γάλα Ψαρόγατας
+
+item.billey:fermented_mercat_milk=Ζυμωμένο Γάλα Ψαρόγατας
+
+item.billey:throwable_mercat_milk=Ρίξιμο Γάλα Ψαρόγατας
+
+item.billey:terraphin_staff=Ράβδος Τεραφίνι
+
+item.billey:terraphin_furball=Μπαλάκι Τεραφίνι
+
+item.billey:raw_mergoose_tongue=Ωμή Γλώσσα Ψαρόχηνας
+
+item.billey:cooked_mergoose_tongue=Μαγειρεμένη Γλώσσα Ψαρόχηνας
+
+item.billey:mergoose_spikes=Ακίδες Ψαρόχηνας
+
+item.billey:shark_tooth_sword=Σπαθί Δόντι Καρχαρία
+
+item.billey:piranha=Ζωντανή Πιράνχα
+
+item.billey:raw_piranha=Ωμή Πιράνχα
+
+item.billey:cooked_piranha=Μαγειρεμένη Πιράνχα
+
+item.billey:piranha_launcher=Εκτοξευτής Πιράνχα
+
+item.billey:loaded_piranha_launcher=Φορτωμένος Εκτοξευτής Πιράνχα
+
+item.billey:deinonychus_feather=Φτερό Δεινόσαυρου Δεινόσαυρου
+
+item.billey:yutyrannus_feather=Φτερό Υτυράννου
+
+item.billey:power_banana=Μπανάνα Δύναμης
+
+item.billey:potato_stick=Κλαδάκι Πατάτας
+
+item.billey:mergoose_sword=Σπαθί Ψαρόχηνας
+
+item.billey:untaming_stick=Ράβδος Αποκοπής
+
+item.billey:ratatouille=Ρατατούιλ
+
+item.billey:shark_scales=Ζυγαριά Καρχαρία
+
+item.billey:shark_helmet=Κράνος Καρχαρία
+
+item.billey:shark_chestplate=Θώρακας Καρχαρία
+
+item.billey:shark_leggings=Κολάν Καρχαρία
+
+item.billey:shark_boots=Μπότες Καρχαρία
+
+item.billey:rat_beer=Μπύρα Αρουραίου
+
+item.billey:spicy_ratatouille=Πικάντικο Ρατατούιλ
+
+item.billey:warped_wine=Ανατροπή Κρασιού
+
+item.billey:banana_peel=Φλούδα Μπανάνας
+
+item.billey:banana_peel_player=Φλούδα Μπανάνας §7§o(Επηρεάζει Παίκτες)§r
+
+item.billey:quest=§gΕξελίξεις Billey's Mobs§r
+
+item.billey:to_level1=Επαναφορά Επιπέδου Mob σε §9Επίπεδο §d1§r
+
+item.billey:to_level2=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d2§r
+
+item.billey:to_level3=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d3§r
+
+item.billey:to_level4=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d4§r
+
+item.billey:to_level5=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d5§r
+
+item.billey:to_level6=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d6§r
+
+item.billey:to_level7=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d7§r
+
+item.billey:to_level8=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d8§r
+
+item.billey:to_level9=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d9§r
+
+item.billey:to_level10=Ορισμός Επιπέδου Mob σε §9Επίπεδο §d10§r
+
+item.billey:penguin_feather=Φτερό Πιγκουίνου
+
+item.billey:penguin_boots=Μπότες Πιγκουίνου
+
+item.billey:ice_cream=Παγωτό
+
+item.billey:big_stone=§6Πέτρα του Μεγάλου & Αργού
+
+item.billey:small_stone=§9Πέτρα του Μικρού & Γρήγορου
+
+item.billey:normal_stone=§7Πέτρα του Κανονικού
+
+item.billey:duck_container=Κουβάς Πάπιας
+
+item.billey:mercat_container=Κουβάς Ψαρόγατας
+
+item.billey:laser_pointer=Σκοπευτικός Δείκτης
+
+item.billey:shark_hammer=Σφυρί Καρχαρία
+
+item.billey:pigeon_backpack=Σακίδιο Πίτσου
+
+item.billey:rat_potion=Φίλτρο Αρουραίου
+
+item.billey:info_book=Βιβλίο Πληροφοριών Billey's Mobs
+
+item.billey:tiktaalik_slime=Γλίτσα Τικταλίκ
+
+item.billey:empty_morph_potion=Άδειο Φίλτρο Μεταμόρφωσης
+
+item.billey:duck_morph_potion=Φίλτρο Μεταμόρφωσης Πάπιας
+
+item.billey:royal_rat_chef_hat=Καπέλο Βασιλικού Σεφ Αρουραίου
+
+item.billey:rat_crown=Στέμμα Αρουραίου
+
+item.billey:catfish_syringe=Σύριγγα Γατόψαρου
+
+item.billey:catfish_potion=Φίλτρο Γατόψαρου
+
+item.billey:catfish_fertilizer=Λίπασμα Γατόψαρου
+
+item.billey:fish_food=Φαγητό Ψαριού
+
+item.billey:rubber_ducky=Λαστιχένια Πάπια
+
+item.billey:pet_bowtie=Παπιγιόν Κατοικιδίων
+
+item.billey:pet_bowtie_attachable=Παπιγιόν Κατοικιδίων... ΔΕ ΘΑ 'ΠΡΕΠΕ ΝΑ ΤΟ 'ΧΕΙΣ ΑΥΤΟ!
+
+chat.billeys_mobs.levelup=§9ΕΠΙΠΕΔΟ ΑΝΕΒΑΣΜΕΝΟ! Ο/Η §d%1§f ανέβηκε στο §9επίπεδο §d%2§f!
+
+chat.billeys_mobs.levelup.reset=§dΤο επίπεδο του %1§f επανήλθε στο §9επίπεδο §d1§f.
+
+chat.billeys_mobs.levelup.info=§7Η υγεία, η ζημιά επίθεσης, η ταχύτητα και η εμβέλεια του %1 αυξήθηκαν.
+
+chat.billeys_mobs.levelup.withering=§aΟ/Η %1 τώρα προκαλεί wither με τις επιθέσεις του/της.
+
+chat.billeys_mobs.levelup.duck5=§aΟ/Η %1 τώρα βρίσκει καλύτερα αντικείμενα σε γρασίδι και νερό.
+
+chat.billeys_mobs.levelup.slime_wyvern10=§aΟ/Η %1 πλέον δεν προκαλεί αδυναμία όταν είναι στο κεφάλι σας.
+
+chat.billeys_mobs.levelup.oneshot=§aΟ/Η %1 τώρα προκαλεί αρκετή ζημιά για να εξοντώσει παίκτες χωρίς πανοπλία και τους περισσότερους εχθρούς.
+
+chat.billeys_mobs.levelup.big_stone=§dΟ/Η %1§f είναι τώρα §6Μεγάλος & Αργός!%2§7Η υγεία και η ζημιά επίθεσης του/της αυξήθηκαν, αλλά η ταχύτητά του/της μειώθηκε.
+
+chat.billeys_mobs.levelup.small_stone=§dΟ/Η %1§f είναι τώρα §9Μικρός & Γρήγορος!%2§7Η ταχύτητά του/της αυξήθηκε, αλλά η υγεία και η ζημιά επίθεσης του/της μειώθηκαν.
+
+chat.billeys_mobs.levelup.normal_stone=§dΟ/Η %1§f είναι τώρα ξανά φυσιολογικός/ή. %2§7Οι στατιστικές του/της είναι τώρα ίδιες με αυτές ενός κανονικού επιπέδου 10.
+
+chat.billeys_mobs.no=§cΒουα βουα.
+
+chat.billeys_mobs.player_left=§cΟυπς! Ο/Η %1 έφυγε!
+
+chat.billeys_mobs.received_pigeon=§aΛάβατε κάποια αντικείμενα από το %2 του/της %1.
+
+chat.billeys_mobs.pigeon_success=§aΗ αποστολή του περιστεριού ολοκληρώθηκε επιτυχώς.
+
+chat.billeys_mobs.pigeon_fail=§cΗ αποστολή του περιστεριού απέτυχε.
+
+ui.billeys_mobs.select_player=Επιλέξτε Παίκτη
+
+ui.billeys_mobs.info.body=Τι θέλεις να μάθεις;
+
+ui.billeys_mobs.info.category.recommended=§l§6Συνιστώμενα
+
+ui.billeys_mobs.info.category.recommended.desc=Κάποια χρήσιμα ζώα για να ξεκινήσεις
+
+ui.billeys_mobs.info.category.dinosaur=§l§gΠουλιά & Δεινόσαυροι
+
+ui.billeys_mobs.info.category.dinosaur.desc=Περιστέρια, μπανανόπαπιες...
+
+ui.billeys_mobs.info.category.other=§l§2Άλλα Χερσαία Κατοικίδια
+
+ui.billeys_mobs.info.category.other.desc=Ράτσες, κλαδιά, τικτάιλκς...
+
+ui.billeys_mobs.info.category.water=§l§9Υδρόβια Κατοικίδια
+
+ui.billeys_mobs.info.category.water.desc=Αγγελόψαρα, πιτσόψαρα, καρχαρίες...
+
+ui.billeys_mobs.info.category.boss=§l§4Bosses
+
+ui.billeys_mobs.info.category.boss.desc=Παπιοσαραντοποδαρούσα και Βασιλιάς των Αρουραίων
+
+ui.billeys_mobs.info.category.cat=Γάτες
+
+ui.billeys_mobs.info.category.cat.desc=Γάτες αγγέλων, γάτες-θαλάσσιες...
+
+ui.billeys_mobs.info.category.advancement=§l§5Προόδους
+
+ui.billeys_mobs.info.category.advancement.desc=Προκλήσεις για να ολοκληρώσεις
+
+ui.billeys_mobs.info.category.settings=§l§8Προσωπικές Ρυθμίσεις
+
+ui.billeys_mobs.info.category.settings.desc=Προσαρμόστε την εμπειρία σας.
+
+ui.billeys_mobs.info.select_mob=Επιλέξτε ζώο
+
+ui.billeys_mobs.advancements=§l§5Επιτεύγματα Billey's MObs
+
+ui.billeys_mobs.advancements.body=Επιλέξτε μια πρόοδο για να δείτε τις πληροφορίες και τις ανταμοιβές της.
+
+ui.billeys_mobs.advancements.completed=§2Ολοκληρώθηκε
+
+ui.billeys_mobs.advancements.not_completed=Πατήστε για να δείτε τις πληροφορίες.
+
+ui.billeys_mobs.settings.can_hit_own_pet=Να μπορείς να χτυπήσεις τα δικά σου κατοικίδια
+
+ui.billeys_mobs.settings.can_hit_other_pet=Να μπορείς να χτυπήσεις τα κατοικίδια άλλων παικτών
+
+chat.welcomebillmobs=§dΕυχαριστούμε που παίζεις με το §eAdd-on Μόμπς του Billey's Mobs§d! Έχεις λάβει ένα §9Βιβλίο Πληροφοριών. Για να το χρησιμοποιήσεις§d, πάτησε παρατεταμένα, κάνε δεξί κλικ ή πάτησε ό,τι πατάς για να §9ρίξεις§d πράγματα.
+
+chat.billeys_mobs.turn_on_beta_apis=%1%1%1§6Τι συμβαίνει; %1§cΠρέπει να ενεργοποιήσεις την επιλογή §eΒeta APIs§c πειραματικής λειτουργίας στις ρυθμίσεις του κόσμου σου για να λειτουργεί σωστά το Billey's Mobs.%1%1§6Ακόμα παίρνεις αυτό το μήνυμα; %1§cΑν έχεις ενεργοποιήσει τα Beta APIs και συνεχίζεις να βλέπεις αυτό το μήνυμα, τότε είτε η έκδοση του Billey's Mobs είναι ξεπερασμένη είτε δεν βρίσκεσαι στην τελευταία σταθερή (όχι beta ή preview) έκδοση του Minecraft. Κατέβασε την τελευταία έκδοση του Billey's Mobs στο discord.gg/mwGue2p ή mcpedl.com/billeys-mobs-addon%1%1§6Ενεργοποίηση Beta APIs σε Realms%1§cΓια να ενεργοποιήσεις τις πειραματικές επιλογές σε ένα realm, κατέβασε τον κόσμο του realm, ενεργοποίησε την επιλογή Beta APIs και μετά ανέβασε ξανά τον κόσμο στο realm.%1%1%1
+
+chat.billeys_mobs.open_info=§fΆνοιξε τη συνομιλία για να δεις τις πληροφορίες του %1.
+
+chat.billeys_mobs.info.leashwild=§cΠρέπει να §eεξημερώσεις ένα ζώο§c αν θέλεις να το κρατήσεις ως κατοικίδιο, §eόλα τα ζώα στο Billey's Mobs είναι εξημερώσιμα§c. Για να μάθεις με τι εξημερώνεται ένα ζώο §eχρησιμοποίησε ένα βιβλίο ή ένα φτερό πάνω του.
+
+chat.billeys_mobs.info.hurt_pet=§e%1§f είναι τραυματισμένο §7(όπως φαίνεται από το γεγονός ότι τρέμει)§f. Ταΐσ' το για να το θεραπεύσεις.
+
+chat.billeys_mobs.info.critically_injured=§cΗ υγεία του %1 είναι πολύ χαμηλή.
+
+chat.billeys_mobs.owner_hit_pet=Δεν μπορείς να χτυπήσεις το δικό σου κατοικίδιο.
+
+chat.billeys_mobs.info.owner_hit_pet=§cΔεν μπορείς να χτυπήσεις το δικό σου κατοικίδιο.§f Μπορείς να απενεργοποιήσεις αυτήν τη δυνατότητα στις §aΠροσωπικές Ρυθμίσεις§f στο §aΒιβλίο Πληροφοριών του Billey's Mobs§f. §8Αν έχεις πετάξει το βιβλίο πληροφοριών, πες §f!givebilleyinfobook§8 στη συνομιλία για να πάρεις ένα.
+
+chat.billeys_mobs.other_hit_pet=Δεν μπορείς να χτυπήσεις τα κατοικίδια άλλων παικτών.
+
+chat.billeys_mobs.info.formore=...
+
+chat.billeys_mobs.short_info.formore=§7Για περισσότερες λεπτομέρειες για οποιοδήποτε ζώο στο add-on, απλά §eχρησιμοποίησε ένα βιβλίο ή ένα φτερό πάνω του§7 ή κοίταξέ το στο §eβιβλίο πληροφοριών§7.
+
+chat.billeys_mobs.info.anglerfish=§e§l=========ΛΟΦΙΟΜΟΡΦΟ=========%1%1§r§6-Γενικά-%1§aΤα Λοφιόμορφα§9 εμφανίζονται σε §aβαθιά ωκεάνια§9 και §aυποθαλάσσιες σπηλιές§9. Μπορούν να μπουν σε κουβά και §eεξημερώνονται με πίτσα θάλασσας§9, αλλά δεν σε ακολουθούν εκτός αν χρησιμοποιήσεις ένα ραβδί πάνω τους.%1%1§6-Εμφάνιση ψαριών με φωτεινή πέτρα-%1§9Όταν §eταΐσεις ένα με φωτεινή πέτρα§9 σκόνη ή ένα μπλοκ φωτεινής πέτρας, §eθα γεννήσει τυχαία ψάρια§9 από το βιομά που βρίσκεται για λίγα δευτερόλεπτα και θα προσελκύσει κάποια από αυτά. Όσο πιο §aπολύ νερό§9 υπάρχει γύρω από το ενισχυμένο λοφιόμορφο, τόσο §aπερισσότερα ψάρια§9 θα γεννήσει.%1%1§6-Πτώση-%1§9Μπορείς επίσης να §aπάρετε ένα "Φως Λοφιόμορφου" σκοτώνοντας ένα λοφιόμορφο§9, το φως λοφιόμορφου κάνει τα §asmall fish§9 να σε ακολουθούν, τους άγριους Ψαρόγατες να μην σε φοβούνται και §aμπορείς επίσης να το βάλεις στην αριστερή σου χείρα§9. Τα μπλοκ φωτεινής πέτρας διαρκούν 4 φορές περισσότερο από τη σκόνη φωτεινής πέτρας.
+
+chat.billeys_mobs.short_info.anglerfish=§aΛοφιόμορφα§f, κατά το θάνατό τους, έχουν την ευκαιρία να ρίξουν ένα αντικείμενο που προσελκύει ψάρια και μπορεί να τοποθετηθεί στην αριστερή χείρα. Επίσης, το τάισμα ενός λοφιόμορφου με φωτεινή πέτρα το κάνει να γεννά ψάρια. §7Μπορείς επίσης να τα βάλεις σε κουβά.
+
+chat.billeys_mobs.info.swordfish=§e§l=========ΞΙΦΟΨΑΡΟ=========%1%1§r§aΤα Ξιφόψαρα§9 εμφανίζονται σε §aωκεανούς§9, μπορούν να μπουν σε κουβά και §eεξημερώνονται με πίτσα θάλασσας§9, αλλά δεν σε ακολουθούν εκτός αν χρησιμοποιήσεις ένα ραβδί πάνω τους. Αυτή τη στιγμή δεν έχουν καμία χρήση ενώ είναι ζωντανά, αλλά §aόταν πεθάνουν, ρίχνουν διάφορα μέρη του σώματος καθώς και ωμό κρέας. Τα μέρη του σώματος μπορούν να χρησιμοποιηθούν για να φτιάξεις ένα ξίφος ψαριού το οποίο κάνει πολύ ζημιά στα ψάρια και μπορεί να σκοτώσει πολλά ψάρια ταυτόχρονα.§9%1%1§6-Αυτό είναι ένα παλιό ζώο-%1§9Αυτό το ζώο είναι είτε άχρηστο, περίεργο ή άσχημο επειδή προστέθηκε πριν χρόνια, θα αφαιρεθεί ή θα βελτιωθεί στο μέλλον. Υπόσχομαι ότι τα περισσότερα άλλα ζώα είναι καλύτερα.
+
+chat.billeys_mobs.short_info.swordfish=§aΞιφόψαρα§f ρίχνουν αντικείμενα που μπορούν να χρησιμοποιηθούν για να φτιάξεις ένα ξίφος ψαριού, το οποίο κάνει πολύ ζημιά στα ψάρια και μπορεί να σκοτώσει ομάδες μικρών ψαριών ταυτόχρονα. §7Μπορείς επίσης να τα βάλεις σε κουβά.
+
+chat.billeys_mobs.info.zombie_cat=§e§l=========ΖΟΜΠΙ ΓΑΤΑ=========%1%1§r§aΟι Ζόμπι Γάτες§9 εμφανίζονται σε §aζούγκλες τη νύχτα§9 και εξημερώνονται με ωμό μπακαλιάρο§9, §aωμό σολομό§9, §aνήμα§9 ή §aωμό ψάρι γάτας§9. Μετά την εξημέρωσή τους, δεν επιτίθενται πια στις γάτες του Minecraft και δεν καίγονται κατά την διάρκεια της ημέρας, και §aαν κοιμηθείς ενώ μία δεν κάθεται, θα βρεις τυχαία ορυκτά όταν ξυπνήσεις§9.%1%1§6-Αυτό είναι ένα παλιό ζώο-%1§9Αυτό το ζώο είναι είτε άχρηστο, περίεργο ή άσχημο επειδή προστέθηκε πριν χρόνια, θα αφαιρεθεί ή θα βελτιωθεί στο μέλλον. Υπόσχομαι ότι τα περισσότερα άλλα ζώα είναι καλύτερα.
+
+chat.billeys_mobs.short_info.zombie_cat=§aΟι Ζόμπι Γάτες§f εξημερώνονται με νήμα ή ωμό ψάρι και φέρνουν τυχαία ορυκτά όταν κοιμάσαι ενώ μια από αυτές δεν κάθεται.
+
+chat.billeys_mobs.info.skeleton_cat=§e§l=========ΣΚΕΛΕΤΙΚΗ ΓΑΤΑ=========%1%1§r§aΟι Σκελετικές Γάτες§9 εμφανίζονται σε §aζούγκλες τη νύχτα§9 και εξημερώνονται με νετθερ γουόρτ§9. Μετά την εξημέρωσή τους, δεν καίγονται πια κατά τη διάρκεια της ημέρας και §aαν κοιμηθείς ενώ μία δεν κάθεται, θα βρεις τυχαία αντικείμενα του Nether όταν ξυπνήσεις§9 και μπορείς επίσης να τις βάψεις.%1%1§6-Αυτό είναι ένα παλιό ζώο-%1§9Αυτό το ζώο είναι είτε άχρηστο, περίεργο ή άσχημο επειδή προστέθηκε πριν χρόνια, θα αφαιρεθεί ή θα βελτιωθεί στο μέλλον. Υπόσχομαι ότι τα περισσότερα άλλα ζώα είναι καλύτερα.
+
+chat.billeys_mobs.short_info.skeleton_cat=§aΟι Σκελετικές Γάτες§f εξημερώνονται με νετθερ γουόρτ και φέρνουν τυχαία αντικείμενα του Nether όταν κοιμάσαι ενώ μία από αυτές δεν κάθεται.
+
+chat.billeys_mobs.info.orca=§e§l=========ΟΡΚΑ=========%1%1§r§aΟι Όρκες δεν εμφανίζονται φυσικά§9 και εξημερώνονται με πίτσα θάλασσας§9, αλλά δεν σε ακολουθούν εκτός αν χρησιμοποιήσεις ένα ραβδί πάνω τους. Αυτή τη στιγμή δεν έχουν πραγματική χρήση, αλλά §aμπορείς να καθίσεις πάνω τους αφού τις εξημερώσεις και σύντομα θα αποκτήσουν καλύτερη χρήση. Επίσης, δεν μπορούν να αναπνεύσουν υποθαλάσσια και πρέπει να βγουν από το νερό για να αναπνεύσουν.§9%1%1§6-Αυτό είναι ένα παλιό ζώο-%1§9Αυτό το ζώο είναι είτε άχρηστο, περίεργο ή άσχημο επειδή προστέθηκε πριν χρόνια, θα αφαιρεθεί ή θα βελτιωθεί στο μέλλον. Υπόσχομαι ότι τα περισσότερα άλλα ζώα είναι καλύτερα.
+
+chat.billeys_mobs.short_info.orca=§aΟι Όρκες§f εξημερώνονται με πίτσα θάλασσας (από τα Πιτσόψαρα που εμφανίζονται σε κοραλλιογενείς ύφαλους) και μετά την εξημέρωσή τους μπορείς να καθίσεις πάνω τους. Καλύτερη χρήση (και σίγουρα καλύτερο μοντέλο) σύντομα. Επίσης, δεν εμφανίζονται φυσικά λόγω του κακού μοντέλου και "ΑΙ" τους.
+
+chat.billeys_mobs.info.mercat=§e§l=========ΨΑΡΟΓΑΤΑ=========%1%1§r§6-Γενικά-%1§aΤα Ψαρόγατα§9 εμφανίζονται σε §αλίμνες και ποτάμια§9 που δεν είναι παγωμένα, και εξημερώνονται με ωμό πεινασμένο ψάρι§9 ή §aπίτσα θάλασσας§9. Δεν μπορούν να αναπνέουν υποθαλάσσια και πρέπει να βγουν από το νερό για να αναπνεύσουν, μπορούν να επιβιώσουν αόριστα χωρίς νερό, και μπορούν μόνο να καθίσουν όταν είναι στη στεριά, αλλά όπως όλα τα ζώα στο add-on, μπορείς να τα κάνεις να περπατούν/κολυμπούν αντί να σε ακολουθούν χρησιμοποιώντας ένα ραβδί.§1%1§6-Γαλακτοκομικά-%1§aΜπορείς να τα αρμέξεις με μπουκάλια και να το πιεις για να αφαιρέσεις μόνο αδυναμία, αργή κίνηση και μαρασμό ή να τα χρησιμοποιήσεις για να φτιάξεις ζυμωμένο γάλα Ψαρόγατας§9(μπουκάλια γάλακτος Ψαρόγατας + είτε χρωματιστή σκόνη ή μανιτάρια του Nether)§a, το οποίο όταν το ρίξεις, κάνει τα ζώα να θυμώσουν με τυχαία ζώα γύρω τους. Μπορείς επίσης §aχρησιμοποιώντας γάλα Ψαρόγατας να φτιάξεις ρίξιμο γάλα Ψαρόγατας§9 το οποίο §removeα αδυναμία, αργή κίνηση και μαρασμό§9 από όποιο ζώο το ρίξεις. Επίσης, αν κοιμηθείς ενώ μια δεν είναι καθισμένη, θα βρεις τυχαία θαλάσσια αντικείμενα όταν ξυπνήσεις.%1%1§6-Κοιμηθούμενοι Λουτρά-%1§9Μπορείς να κοιμηθείς με ένα Ψαρόγατα να μην είναι καθισμένο κοντά σου πριν κοιμηθείς. Όταν ξυπνήσεις, το Ψαρόγατα §awill bring you random sea-related items§9.%1%1§6-Άλλα-%1§9Επίσης §aκαταστρέφουν ομάδες από μικρά ψάρια, περιλαμβανομένων των πιρανχών§9, μετά την εξημέρωσή τους. Εν πάση περιπτώσει, το ζυμωμένο γάλα Ψαρόγατας πιθανότατα θα χρησιμοποιηθεί για να φτιάξεις τυρί Ψαρόγατας στο μέλλον.%1%1§6-Ευχαριστίες-%1§eΗ υφή του Ψαρόγατα από BOYOFTHEMONSTERS.
+
+chat.billeys_mobs.short_info.mercat=§aΨαρόγατες§f εξημερώνονται με ωμό ψάρι πιρανχά, φέρνουν τυχαία αντικείμενα όταν κοιμάσαι και μπορείς να τα αρμέξεις με μπουκάλια για να πάρεις γάλα Ψαρόγατας με πολλές χρήσεις.
+

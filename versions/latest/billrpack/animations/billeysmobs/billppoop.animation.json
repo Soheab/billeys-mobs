@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billpigeon.fall": {
+		"animation.billeys_mobs.pigeon.fall": {
 			"loop": true,
 			"bones": {
 				"body2": {
@@ -10,7 +10,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.melt": {
+		"animation.billeys_mobs.pigeon.melt": {
 			"loop": true,
 			"bones": {
 				"body": {

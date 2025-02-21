@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billorca",
+				"identifier": "geometry.billeys_mobs.orca",
 				"texture_width": 128,
 				"texture_height": 128,
 				"visible_bounds_width": 4,
@@ -163,6 +163,11 @@
 					}
 				},
 				{
+					"name": "bowtie",
+					"parent": "head",
+					"pivot": [0, 3.75, -16.5]
+				},
+				{
 					"name": "jaw",
 					"parent": "head",
 					"pivot": [0, 1.85, -11],
@@ -207,6 +212,11 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 6.75, -9]
 				},
 				{
 					"name": "tail",

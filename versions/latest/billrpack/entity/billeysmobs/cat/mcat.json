@@ -17,31 +17,31 @@
         "six": "textures/entity/cat/fotd6",
         "eight": "textures/entity/cat/fotd7",
         "nine": "textures/entity/cat/fotd",
-        "hat": "textures/entity/bill/hat"
+        "hat": "textures/entity/billeys_mobs/hat"
       },
       "geometry": {
-        "default": "geometry.billmercat",
-        "hat": "geometry.billmercathat"
+        "default": "geometry.billeys_mobs.mercat",
+        "hat": "geometry.billeys_mobs.mercathat"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "flop": "animation.billmercat.flop",
-        "upside_down": "animation.billmercat.upside_down",
-        "lookwater": "animation.billmercat.lookwater",
-        "walk": "animation.billmercat.walk",
-        "sit": "animation.billmercat.sit",
-        "float": "animation.billmercat.float",
+        "new": "animation.billeys_mobs.duckproj.body",
+        "flop": "animation.billeys_mobs.mercat.flop",
+        "upside_down": "animation.billeys_mobs.mercat.upside_down",
+        "lookwater": "animation.billeys_mobs.mercat.lookwater",
+        "walk": "animation.billeys_mobs.mercat.walk",
+        "sit": "animation.billeys_mobs.mercat.sit",
+        "float": "animation.billeys_mobs.mercat.float",
         "baby": "animation.cat.baby_transform",
-        "general": "controller.animation.billey.mercat",
-        "look_cont": "controller.animation.billey.mercat_look",
-        "spin_cont": "controller.animation.billey.mercat_spin",
-        "swim_cont": "controller.animation.billey.mercat_swim",
-        "ups_cont": "controller.animation.billey.mercat_upside_down",
-        "swim": "animation.billmercat.swim",
-        "swim2": "animation.billmercat.swim2",
-        "hurt": "animation.billcat.hurt2",
-        "swim_with_fins": "animation.billmercat.swim_with_fins",
-        "spin": "animation.billmercat.spin"
+        "general": "controller.animation.billeys_mobs.mercat",
+        "look_cont": "controller.animation.billeys_mobs.mercat_look",
+        "spin_cont": "controller.animation.billeys_mobs.mercat_spin",
+        "swim_cont": "controller.animation.billeys_mobs.mercat_swim",
+        "ups_cont": "controller.animation.billeys_mobs.mercat_upside_down",
+        "swim": "animation.billeys_mobs.mercat.swim",
+        "swim2": "animation.billeys_mobs.mercat.swim2",
+        "hurt": "animation.billeys_mobs.cat.hurt2",
+        "swim_with_fins": "animation.billeys_mobs.mercat.swim_with_fins",
+        "spin": "animation.billeys_mobs.mercat.spin"
       },
       "scripts": {
         "initialize": [
@@ -60,10 +60,12 @@
           }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
-        "controller.render.billey.mercat",
+        "controller.render.billeys_mobs.mercat",
         {
-            "controller.render.billbduckhat": "q.is_saddled"
+            "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
         }
       ],
       "spawn_egg": {

@@ -33,17 +33,63 @@
 				]
 			},
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "set_follow_state": "animation.billey.set_follow_state",
-                "set_sitting_property": "controller.animation.billey.set_sitting_property",
-				"rainbow_effects": "animation.billey.rainbow_effects",
-				"stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-				"info": "animation.billeyinfo.picklepet",
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "set_follow_state": "animation.billeys_mobs.set_follow_state",
+                "set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+				"rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+				"stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+				"info": "animation.billeys_mobs.info.picklepet",
 				"give_birth": "controller.animation.picklepet.birth",
 				"air": "controller.animation.picklepet.birthair",
-				"tame": "controller.animation.billeysmobs.tame"
+				"tame": "controller.animation.billeys_mobs.tame"
 			},
             "properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
                 "billey:follow_owner_state": {
                     //only used so scripts can know whether it's following or wandering
                     "type": "enum",
@@ -1363,7 +1409,12 @@
 			},
 			"minecraft:physics": {}
 		},
-		"events": {
+		
+        "events": {"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
             "set_follow_state": {
                 "sequence": [
                     {
@@ -1403,8 +1454,8 @@
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1412,7 +1463,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
 			"add_sittable": {
@@ -1434,9 +1485,9 @@
 					"target": "other",
 					"command": [
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.picklepet\",\"with\":[\"\\n\"]}]}",
+						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.picklepet\",\"with\":[\"\\n\"]}]}",
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip6\"}]}",
+						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip6\"}]}",
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
 					]
 				}
@@ -1633,7 +1684,7 @@
 								"weight": 1,
 								"queue_command": {
 									"command": [
-										"playanimation @s animation.billcat.petted"
+										"playanimation @s animation.billeys_mobs.cat.petted"
 									]
 								}
 							}
@@ -1643,7 +1694,7 @@
 						"queue_command": {
 							"target": "other",
 							"command": [
-								"playanimation @s animation.billeyplayer.pet"
+								"playanimation @s animation.billeys_mobsplayer.pet"
 							]
 						}
 					},
@@ -1855,7 +1906,7 @@
 					"target": "other",
 					"command": [
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-						"tellraw @a[r=6,tag=!billeyinfotip6] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip6\"}]}",
+						"tellraw @a[r=6,tag=!billeyinfotip6] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip6\"}]}",
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
 						"tag @a[r=6,tag=!billeyinfotip6] add billeyinfotip6"
 					]

@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billorange_penguin.walkold": {
+		"animation.billeys_mobs.orange_penguin.walkold": {
 			"loop": true,
 			"animation_length": 4,
 			"anim_time_update": "q.modified_distance_moved",
@@ -43,10 +43,10 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.new": {
+		"animation.billeys_mobs.orange_penguin.new": {
 			"loop": true
 		},
-		"animation.billorange_penguin.swim_not_angry": {
+		"animation.billeys_mobs.orange_penguin.swim_not_angry": {
 			"loop": true,
 			"bones": {
 				"rightArm": {
@@ -59,7 +59,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.baby": {
+		"animation.billeys_mobs.orange_penguin.baby": {
 			"loop": true,
 			"bones": {
 				"block2": {
@@ -81,7 +81,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.angry": {
+		"animation.billeys_mobs.orange_penguin.angry": {
 			"loop": true,
 			"animation_length": 10.5,
 			"bones": {
@@ -113,7 +113,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.walk": {
+		"animation.billeys_mobs.orange_penguin.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved * 30",
 			"bones": {
@@ -138,7 +138,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.look_at_target": {
+		"animation.billeys_mobs.orange_penguin.look_at_target": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -146,7 +146,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.swim": {
+		"animation.billeys_mobs.orange_penguin.swim": {
 			"loop": true,
 			"animation_length": 1.2,
 			"bones": {
@@ -189,7 +189,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.baby2": {
+		"animation.billeys_mobs.orange_penguin.baby2": {
 			"loop": true,
 			"bones": {
 				"block2": {
@@ -211,7 +211,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.sit": {
+		"animation.billeys_mobs.orange_penguin.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -227,7 +227,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.eat": {
+		"animation.billeys_mobs.orange_penguin.eat": {
 			"loop": true,
 			"bones": {
 				"beak": {
@@ -238,7 +238,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.crawlstill": {
+		"animation.billeys_mobs.orange_penguin.crawlstill": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -267,7 +267,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.crawl": {
+		"animation.billeys_mobs.orange_penguin.crawl": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -292,7 +292,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.leaf_rotation": {
+		"animation.billeys_mobs.orange_penguin.leaf_rotation": {
 			"loop": true,
 			"bones": {
 				"leaf": {
@@ -300,7 +300,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.hurt": {
+		"animation.billeys_mobs.orange_penguin.hurt": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -312,7 +312,7 @@
 				}
 			}
 		},
-		"animation.billorange_penguin.gothurt": {
+		"animation.billeys_mobs.orange_penguin.gothurt": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.32,
 			"bones": {

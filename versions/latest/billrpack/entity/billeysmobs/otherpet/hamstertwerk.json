@@ -7,28 +7,28 @@
         "default": "cat"
       },
       "textures": {
-        "default": "textures/entity/bill/hamster_dyeable"
+        "default": "textures/entity/billeys_mobs/hamster_dyeable"
       },
       "geometry": {
-        "default": "geometry.billhamster"
+        "default": "geometry.billeys_mobs.hamster"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "sit": "animation.billhamster.sit",
-        "sit2": "animation.billhamster.sit2",
-        "walk": "animation.billhamster.walk",
-        "saddled": "animation.billhamster.shake_ass",
-        "sheared": "animation.billhamster.sniff",
-        "run": "animation.billhamster.run",
-        "hurt": "animation.billhamster.hurt",
+        "new": "animation.billeys_mobs.duckproj.body",
+        "sit": "animation.billeys_mobs.hamster.sit",
+        "sit2": "animation.billeys_mobs.hamster.sit2",
+        "walk": "animation.billeys_mobs.hamster.walk",
+        "saddled": "animation.billeys_mobs.hamster.shake_ass",
+        "sheared": "animation.billeys_mobs.hamster.sniff",
+        "run": "animation.billeys_mobs.hamster.run",
+        "hurt": "animation.billeys_mobs.hamster.hurt",
         "look_at_target": "animation.common.look_at_target",
-        "contsit": "controller.animation.billey.rodent_sit",
-        "contsheared": "controller.animation.billey.rodent_sniff",
-        "move": "controller.animation.billey.rodent_walk_or_run"
+        "contsit": "controller.animation.billeys_mobs.rodent_sit",
+        "contsheared": "controller.animation.billeys_mobs.rodent_sniff",
+        "move": "controller.animation.billeys_mobs.rodent_walk_or_run"
       },
       "scripts": {
         "initialize": [
-          "v.can_use_sit_two = 1;"
+          "v.can_use_sit2 = 1;"
         ],
         "animate": [
           "contsit",
@@ -48,8 +48,10 @@
           }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
-        "controller.render.billey_default"
+        "controller.render.billeys_mobs_default"
       ],
       "spawn_egg": {
         "base_color": "#ef9a4d",

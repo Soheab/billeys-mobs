@@ -8,59 +8,58 @@
         "cat": "cat"
       },
       "textures": {
-        "zero": "textures/entity/bill/goose",
-        "baby": "textures/entity/bill/gooseling",
-        "one": "textures/entity/bill/goose1",
-        "two": "textures/entity/bill/goose2",
-        "three": "textures/entity/bill/goose3",
-        "four": "textures/entity/bill/goose4",
-        "five": "textures/entity/bill/goose5",
-        "six": "textures/entity/bill/goose6",
-        "hat": "textures/entity/bill/hat"
+        "zero": "textures/entity/billeys_mobs/goose",
+        "baby": "textures/entity/billeys_mobs/gooseling",
+        "one": "textures/entity/billeys_mobs/goose1",
+        "two": "textures/entity/billeys_mobs/goose2",
+        "three": "textures/entity/billeys_mobs/goose3",
+        "four": "textures/entity/billeys_mobs/goose4",
+        "five": "textures/entity/billeys_mobs/goose5",
+        "six": "textures/entity/billeys_mobs/goose6",
+        "hat": "textures/entity/billeys_mobs/hat"
       },
       "geometry": {
-        "default": "geometry.billgoose",
-        "hat": "geometry.billgoosehat"
+        "default": "geometry.billeys_mobs.goose",
+        "hat": "geometry.billeys_mobs.goosehat"
       },
       "particle_effects": {
         "zeelol": "billey:zeeduck"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "hurt": "animation.billduck.hurt",
-        "shrinkitem": "animation.billduck.shrinkitem",
-        "shrinkitem2": "animation.billduck.shrinkitem2",
-        "glisteringmelon": "animation.billduck.glisteringmelon",
-        "move": "animation.billduck.walk",
-        "sit": "animation.billduck.sit2",
-        "swim": "animation.billduck.swim",
-        "look_at_target": "animation.billduck.look_at_target",
+        "new": "animation.billeys_mobs.duckproj.body",
+        "hurt": "animation.billeys_mobs.duck.hurt",
+        "shrinkitem": "animation.billeys_mobs.duck.shrinkitem",
+        "shrinkitem2": "animation.billeys_mobs.duck.shrinkitem2",
+        "glisteringmelon": "animation.billeys_mobs.duck.glisteringmelon",
+        "move": "animation.billeys_mobs.duck.walk",
+        "sit": "animation.billeys_mobs.duck.sit2",
+        "swim": "animation.billeys_mobs.duck.swim",
+        "look_at_target": "animation.billeys_mobs.duck.look_at_target",
         "look_at_target_baby": "animation.common.look_at_target",
-        "baby_transform": "animation.billduck.ling2",
-        "flap_wings": "animation.billduck.fall",
-        "sheared": "animation.billduck.quack",
-        "shearedbaby": "animation.billduck.quackbaby",
-        "saddled": "animation.billduck.flap",
-        "eat": "animation.billduck.eat",
-        "gothurt": "animation.billduck.gothurt",
-        "hitcont": "controller.animation.billey.hitanim",
-        "angry": "animation.billduck.angrygoose",
-        "sleep": "animation.billduck.sleep2",
-        "sleeptl": "animation.billduck.sleep_particle",
-        "controller.sit": "controller.animation.billey.sit_or_sleep",
-        "controller.sheared": "controller.animation.billey.sheared",
-        "controller.shearedbaby": "controller.animation.billey.shearedbaby",
-        "controller.eat": "controller.animation.billey.eat",
-        "controller.saddled": "controller.animation.billey.saddled",
-        "controller.swim": "controller.animation.billey.swim",
-        "angrycon": "controller.animation.billey.duckangry",
-        "controller.sleep": "controller.animation.billey.sleep"
+        "baby_transform": "animation.billeys_mobs.duck.ling2",
+        "flap_wings": "animation.billeys_mobs.duck.fall",
+        "sheared": "animation.billeys_mobs.duck.quack",
+        "shearedbaby": "animation.billeys_mobs.duck.quackbaby",
+        "saddled": "animation.billeys_mobs.duck.flap",
+        "eat": "animation.billeys_mobs.duck.eat",
+        "gothurt": "animation.billeys_mobs.duck.gothurt",
+        "hitcont": "controller.animation.billeys_mobs.hitanim",
+        "angry": "animation.billeys_mobs.duck.angrygoose",
+        "sleep": "animation.billeys_mobs.duck.sleep2",
+        "sleeptl": "animation.billeys_mobs.duck.sleep_particle",
+        "controller.sit": "controller.animation.billeys_mobs.sit_or_sleep",
+        "controller.sheared": "controller.animation.billeys_mobs.sheared",
+        "controller.shearedbaby": "controller.animation.billeys_mobs.shearedbaby",
+        "controller.eat": "controller.animation.billeys_mobs.eat",
+        "controller.saddled": "controller.animation.billeys_mobs.saddled",
+        "controller.swim": "controller.animation.billeys_mobs.swim",
+        "angrycon": "controller.animation.billeys_mobs.duckangry",
+        "controller.sleep": "controller.animation.billeys_mobs.sleep"
       },
       "sound_effects": {
         "quack": "billey.goose.say",
         "quackbaby": "billey.goose.saybaby"
       },
-      "enable_attachables": true,
       "scripts": {
         "animate": [
           "new",
@@ -118,17 +117,18 @@
           }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
-        "controller.render.billgoose", //in the billey.json file
+        "controller.render.billeys_mobs.goose", //in the billey.json file
         {
-          "controller.render.billbduckhat": "q.is_stunned"
+          "controller.render.billeys_mobs.bduckhat": "q.is_stunned"
         }
       ],
       "spawn_egg": {
         "base_color": "#FEFFFF",
         "overlay_color": "#FF6E04"
-      },
-      "hide_armor": true
+      }
     }
   }
 }

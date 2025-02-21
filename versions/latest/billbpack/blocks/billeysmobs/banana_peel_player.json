@@ -57,7 +57,7 @@
             "minecraft:light_dampening": 0,
             "minecraft:map_color": "#ffa000",
             "minecraft:loot": "loot_tables/entities/billbananapeel_player.json",
-            "minecraft:geometry": "geometry.billbanana_peel"
+            "minecraft:geometry": "geometry.billeys_mobs.banana_peel"
         }
         //functionality was done with scripts
     }

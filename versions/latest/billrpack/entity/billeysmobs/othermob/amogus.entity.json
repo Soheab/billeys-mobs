@@ -10,19 +10,21 @@
 				"default": "textures/entity/billamogus"
 			},
 			"geometry": {
-				"default": "geometry.billamogus"
+				"default": "geometry.billeys_mobs.amogus"
 			},
 			"animations": {
-        "new": "animation.billduckproj.body",
-				"xd": "animation.billamogus.new4",
-				"lol": "animation.billamogus.new"
+        "new": "animation.billeys_mobs.duckproj.body",
+				"xd": "animation.billeys_mobs.amogus.new4",
+				"lol": "animation.billeys_mobs.amogus.new"
 			},
 			"scripts": {
 				"animate": [ "new",
                     { "lol": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))" }, {"xd": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"}
 				]
 			},
-			"render_controllers": ["controller.render.billey_default"]
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": ["controller.render.billeys_mobs_default"]
 		}
 	}
 }

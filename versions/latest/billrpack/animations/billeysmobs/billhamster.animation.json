@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billhamster.shake_ass": {
+		"animation.billeys_mobs.hamster.shake_ass": {
 			"loop": true,
 			"bones": {
 				"boner": {
@@ -13,7 +13,7 @@
 				}
 			}
 		},
-		"animation.billhamster.walk": {
+		"animation.billeys_mobs.hamster.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 10",
 			"bones": {
@@ -44,7 +44,7 @@
 				}
 			}
 		},
-		"animation.billhamster.run": {
+		"animation.billeys_mobs.hamster.run": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved * 20",
 			"bones": {
@@ -67,7 +67,7 @@
 				}
 			}
 		},
-		"animation.billhamster.hurt": {
+		"animation.billeys_mobs.hamster.hurt": {
 			"loop": true,
 			"bones": {
 				"boner": {
@@ -84,7 +84,7 @@
 				}
 			}
 		},
-		"animation.billhamster.run_static": {
+		"animation.billeys_mobs.hamster.run_static": {
 			"loop": true,
 			"bones": {
 				"boner": {
@@ -116,7 +116,7 @@
 				}
 			}
 		},
-		"animation.billhamster.new": {
+		"animation.billeys_mobs.hamster.new": {
 			"loop": true,
 			"bones": {
 				"whole": {
@@ -142,7 +142,7 @@
 				}
 			}
 		},
-		"animation.billhamster.sniff": {
+		"animation.billeys_mobs.hamster.sniff": {
 			"animation_length": 0.88,
 			"bones": {
 				"boner": {
@@ -153,7 +153,7 @@
 				}
 			}
 		},
-		"animation.billhamster.sit": {
+		"animation.billeys_mobs.hamster.sit": {
 			"loop": true,
 			"bones": {
 				"boner": {
@@ -192,7 +192,7 @@
 				}
 			}
 		},
-		"animation.billhamster.run_in_ball": {
+		"animation.billeys_mobs.hamster.run_in_ball": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved * 20",
 			"bones": {
@@ -226,7 +226,7 @@
 				}
 			}
 		},
-		"animation.billhamster.sit2": {
+		"animation.billeys_mobs.hamster.sit2": {
 			"loop": true,
 			"bones": {
 				"boner": {

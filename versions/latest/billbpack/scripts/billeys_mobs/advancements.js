@@ -1,8 +1,8 @@
 import { world, system, ItemStack, Player, Entity } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import { playSound, translateItem } from "./utility";
-import { showInfoBookForm } from "./infoBook";
-import { ADVANCEMENTS } from "./advancementList";
+import { showInfoBookForm } from "./info_book";
+import { ADVANCEMENTS } from "./advancement_list";
 
 const XP_PER_POWER_BANANA = 35;
 
@@ -21,7 +21,7 @@ function giveAdvancement(player, advancementName) {
     const advancement = ADVANCEMENTS.find(a => a.name == advancementName);
     if (!advancement)
         return world.sendMessage(`§cError: Failed to give Billey's Mobs advancement "${message}" to ${player.name}. Advancement of name "${message}" not found.`);
-    world.sendMessage({ rawtext: [{ translate: advancement.isChallenge ? "chat.challenge.task" : "chat.advancement.task", with: { rawtext: [{ text: player.name }, { translate: "advancements.billey." + advancement.name }] } }] });
+    world.sendMessage({ rawtext: [{ translate: advancement.isChallenge ? "chat.challenge.task" : "chat.advancement.task", with: { rawtext: [{ text: player.name }, { translate: "advancements.billeys_mobs." + advancement.name }] } }] });
     player.addTag("billeyadv_" + advancement.name);
     /** @type {string[]} */
     let completedPlayers = advancementPlayerCompletionOrder[advancement.name] ??= [];
@@ -82,8 +82,8 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity, id, message }) 
  */
 export async function showAdvancementForm(player) {
     const form = new ActionFormData();
-    form.title({ translate: "ui.billey.advancements" });
-    form.body({ translate: "ui.billey.advancements.body" });
+    form.title({ translate: "ui.billeys_mobs.advancements" });
+    form.body({ translate: "ui.billeys_mobs.advancements.body" });
     const advs = ADVANCEMENTS
         .filter(a => !a.isHidden || player.hasTag("billeyadv_" + a.name))
         .sort((a, b) => {
@@ -95,12 +95,12 @@ export async function showAdvancementForm(player) {
     for (const a of advs) {
         const isCompleted = player.hasTag("billeyadv_" + a.name);
         /** @type {import("@minecraft/server").RawMessage[]} */
-        let rawText = [{ translate: "advancements.billey." + a.name }];
+        let rawText = [{ translate: "advancements.billeys_mobs." + a.name }];
         if (isCompleted)
             rawText = [
                 ...rawText,
                 { text: "\n" },
-                { translate: "ui.billey.advancements." + (isCompleted ? "completed" : "not_completed") }
+                { translate: "ui.billeys_mobs.advancements." + (isCompleted ? "completed" : "not_completed") }
             ];
         form.button(
             {
@@ -116,7 +116,7 @@ export async function showAdvancementForm(player) {
         return showInfoBookForm(player);
     const adv = advs[selection * 1];
     const form2 = new ActionFormData();
-    form2.title({ translate: "advancements.billey." + adv.name });
+    form2.title({ translate: "advancements.billeys_mobs." + adv.name });
     /** @type {string[]} */
     const completedPlayerNames = advancementPlayerCompletionOrder[adv.name];
     let rankText = "";
@@ -127,11 +127,11 @@ export async function showAdvancementForm(player) {
     const isCompleted = player.hasTag("billeyadv_" + adv.name);
     /** @type {import("@minecraft/server").RawMessage[]} */
     let rawText = [
-        { translate: `advancements.billey.${adv.name}.desc` },
+        { translate: `advancements.billeys_mobs.${adv.name}.desc` },
         { text: "\n\n" },
-        { translate: "advancements.billey.info.rewards" },
+        { translate: "advancements.billeys_mobs.info.rewards" },
         {
-            translate: "advancements.billey.info.rewards.xp",
+            translate: "advancements.billeys_mobs.info.rewards.xp",
             with: ["\n", adv.xp.toString()]
         }
     ];
@@ -140,7 +140,7 @@ export async function showAdvancementForm(player) {
         rawText = [
             ...rawText,
             {
-                translate: "advancements.billey.info.rewards.bananas",
+                translate: "advancements.billeys_mobs.info.rewards.bananas",
                 with: ["\n", powerBananas.toString()]
             }
         ];
@@ -148,7 +148,7 @@ export async function showAdvancementForm(player) {
         rawText = [
             ...rawText,
             {
-                translate: "advancements.billey.info.rewards.item",
+                translate: "advancements.billeys_mobs.info.rewards.item",
                 with: {
                     rawtext: [
                         { text: "\n" },
@@ -161,26 +161,26 @@ export async function showAdvancementForm(player) {
         rawText = [
             ...rawText,
             { text: "\n\n§e" },
-            { translate: "advancements.billey.info.is_hidden" }
+            { translate: "advancements.billeys_mobs.info.is_hidden" }
         ];
     else if (isCompleted)
         rawText = [
             ...rawText,
             { text: "\n\n§a" },
-            { translate: "advancements.billey.info.is_completed" }
+            { translate: "advancements.billeys_mobs.info.is_completed" }
         ];
     if (rankText)
         rawText = [
             ...rawText,
             { text: "\n\n§r" },
-            { translate: "advancements.billey.info.players_who_have_completed" },
+            { translate: "advancements.billeys_mobs.info.players_who_have_completed" },
             { text: rankText }
         ];
     else
         rawText = [
             ...rawText,
             { text: "\n\n§e" },
-            { translate: "advancements.billey.info.be_the_first" }
+            { translate: "advancements.billeys_mobs.info.be_the_first" }
         ];
     form2.body({
         rawtext: rawText

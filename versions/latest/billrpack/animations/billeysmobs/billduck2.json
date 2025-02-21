@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billduck.look_at_target": {
+		"animation.billeys_mobs.duck.look_at_target": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -27,7 +27,7 @@
 				}
 			}
 		},
-		"animation.billduck.eat": {
+		"animation.billeys_mobs.duck.eat": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -41,7 +41,7 @@
 				}
 			}
 		},
-		"animation.billduck.quackbaby": {
+		"animation.billeys_mobs.duck.quackbaby": {
 			"animation_length": 0.3167,
 			"bones": {
 				"bone": {
@@ -65,7 +65,7 @@
 				}
 			}
 		},
-		"animation.billduck.ling": {
+		"animation.billeys_mobs.duck.ling": {
 			"loop": true,
 			"bones": {
 				"lol": {
@@ -74,7 +74,7 @@
 				}
 			}
 		},
-		"animation.billduck.angry2": {
+		"animation.billeys_mobs.duck.angry2": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -97,10 +97,10 @@
 				}
 			}
 		},
-		"animation.billduck.new": {
+		"animation.billeys_mobs.duck.new": {
 			"loop": true
 		},
-		"animation.billduck.centipede": {
+		"animation.billeys_mobs.duck.centipede": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -109,7 +109,7 @@
 				}
 			}
 		},
-		"animation.billduck.hurt2": {
+		"animation.billeys_mobs.duck.hurt2": {
 			"loop": true,
 			"bones": {
 				"bodynolegs": {
@@ -117,7 +117,7 @@
 				}
 			}
 		},
-		"animation.billduck.hitted": {
+		"animation.billeys_mobs.duck.hitted": {
 			"animation_length": 0.52,
 			"bones": {
 				"beak": {
@@ -128,7 +128,7 @@
 				}
 			}
 		},
-		"animation.billduck.goose": {
+		"animation.billeys_mobs.duck.goose": {
 			"loop": true,
 			"bones": {
 				"bone7": {
@@ -136,7 +136,7 @@
 				}
 			}
 		},
-		"animation.billduck.new3": {
+		"animation.billeys_mobs.duck.new3": {
 			"loop": true,
 			"animation_length": 0.36,
 			"bones": {
@@ -148,7 +148,7 @@
 				}
 			}
 		},
-		"animation.billduck.new2": {
+		"animation.billeys_mobs.duck.new2": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -156,7 +156,7 @@
 				}
 			}
 		},
-		"animation.billduck.new45": {
+		"animation.billeys_mobs.duck.new45": {
 			"animation_length": 1.04,
 			"bones": {
 				"body": {
@@ -179,7 +179,7 @@
 				}
 			}
 		},
-		"animation.billduck.eating": {
+		"animation.billeys_mobs.duck.eating": {
 			"animation_length": 0.2,
 			"bones": {
 				"head": {
@@ -226,7 +226,7 @@
 				}
 			}
 		},
-		"animation.billduck.walkattempt": {
+		"animation.billeys_mobs.duck.walkattempt": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {
@@ -271,7 +271,7 @@
 				}
 			}
 		},
-		"animation.billduck.gothurt": {
+		"animation.billeys_mobs.duck.gothurt": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.32,
 			"override_previous_animation": true,
@@ -327,7 +327,7 @@
 				}
 			}
 		},
-		"animation.billduck.sit": {
+		"animation.billeys_mobs.duck.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -350,7 +350,7 @@
 				}
 			}
 		},
-		"animation.billduck.sleep": {
+		"animation.billeys_mobs.duck.sleep": {
 			"loop": true,
 			"bones": {
 				"bone9": {
@@ -404,7 +404,7 @@
 				}
 			}
 		},
-		"animation.billduck.pickupbread": {
+		"animation.billeys_mobs.duck.pickupbread": {
 			"animation_length": 0.55172,
 			"override_previous_animation": true,
 			"bones": {
@@ -491,7 +491,7 @@
 				}
 			}
 		},
-		"animation.billduck.sleep_particle": {
+		"animation.billeys_mobs.duck.sleep_particle": {
 			"loop": true,
 			"animation_length": 0.5,
 			"loop_delay": "math.random(0.7,1.3)",
@@ -502,7 +502,7 @@
 				}
 			}
 		},
-		"animation.billduck.ling2": {
+		"animation.billeys_mobs.duck.ling2": {
 			"loop": true,
 			"bones": {
 				"lol": {
@@ -532,7 +532,7 @@
 				}
 			}
 		},
-		"animation.billduck.angry": {
+		"animation.billeys_mobs.duck.angry": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -559,7 +559,7 @@
 				}
 			}
 		},
-		"animation.billduck.quack_attachable": {
+		"animation.billeys_mobs.duck.quack_attachable": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.32,
 			"bones": {
@@ -584,7 +584,7 @@
 				}
 			}
 		},
-		"animation.billduck.sleep2": {
+		"animation.billeys_mobs.duck.sleep2": {
 			"loop": true,
 			"bones": {
 				"bone9": {
@@ -642,7 +642,7 @@
 				}
 			}
 		},
-		"animation.billduck.sit2": {
+		"animation.billeys_mobs.duck.sit2": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -672,7 +672,7 @@
 				}
 			}
 		},
-		"animation.billduck.shrinkitem": {
+		"animation.billeys_mobs.duck.shrinkitem": {
 			"loop": true,
 			"bones": {
 				"rightArm": {
@@ -684,7 +684,7 @@
 				}
 			}
 		},
-		"animation.billduck.shrinkitem2": {
+		"animation.billeys_mobs.duck.shrinkitem2": {
 			"loop": true,
 			"bones": {
 				"rightArm": {
@@ -701,7 +701,7 @@
 				}
 			}
 		},
-		"animation.billduck.flap": {
+		"animation.billeys_mobs.duck.flap": {
 			"animation_length": 10,
 			"bones": {
 				"bodynolegs": {
@@ -760,7 +760,7 @@
 				}
 			}
 		},
-		"animation.billduck.swim": {
+		"animation.billeys_mobs.duck.swim": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -777,7 +777,7 @@
 				}
 			}
 		},
-		"animation.billduck.fall": {
+		"animation.billeys_mobs.duck.fall": {
 			"loop": true,
 			"bones": {
 				"wing0": {
@@ -788,7 +788,7 @@
 				}
 			}
 		},
-		"animation.billduck.angrygoose": {
+		"animation.billeys_mobs.duck.angrygoose": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -821,7 +821,7 @@
 				}
 			}
 		},
-		"animation.billduck.glisteringmelon": {
+		"animation.billeys_mobs.duck.glisteringmelon": {
 			"loop": true,
 			"bones": {
 				"bone8": {
@@ -838,7 +838,7 @@
 				}
 			}
 		},
-		"animation.billduck.skeleton": {
+		"animation.billeys_mobs.duck.skeleton": {
 			"loop": true,
 			"bones": {
 				"bone5": {
@@ -872,7 +872,7 @@
 				}
 			}
 		},
-		"animation.billduck.wiggle_tail": {
+		"animation.billeys_mobs.duck.wiggle_tail": {
 			"animation_length": 0.6,
 			"bones": {
 				"duck_tail_flesh": {
@@ -883,7 +883,7 @@
 				}
 			}
 		},
-		"animation.billduck.flap2": {
+		"animation.billeys_mobs.duck.flap2": {
 			"animation_length": 10,
 			"bones": {
 				"bodynolegs": {
@@ -943,7 +943,7 @@
 				}
 			}
 		},
-		"animation.billduck.hurt": {
+		"animation.billeys_mobs.duck.hurt": {
 			"loop": true,
 			"bones": {
 				"bodynolegs": {
@@ -974,7 +974,7 @@
 				}
 			}
 		},
-		"animation.billduck.quack": {
+		"animation.billeys_mobs.duck.quack": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.32,
 			"bones": {
@@ -999,7 +999,7 @@
 				}
 			}
 		},
-		"animation.billduck.walk32": {
+		"animation.billeys_mobs.duck.walk32": {
 			"loop": true,
 			"animation_length": 0.5,
 			"anim_time_update": "q.modified_distance_moved / 12",
@@ -1298,7 +1298,7 @@
 				}
 			}
 		},
-		"animation.billduck.walk33": {
+		"animation.billeys_mobs.duck.walk33": {
 			"loop": true,
 			"animation_length": 0.5,
 			"bones": {

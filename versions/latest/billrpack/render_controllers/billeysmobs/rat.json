@@ -1,7 +1,7 @@
 {
     "format_version": "1.8.0",
     "render_controllers": {
-        "controller.render.billey.rat": {
+        "controller.render.billeys_mobs.rat": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -59,7 +59,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             }
         },
-        "controller.render.billey.netherrat": {
+        "controller.render.billeys_mobs.netherrat": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -124,7 +124,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             }
         },
-        "controller.render.billey.shark": {
+        "controller.render.billeys_mobs.shark": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
@@ -164,7 +164,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             }
         },
-        "controller.render.billrat_head_equipment": {
+        "controller.render.billeys_mobs.rat_head_equipment": {
             "geometry": "Geometry.hat",
             "materials": [
                 {
@@ -187,7 +187,16 @@
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
             }
         },
-        "controller.render.billrat_minion": {
+        "controller.render.billeys_mobs.rat_minion": {
+            "arrays": {
+                "textures": {
+                    "Array.variants": [
+                        "Texture.of_potion",
+                        "Texture.hostile",
+                        "Texture.friendly"
+                    ]
+                }
+            },
             "geometry": "Geometry.default",
             "materials": [
                 {
@@ -198,16 +207,16 @@
                 }
             ],
             "textures": [
-                "Texture.default"
+                "Array.variants[q.variant]"
             ],
             "is_hurt_color": {
                 "r": "1",
                 "g": "0",
                 "b": "0",
-                "a": "q.life_time > 1 ? 0.5 : 0"
+                "a": "(!q.is_alive || q.life_time > 1 ) ? 0.5 : 0"
             }
         },
-        "controller.render.billrat_king": {
+        "controller.render.billeys_mobs.rat_king": {
             "geometry": "Geometry.default",
             "materials": [
                 {
@@ -224,7 +233,7 @@
                 "r": "1",
                 "g": "0",
                 "b": "0",
-                "a": "q.life_time > 1 ? q.is_alive * 0.5 : 0"
+                "a": "q.life_time > 0.55 ? 0.5"
             },
             "on_fire_color": {
                 "r": "1",

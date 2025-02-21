@@ -6,8 +6,8 @@
             "is_spawnable": false,
             "is_summonable": true,
             "animations": {
-                "uhh": "controller.animation.billduckhat.exdehe",
-                "give_duck": "animation.billey.duckzombiegetduck"
+                "uhh": "controller.animation.billeys_mobs.duckhat.exdehe",
+                "give_duck": "animation.billeys_mobs.duckzombiegetduck"
             },
             "scripts": {
                 "animate": [

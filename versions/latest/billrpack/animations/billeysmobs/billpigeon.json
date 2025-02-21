@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billpigeon.fly": {
+		"animation.billeys_mobs.pigeon.fly": {
 			"loop": true,
 			"bones": {
 				"body_flying": {
@@ -9,7 +9,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.sit": {
+		"animation.billeys_mobs.pigeon.sit": {
 			"loop": true,
 			"bones": {
 				"bodynolegs": {
@@ -55,10 +55,10 @@
 				}
 			}
 		},
-		"animation.billpigeon.dead": {
+		"animation.billeys_mobs.pigeon.dead": {
 			"loop": true
 		},
-		"animation.billpigeon.dead2": {
+		"animation.billeys_mobs.pigeon.dead2": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -69,7 +69,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.flap": {
+		"animation.billeys_mobs.pigeon.flap": {
 			"loop": true,
 			"bones": {
 				"wing1": {
@@ -80,7 +80,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.new2": {
+		"animation.billeys_mobs.pigeon.new2": {
 			"loop": true,
 			"bones": {
 				"world": {
@@ -141,7 +141,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.newwalk": {
+		"animation.billeys_mobs.pigeon.newwalk": {
 			"loop": true,
 			"animation_length": 0.5,
 			"bones": {
@@ -168,7 +168,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.newwalk2": {
+		"animation.billeys_mobs.pigeon.newwalk2": {
 			"loop": true,
 			"bones": {
 				"leg0": {
@@ -183,7 +183,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.newwalk3": {
+		"animation.billeys_mobs.pigeon.newwalk3": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {
@@ -203,7 +203,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.sleep": {
+		"animation.billeys_mobs.pigeon.sleep": {
 			"loop": true,
 			"bones": {
 				"bodynolegs": {
@@ -245,7 +245,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.eatfloor": {
+		"animation.billeys_mobs.pigeon.eatfloor": {
 			"animation_length": 0.7,
 			"override_previous_animation": true,
 			"bones": {
@@ -292,7 +292,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.walk": {
+		"animation.billeys_mobs.pigeon.walk": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -312,7 +312,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.eat": {
+		"animation.billeys_mobs.pigeon.eat": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -323,7 +323,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.hurt": {
+		"animation.billeys_mobs.pigeon.hurt": {
 			"loop": true,
 			"bones": {
 				"necc": {
@@ -335,7 +335,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.idle": {
+		"animation.billeys_mobs.pigeon.idle": {
 			"loop": true,
 			"bones": {
 				"wing1": {
@@ -349,7 +349,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.look": {
+		"animation.billeys_mobs.pigeon.look": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -357,7 +357,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.riding": {
+		"animation.billeys_mobs.pigeon.riding": {
 			"loop": true,
 			"bones": {
 				"bodynolegs": {
@@ -365,7 +365,7 @@
 				}
 			}
 		},
-		"animation.billpigeon.shrink": {
+		"animation.billeys_mobs.pigeon.shrink": {
 			"animation_length": 6,
 			"bones": {
 				"body_walking": {

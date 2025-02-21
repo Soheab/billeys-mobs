@@ -1,7 +1,7 @@
 {
   "format_version": "1.16.0",
   "render_controllers": {
-    "controller.render.billey_default": {
+    "controller.render.billeys_mobs_default": {
       "geometry": "Geometry.default",
       "materials": [
         {
@@ -44,7 +44,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billocator": {
+    "controller.render.billeys_mobs.ocator": {
       //i dont know if this is used
       "geometry": "Geometry.locator",
       "materials": [
@@ -62,7 +62,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billgoose": {
+    "controller.render.billeys_mobs.goose": {
         "geometry": "Geometry.default",
         "arrays": {
             "textures": {
@@ -107,7 +107,7 @@
             "a": "0.5 + q.is_illager_captain / 3"
         }
     },
-    "controller.render.billcucumbeel": {
+    "controller.render.billeys_mobs.cucumbeel": {
       "geometry": "Geometry.default",
       "materials": [
         {
@@ -130,7 +130,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billduckendrod": {
+    "controller.render.billeys_mobs.duckendrod": {
       "geometry": "Geometry.endrod",
       "materials": [
         {
@@ -154,7 +154,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billpigeonhat": {
+    "controller.render.billeys_mobs.pigeonhat": {
       "geometry": "Geometry.hat",
       "materials": [
         {
@@ -177,7 +177,7 @@
         "a": "0"
       }
     },
-    "controller.render.billcentipedehat": {
+    "controller.render.billeys_mobs.centipedehat": {
       "geometry": "Geometry.hatcenti",
       "materials": [
         {
@@ -200,7 +200,7 @@
         "a": "q.is_illager_captain ? 0.5 : 0.0"
       }
     },
-    "controller.render.billduckchest": {
+    "controller.render.billeys_mobs.duckchest": {
       "geometry": "Geometry.chest",
       "materials": [
         {
@@ -223,7 +223,7 @@
         "a": "0"
       }
     },
-    "controller.render.billbduckhat": {
+    "controller.render.billeys_mobs.bduckhat": {
       "geometry": "Geometry.hat",
       "materials": [
         {
@@ -334,7 +334,7 @@
           "a": "0.5 + q.is_illager_captain / 3"
       }
     },
-    "controller.render.billhmrshark": {
+    "controller.render.billeys_mobs.hmrshark": {
       "arrays": {
         "textures": {
           "Array.skins": [
@@ -374,7 +374,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billcatfish": {
+    "controller.render.billeys_mobs.catfish": {
       "arrays": {
         "textures": {
           "Array.skins": [
@@ -414,7 +414,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billeyzambie.kiwi": {
+    "controller.render.billeys_mobszambie.kiwi": {
       "arrays": {
         "textures": {
           "Array.skins": [
@@ -457,7 +457,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billey.mercat": {
+    "controller.render.billeys_mobs.mercat": {
       "arrays": {
         "textures": {
           "Array.skins": [
@@ -495,7 +495,7 @@
         "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billeyzambie.kiwi.shear": {
+    "controller.render.billeys_mobszambie.kiwi.shear": {
       "geometry": "Geometry.sheared",
       "materials": [
         {

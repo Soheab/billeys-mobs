@@ -7,18 +7,18 @@
           "default": "entity_alphatest"
         },
         "textures": {
-          "default": "textures/entity/bill/duck"
+          "default": "textures/entity/billeys_mobs/duck"
         },
         "sound_effects": {
           "quack": "billey.duck.saybananaquiet"
         },
         "geometry": {
-          "default": "geometry.billduckitem"
+          "default": "geometry.billeys_mobs.duckitem"
         },
         "render_controllers": [ "controller.render.item_sprite" ],
         "animations": {
-        "new": "animation.billduckproj.pop",
-          "thrown": "animation.billduckitem.thrown"
+        "new": "animation.billeys_mobs.duckproj.pop",
+          "thrown": "animation.billeys_mobs.duckitem.thrown"
         },
         "scripts": {
           "animate": [ "new",

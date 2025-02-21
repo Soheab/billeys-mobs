@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billey.penguinhat",
+				"identifier": "geometry.billeys_mobs.penguinhat",
 				"texture_width": 48,
 				"texture_height": 48,
 				"visible_bounds_width": 3,

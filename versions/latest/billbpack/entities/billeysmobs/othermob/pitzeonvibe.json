@@ -218,7 +218,7 @@
                   }
                 ]
               },
-              "event": "nohat",
+              "event": "destroy_head_equipment",
               "target": "self"
             }
           },
@@ -329,13 +329,18 @@
       },
       "minecraft:conditional_bandwidth_optimization": {}
     },
-    "events": {
+    
+        "events": {"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
             "say_owner_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -343,7 +348,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
             "add_sittable": {
@@ -372,7 +377,7 @@
       "minecraft:entity_spawned": {
         "queue_command": {
           "command": [
-            "playanimation @e[r=3] animation.billpigeon.new2 sedghdgopjgrdhh 3"
+            "playanimation @e[r=3] animation.billeys_mobs.pigeon.new2 sedghdgopjgrdhh 3"
           ]
         }
       },

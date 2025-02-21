@@ -8,47 +8,42 @@
 				"dyeable": "cat"
 			},
 			"textures": {
-				"adelie": "textures/entity/bill/penguin_adelie",
-				"adelie1": "textures/entity/bill/penguin_adelie1",
-				"emperor": "textures/entity/bill/penguin_emperor",
-				"emperor1": "textures/entity/bill/penguin_emperor1",
-				"humboldt": "textures/entity/bill/penguin_humboldt",
-				"humboldt1": "textures/entity/bill/penguin_humboldt1",
-				"little": "textures/entity/bill/penguin_little",
-				"little1": "textures/entity/bill/penguin_little1",
-				"hat": "textures/entity/bill/rat"
+				"adelie": "textures/entity/billeys_mobs/penguin_adelie",
+				"adelie1": "textures/entity/billeys_mobs/penguin_adelie1",
+				"emperor": "textures/entity/billeys_mobs/penguin_emperor",
+				"emperor1": "textures/entity/billeys_mobs/penguin_emperor1",
+				"humboldt": "textures/entity/billeys_mobs/penguin_humboldt",
+				"humboldt1": "textures/entity/billeys_mobs/penguin_humboldt1",
+				"little": "textures/entity/billeys_mobs/penguin_little",
+				"little1": "textures/entity/billeys_mobs/penguin_little1"
 			},
 			"geometry": {
-				"adelie": "geometry.billpenguin_adelie",
-				"emperor": "geometry.billpenguin_emperor",
-				"humboldt": "geometry.billpenguin_humboldt",
-				"little": "geometry.billpenguin_little",
-				"adeliehat": "geometry.billpenguin_adeliehat",
-				"emperorhat": "geometry.billpenguin_emperorhat",
-				"humboldthat": "geometry.billpenguin_humboldthat",
-				"littlehat": "geometry.billpenguin_littlehat"
+				"adelie": "geometry.billeys_mobs.penguin_adelie",
+				"emperor": "geometry.billeys_mobs.penguin_emperor",
+				"humboldt": "geometry.billeys_mobs.penguin_humboldt",
+				"little": "geometry.billeys_mobs.penguin_little"
 			},
 			"animations": {
-				"new": "animation.billduckproj.body",
-				"hurt": "animation.billcat.hurt",
+				"new": "animation.billeys_mobs.duckproj.body",
+				"hurt": "animation.billeys_mobs.cat.hurt",
 				"look": "animation.common.look_at_target",
-				"controller.eat": "controller.animation.billey.eat",
+				"controller.eat": "controller.animation.billeys_mobs.eat",
 				"bob": "animation.humanoid.bob",
-				"controller.movement": "controller.animation.billey.penguin_movement",
-				"controller.should_crawl": "controller.animation.billey.should_crawl",
-				"walk": "animation.billpenguin.walk",
-				"swim_pose": "animation.billpenguin.swim_pose",
-				"swim": "animation.billpenguin.swim",
-				"crawl_pose": "animation.billpenguin.crawl_pose",
-				"crawl_move": "animation.billpenguin.crawl_move",
-				"fix_emperor": "animation.billpenguin.fix_emperor",
-				"angry": "animation.billpenguin.angry",
-				"sit": "animation.billpenguin.sit",
-				"sit_emperor": "animation.billpenguin.sit_emperor",
-				"baby": "animation.billpenguin.baby",
-				"eat": "animation.billpenguin.eat",
-				"controller.admire": "controller.animation.billey.simple_admire",
-				"admire": "animation.billpenguin.cook"
+				"controller.movement": "controller.animation.billeys_mobs.penguin_movement",
+				"controller.should_crawl": "controller.animation.billeys_mobs.should_crawl",
+				"walk": "animation.billeys_mobs.penguin.walk",
+				"swim_pose": "animation.billeys_mobs.penguin.swim_pose",
+				"swim": "animation.billeys_mobs.penguin.swim",
+				"crawl_pose": "animation.billeys_mobs.penguin.crawl_pose",
+				"crawl_move": "animation.billeys_mobs.penguin.crawl_move",
+				"fix_emperor": "animation.billeys_mobs.penguin.fix_emperor",
+				"angry": "animation.billeys_mobs.penguin.angry",
+				"sit": "animation.billeys_mobs.penguin.sit",
+				"sit_emperor": "animation.billeys_mobs.penguin.sit_emperor",
+				"baby": "animation.billeys_mobs.penguin.baby",
+				"eat": "animation.billeys_mobs.penguin.eat",
+				"controller.admire": "controller.animation.billeys_mobs.simple_admire",
+				"admire": "animation.billeys_mobs.penguin.cook"
 			},
 			"scripts": {
 				"initialize": [
@@ -85,11 +80,10 @@
 					"controller.admire"
 				]
 			},
-			"render_controllers": [
-				{
-					"controller.render.billpenguinhat": "q.is_saddled"
-				},
-				"controller.render.billpenguin"
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+				"controller.render.billeys_mobs.penguin"
 				//in the duck file
 			],
 			"spawn_egg": {

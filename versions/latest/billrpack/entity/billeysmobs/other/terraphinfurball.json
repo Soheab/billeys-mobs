@@ -16,7 +16,7 @@
                 "controller.render.item_sprite"
             ],
             "animations": {
-                "new": "animation.billduckproj.body",
+                "new": "animation.billeys_mobs.duckproj.body",
                 "flying": "animation.actor.billboard"
             },
             "scripts": {

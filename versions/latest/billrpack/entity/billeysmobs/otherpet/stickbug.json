@@ -8,33 +8,33 @@
                 "cat": "cat"
             },
             "textures": {
-                "normal": "textures/entity/bill/stickbug",
-                "gay": "textures/entity/bill/stickbug1",
-                "desat": "textures/entity/bill/stickbug2",
-                "hat": "textures/entity/bill/stickbug"
+                "normal": "textures/entity/billeys_mobs/stickbug",
+                "gay": "textures/entity/billeys_mobs/stickbug1",
+                "desat": "textures/entity/billeys_mobs/stickbug2",
+                "hat": "textures/entity/billeys_mobs/stickbug"
             },
             "geometry": {
-                "default": "geometry.billstickbug",
-                "hat": "geometry.billstickbughat"
+                "default": "geometry.billeys_mobs.stickbug",
+                "hat": "geometry.billeys_mobs.stickbughat"
             },
             "animations": {
-                "new": "animation.billduckproj.body",
-                "move": "animation.billstickbug.walk",
-                "look_at_target": "animation.billstickbug.look",
-                "sit": "animation.billstickbug.sit",
-                "controller.ground": "controller.animation.billey.ground",
-                "fall": "animation.billstickbug.flap",
-                "general": "animation.billstickbug.general",
-                "controller.sit": "controller.animation.billey.sit",
-                "eat": "animation.billstickbug.wiggle",
-                "random_idle": "animation.billstickbug.wiggle",
-                "dance": "animation.billstickbug.dance",
-                "eatcont": "controller.animation.billey.eat",
-                "hurt": "animation.billstickbug.hurt",
-                "hide_wings": "animation.billstickbug.hide_wings",
-                "controller.random_idle": "controller.animation.billey.random_idle",
-                "dancecont": "controller.animation.billey.stick_bug_dance",
-                "wingcont": "controller.animation.billey.stick_bug_wings"
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.stickbug.walk",
+                "look_at_target": "animation.billeys_mobs.stickbug.look",
+                "sit": "animation.billeys_mobs.stickbug.sit",
+                "controller.ground": "controller.animation.billeys_mobs.ground",
+                "fall": "animation.billeys_mobs.stickbug.flap",
+                "general": "animation.billeys_mobs.stickbug.general",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "eat": "animation.billeys_mobs.stickbug.wiggle",
+                "random_idle": "animation.billeys_mobs.stickbug.wiggle",
+                "dance": "animation.billeys_mobs.stickbug.dance",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "hurt": "animation.billeys_mobs.stickbug.hurt",
+                "hide_wings": "animation.billeys_mobs.stickbug.hide_wings",
+                "controller.random_idle": "controller.animation.billeys_mobs.random_idle",
+                "dancecont": "controller.animation.billeys_mobs.stick_bug_dance",
+                "wingcont": "controller.animation.billeys_mobs.stick_bug_wings"
             },
             "scripts": {
                 "initialize": [
@@ -55,10 +55,12 @@
                     }
                 ]
             },
-            "render_controllers": [
-                "controller.render.billhmrshark",
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs.hmrshark",
                 {
-                    "controller.render.billbduckhat": "q.is_powered"
+                    "controller.render.billeys_mobs.bduckhat": "q.is_powered"
                 }
             ],
             "spawn_egg": {

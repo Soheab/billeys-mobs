@@ -218,7 +218,7 @@
                         "filters": {
                             "test": "actor_health",
                             "value": 500,
-                            "operator": "<"
+                            "operator": "<="
                         }
                     }
                 }
@@ -230,8 +230,8 @@
                         "target": "self",
                         "filters": {
                             "test": "actor_health",
-                            "value": 50,
-                            "operator": "<"
+                            "value": 150,
+                            "operator": "<="
                         }
                     }
                 }
@@ -266,12 +266,26 @@
                         2.0
                     ],
                     "height_above_target_range": [
-                        5.0,
-                        10.0
+                        0,
+                        2
                     ]
                 }
             },
             "actual_phase3": {
+                "minecraft:on_death": {
+                    "event": "on_death",
+                    "target": "self"
+                },
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "looping": false,
+                    "time_down_event": {
+                        "event": "load_actual_phase3",
+                        "target": "self"
+                    }
+                }
+            },
+            "actual_phase3_loaded": {
                 "minecraft:timer": {
                     "time": [
                         12,
@@ -289,19 +303,15 @@
                         "target": "self",
                         "filters": {
                             "test": "actor_health",
-                            "value": 59,
+                            "value": 159,
                             "operator": ">"
                         }
                     }
-                },
-                "minecraft:on_death": {
-                    "event": "on_death",
-                    "target": "self"
                 }
             },
             "temp_flying_timer": {
                 "minecraft:timer": {
-                    "time": 5,
+                    "time": 3,
                     "looping": true,
                     "time_down_event": {
                         "event": "stop_flying",
@@ -334,6 +344,51 @@
                     {
                         "cause": "fall",
                         "deals_damage": false
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false,
+                        "on_damage": {
+                            "event": "to_phase2",
+                            "target": "self",
+                            "filters": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:phase",
+                                    "subject": "self",
+                                    "value": 1
+                                },
+                                {
+                                    "test": "has_damage",
+                                    "value": "fatal"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false,
+                        "on_damage": {
+                            "event": "to_phase3",
+                            "target": "self",
+                            "filters": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:phase",
+                                    "subject": "self",
+                                    "value": 2
+                                },
+                                {
+                                    "test": "has_damage",
+                                    "value": "fatal"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "not",
+                                    "value": "billey:summoned_phase_3_minion"
+                                }
+                            ]
+                        }
                     },
                     {
                         "cause": "lightning",
@@ -369,7 +424,7 @@
             },
             "minecraft:physics": {},
             "minecraft:experience_reward": {
-                "on_death": "q.last_hit_by_player * 80"
+                "on_death": "q.last_hit_by_player ? 80"
             },
             "minecraft:loot": {
                 "table": "loot_tables/entities/billrat_king.json"
@@ -442,22 +497,6 @@
             }
         },
         "events": {
-            "say_owner_hit_pet_info": {
-                "queue_command": {
-                    "target": "other",
-                    "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
-                        "tag @s add billey:has_hurt_own_pet"
-                    ]
-                }
-            },
-            "say_other_hit_pet_info": {
-                "queue_command": {
-                    "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
-                }
-            },
             "minecraft:entity_spawned": {
                 "sequence": [
                     {
@@ -484,6 +523,22 @@
                         "remove": {
                             "component_groups": [
                                 "phase1"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scriptevent billey:set_health 500"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "execute @s[tag=!billey:summoned_phase_2_minions] ~~~ summon billey:rat_minion ~~~ spawn_as_hostile",
+                                "execute @s[tag=!billey:summoned_phase_2_minions] ~~~ summon billey:rat_minion ~~~ spawn_as_hostile",
+                                "tag @s add billey:summoned_phase_2_minions"
                             ]
                         }
                     }
@@ -524,21 +579,37 @@
                         "trigger": "to_phase3_base"
                     },
                     {
-                        "trigger": "add_actual_phase3"
+                        "queue_command": {
+                            "command": [
+                                "scriptevent billey:rat_king_finish_cooking",
+                                "scriptevent billey:set_health 150"
+                            ]
+                        }
                     },
                     {
-                        "queue_command": {
-                            "command": "scriptevent billey:rat_king_finish_cooking"
-                        }
+                        "trigger": "add_actual_phase3"
                     }
                 ]
             },
             "add_actual_phase3": {
-                "add": {
-                    "component_groups": [
-                        "actual_phase3"
-                    ]
-                }
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "actual_phase3"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scriptevent billey:cant_set_health",
+                                "execute @s[tag=!billey:summoned_phase_3_minion] ~~~ summon billey:rat_minion ~~~ spawn_as_hostile",
+                                "tag @s add billey:summoned_phase_3_minion"
+                            ]
+                        }
+                    }
+                ]
             },
             "phase3_finish_cook": {
                 "queue_command": {
@@ -737,6 +808,13 @@
                     ]
                 }
             },
+            "load_actual_phase3": {
+                "add": {
+                    "component_groups": [
+                        "actual_phase3_loaded"
+                    ]
+                }
+            },
             "stop_flying": {
                 "sequence": [
                     {
@@ -744,7 +822,8 @@
                             "component_groups": [
                                 "phase3",
                                 "temp_flying_timer",
-                                "actual_phase3"
+                                "actual_phase3",
+                                "actual_phase3_loaded"
                             ]
                         },
                         "add": {

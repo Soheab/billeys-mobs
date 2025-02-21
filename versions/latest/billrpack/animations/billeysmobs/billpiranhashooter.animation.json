@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billpiranhashooter.remove_piranha": {
+		"animation.billeys_mobs.piranhashooter.remove_piranha": {
 			"loop": true,
 			"bones": {
 				"piranha_launcher_piranha": {
@@ -9,7 +9,7 @@
 				}
 			}
 		},
-		"animation.billpiranhashooter.first_person": {
+		"animation.billeys_mobs.piranhashooter.first_person": {
 			"loop": true,
 			"bones": {
 				"piranha_launcher": {

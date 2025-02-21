@@ -12,7 +12,8 @@
                     },
                     {
                         "set_sitting_property": "q.is_tamed"
-                    }, "check_beta_apis",
+                    },
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
@@ -38,19 +39,65 @@
                 ]
             },
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "set_follow_state": "animation.billey.set_follow_state",
-                "set_sitting_property": "controller.animation.billey.set_sitting_property",
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-                "info": "animation.billeyinfo.woodlouse",
-                "tame": "controller.animation.billeysmobs.tame",
-                "fertilize": "animation.billwoodlouse.fertilize",
-                "fertilize2": "animation.billwoodlouse.fertilize2",
-                "fertilize_boosted": "animation.billwoodlouse.fertilize_boosted",
-                "fertilize2_boosted": "animation.billwoodlouse.fertilize2_boosted"
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "set_follow_state": "animation.billeys_mobs.set_follow_state",
+                "set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.woodlouse",
+                "tame": "controller.animation.billeys_mobs.tame",
+                "fertilize": "animation.billeys_mobs.woodlouse.fertilize",
+                "fertilize2": "animation.billeys_mobs.woodlouse.fertilize2",
+                "fertilize_boosted": "animation.billeys_mobs.woodlouse.fertilize_boosted",
+                "fertilize2_boosted": "animation.billeys_mobs.woodlouse.fertilize2_boosted"
             },
             "properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
                 "billey:follow_owner_state": {
                     //only used so scripts can know whether it's following or wandering
                     "type": "enum",
@@ -132,15 +179,6 @@
                     "speed_multiplier": 1.1,
                     "start_distance": 7,
                     "stop_distance": 5
-                }
-            },
-            "hat": {
-                "minecraft:is_charged": {},
-                "minecraft:color": {
-                    "value": 12
-                },
-                "minecraft:is_dyeable": {
-                    "interact_text": "action.interact.dye"
                 }
             },
             "tamed": {
@@ -590,7 +628,7 @@
                     {
                         "use_item": true,
                         "play_sounds": "eat",
-                        "interact_text": "action.interact.billeysmobs.boost",
+                        "interact_text": "action.interact.billeys_mobs.boost",
                         "on_interact": {
                             "filters": {
                                 "all_of": [
@@ -619,97 +657,6 @@
                                 ]
                             },
                             "event": "boost",
-                            "target": "self"
-                        }
-                    },
-                    {
-                        "use_item": true,
-                        "play_sounds": "armor.equip_generic",
-                        "interact_text": "action.interact.equip",
-                        "on_interact": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:pet_hat"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "operator": "not",
-                                        "value": "minecraft:is_charged"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": true
-                                    }
-                                ]
-                            },
-                            "event": "wearhat",
-                            "target": "self"
-                        }
-                    },
-                    {
-                        "use_item": true,
-                        "play_sounds": "armor.equip_generic",
-                        "interact_text": "action.interact.use",
-                        "on_interact": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "minecraft:dried_kelp"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "value": "minecraft:is_charged"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": true
-                                    }
-                                ]
-                            },
-                            "event": "blackstripehat",
-                            "target": "self"
-                        }
-                    },
-                    {
-                        "use_item": false,
-                        "play_sounds": "armor.equip_generic",
-                        "spawn_items": {
-                            "table": "loot_tables/entities/billeyhat.json"
-                        },
-                        "interact_text": "action.interact.equip",
-                        "on_interact": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:pet_hat"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "value": "minecraft:is_charged"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": true
-                                    }
-                                ]
-                            },
-                            "event": "nohat",
                             "target": "self"
                         }
                     },
@@ -941,11 +888,6 @@
                                     {
                                         "test": "has_component",
                                         "operator": "not",
-                                        "value": "minecraft:is_charged"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "operator": "not",
                                         "value": "minecraft:is_sheared"
                                     }
                                 ]
@@ -957,18 +899,18 @@
                         "deals_damage": false,
                         "on_damage_sound_event": "armor.equip_generic",
                         "on_damage": {
-                            "event": "nohat",
+                            "event": "destroy_head_equipment",
                             "target": "self",
                             "filters": {
                                 "all_of": [
                                     {
                                         "test": "has_damage",
-                                        "operator": "not",
-                                        "value": "magic"
+                                        "value": "fatal"
                                     },
                                     {
-                                        "test": "has_component",
-                                        "value": "minecraft:is_charged"
+                                        "test": "has_equipment",
+                                        "value": "billey:pet_hat",
+                                        "domain": "head"
                                     }
                                 ]
                             }
@@ -1086,6 +1028,11 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "destroy_head_equipment": {
+                "queue_command": {
+                    "command": "scriptevent billey:destroy_pet_head_equipment"
+                }
+            },
             "set_follow_state": {
                 "sequence": [
                     {
@@ -1125,8 +1072,8 @@
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1134,7 +1081,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
             "add_sittable": {
@@ -1156,7 +1103,7 @@
                     "target": "other",
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.woodlouse\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeyinfo.formore\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.woodlouse\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeys_mobs.info.formore\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                     ]
                 }
@@ -3420,7 +3367,7 @@
                                 "weight": 1,
                                 "queue_command": {
                                     "command": [
-                                        "playanimation @s animation.billcat.petted"
+                                        "playanimation @s animation.billeys_mobs.cat.petted"
                                     ]
                                 }
                             }
@@ -3430,7 +3377,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "playanimation @s animation.billeyplayer.pet"
+                                "playanimation @s animation.billeys_mobsplayer.pet"
                             ]
                         }
                     },

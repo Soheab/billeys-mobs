@@ -4,15 +4,15 @@
 		"description": {
 			"identifier": "billey:birdpoop",
 			"materials": {
-				"default": "spider"
+				"default": "entity_emissive_alpha"
 			},
 			"textures": {
-				"default": "textures/entity/bill/poop"
+				"default": "textures/entity/billeys_mobs/poop"
 			},
 			"geometry": {
 				"default": "geometry.ppoop"
 			},
-			"render_controllers": ["controller.render.billey_default"],
+			"render_controllers": ["controller.render.billeys_mobs_default"],
 			"spawn_egg": {
 				"base_color": "#353535",
 				"overlay_color": "#353535"

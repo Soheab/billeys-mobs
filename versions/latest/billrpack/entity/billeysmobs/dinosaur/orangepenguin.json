@@ -8,34 +8,34 @@
 				"cat": "cat"
 			},
 			"textures": {
-				"zero": "textures/entity/bill/orangepenguin",
-				"one": "textures/entity/bill/orangepenguin1",
-				"two": "textures/entity/bill/orangepenguin2",
-				"three": "textures/entity/bill/orangepenguin3",
-				"four": "textures/entity/bill/orangepenguin4",
-				"five": "textures/entity/bill/orangepenguin5",
-				"hat": "textures/entity/bill/hat"
+				"zero": "textures/entity/billeys_mobs/orangepenguin",
+				"one": "textures/entity/billeys_mobs/orangepenguin1",
+				"two": "textures/entity/billeys_mobs/orangepenguin2",
+				"three": "textures/entity/billeys_mobs/orangepenguin3",
+				"four": "textures/entity/billeys_mobs/orangepenguin4",
+				"five": "textures/entity/billeys_mobs/orangepenguin5",
+				"hat": "textures/entity/billeys_mobs/hat"
 			},
 			"geometry": {
-				"default": "geometry.billorangepenguin",
-				"hat": "geometry.billorangepenguinhat"
+				"default": "geometry.billeys_mobs.orangepenguin",
+				"hat": "geometry.billeys_mobs.orangepenguinhat"
 			},
 			"animations": {
-				"new": "animation.billduckproj.body",
-				"move": "animation.billorange_penguin.walk",
-				"leaf_rotation": "animation.billorange_penguin.leaf_rotation",
-				"swim_not_angry": "animation.billorange_penguin.swim_not_angry",
-				"look_at_target": "animation.billorange_penguin.look_at_target",
+				"new": "animation.billeys_mobs.duckproj.body",
+				"move": "animation.billeys_mobs.orange_penguin.walk",
+				"leaf_rotation": "animation.billeys_mobs.orange_penguin.leaf_rotation",
+				"swim_not_angry": "animation.billeys_mobs.orange_penguin.swim_not_angry",
+				"look_at_target": "animation.billeys_mobs.orange_penguin.look_at_target",
 				"bob": "animation.humanoid.bob",
-				"angry": "animation.billorange_penguin.angry",
-				"sit": "animation.billorange_penguin.sit",
-				"gothurt": "animation.billorange_penguin.gothurt",
-				"hitcont": "controller.animation.billey.hitanim",
-				"hurt": "animation.billorange_penguin.hurt",
-				"baby_transform": "animation.billorange_penguin.baby2",
-				"controller.eat": "controller.animation.billey.eat",
-				"eat": "animation.billorange_penguin.eat",
-				"controller.sit": "controller.animation.billey.sit"
+				"angry": "animation.billeys_mobs.orange_penguin.angry",
+				"sit": "animation.billeys_mobs.orange_penguin.sit",
+				"gothurt": "animation.billeys_mobs.orange_penguin.gothurt",
+				"hitcont": "controller.animation.billeys_mobs.hitanim",
+				"hurt": "animation.billeys_mobs.orange_penguin.hurt",
+				"baby_transform": "animation.billeys_mobs.orange_penguin.baby2",
+				"controller.eat": "controller.animation.billeys_mobs.eat",
+				"eat": "animation.billeys_mobs.orange_penguin.eat",
+				"controller.sit": "controller.animation.billeys_mobs.sit"
 			},
 			"scripts": {
 				"animate": [
@@ -60,11 +60,13 @@
 					}
 				]
 			},
-			"render_controllers": [
-				"controller.render.billorangepenguin",
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+				"controller.render.billeys_mobs.orangepenguin",
 				//in the betta fish file
 				{
-					"controller.render.billbduckhat": "q.is_powered"
+					"controller.render.billeys_mobs.bduckhat": "q.is_powered"
 				}
 			],
 			"spawn_egg": {

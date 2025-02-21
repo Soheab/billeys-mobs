@@ -1,8 +1,8 @@
 import { ItemStack, Player, Container, Dimension, Entity, system, DimensionTypes, world } from "@minecraft/server";
 
 export const headPets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern"];
-export const ridePets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern", "billey:pigeon"];
-export const trueBeneficialEffects = ["speed", "regeneration", "absorption", "night_vision", "water_breathing", "strength", "saturation", "fire_resistance", "conduit_power" , "haste"];
+export const ridePets = [...headPets, "billey:pigeon"];
+export const trueBeneficialEffects = ["speed", "regeneration", "absorption", "night_vision", "water_breathing", "strength", "saturation", "fire_resistance", "conduit_power", "haste"];
 export const beneficalEffects = [...trueBeneficialEffects, "jump_boost"];
 export const detrimentalEffects = ["weakness", "hunger", "levitation", "blindness", "darkness", "instant_damage", "mining_fatigue", "nausea", "poison", "slowness", "wither"];
 export const duckArmors = ["no", "leather", "golden", "chain", "iron", "diamond", "netherite", "endrod"];
@@ -14,7 +14,7 @@ export const DIMENSIONS = DimensionTypes.getAll().map(d => world.getDimension(d.
 export function titleCase(str) {
 	return str.replace(
 		/\w\S*/g,
-		text => text[0].toUpperCase() + text.substring(1).toLowerCase()
+		text => text[0].toUpperCase() + text.slice(1).toLowerCase()
 	);
 }
 
@@ -60,10 +60,13 @@ export function nameOf(entity) {
 		return {
 			text: entity.nameTag
 		};
-	else
+	if (entity.typeId.startsWith("minecraft:"))
 		return {
-			translate: `entity.${entity.typeId}.name`
+			translate: `entity.${entity.typeId.slice(10)}.name`
 		};
+	return {
+		translate: `entity.${entity.typeId}.name`
+	};
 }
 
 /** 
@@ -83,7 +86,8 @@ export function clamp(min, max, value) {
 export function calculateDamage(item) {
 	if (item.getComponent("enchantable")?.hasEnchantment("unbreaking")) {
 		return Math.random() < 1 / (1 + item.getComponent("enchantable").getEnchantment("unbreaking").level) ? 1 : 0;
-	} else return 1;
+	}
+	return 1;
 }
 /** 
  * @param {Container} container
@@ -190,6 +194,19 @@ export function add(vector1, vector2) {
 	vector1.y += vector2.y;
 	vector1.z += vector2.z;
 	return vector1;
+}
+export function dot(vector1, vector2) {
+	return vector1.x * vector2.x + vector1.y * vector2.y + vector1.z * vector2.z;
+}
+export function cross(vector1, vector2) {
+	return {
+		x: vector1.y * vector2.z - vector1.z * vector2.y,
+		y: vector1.z * vector2.x - vector1.x * vector2.z,
+		z: vector1.x * vector2.y - vector1.y * vector2.x
+	};
+}
+export function crossMagnitude(vector1, vector2) {
+	return magnitude(cross(vector1, vector2));
 }
 
 /**

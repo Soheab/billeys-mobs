@@ -14,9 +14,9 @@
                 ]
             },
             "animations": {
-                "fix": "controller.animation.billsnail.fix",
-                "gold": "controller.animation.billduck.gold",
-                "tame": "controller.animation.billeysmobs.tame"
+                "fix": "controller.animation.billeys_mobs.snail.fix",
+                "gold": "controller.animation.billeys_mobs.duck.gold",
+                "tame": "controller.animation.billeys_mobs.tame"
             }
         },
         "component_groups": {
@@ -288,7 +288,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -748,7 +748,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -1082,7 +1082,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -1417,7 +1417,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -1702,7 +1702,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -2012,7 +2012,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -2322,7 +2322,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -2650,7 +2650,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -3382,7 +3382,7 @@
                                         }
                                     ]
                                 },
-                                "event": "nohat",
+                                "event": "destroy_head_equipment",
                                 "target": "self"
                             }
                         },
@@ -3822,7 +3822,7 @@
                     "broadcast_anger": true,
                     "broadcast_range": 40,
                     "calm_event": {
-                        "event": "calmery",
+                        "event": "billey:pet_target_escape",
                         "target": "self"
                     },
                     "broadcast_filters": {
@@ -3919,7 +3919,7 @@
                 }
             },
             "minecraft:on_target_acquired": {
-                "event": "angery",
+                "event": "billey:pet_target_acquired",
                 "target": "self"
             },
             "minecraft:balloonable": {
@@ -4057,13 +4057,18 @@
             },
             "minecraft:physics": {}
         },
-        "events": {
+        
+        "events": {"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
             "say_owner_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -4071,7 +4076,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
             "add_sittable": {
@@ -4213,7 +4218,7 @@
                                 "weight": 1,
                                 "queue_command": {
                                     "command": [
-                                        "playanimation @s animation.billcat.petted xd \"1\""
+                                        "playanimation @s animation.billeys_mobs.cat.petted xd \"1\""
                                     ]
                                 }
                             }
@@ -4223,7 +4228,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "playanimation @s animation.billeyplayer.pet"
+                                "playanimation @s animation.billeys_mobsplayer.pet"
                             ]
                         }
                     },
@@ -4301,7 +4306,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "playanimation @s animation.billduck.gothurt"
+                                "playanimation @s animation.billeys_mobs.duck.gothurt"
                             ]
                         }
                     },
@@ -4396,14 +4401,14 @@
                     ]
                 }
             },
-            "angery": {
+            "billey:pet_target_acquired": {
                         "add": {
                             "component_groups": [
                                 "angry"
                             ]
                         }
                     },
-            "calmery": {
+            "billey:pet_target_escape": {
                 "remove": {
                     "component_groups": [
                         "angry"
@@ -4435,7 +4440,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @a[r=5] {\"rawtext\":[{\"text\":\"<\"},{\"selector\":\"@s\"},{\"text\":\"> \"},{\"translate\":\"chat.billmobsamogus\"},{\"text\":\" \n \"}]}"
+                                "tellraw @a[r=5] {\"rawtext\":[{\"text\":\"<\"},{\"selector\":\"@s\"},{\"text\":\"> \"},{\"translate\":\"chat.billeys_mobs.mobsamogus\"},{\"text\":\" \n \"}]}"
                             ]
                         }
                     },

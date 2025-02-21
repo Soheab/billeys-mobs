@@ -22,7 +22,7 @@
 			"minecraft:collision_box": false,
 			"minecraft:map_color": "#ffaaff",
 			"minecraft:light_dampening": 0,
-            "minecraft:geometry": "geometry.billeys_mobs_crop"
+            "minecraft:geometry": "geometry.billeys_mobss_mobs_crop"
 		}
 	}
 }

@@ -6,56 +6,56 @@
       "materials": {
         "default": "slime_outer",
         "opaque": "entity",
-        "glow": "spider"
+        "glow": "entity_emissive_alpha"
       },
       "textures": {
-        "default": "textures/entity/bill/billbettafish",
-        "zero": "textures/entity/bill/billbettafish",
-        "one": "textures/entity/bill/billbettafish1",
-        "two": "textures/entity/bill/billbettafish2",
-        "three": "textures/entity/bill/billbettafish3",
-        "four": "textures/entity/bill/billbettafish4",
-        "five": "textures/entity/bill/billbettafish5",
-        "six": "textures/entity/bill/billbettafish6",
-        "seven": "textures/entity/bill/billbettafish7",
-        "eight": "textures/entity/bill/billbettafish8",
-        "nine": "textures/entity/bill/billbettafish9",
-        "ten": "textures/entity/bill/billbettafish10",
-        "eleven": "textures/entity/bill/billbettafish11",
-        "twelve": "textures/entity/bill/billbettafish12",
-        "thirteen": "textures/entity/bill/billbettafish13",
-        "fourteen": "textures/entity/bill/billbettafish14",
-        "fifteen": "textures/entity/bill/billbettafish15",
-        "sixteen": "textures/entity/bill/billbettafish16",
-        "seventeen": "textures/entity/bill/billbettafish17",
-        "eighteen": "textures/entity/bill/billbettafish18",
-        "nineteen": "textures/entity/bill/billbettafish19",
-        "twenty": "textures/entity/bill/billbettafish20",
-        "twentyone": "textures/entity/bill/billbettafish21"
+        "default": "textures/entity/billeys_mobs/billbettafish",
+        "zero": "textures/entity/billeys_mobs/billbettafish",
+        "one": "textures/entity/billeys_mobs/billbettafish1",
+        "two": "textures/entity/billeys_mobs/billbettafish2",
+        "three": "textures/entity/billeys_mobs/billbettafish3",
+        "four": "textures/entity/billeys_mobs/billbettafish4",
+        "five": "textures/entity/billeys_mobs/billbettafish5",
+        "six": "textures/entity/billeys_mobs/billbettafish6",
+        "seven": "textures/entity/billeys_mobs/billbettafish7",
+        "eight": "textures/entity/billeys_mobs/billbettafish8",
+        "nine": "textures/entity/billeys_mobs/billbettafish9",
+        "ten": "textures/entity/billeys_mobs/billbettafish10",
+        "eleven": "textures/entity/billeys_mobs/billbettafish11",
+        "twelve": "textures/entity/billeys_mobs/billbettafish12",
+        "thirteen": "textures/entity/billeys_mobs/billbettafish13",
+        "fourteen": "textures/entity/billeys_mobs/billbettafish14",
+        "fifteen": "textures/entity/billeys_mobs/billbettafish15",
+        "sixteen": "textures/entity/billeys_mobs/billbettafish16",
+        "seventeen": "textures/entity/billeys_mobs/billbettafish17",
+        "eighteen": "textures/entity/billeys_mobs/billbettafish18",
+        "nineteen": "textures/entity/billeys_mobs/billbettafish19",
+        "twenty": "textures/entity/billeys_mobs/billbettafish20",
+        "twentyone": "textures/entity/billeys_mobs/billbettafish21"
       },
       "geometry": {
-        "default": "geometry.billbettafish",
-        "locators": "geometry.billbettafishlocators"
+        "default": "geometry.billeys_mobs.bettafish",
+        "locators": "geometry.billeys_mobs.bettafishlocators"
       },
       "particle_effects": {
         "radiaziona": "billey:radiation",
         "radiaziona_": "billey:purple_radiation"
       },
       "animations": {
-        "radiation": "animation.billbettafish.radiation",
-        "radiation2": "animation.billbettafish.radiation2",
-        "flip": "animation.billbettafish.flip",
-        "boost": "animation.billbettafish.boost",
-        "flop": "animation.billbettafish.flop",
-        "swim": "animation.billbettafish.swim",
-        "death1": "animation.billbettafish.cancelvanilladeathanim",
-        "death": "animation.billbettafish.die",
-        "dance1": "animation.billbettafish.dance1",
-        "dance2": "animation.billbettafish.dance2",
-        "dance3": "animation.billbettafish.dance3",
-        "dance4": "animation.billbettafish.dance4",
-        "pet": "animation.billbettafish.pet",
-        "dance": "controller.animation.billey.bettadance"
+        "radiation": "animation.billeys_mobs.bettafish.radiation",
+        "radiation2": "animation.billeys_mobs.bettafish.radiation2",
+        "flip": "animation.billeys_mobs.bettafish.flip",
+        "boost": "animation.billeys_mobs.bettafish.boost",
+        "flop": "animation.billeys_mobs.bettafish.flop",
+        "swim": "animation.billeys_mobs.bettafish.swim",
+        "death1": "animation.billeys_mobs.bettafish.cancelvanilladeathanim",
+        "death": "animation.billeys_mobs.bettafish.die",
+        "dance1": "animation.billeys_mobs.bettafish.dance1",
+        "dance2": "animation.billeys_mobs.bettafish.dance2",
+        "dance3": "animation.billeys_mobs.bettafish.dance3",
+        "dance4": "animation.billeys_mobs.bettafish.dance4",
+        "pet": "animation.billeys_mobs.bettafish.pet",
+        "dance": "controller.animation.billeys_mobs.bettadance"
       },
       "scripts": {
         "initialize": [
@@ -74,10 +74,12 @@
           { "flip": "!q.is_in_water" }
         ]
       },
-      "render_controllers": [ { "controller.render.billbettafish": "q.variant != 12 && q.variant != 2 && q.variant != 15" },
-        { "controller.render.billbettaglowfins": "q.variant == 12 || q.variant == 2  || q.variant == 15" },
-        { "controller.render.billbettaglowbody": "q.variant == 12 || q.variant == 2  || q.variant == 15" },
-        "controller.render.billbettafishlocators"  ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ { "controller.render.billeys_mobs.bettafish": "q.variant != 12 && q.variant != 2 && q.variant != 15" },
+        { "controller.render.billeys_mobs.bettaglowfins": "q.variant == 12 || q.variant == 2  || q.variant == 15" },
+        { "controller.render.billeys_mobs.bettaglowbody": "q.variant == 12 || q.variant == 2  || q.variant == 15" },
+        "controller.render.billeys_mobs.bettafishlocators"  ],
       "spawn_egg": {
         "base_color": "#063CBF",
         "overlay_color": "#b43152"

@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billelectriceel.swim": {
+		"animation.billeys_mobs.electriceel.swim": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 2,q.modified_distance_moved / 1.6)",
 			"bones": {
@@ -41,7 +41,7 @@
 				}
 			}
 		},
-		"animation.billelectriceel.die": {
+		"animation.billeys_mobs.electriceel.die": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -51,7 +51,7 @@
 				}
 			}
 		},
-		"animation.billelectriceel.turn": {
+		"animation.billeys_mobs.electriceel.turn": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -90,7 +90,7 @@
 				}
 			}
 		},
-		"animation.billelectriceel.flop": {
+		"animation.billeys_mobs.electriceel.flop": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -123,7 +123,7 @@
 				}
 			}
 		},
-		"animation.billelectriceel.sleep": {
+		"animation.billeys_mobs.electriceel.sleep": {
 			"loop": true,
 			"animation_length": 0.5,
 			"loop_delay": "math.random(0.7,1.3)",

@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billfalcon.walk": {
+		"animation.billeys_mobs.falcon.walk": {
 			"loop": true,
 			"animation_length": 0.48,
 			"anim_time_update": "q.modified_distance_moved / 5",
@@ -64,7 +64,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.walk2": {
+		"animation.billeys_mobs.falcon.walk2": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 20",
 			"animation_length": 0.48,
@@ -110,7 +110,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.fly4": {
+		"animation.billeys_mobs.falcon.fly4": {
 			"loop": true,
 			"anim_time_update": "1",
 			"bones": {
@@ -170,7 +170,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.fly5": {
+		"animation.billeys_mobs.falcon.fly5": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -231,7 +231,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.fly3": {
+		"animation.billeys_mobs.falcon.fly3": {
 			"loop": true,
 			"bones": {
 				"wing0": {
@@ -291,7 +291,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.sleep": {
+		"animation.billeys_mobs.falcon.sleep": {
 			"loop": true,
 			"animation_length": 1.5,
 			"bones": {
@@ -341,7 +341,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.sit": {
+		"animation.billeys_mobs.falcon.sit": {
 			"loop": true,
 			"bones": {
 				"bone2": {
@@ -349,7 +349,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.fly": {
+		"animation.billeys_mobs.falcon.fly": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -435,7 +435,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.fly2": {
+		"animation.billeys_mobs.falcon.fly2": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -520,7 +520,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.cancelvanilladeath": {
+		"animation.billeys_mobs.falcon.cancelvanilladeath": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -528,7 +528,7 @@
 				}
 			}
 		},
-		"animation.billfalcon.die": {
+		"animation.billeys_mobs.falcon.die": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {

@@ -1,7 +1,7 @@
 {
   "format_version": "1.8.0",
   "render_controllers": {
-    "controller.render.billangelpig": {
+    "controller.render.billeys_mobs.angelpig": {
       "arrays": {
         "textures": {
           "Array.skins": [

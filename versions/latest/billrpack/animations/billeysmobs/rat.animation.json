@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billrat.walk": {
+		"animation.billeys_mobs.rat.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 8",
 			"bones": {
@@ -35,7 +35,7 @@
 				}
 			}
 		},
-		"animation.billrat.run": {
+		"animation.billeys_mobs.rat.run": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 8",
 			"bones": {
@@ -73,7 +73,7 @@
 				}
 			}
 		},
-		"animation.billrat.sit": {
+		"animation.billeys_mobs.rat.sit": {
 			"loop": true,
 			"bones": {
 				"rightbackleg": {
@@ -111,7 +111,7 @@
 				}
 			}
 		},
-		"animation.billrat.cook": {
+		"animation.billeys_mobs.rat.cook": {
 			"loop": true,
 			"animation_length": 13,
 			"bones": {
@@ -147,7 +147,7 @@
 				}
 			}
 		},
-		"animation.billrat.player_head": {
+		"animation.billeys_mobs.rat.player_head": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -158,7 +158,7 @@
 				}
 			}
 		},
-		"animation.billrat.sit2": {
+		"animation.billeys_mobs.rat.sit2": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -182,7 +182,7 @@
 				}
 			}
 		},
-		"animation.billrat.die": {
+		"animation.billeys_mobs.rat.die": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -266,7 +266,7 @@
 				}
 			}
 		},
-		"animation.billrat.wiggle_ears": {
+		"animation.billeys_mobs.rat.wiggle_ears": {
 			"animation_length": 0.58333,
 			"bones": {
 				"rightear": {
@@ -285,7 +285,7 @@
 				}
 			}
 		},
-		"animation.billrat.sniff": {
+		"animation.billeys_mobs.rat.sniff": {
 			"animation_length": 0.5,
 			"bones": {
 				"snout": {
@@ -293,7 +293,7 @@
 				}
 			}
 		},
-		"animation.billnetherrat.fold_wings": {
+		"animation.billeys_mobs.netherrat.fold_wings": {
 			"loop": true,
 			"bones": {
 				"rightwing2": {
@@ -316,7 +316,7 @@
 				}
 			}
 		},
-		"animation.billnetherrat.fly": {
+		"animation.billeys_mobs.netherrat.fly": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time,q.modified_distance_moved / 15)",
 			"bones": {
@@ -349,7 +349,7 @@
 				}
 			}
 		},
-		"animation.billnetherrat.attack": {
+		"animation.billeys_mobs.netherrat.attack": {
 			"animation_length": 0.5,
 			"bones": {
 				"body": {
@@ -390,7 +390,7 @@
 				}
 			}
 		},
-		"animation.billrat.attack": {
+		"animation.billeys_mobs.rat.attack": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -401,7 +401,7 @@
 		},
 		"animation.billrat.mate_male": {},
 		"animation.billrat.mate_female": {},
-		"animation.billrat.emerge": {
+		"animation.billeys_mobs.rat.emerge": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.4375,
 			"bones": {

@@ -8,23 +8,23 @@
         "cat": "cat"
       },
       "textures": {
-        "zero": "textures/entity/bill/gwshark",
-        "hat": "textures/entity/bill/hat",
-        "one": "textures/entity/bill/shark1",
-        "two": "textures/entity/bill/shark2",
-        "three": "textures/entity/bill/shark3",
-        "four": "textures/entity/bill/shark4",
-        "five": "textures/entity/bill/shark"
+        "zero": "textures/entity/billeys_mobs/gwshark",
+        "hat": "textures/entity/billeys_mobs/hat",
+        "one": "textures/entity/billeys_mobs/shark1",
+        "two": "textures/entity/billeys_mobs/shark2",
+        "three": "textures/entity/billeys_mobs/shark3",
+        "four": "textures/entity/billeys_mobs/shark4",
+        "five": "textures/entity/billeys_mobs/shark"
       },
       "geometry": {
-        "default": "geometry.billgwshark",
-        "hat": "geometry.billgwsharkhat"
+        "default": "geometry.billeys_mobs.gwshark",
+        "hat": "geometry.billeys_mobs.gwsharkhat"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "swim": "animation.billshark.swim",
-        "look": "animation.billshark.look",
-        "attack": "animation.billshark.attack"
+        "new": "animation.billeys_mobs.duckproj.body",
+        "swim": "animation.billeys_mobs.shark.swim",
+        "look": "animation.billeys_mobs.shark.look",
+        "attack": "animation.billeys_mobs.shark.attack"
       },
       "scripts": {
         "animate": [
@@ -35,11 +35,13 @@
 					}
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
-        "controller.render.billey.shark",        
+        "controller.render.billeys_mobs.shark",        
         //in the rat file
         {
-            "controller.render.billbduckhat": "q.is_powered"
+            "controller.render.billeys_mobs.bduckhat": "q.is_powered"
         }
       ],
       "spawn_egg": {

@@ -9,46 +9,46 @@
         "cat": "cat"
       },
       "textures": {
-        "zero": "textures/entity/bill/woodlouse",
-        "one": "textures/entity/bill/woodlouse1",
-        "two": "textures/entity/bill/woodlouse2",
-        "three": "textures/entity/bill/woodlouse3",
-        "four": "textures/entity/bill/woodlouse4",
-        "five": "textures/entity/bill/woodlouse5",
-        "six": "textures/entity/bill/woodlouse6",
-        "seven": "textures/entity/bill/woodlouse7",
-        "eight": "textures/entity/bill/woodlouse8",
-        "nine": "textures/entity/bill/woodlouse9",
-        "ten": "textures/entity/bill/woodlouse10",
-        "eleven": "textures/entity/bill/woodlouse11",
-        "twelve": "textures/entity/bill/woodlouse12",
-        "thirteen": "textures/entity/bill/woodlouse13",
-        "fourteen": "textures/entity/bill/woodlouse14",
-        "fifteen": "textures/entity/bill/woodlouse15",
-        "sixteen": "textures/entity/bill/woodlouse16",
-        "seventeen": "textures/entity/bill/woodlouse17",
-        "eighteen": "textures/entity/bill/woodlouse18",
-        "nineteen": "textures/entity/bill/woodlouse19",
-        "twenty": "textures/entity/bill/woodlouse20",
-        "twentyone": "textures/entity/bill/woodlouse21",
-        "hat": "textures/entity/bill/hat"
+        "zero": "textures/entity/billeys_mobs/woodlouse",
+        "one": "textures/entity/billeys_mobs/woodlouse1",
+        "two": "textures/entity/billeys_mobs/woodlouse2",
+        "three": "textures/entity/billeys_mobs/woodlouse3",
+        "four": "textures/entity/billeys_mobs/woodlouse4",
+        "five": "textures/entity/billeys_mobs/woodlouse5",
+        "six": "textures/entity/billeys_mobs/woodlouse6",
+        "seven": "textures/entity/billeys_mobs/woodlouse7",
+        "eight": "textures/entity/billeys_mobs/woodlouse8",
+        "nine": "textures/entity/billeys_mobs/woodlouse9",
+        "ten": "textures/entity/billeys_mobs/woodlouse10",
+        "eleven": "textures/entity/billeys_mobs/woodlouse11",
+        "twelve": "textures/entity/billeys_mobs/woodlouse12",
+        "thirteen": "textures/entity/billeys_mobs/woodlouse13",
+        "fourteen": "textures/entity/billeys_mobs/woodlouse14",
+        "fifteen": "textures/entity/billeys_mobs/woodlouse15",
+        "sixteen": "textures/entity/billeys_mobs/woodlouse16",
+        "seventeen": "textures/entity/billeys_mobs/woodlouse17",
+        "eighteen": "textures/entity/billeys_mobs/woodlouse18",
+        "nineteen": "textures/entity/billeys_mobs/woodlouse19",
+        "twenty": "textures/entity/billeys_mobs/woodlouse20",
+        "twentyone": "textures/entity/billeys_mobs/woodlouse21",
+        "hat": "textures/entity/billeys_mobs/hat"
       },
       "geometry": {
-        "default": "geometry.billwoodlouse",
-        "hat": "geometry.billwoodlousehat"
+        "default": "geometry.billeys_mobs.woodlouse",
+        "hat": "geometry.billeys_mobs.woodlousehat"
       },
       "animations": {
-        "controller.sit": "controller.animation.billey.sit",
-        "sit": "animation.billwoodlouse.sit",
-        "random_idle": "animation.billwoodlouse.idle",
-        "sheared": "animation.billwoodlouse.curl",
-        "climb": "animation.billwoodlouse.climb",
+        "controller.sit": "controller.animation.billeys_mobs.sit",
+        "sit": "animation.billeys_mobs.woodlouse.sit",
+        "random_idle": "animation.billeys_mobs.woodlouse.idle",
+        "sheared": "animation.billeys_mobs.woodlouse.curl",
+        "climb": "animation.billeys_mobs.woodlouse.climb",
         "look_at_target": "animation.common.look_at_target",
-        "controller.random_idle": "controller.animation.billey.random_idle",
-				"c.climb": "controller.animation.billey.climbb",
-        "hurt": "animation.billcat.hurt2",
-        "c.sheared": "controller.animation.billey.sheared",
-        "walk": "animation.billwoodlouse.walk"
+        "controller.random_idle": "controller.animation.billeys_mobs.random_idle",
+				"c.climb": "controller.animation.billeys_mobs.climbb",
+        "hurt": "animation.billeys_mobs.cat.hurt2",
+        "c.sheared": "controller.animation.billeys_mobs.sheared",
+        "walk": "animation.billeys_mobs.woodlouse.walk"
       },
       "scripts": {
         "initialize": [
@@ -69,10 +69,12 @@
           }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
-        "controller.render.billbettafish",
+        "controller.render.billeys_mobs.bettafish",
         {
-          "controller.render.billbduckhat": "q.is_powered"
+          "controller.render.billeys_mobs.bduckhat": "q.is_powered"
         }
       ],
       "spawn_egg": {

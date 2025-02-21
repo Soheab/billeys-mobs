@@ -23,7 +23,7 @@
 			},
             "minecraft:light_dampening": 0,
 			"minecraft:map_color": "#ffffff",
-            "minecraft:geometry": "geometry.billeyzambie"
+            "minecraft:geometry": "geometry.billeys_mobszambie"
 		}
 	}
 }

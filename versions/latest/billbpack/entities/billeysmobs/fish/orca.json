@@ -16,11 +16,59 @@
                 ]
             },
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-                "info": "animation.billeyinfo.orca",
-                "tame": "controller.animation.billeysmobs.tame"
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.orca",
+                "tame": "controller.animation.billeys_mobs.tame"
+            },
+            "properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                }
             }
         },
         "component_groups": {
@@ -131,7 +179,7 @@
                     "broadcast_anger": true,
                     "broadcast_range": 15,
                     "calm_event": {
-                        "event": "minecraft:on_calm",
+                        "event": "billey:pet_target_escape",
                         "target": "self"
                     },
                     "broadcast_filters": {
@@ -835,6 +883,27 @@
                         "event": "die"
                     },
                     "deals_damage": false
+                },{
+                    "cause": "all",
+                    "deals_damage": false,
+                    "on_damage_sound_event": "armor.equip_generic",
+                    "on_damage": {
+                        "event": "destroy_head_equipment",
+                        "target": "self",
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_damage",
+                                    "value": "fatal"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "value": "billey:pet_hat",
+                                    "domain": "head"
+                                }
+                            ]
+                        }
+                    }
                 }
             ],
             "minecraft:nameable": {},
@@ -906,11 +975,11 @@
                 "priority": 1
             },
             "minecraft:on_target_acquired": {
-                "event": "minecraft:become_angry",
+                "event": "billey:pet_target_acquired",
                 "target": "self"
             },
             "minecraft:on_target_escape": {
-                "event": "minecraft:on_calm",
+                "event": "billey:pet_target_escape",
                 "target": "self"
             },
             "minecraft:interact": [
@@ -952,13 +1021,18 @@
             },
             "minecraft:physics": {}
         },
-        "events": {
+        
+        "events": {"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
             "say_owner_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -966,7 +1040,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
             "add_sittable": {
@@ -988,7 +1062,7 @@
                     "target": "other",
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.orca\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeyinfo.formore\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.orca\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeys_mobs.info.formore\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                     ]
                 }
@@ -1173,7 +1247,7 @@
                                 "weight": 1,
                                 "queue_command": {
                                     "command": [
-                                        "playanimation @s animation.billcat.petted"
+                                        "playanimation @s animation.billeys_mobs.cat.petted"
                                     ]
                                 }
                             }
@@ -1183,7 +1257,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "playanimation @s animation.billeyplayer.pet"
+                                "playanimation @s animation.billeys_mobsplayer.pet"
                             ]
                         }
                     },
@@ -1307,14 +1381,14 @@
                     ]
                 }
             },
-            "minecraft:become_angry": {
+            "billey:pet_target_acquired": {
                 "add": {
                     "component_groups": [
                         "minecraft:orca_angry"
                     ]
                 }
             },
-            "minecraft:on_calm": {
+            "billey:pet_target_escape": {
                 "remove": {
                     "component_groups": [
                         "minecraft:orca_angry"

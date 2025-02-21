@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billelectriceel",
+				"identifier": "geometry.billeys_mobs.electriceel",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -45,6 +45,12 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "bone3",
+					"pivot": [0, 0, -5.5],
+					"rotation": [90, 0, 0]
 				},
 				{
 					"name": "bone8",
@@ -100,6 +106,11 @@
 					"locators": {
 						"zee": [0, 2, -7]
 					}
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 2, -7]
 				},
 				{
 					"name": "bone5",

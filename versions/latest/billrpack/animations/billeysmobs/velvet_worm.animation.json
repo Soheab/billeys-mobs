@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billvelvet_worm.antennas": {
+		"animation.billeys_mobs.velvet_worm.antennas": {
 			"loop": true,
 			"bones": {
 				"left_antenna": {
@@ -12,7 +12,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.turn": {
+		"animation.billeys_mobs.velvet_worm.turn": {
 			"loop": true,
 			"bones": {
 				"back_body": {
@@ -36,7 +36,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.walk": {
+		"animation.billeys_mobs.velvet_worm.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 16",
 			"bones": {
@@ -93,7 +93,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.climb": {
+		"animation.billeys_mobs.velvet_worm.climb": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -102,7 +102,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.fall": {
+		"animation.billeys_mobs.velvet_worm.fall": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -111,7 +111,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.sit": {
+		"animation.billeys_mobs.velvet_worm.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -183,7 +183,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.angry": {
+		"animation.billeys_mobs.velvet_worm.angry": {
 			"loop": true,
 			"bones": {
 				"left_antenna": {
@@ -196,7 +196,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.hurt": {
+		"animation.billeys_mobs.velvet_worm.hurt": {
 			"loop": true,
 			"bones": {
 				"left_antenna": {
@@ -213,7 +213,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.death": {
+		"animation.billeys_mobs.velvet_worm.death": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -315,7 +315,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.attacking": {
+		"animation.billeys_mobs.velvet_worm.attacking": {
 			"loop": true,
 			"bones": {
 				"left_slime": {
@@ -330,7 +330,7 @@
 				}
 			}
 		},
-		"animation.billvelvet_worm.attacked": {
+		"animation.billeys_mobs.velvet_worm.attacked": {
 			"loop": true,
 			"bones": {
 				"left_slime": {

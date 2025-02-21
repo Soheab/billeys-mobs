@@ -7,52 +7,52 @@
                 "default": "villager_v2_masked"
             },
             "textures": {
-                "zero": "textures/entity/bill/landolphin",
-                "one": "textures/entity/bill/landolphin1",
-                "two": "textures/entity/bill/landolphin2",
-                "three": "textures/entity/bill/landolphin3",
-                "zeroa": "textures/entity/bill/landolphina",
-                "onea": "textures/entity/bill/landolphin1a",
-                "twoa": "textures/entity/bill/landolphin2a",
-                "threea": "textures/entity/bill/landolphin3a",
-                "zerob": "textures/entity/bill/landolphinb",
-                "oneb": "textures/entity/bill/landolphin1b",
-                "twob": "textures/entity/bill/landolphin2b",
-                "threeb": "textures/entity/bill/landolphin3b",
-                "zeroc": "textures/entity/bill/landolphinc",
-                "onec": "textures/entity/bill/landolphin1c",
-                "twoc": "textures/entity/bill/landolphin2c",
-                "threec": "textures/entity/bill/landolphin3c",
-                "zerod": "textures/entity/bill/landolphind",
-                "oned": "textures/entity/bill/landolphin1d",
-                "twod": "textures/entity/bill/landolphin2d",
-                "threed": "textures/entity/bill/landolphin3d"
+                "zero": "textures/entity/billeys_mobs/landolphin",
+                "one": "textures/entity/billeys_mobs/landolphin1",
+                "two": "textures/entity/billeys_mobs/landolphin2",
+                "three": "textures/entity/billeys_mobs/landolphin3",
+                "zeroa": "textures/entity/billeys_mobs/landolphina",
+                "onea": "textures/entity/billeys_mobs/landolphin1a",
+                "twoa": "textures/entity/billeys_mobs/landolphin2a",
+                "threea": "textures/entity/billeys_mobs/landolphin3a",
+                "zerob": "textures/entity/billeys_mobs/landolphinb",
+                "oneb": "textures/entity/billeys_mobs/landolphin1b",
+                "twob": "textures/entity/billeys_mobs/landolphin2b",
+                "threeb": "textures/entity/billeys_mobs/landolphin3b",
+                "zeroc": "textures/entity/billeys_mobs/landolphinc",
+                "onec": "textures/entity/billeys_mobs/landolphin1c",
+                "twoc": "textures/entity/billeys_mobs/landolphin2c",
+                "threec": "textures/entity/billeys_mobs/landolphin3c",
+                "zerod": "textures/entity/billeys_mobs/landolphind",
+                "oned": "textures/entity/billeys_mobs/landolphin1d",
+                "twod": "textures/entity/billeys_mobs/landolphin2d",
+                "threed": "textures/entity/billeys_mobs/landolphin3d"
             },
             "geometry": {
-                "default": "geometry.billlandolphin"
+                "default": "geometry.billeys_mobs.landolphin"
             },
             "particle_effects": {
               "zeelol": "billey:zeeduck"
             },
             "animations": {
-                "new": "animation.billduckproj.body",
-                "move": "animation.billlandolphin.walk",
-                "eat": "animation.billlandolphin.open_mouth",
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.landolphin.walk",
+                "eat": "animation.billeys_mobs.landolphin.open_mouth",
                 "look_at_target": "animation.common.look_at_target",
                 "baby_transform": "animation.cat.baby_transform",
-                "sit": "animation.billlandolphin.sit",
-                "sleep": "animation.billlandolphin.sleep",
-                "sleeptl": "animation.billduck.sleep_particle",
-                "death2": "animation.billkiwi.cancelvanilladeath",
-                "death": "animation.billlandolphin.die",
-                "attack": "animation.billlandolphin.attack",
-                "groom": "animation.billlandolphin.groom",
-                "hurt": "animation.billcat.hurt2",
-                "controller.sit": "controller.animation.billey.sit",
-                "controller.groom": "controller.animation.billey.terraphin_groom",
-                "random_idle": "animation.billlandolphin.idle",
-                "controller.random_idle": "controller.animation.billey.random_idle_terraphin",
-                "eatcont": "controller.animation.billey.terraphin_mouth"
+                "sit": "animation.billeys_mobs.landolphin.sit",
+                "sleep": "animation.billeys_mobs.landolphin.sleep",
+                "sleeptl": "animation.billeys_mobs.duck.sleep_particle",
+                "death2": "animation.billeys_mobs.kiwi.cancelvanilladeath",
+                "death": "animation.billeys_mobs.landolphin.die",
+                "attack": "animation.billeys_mobs.landolphin.attack",
+                "groom": "animation.billeys_mobs.landolphin.groom",
+                "hurt": "animation.billeys_mobs.cat.hurt2",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "controller.groom": "controller.animation.billeys_mobs.terraphin_groom",
+                "random_idle": "animation.billeys_mobs.landolphin.idle",
+                "controller.random_idle": "controller.animation.billeys_mobs.random_idle_terraphin",
+                "eatcont": "controller.animation.billeys_mobs.terraphin_mouth"
             },
             "scripts": {
                 "initialize": [
@@ -81,8 +81,10 @@
                     }
                 ]
             },
-            "render_controllers": [
-                "controller.render.billey.terraphin"
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs.terraphin"
                 //in the bettafish file
             ],
             "spawn_egg": {

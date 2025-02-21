@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billpenguin.baby": {
+		"animation.billeys_mobs.penguin.baby": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -10,7 +10,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.swim_pose": {
+		"animation.billeys_mobs.penguin.swim_pose": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -26,7 +26,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.swim": {
+		"animation.billeys_mobs.penguin.swim": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 4,q.modified_distance_moved / 16)",
 			"bones": {
@@ -56,7 +56,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.crawl": {
+		"animation.billeys_mobs.penguin.crawl": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -92,7 +92,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.crawl_pose": {
+		"animation.billeys_mobs.penguin.crawl_pose": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -104,7 +104,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.crawl_move": {
+		"animation.billeys_mobs.penguin.crawl_move": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 10",
 			"bones": {
@@ -134,7 +134,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.walk": {
+		"animation.billeys_mobs.penguin.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 10",
 			"bones": {
@@ -164,7 +164,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.angry": {
+		"animation.billeys_mobs.penguin.angry": {
 			"loop": true,
 			"bones": {
 				"left_wing": {
@@ -186,7 +186,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.eat": {
+		"animation.billeys_mobs.penguin.eat": {
 			"loop": true,
 			"bones": {
 				"beak": {
@@ -197,7 +197,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.sit": {
+		"animation.billeys_mobs.penguin.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -217,7 +217,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.cook": {
+		"animation.billeys_mobs.penguin.cook": {
 			"loop": true,
 			"animation_length": 13,
 			"bones": {
@@ -243,7 +243,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.sit_emperor": {
+		"animation.billeys_mobs.penguin.sit_emperor": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -263,7 +263,7 @@
 				}
 			}
 		},
-		"animation.billpenguin.fix_emperor": {
+		"animation.billeys_mobs.penguin.fix_emperor": {
 			"loop": true,
 			"bones": {
 				"body": {

@@ -7,17 +7,17 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/entity/bill/poop"
+				"default": "textures/entity/billeys_mobs/poop"
 			},
 			"geometry": {
 				"default": "geometry.ppoop"
 			},
 			"animations": {
-        "new": "animation.billduckproj.body",
-				"fall": "animation.billpigeon.fall",
-				"melt": "animation.billpigeon.melt",
-                "c.fall": "controller.animation.billey.ground",
-				"dead": "animation.billpigeon.dead2"
+        "new": "animation.billeys_mobs.duckproj.body",
+				"fall": "animation.billeys_mobs.pigeon.fall",
+				"melt": "animation.billeys_mobs.pigeon.melt",
+                "c.fall": "controller.animation.billeys_mobs.poop",
+				"dead": "animation.billeys_mobs.pigeon.dead2"
 			},
 			"scripts": {
 				"animate": [ "new",

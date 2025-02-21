@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billgoose",
+				"identifier": "geometry.billeys_mobs.goose",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 2,
@@ -193,6 +193,11 @@
 					"name": "rightItem",
 					"parent": "rightArm",
 					"pivot": [0, 14.375, -5]
+				},
+				{
+					"name": "bowtie",
+					"parent": "head",
+					"pivot": [0, 12, -5]
 				},
 				{
 					"name": "bodylol",

@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billangler.swim": {
+		"animation.billeys_mobs.angler.swim": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 2,q.modified_distance_moved / 1.6)",
 			"bones": {
@@ -39,7 +39,7 @@
 				}
 			}
 		},
-		"animation.billangler.attackfront": {
+		"animation.billeys_mobs.angler.attackfront": {
 			"animation_length": 0.48,
 			"bones": {
 				"jaw": {
@@ -73,7 +73,7 @@
 				}
 			}
 		},
-		"animation.billangler.attackright": {
+		"animation.billeys_mobs.angler.attackright": {
 			"animation_length": 0.48,
 			"bones": {
 				"bone3": {
@@ -123,7 +123,7 @@
 				}
 			}
 		},
-		"animation.billangler.attack": {
+		"animation.billeys_mobs.angler.attack": {
 			"animation_length": 1,
 			"anim_time_update": "q.anim_time + q.delta_time*2",
 			"bones": {
@@ -230,7 +230,7 @@
 				}
 			}
 		},
-		"animation.billangler.death": {
+		"animation.billeys_mobs.angler.death": {
 			"loop": true,
 			"bones": {
 				"body_front": {
@@ -239,7 +239,7 @@
 				}
 			}
 		},
-		"animation.billangler.flop": {
+		"animation.billeys_mobs.angler.flop": {
 			"loop": true,
 			"animation_length": 5,
 			"bones": {
@@ -262,7 +262,7 @@
 				}
 			}
 		},
-		"animation.billangler.look": {
+		"animation.billeys_mobs.angler.look": {
 			"loop": true,
 			"bones": {
 				"body": {

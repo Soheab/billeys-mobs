@@ -8,34 +8,34 @@
                 "cat": "cat"
             },
             "textures": {
-                "zero": "textures/entity/bill/mergoose",
-                "one": "textures/entity/bill/mergoose1",
-                "two": "textures/entity/bill/mergoose2",
-                "three": "textures/entity/bill/mergoose3",
-                "four": "textures/entity/bill/mergoose",
-                "five": "textures/entity/bill/mergoose1",
-                "six": "textures/entity/bill/mergoose2",
-                "eight": "textures/entity/bill/mergoose3",
-                "nine": "textures/entity/bill/mergoose",
-                "hat": "textures/entity/bill/hat"
+                "zero": "textures/entity/billeys_mobs/mergoose",
+                "one": "textures/entity/billeys_mobs/mergoose1",
+                "two": "textures/entity/billeys_mobs/mergoose2",
+                "three": "textures/entity/billeys_mobs/mergoose3",
+                "four": "textures/entity/billeys_mobs/mergoose",
+                "five": "textures/entity/billeys_mobs/mergoose1",
+                "six": "textures/entity/billeys_mobs/mergoose2",
+                "eight": "textures/entity/billeys_mobs/mergoose3",
+                "nine": "textures/entity/billeys_mobs/mergoose",
+                "hat": "textures/entity/billeys_mobs/hat"
             },
             "geometry": {
-                "default": "geometry.billmergoose",
-                "hat": "geometry.billmergoosehat"
+                "default": "geometry.billeys_mobs.mergoose",
+                "hat": "geometry.billeys_mobs.mergoosehat"
             },
             "animations": {
-                "new": "animation.billduckproj.body",
-                "swim": "animation.billmergoose.swim",
-                "eat": "animation.billmergoose.eat",
-                "baby": "animation.billmergoose.baby",
-                "walk": "animation.billmergoose.walk",
-                "attack": "animation.billmergoose.attack",
-                "lookwater": "animation.billmergoose.look_water",
-                "hold_tongue": "animation.billmergoose.hold_tongue",
-                "float": "animation.billmergoose.float",
-                "hurt": "animation.billcat.hurt2",
-                "look_cont": "controller.animation.billey.mercat_look",
-                "tongue_cont": "controller.animation.billey.mergoose_tongue"
+                "new": "animation.billeys_mobs.duckproj.body",
+                "swim": "animation.billeys_mobs.mergoose.swim",
+                "eat": "animation.billeys_mobs.mergoose.eat",
+                "baby": "animation.billeys_mobs.mergoose.baby",
+                "walk": "animation.billeys_mobs.mergoose.walk",
+                "attack": "animation.billeys_mobs.mergoose.attack",
+                "lookwater": "animation.billeys_mobs.mergoose.look_water",
+                "hold_tongue": "animation.billeys_mobs.mergoose.hold_tongue",
+                "float": "animation.billeys_mobs.mergoose.float",
+                "hurt": "animation.billeys_mobs.cat.hurt2",
+                "look_cont": "controller.animation.billeys_mobs.mercat_look",
+                "tongue_cont": "controller.animation.billeys_mobs.mergoose_tongue"
             },
             "scripts": {
                 "animate": [
@@ -54,10 +54,12 @@
                     "tongue_cont"
                 ]
             },
-            "render_controllers": [
-                "controller.render.billeyzambie.kiwi",
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobszambie.kiwi",
                 {
-                    "controller.render.billbduckhat": "q.is_saddled"
+                    "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
                 }
             ],
             "spawn_egg": {

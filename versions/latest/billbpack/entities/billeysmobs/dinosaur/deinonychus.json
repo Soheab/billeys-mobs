@@ -26,15 +26,61 @@
                 ]
             },
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "set_follow_state": "animation.billey.set_follow_state",
-                "set_sitting_property": "controller.animation.billey.set_sitting_property",
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-                "info": "animation.billeyinfo.deinonychus",
-                "tame": "controller.animation.billeysmobs.tame"
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "set_follow_state": "animation.billeys_mobs.set_follow_state",
+                "set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.deinonychus",
+                "tame": "controller.animation.billeys_mobs.tame"
             },
             "properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
                 "billey:xp": {
                     "type": "float",
                     "range": [
@@ -342,15 +388,6 @@
                     "table": "loot_tables/entities/billey_electrocuted.json"
                 }
             },
-            "hat": {
-                "minecraft:is_charged": {},
-                "minecraft:color": {
-                    "value": 12
-                },
-                "minecraft:is_dyeable": {
-                    "interact_text": "action.interact.dye"
-                }
-            },
             "noloot": {
                 "minecraft:loot": {
                     "table": "loot_tables/empty.json"
@@ -448,97 +485,6 @@
                                     ]
                                 },
                                 "event": "eventwander",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.equip",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:pet_hat"
-                                        },
-                                        {
-                                            "test": "has_component",
-                                            "subject": "self",
-                                            "operator": "not",
-                                            "value": "minecraft:is_charged"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "wearhat",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": true,
-                            "play_sounds": "armor.equip_generic",
-                            "interact_text": "action.interact.use",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "minecraft:dried_kelp"
-                                        },
-                                        {
-                                            "test": "has_component",
-                                            "subject": "self",
-                                            "value": "minecraft:is_charged"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "blackstripehat",
-                                "target": "self"
-                            }
-                        },
-                        {
-                            "use_item": false,
-                            "play_sounds": "armor.equip_generic",
-                            "spawn_items": {
-                                "table": "loot_tables/entities/billeyhat.json"
-                            },
-                            "interact_text": "action.interact.equip",
-                            "on_interact": {
-                                "filters": {
-                                    "all_of": [
-                                        {
-                                            "test": "has_equipment",
-                                            "subject": "other",
-                                            "domain": "hand",
-                                            "value": "billey:pet_hat"
-                                        },
-                                        {
-                                            "test": "has_component",
-                                            "subject": "self",
-                                            "value": "minecraft:is_charged"
-                                        },
-                                        {
-                                            "test": "is_owner",
-                                            "subject": "other",
-                                            "value": true
-                                        }
-                                    ]
-                                },
-                                "event": "nohat",
                                 "target": "self"
                             }
                         },
@@ -889,7 +835,7 @@
                     "broadcast_anger": true,
                     "broadcast_range": 10,
                     "calm_event": {
-                        "event": "calmery",
+                        "event": "billey:pet_target_escape",
                         "target": "self"
                     },
                     "broadcast_filters": {
@@ -1183,18 +1129,18 @@
                         "deals_damage": false,
                         "on_damage_sound_event": "armor.equip_generic",
                         "on_damage": {
-                            "event": "nohat",
+                            "event": "destroy_head_equipment",
                             "target": "self",
                             "filters": {
                                 "all_of": [
                                     {
                                         "test": "has_damage",
-                                        "operator": "not",
-                                        "value": "magic"
+                                        "value": "fatal"
                                     },
                                     {
-                                        "test": "has_component",
-                                        "value": "minecraft:is_charged"
+                                        "test": "has_equipment",
+                                        "value": "billey:pet_hat",
+                                        "domain": "head"
                                     }
                                 ]
                             }
@@ -1204,12 +1150,7 @@
                         "cause": "entity_attack",
                         "on_damage": {
                             "event": "drop_feather",
-                            "target": "self",
-                            "filters": {
-                                "test": "has_component",
-                                "operator": "not",
-                                "value": "minecraft:is_charged"
-                            }
+                            "target": "self"
                         }
                     }
                 ]
@@ -1291,11 +1232,11 @@
                 ]
             },
             "minecraft:on_target_acquired": {
-                "event": "angery",
+                "event": "billey:pet_target_acquired",
                 "target": "self"
             },
             "minecraft:on_target_escape": {
-                "event": "calmery",
+                "event": "billey:pet_target_escape",
                 "target": "self"
             },
             "minecraft:healable": {
@@ -1404,7 +1345,12 @@
             },
             "minecraft:conditional_bandwidth_optimization": {}
         },
-        "events": {
+        
+        "events": {"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
             "set_follow_state": {
                 "sequence": [
                     {
@@ -1444,8 +1390,8 @@
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1453,58 +1399,11 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
-            "on_attack": {
-                "sequence": [
-                    {
-                        "filters": {
-                            "none_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "target",
-                                    "value": "player"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "target",
-                                    "value": "inanimate"
-                                }
-                            ]
-                        },
-                        "set_property": {
-                            "billey:xp": "q.property('billey:xp') + 0.6"
-                        }
-                    },
-                    {
-                        "trigger": "check_level"
-                    }
-                ]
-            },
-            "on_kill": {
-                "sequence": [
-                    {
-                        "filters": {
-                            "none_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "target",
-                                    "value": "player"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "target",
-                                    "value": "inanimate"
-                                }
-                            ]
-                        },
-                        "set_property": {
-                            "billey:xp": "q.property('billey:xp') + 1"
-                        }
-                    }
-                ]
-            },
+            "on_attack": {},
+            "on_kill": {},
             "check_level": {
                 "filters": {
                     "all_of": [
@@ -1709,7 +1608,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.reset\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.reset\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
@@ -1732,11 +1631,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1761,11 +1660,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1790,15 +1689,15 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5",
-                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.oneshot\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}"
+                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.oneshot\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}"
                             ]
                         }
                     }
@@ -1820,11 +1719,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1849,11 +1748,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1878,11 +1777,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1907,11 +1806,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1936,11 +1835,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1965,11 +1864,11 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
-                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @p add got_lvl_msg",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
-                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeylevelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
                                 "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
@@ -1998,9 +1897,9 @@
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.deinonychus\",\"with\":[\"\\n\"]}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.deinonychus\",\"with\":[\"\\n\"]}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip5\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip5\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                     ]
                 }
@@ -2068,7 +1967,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "playanimation @s animation.billdeinonychus.roar"
+                                "playanimation @s animation.billeys_mobs.deinonychus.roar"
                             ]
                         }
                     },
@@ -2369,7 +2268,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @a[r=6,tag=!billeyinfoleveldeino,tag=billeyinfotip5_v2] {\"rawtext\":[{\"translate\":\"chat.billeyshortinfo.leveling\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfoleveldeino,tag=billeyinfotip5_v2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.short_info.leveling\"}]}",
                                 "tag @a[r=6,tag=!billeyinfoleveldeino,tag=billeyinfotip5_v2] add billeyinfoleveldeino"
                             ]
                         }
@@ -2377,7 +2276,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @a[r=6,tag=!billeyinfotip5_v2] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip5\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfotip5_v2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip5\"}]}",
                                 "tag @a[r=6,tag=!billeyinfotip5_v2] add billeyinfotip5_v2"
                             ]
                         }
@@ -2446,14 +2345,14 @@
                     ]
                 }
             },
-            "angery": {
+            "billey:pet_target_acquired": {
                 "add": {
                     "component_groups": [
                         "angry"
                     ]
                 }
             },
-            "calmery": {
+            "billey:pet_target_escape": {
                 "remove": {
                     "component_groups": [
                         "angry"
@@ -2798,7 +2697,7 @@
                                 "weight": 1,
                                 "queue_command": {
                                     "command": [
-                                        "playanimation @s animation.billcat.petted"
+                                        "playanimation @s animation.billeys_mobs.cat.petted"
                                     ]
                                 }
                             }
@@ -2808,7 +2707,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "playanimation @s animation.billeyplayer.pet"
+                                "playanimation @s animation.billeys_mobsplayer.pet"
                             ]
                         }
                     },

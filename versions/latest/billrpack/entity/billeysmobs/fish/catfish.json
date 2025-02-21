@@ -7,26 +7,26 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "zero": "textures/entity/bill/billcatfish",
-        "one": "textures/entity/bill/billcatfish1",
-        "two": "textures/entity/bill/billcatfish2",
-        "three": "textures/entity/bill/billcatfish3",
-        "four": "textures/entity/bill/billcatfish4",
-        "five": "textures/entity/bill/billcatfish5",
-        "six": "textures/entity/bill/billcatfish6",
-        "seven": "textures/entity/bill/billcatfish7",
-        "eight": "textures/entity/bill/billcatfish8",
-        "nine": "textures/entity/bill/billcatfish9",
-        "ten": "textures/entity/bill/billcatfish10",
-        "pizza": "textures/entity/bill/billcatfishpizza"
+        "zero": "textures/entity/billeys_mobs/billcatfish",
+        "one": "textures/entity/billeys_mobs/billcatfish1",
+        "two": "textures/entity/billeys_mobs/billcatfish2",
+        "three": "textures/entity/billeys_mobs/billcatfish3",
+        "four": "textures/entity/billeys_mobs/billcatfish4",
+        "five": "textures/entity/billeys_mobs/billcatfish5",
+        "six": "textures/entity/billeys_mobs/billcatfish6",
+        "seven": "textures/entity/billeys_mobs/billcatfish7",
+        "eight": "textures/entity/billeys_mobs/billcatfish8",
+        "nine": "textures/entity/billeys_mobs/billcatfish9",
+        "ten": "textures/entity/billeys_mobs/billcatfish10",
+        "pizza": "textures/entity/billeys_mobs/billcatfishpizza"
       },
       "geometry": {
-        "default": "geometry.billcatfish"
+        "default": "geometry.billeys_mobs.catfish"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "swim": "animation.billcatfish.swim",
-        "look": "animation.billangler.look"
+        "new": "animation.billeys_mobs.duckproj.body",
+        "swim": "animation.billeys_mobs.catfish.swim",
+        "look": "animation.billeys_mobs.angler.look"
       },
       "scripts": {
         "animate": [
@@ -39,8 +39,10 @@
           }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
-        "controller.render.billcatfish"
+        "controller.render.billeys_mobs.catfish"
       ],
       "spawn_egg": {
         "base_color": "#d2d4ec",

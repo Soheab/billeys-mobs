@@ -15,9 +15,9 @@
         ]
       },
       "animations": {
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-        "tame": "controller.animation.billeysmobs.tame"
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+        "tame": "controller.animation.billeys_mobs.tame"
       }
     },
     "component_groups": {
@@ -1298,13 +1298,18 @@
       },
       "minecraft:nameable": {}
     },
-    "events": {
+    
+        "events": {"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
             "say_owner_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1312,7 +1317,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
             "add_sittable": {
@@ -1485,7 +1490,7 @@
                 "weight": 1,
                 "queue_command": {
                   "command": [
-                    "playanimation @s animation.billcat.petted"
+                    "playanimation @s animation.billeys_mobs.cat.petted"
                   ]
                 }
               }
@@ -1495,7 +1500,7 @@
             "queue_command": {
               "target": "other",
               "command": [
-                "playanimation @s animation.billeyplayer.pet"
+                "playanimation @s animation.billeys_mobsplayer.pet"
               ]
             }
           },

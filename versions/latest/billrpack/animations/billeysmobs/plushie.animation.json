@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billplushie.slime_wyvern.squish": {
+		"animation.billeys_mobs.plushie.slime_wyvern.squish": {
 			"animation_length": 0.3333,
 			"bones": {
 				"pushie_body": {
@@ -235,15 +235,19 @@
 				"0.0": "v.plushie_random_sign = 2 * math.random_integer(1,2) - 3;"
 			}
 		},
-		"animation.billplushie.quantize_rotation": {
+		"animation.billeys_mobs.plushie.quantize_rotation": {
 			"loop": true,
 			"bones": {
-				"head": {
-					"rotation":[
-						0,
-						"math.round(q.body_y_rotation / 45) * 45 - q.body_y_rotation",
-						0
-					]
+				"hat": {
+					"rotation": [0, "math.round(q.body_y_rotation / 45) * 45 - q.body_y_rotation", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.plushie.on_player_head": {
+			"loop": true,
+			"bones": {
+				"plushie_whole": {
+					"position": [0, 8, 0]
 				}
 			}
 		}

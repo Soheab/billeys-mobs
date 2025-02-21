@@ -49,7 +49,7 @@
 				}
 			}
 		},
-		"animation.billmercat.swim": {
+		"animation.billeys_mobs.mercat.swim": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 3,q.modified_distance_moved / 6)",
 			"bones": {
@@ -73,7 +73,7 @@
 				}
 			}
 		},
-		"animation.billmercat.swim_with_fins": {
+		"animation.billeys_mobs.mercat.swim_with_fins": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 3,q.modified_distance_moved / 6)",
 			"bones": {
@@ -109,7 +109,7 @@
 				}
 			}
 		},
-		"animation.billmercat.swim2": {
+		"animation.billeys_mobs.mercat.swim2": {
 			"loop": true,
 			"bones": {
 				"frontLegL": {
@@ -146,7 +146,7 @@
 				}
 			}
 		},
-		"animation.billmercat.float_downwards": {
+		"animation.billeys_mobs.mercat.float_downwards": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -198,7 +198,7 @@
 				}
 			}
 		},
-		"animation.billmercat.flop": {
+		"animation.billeys_mobs.mercat.flop": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -234,7 +234,7 @@
 				}
 			}
 		},
-		"animation.billmercat.float": {
+		"animation.billeys_mobs.mercat.float": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -243,7 +243,7 @@
 				}
 			}
 		},
-		"animation.billmercat.sit": {
+		"animation.billeys_mobs.mercat.sit": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -279,7 +279,7 @@
 				}
 			}
 		},
-		"animation.billmercat.walk": {
+		"animation.billeys_mobs.mercat.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 4",
 			"bones": {
@@ -306,7 +306,7 @@
 				}
 			}
 		},
-		"animation.billmercat.upside_down": {
+		"animation.billeys_mobs.mercat.upside_down": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -314,7 +314,7 @@
 				}
 			}
 		},
-		"animation.billmercat.lookwater": {
+		"animation.billeys_mobs.mercat.lookwater": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -347,7 +347,7 @@
 				}
 			}
 		},
-		"animation.billmercat.spin": {
+		"animation.billeys_mobs.mercat.spin": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.56,
 			"bones": {

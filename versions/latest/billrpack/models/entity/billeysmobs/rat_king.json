@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billrat_king",
+				"identifier": "geometry.billeys_mobs.rat_king",
 				"texture_width": 128,
 				"texture_height": 64,
 				"visible_bounds_width": 6,
@@ -123,6 +123,12 @@
 					"cubes": [
 						{"origin": [-2, 3, -20.5], "size": [4, 1, 1], "inflate": 0.02, "uv": [118, 62]}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "frontbody",
+					"pivot": [0, 1, -19],
+					"rotation": [90, 0, 0]
 				},
 				{
 					"name": "leftbackleg",

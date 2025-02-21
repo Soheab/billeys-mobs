@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billlandolphin.walk": {
+		"animation.billeys_mobs.landolphin.walk": {
 			"loop": true,
 			"bones": {
 				"left_fin": {
@@ -28,7 +28,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.sit": {
+		"animation.billeys_mobs.landolphin.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -54,7 +54,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.walk_left": {
+		"animation.billeys_mobs.landolphin.walk_left": {
 			"loop": true,
 			"bones": {
 				"left_fin": {
@@ -78,7 +78,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.fly": {
+		"animation.billeys_mobs.landolphin.fly": {
 			"loop": true,
 			"bones": {
 				"tail": {
@@ -101,7 +101,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.open_mouth": {
+		"animation.billeys_mobs.landolphin.open_mouth": {
 			"loop": true,
 			"bones": {
 				"mouth": {
@@ -112,7 +112,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.attack": {
+		"animation.billeys_mobs.landolphin.attack": {
 			"loop": true,
 			"bones": {
 				"mouth": {
@@ -147,7 +147,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.die": {
+		"animation.billeys_mobs.landolphin.die": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -255,7 +255,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.sleep": {
+		"animation.billeys_mobs.landolphin.sleep": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -287,7 +287,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.groom": {
+		"animation.billeys_mobs.landolphin.groom": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -356,7 +356,7 @@
 				}
 			}
 		},
-		"animation.billlandolphin.idle": {
+		"animation.billeys_mobs.landolphin.idle": {
 			"animation_length": 0.64,
 			"bones": {
 				"ear": {

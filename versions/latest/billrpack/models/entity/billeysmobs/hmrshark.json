@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billhmrshark",
+				"identifier": "geometry.billeys_mobs.hmrshark",
 				"texture_width": 80,
 				"texture_height": 80,
 				"visible_bounds_width": 7,
@@ -258,6 +258,12 @@
 					}
 				},
 				{
+					"name": "bowtie",
+					"parent": "neck",
+					"pivot": [0, 1, -17],
+					"rotation": [45, 0, 0]
+				},
+				{
 					"name": "head",
 					"parent": "neck",
 					"pivot": [0, 6, -17],
@@ -319,6 +325,11 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 9.1, -21]
 				},
 				{
 					"name": "fin",

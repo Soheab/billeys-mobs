@@ -1,7 +1,7 @@
 {
   "format_version": "1.8.0",
   "render_controllers": {
-    "controller.render.billduck": {
+    "controller.render.billeys_mobs.duck": {
       "arrays": {
         "textures": {
           "Array.skins": [
@@ -66,7 +66,7 @@
           "a": "0.5 + q.is_illager_captain / 3"
       }
     },
-    "controller.render.billduckcentipede": {
+    "controller.render.billeys_mobs.duckcentipede": {
       "arrays": {
         "textures": {
           "Array.skins": [
@@ -110,7 +110,7 @@
           "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billpenguin": {
+    "controller.render.billeys_mobs.penguin": {
       "arrays": {
         "textures": {
           "Array.normal": [
@@ -151,7 +151,7 @@
           "a": "q.is_illager_captain ? 0.4 : 0.0"
       }
     },
-    "controller.render.billpenguinhat": {
+    "controller.render.billeys_mobs.penguinhat": {
       "arrays": {
         "geometries": {
           "Array.models": [

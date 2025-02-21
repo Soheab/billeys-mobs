@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billslimewyvern",
+				"identifier": "geometry.billeys_mobs.slimewyvern",
 				"texture_width": 128,
 				"texture_height": 128,
 				"visible_bounds_width": 14,
@@ -64,6 +64,12 @@
 					"name": "hat",
 					"parent": "Head",
 					"pivot": [0, 9.75, -11]
+				},
+				{
+					"name": "bowtie",
+					"parent": "Neck",
+					"pivot": [0, 5.75, -5],
+					"rotation": [90, 0, 0]
 				},
 				{
 					"name": "Tail_Base",

@@ -71,7 +71,9 @@ function addDuckTarget(duckTarget) {
     }
 }
 
-world.afterEvents.playerSpawn.subscribe(({ player }) => player.removeTag("billey_duck_attack"));
+world.afterEvents.playerSpawn.subscribe(({ player }) => 
+    player.removeTag("billey_duck_attack")
+);
 
 /**
  * @param {Player} player 
@@ -79,7 +81,7 @@ world.afterEvents.playerSpawn.subscribe(({ player }) => player.removeTag("billey
  */
 export function morphTick(player, morphName) {
     player.playAnimation(
-        "animation.billey_morph.hide_player",
+        "animation.billeys_mobs.morph_hide_player",
         {
             stopExpression: `!q.is_item_name_any('slot.weapon.offhand', 0, 'billey:${morphName}_morph')`,
             blendOutTime: 0.15

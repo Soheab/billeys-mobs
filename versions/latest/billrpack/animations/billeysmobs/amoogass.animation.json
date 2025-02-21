@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billamogus.new": {
+		"animation.billeys_mobs.amogus.new": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {
@@ -124,7 +124,7 @@
 				}
 			}
 		},
-		"animation.billamogus.new2": {
+		"animation.billeys_mobs.amogus.new2": {
 			"loop": true,
 			"bones": {
 				"rightleg": {
@@ -132,7 +132,7 @@
 				}
 			}
 		},
-		"animation.billamogus.new3": {
+		"animation.billeys_mobs.amogus.new3": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {
@@ -238,7 +238,7 @@
 				}
 			}
 		},
-		"animation.billamogus.new4": {
+		"animation.billeys_mobs.amogus.new4": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -246,7 +246,7 @@
 				}
 			}
 		},
-		"animation.billamogus.liedown": {
+		"animation.billeys_mobs.amogus.liedown": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.04,
 			"bones": {

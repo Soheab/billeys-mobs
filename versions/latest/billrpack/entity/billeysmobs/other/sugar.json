@@ -11,7 +11,7 @@
         "default": "geometry.cat"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "sneak": "animation.cat.sneak",
         "walk": "animation.cat.walk",
         "sprint": "animation.cat.sprint",
@@ -25,7 +25,7 @@
         { "move": "controller.animation.cat.move" },
         { "baby": "controller.animation.cat.baby" }
       ],
-      "render_controllers": [ "controller.render.billey_default" ],
+      "render_controllers": [ "controller.render.billeys_mobs_default" ],
       "spawn_egg": {
         "base_color": "#A300AE",
         "overlay_color": "#A300AE"

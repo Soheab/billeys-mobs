@@ -1,12 +1,12 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billbettafish.new": {
+		"animation.billeys_mobs.bettafish.new": {
 			"loop": true,
 			"animation_length": 0.76,
 			"particle_effects": {}
 		},
-		"animation.billbettafish.die": {
+		"animation.billeys_mobs.bettafish.die": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -34,7 +34,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.swim": {
+		"animation.billeys_mobs.bettafish.swim": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -64,7 +64,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.flop": {
+		"animation.billeys_mobs.bettafish.flop": {
 			"loop": true,
 			"blend_weight": "1.75",
 			"bones": {
@@ -92,7 +92,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.dance1": {
+		"animation.billeys_mobs.bettafish.dance1": {
 			"animation_length": 7.84,
 			"bones": {
 				"body": {
@@ -107,7 +107,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.dance2": {
+		"animation.billeys_mobs.bettafish.dance2": {
 			"animation_length": 8,
 			"bones": {
 				"body": {
@@ -122,7 +122,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.dance3": {
+		"animation.billeys_mobs.bettafish.dance3": {
 			"animation_length": 4,
 			"bones": {
 				"body": {
@@ -130,7 +130,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.dance4": {
+		"animation.billeys_mobs.bettafish.dance4": {
 			"animation_length": 4,
 			"bones": {
 				"body": {
@@ -138,7 +138,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.pet": {
+		"animation.billeys_mobs.bettafish.pet": {
 			"loop": true,
 			"animation_length": 1.52,
 			"loop_delay": "math.random(60,180)",
@@ -148,7 +148,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.boost": {
+		"animation.billeys_mobs.bettafish.boost": {
 			"animation_length": 2,
 			"bones": {
 				"tail": {
@@ -174,7 +174,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.cancelvanilladeathanim": {
+		"animation.billeys_mobs.bettafish.cancelvanilladeathanim": {
 			"loop": true,
 			"bones": {
 				"ooo": {
@@ -182,7 +182,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.flip": {
+		"animation.billeys_mobs.bettafish.flip": {
 			"loop": true,
 			"animation_length": 5,
 			"bones": {
@@ -236,7 +236,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.radiation": {
+		"animation.billeys_mobs.bettafish.radiation": {
 			"loop": true,
 			"animation_length": 1,
 			"particle_effects": {
@@ -246,7 +246,7 @@
 				}
 			}
 		},
-		"animation.billbettafish.radiation2": {
+		"animation.billeys_mobs.bettafish.radiation2": {
 			"loop": true,
 			"animation_length": 1,
 			"particle_effects": {

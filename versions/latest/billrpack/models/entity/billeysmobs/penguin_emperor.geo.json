@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billpenguin_emperor",
+				"identifier": "geometry.billeys_mobs.penguin_emperor",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -22,6 +22,11 @@
 					"cubes": [
 						{"origin": [-3.5, 2, -3], "size": [7, 13, 6], "uv": [0, 0]}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "body",
+					"pivot": [0, 13.5, -3]
 				},
 				{
 					"name": "head",
@@ -50,12 +55,12 @@
 				{
 					"name": "hat",
 					"parent": "head",
-					"pivot": [0, 12, -0.5]
+					"pivot": [0, 19, -1]
 				},
 				{
 					"name": "right_angry_eye",
 					"parent": "head",
-					"pivot": [-1, 17.5, -1.5],
+					"pivot": [0, 19, -1],
 					"cubes": [
 						{"origin": [-1, 16, -3], "size": [0, 3, 3], "inflate": -0.01, "uv": [58, -3], "mirror": true}
 					]

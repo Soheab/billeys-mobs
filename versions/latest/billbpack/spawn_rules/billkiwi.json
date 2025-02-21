@@ -19,7 +19,32 @@
                     "adjust_for_weather": false
                 },
                 "minecraft:weight": {
-                    "default": 30
+                    "default": 50
+                },
+                "minecraft:herd": {
+                    "min_size": 2,
+                    "max_size": 5
+                },
+                "minecraft:biome_filter": {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "forest"
+                        }
+            },
+            {
+                "minecraft:spawns_underground": {},
+                "minecraft:spawns_on_block_filter": [
+                    "minecraft:grass",
+                    "minecraft:podzol",
+                    "minecraft:dirt"
+                ],
+                "minecraft:brightness_filter": {
+                    "min": 0,
+                    "max": 7,
+                    "adjust_for_weather": false
+                },
+                "minecraft:weight": {
+                    "default": 50
                 },
                 "minecraft:herd": {
                     "min_size": 2,

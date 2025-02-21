@@ -5,19 +5,19 @@
       "identifier": "billey:flyingpig",
       "materials": { "default": "entity_alphatest" },
       "textures": {
-        "default": "textures/entity/bill/fpig",
-        "angry": "textures/entity/bill/fpig1"
+        "default": "textures/entity/billeys_mobs/fpig",
+        "angry": "textures/entity/billeys_mobs/fpig1"
       },
       "geometry": {
-        "default": "geometry.billangelpig"
+        "default": "geometry.billeys_mobs.angelpig"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "idle": "animation.billangelpig.fly",
-        "baby": "animation.billangelpig.baby_transform",
-        "sit": "animation.billangelpig.sit",
+        "new": "animation.billeys_mobs.duckproj.body",
+        "idle": "animation.billeys_mobs.angelpig.fly",
+        "baby": "animation.billeys_mobs.angelpig.baby_transform",
+        "sit": "animation.billeys_mobs.angelpig.sit",
         "look_at_target": "animation.common.look_at_target",
-        "controller.sit": "controller.animation.billey.sit"
+        "controller.sit": "controller.animation.billeys_mobs.sit"
       },
       "scripts": {
         "animate": [ "new",
@@ -28,7 +28,9 @@
           { "baby": "q.is_baby" }
         ]
       },
-      "render_controllers": [ "controller.render.billangelpig" ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs.angelpig" ],
       "spawn_egg": {
         "texture": "egg_pig_angel"
       }

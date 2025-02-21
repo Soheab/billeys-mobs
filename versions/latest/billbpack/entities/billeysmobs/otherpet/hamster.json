@@ -13,27 +13,76 @@
                     },
                     {
                         "set_sitting_property": "q.is_tamed"
-                    }, "check_beta_apis",
+                    },
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
-                          {
-                                "stand_up_when_hit": "q.is_tamed"
-                          },
-                    {"info":"!q.is_tamed"},
+                    {
+                        "stand_up_when_hit": "q.is_tamed"
+                    },
+                    {
+                        "info": "!q.is_tamed"
+                    },
                     "tame"
                 ]
             },
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "set_follow_state": "animation.billey.set_follow_state",
-                "set_sitting_property": "controller.animation.billey.set_sitting_property",
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                     "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-                "info": "animation.billeyinfo.hamster",
-                "tame": "controller.animation.billeysmobs.tame"
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "set_follow_state": "animation.billeys_mobs.set_follow_state",
+                "set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.hamster",
+                "tame": "controller.animation.billeys_mobs.tame"
             },
             "properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
                 "billey:follow_owner_state": {
                     //only used so scripts can know whether it's following or wandering
                     "type": "enum",
@@ -52,9 +101,9 @@
             }
         },
         "component_groups": {
-                "sittable": {
-                     "minecraft:sittable": {}
-                },
+            "sittable": {
+                "minecraft:sittable": {}
+            },
             "tamed_component": {
                 "minecraft:is_tamed": {}
             },
@@ -250,6 +299,28 @@
                         {
                             "cause": "all",
                             "damage_multiplier": 1.0
+                        },
+                        {
+                            "cause": "all",
+                            "deals_damage": false,
+                            "on_damage_sound_event": "armor.equip_generic",
+                            "on_damage": {
+                                "event": "destroy_head_equipment",
+                                "target": "self",
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_damage",
+                                            "value": "fatal"
+                                        },
+                                        {
+                                            "test": "has_equipment",
+                                            "value": "billey:pet_hat",
+                                            "domain": "head"
+                                        }
+                                    ]
+                                }
+                            }
                         }
                     ]
                 },
@@ -269,17 +340,17 @@
                                             "value": "feather"
                                         },
                                         {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "book"
-                                    },
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:info_book"
-                                    }
+                                            "test": "has_equipment",
+                                            "subject": "other",
+                                            "domain": "hand",
+                                            "value": "book"
+                                        },
+                                        {
+                                            "test": "has_equipment",
+                                            "subject": "other",
+                                            "domain": "hand",
+                                            "value": "billey:info_book"
+                                        }
                                     ]
                                 },
                                 "event": "send_info",
@@ -532,7 +603,8 @@
                             }
                         }
                     ],
-                    "breed_items": [ "billey:poultry_orange",
+                    "breed_items": [
+                        "billey:poultry_orange",
                         "bread",
                         "wheat_seeds",
                         "melon_seeds",
@@ -656,28 +728,48 @@
                         "target": "self"
                     }
                 }
-            },
-            "angry": {
-                "minecraft:angry": {
-                    "duration": 10,
-                    "broadcast_anger": true,
-                    "broadcast_range": 40,
-                    "calm_event": {
-                        "event": "calmery",
-                        "target": "self"
-                    },
-                    "broadcast_filters": {
-                        "test": "is_family",
-                        "value": "duck",
-                        "subject": "self"
-                    },
-                    "broadcast_targets": [
-                        "duck"
-                    ]
-                }
             }
         },
         "components": {
+            "minecraft:behavior.owner_hurt_by_target": {
+                "priority": 1,
+                "entity_types": {
+                    "filters": {
+                        "test": "has_tag",
+                        "subject": "self",
+                        "value": "billey:brave"
+                    }
+                }
+            },
+            "minecraft:behavior.owner_hurt_target": {
+                "priority": 2,
+                "entity_types": {
+                    "max_dist": 127,
+                    "filters": {
+                        "test": "has_tag",
+                        "subject": "self",
+                        "value": "billey:brave"
+                    }
+                }
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 2,
+                "entity_types": {
+                    "filters": {
+                        "test": "has_tag",
+                        "subject": "self",
+                        "value": "billey:brave"
+                    }
+                }
+            },
+            "minecraft:on_target_acquired": {
+                "event": "billey:pet_target_acquired",
+                "target": "self"
+            },
+            "minecraft:on_target_escape": {
+                "event": "billey:pet_target_escape",
+                "target": "self"
+            },
             "minecraft:interact": {
                 "interactions": [
                     {
@@ -736,11 +828,11 @@
             },
             "minecraft:healable": {
                 "items": [
-                    
                     {
                         "item": "billey:poultry_orange",
                         "heal_amount": 7
-                    },{
+                    },
+                    {
                         "item": "billey:cooked_snail",
                         "heal_amount": 4,
                         "effects": [
@@ -885,7 +977,8 @@
                 "priority": 6,
                 "speed_multiplier": 1.0
             },
-            "minecraft:behavior.look_at_player": { "probability": 0.01,
+            "minecraft:behavior.look_at_player": {
+                "probability": 0.01,
                 "priority": 7,
                 "look_distance": 6.0,
                 "probability": 0.02
@@ -910,6 +1003,11 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "destroy_head_equipment": {
+                "queue_command": {
+                    "command": "scriptevent billey:destroy_pet_head_equipment"
+                }
+            },
             "set_follow_state": {
                 "sequence": [
                     {
@@ -949,8 +1047,8 @@
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -958,34 +1056,34 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
-                "add_sittable": {
-                     "add": {
-                          "component_groups": [
-                                "sittable"
-                          ]
-                     }
-                },
-                "remove_sittable": {
-                     "remove": {
-                          "component_groups": [
-                                "sittable"
-                          ]
-                     }
-                },
-                "check_if_experiments_on": {
-                     "queue_command": {
-                          "command": "tag @s add billey_exp_on_v2"
-                     }
-                },
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on_v2"
+                }
+            },
             "send_info": {
                 "queue_command": {
                     "target": "other",
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.hamster\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeyinfo.tip2\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.hamster\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeys_mobs.info.tip2\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                     ]
                 }
@@ -1182,7 +1280,7 @@
                                 "weight": 1,
                                 "queue_command": {
                                     "command": [
-                                        "playanimation @s animation.billcat.petted"
+                                        "playanimation @s animation.billeys_mobs.cat.petted"
                                     ]
                                 }
                             }
@@ -1192,7 +1290,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "playanimation @s animation.billeyplayer.pet"
+                                "playanimation @s animation.billeys_mobsplayer.pet"
                             ]
                         }
                     },
@@ -1283,20 +1381,8 @@
                     ]
                 }
             },
-            "angery": {
-                "add": {
-                    "component_groups": [
-                        "angry"
-                    ]
-                }
-            },
-            "calmery": {
-                "remove": {
-                    "component_groups": [
-                        "angry"
-                    ]
-                }
-            },
+            "billey:pet_target_acquired": {},
+            "billey:pet_target_escape": {},
             "kroma": {
                 "add": {
                     "component_groups": [
@@ -1743,9 +1829,11 @@
                 "sequence": [
                     {
                         "queue_command": {
-                            "command": ["tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                                "tellraw @a[r=6,tag=!billeyinfotip2] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip2\"}]}",
-                                "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}","tag @a[r=6,tag=!billeyinfotip2] add billeyinfotip2"
+                            "command": [
+                                "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfotip2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip2\"}]}",
+                                "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                                "tag @a[r=6,tag=!billeyinfotip2] add billeyinfotip2"
                             ]
                         }
                     },

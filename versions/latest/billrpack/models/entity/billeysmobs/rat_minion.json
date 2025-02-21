@@ -3,8 +3,8 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billrat_minion",
-				"texture_width": 128,
+				"identifier": "geometry.billeys_mobs.rat_minion",
+				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 4,
 				"visible_bounds_height": 3,
@@ -16,11 +16,16 @@
 					"pivot": [0, 0, 0]
 				},
 				{
-					"name": "body",
+					"name": "fly_rotation",
 					"parent": "death",
+					"pivot": [0, 3, 0]
+				},
+				{
+					"name": "body",
+					"parent": "fly_rotation",
 					"pivot": [0, 3.5, -0.5],
 					"cubes": [
-						{"origin": [-2, 1.5, 0.5], "size": [4, 4, 7], "inflate": 0.01, "uv": [0, 29]}
+						{"origin": [-2, 1.5, 0.5], "size": [4, 4, 7], "inflate": 0.01, "uv": [0, 14]}
 					]
 				},
 				{
@@ -28,7 +33,7 @@
 					"parent": "body",
 					"pivot": [0, 3.5, 0.5],
 					"cubes": [
-						{"origin": [-2, 1.5, -2.5], "size": [4, 4, 4], "uv": [16, 25]}
+						{"origin": [-2, 1.5, -2.5], "size": [4, 4, 4], "uv": [15, 0]}
 					],
 					"locators": {
 						"lead": [0, 2, -2.5]
@@ -45,7 +50,7 @@
 					"pivot": [1.5, 1.5, -0.5],
 					"rotation": [-60, 0, 0],
 					"cubes": [
-						{"origin": [1, -1.5, -0.5], "size": [1, 3, 0], "uv": [61, 0]}
+						{"origin": [1, -1.5, -0.5], "size": [1, 3, 0], "uv": [0, 15]}
 					]
 				},
 				{
@@ -59,7 +64,7 @@
 					"pivot": [-1.5, 1.5, -0.5],
 					"rotation": [-60, 0, 0],
 					"cubes": [
-						{"origin": [-2, -1.5, -0.5], "size": [1, 3, 0], "uv": [61, 0], "mirror": true}
+						{"origin": [-2, -1.5, -0.5], "size": [1, 3, 0], "uv": [0, 15], "mirror": true}
 					]
 				},
 				{
@@ -67,7 +72,7 @@
 					"parent": "frontbody",
 					"pivot": [0, 3.5, -3.5],
 					"cubes": [
-						{"origin": [-2, 2, -5.5], "size": [4, 3, 3], "inflate": 0.01, "uv": [30, 18]}
+						{"origin": [-2, 2, -5.5], "size": [4, 3, 3], "inflate": 0.01, "uv": [18, 14]}
 					]
 				},
 				{
@@ -91,8 +96,8 @@
 					"parent": "head",
 					"pivot": [0, 3, -5.5],
 					"cubes": [
-						{"origin": [-1.5, 2, -8], "size": [3, 2, 3], "uv": [33, 25]},
-						{"origin": [-3.5, 2, -6.5], "size": [7, 3, 0], "uv": [13, 21]}
+						{"origin": [-1.5, 2, -8], "size": [3, 2, 3], "uv": [22, 25]},
+						{"origin": [-3.5, 2, -6.5], "size": [7, 3, 0], "uv": [25, 21]}
 					]
 				},
 				{
@@ -110,15 +115,21 @@
 					"parent": "head",
 					"pivot": [0, 0, 0],
 					"cubes": [
-						{"origin": [-2, 3, -4.5], "size": [4, 1, 1], "inflate": 0.02, "uv": [118, 62]}
+						{"origin": [-2, 3, -4.5], "size": [4, 1, 1], "inflate": 0.02, "uv": [54, 62]}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "frontbody",
+					"pivot": [0, 1.5, -2.5],
+					"rotation": [90, 0, 0]
 				},
 				{
 					"name": "leftbackleg",
 					"parent": "body",
 					"pivot": [-2, 3, 4.5],
 					"cubes": [
-						{"origin": [-3, 1, 3.5], "size": [2, 3, 3], "uv": [54, 9], "mirror": true}
+						{"origin": [-3, 1, 3.5], "size": [2, 3, 3], "uv": [0, 0], "mirror": true}
 					]
 				},
 				{
@@ -134,7 +145,7 @@
 					"parent": "leftbackleg2",
 					"pivot": [-2, 0, 6.5],
 					"cubes": [
-						{"origin": [-3, 0, 4.5], "size": [2, 0, 2], "uv": [6, 0]}
+						{"origin": [-3, 0, 4.5], "size": [2, 0, 2], "uv": [-2, 7]}
 					]
 				},
 				{
@@ -142,7 +153,7 @@
 					"parent": "body",
 					"pivot": [2, 3, 4.5],
 					"cubes": [
-						{"origin": [1, 1, 3.5], "size": [2, 3, 3], "uv": [54, 9]}
+						{"origin": [1, 1, 3.5], "size": [2, 3, 3], "uv": [0, 0]}
 					]
 				},
 				{
@@ -158,7 +169,7 @@
 					"parent": "rightbackleg2",
 					"pivot": [2, 0, 6.5],
 					"cubes": [
-						{"origin": [1, 0, 4.5], "size": [2, 0, 2], "uv": [6, 0]}
+						{"origin": [1, 0, 4.5], "size": [2, 0, 2], "uv": [-2, 7]}
 					]
 				},
 				{

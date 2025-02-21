@@ -1,7 +1,7 @@
 {
     "format_version": "1.8.0",
     "render_controllers": {
-        "controller.render.billslimewyvern": {
+        "controller.render.billeys_mobs.slimewyvern": {
             "arrays": {
                 "textures": {
                     "Array.variants": [
@@ -40,7 +40,7 @@
                 "q.is_sheared ? Texture.drunk : Texture.nothing"
             ]
         },
-        "controller.render.billslimewyvern.cum": {
+        "controller.render.billeys_mobs.slimewyvern.cum": {
             "geometry": "Geometry.cum",
             "materials": [
                 {

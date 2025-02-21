@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billmantis.walk": {
+		"animation.billeys_mobs.mantis.walk": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -43,7 +43,7 @@
 				}
 			}
 		},
-		"animation.billmantis.idle": {
+		"animation.billeys_mobs.mantis.idle": {
 			"loop": true,
 			"bones": {
 				"bone2": {

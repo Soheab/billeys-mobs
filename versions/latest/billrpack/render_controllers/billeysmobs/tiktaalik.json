@@ -1,7 +1,7 @@
 {
     "format_version": "1.8.0",
     "render_controllers": {
-        "controller.render.billey.tiktaalik": {
+        "controller.render.billeys_mobs.tiktaalik": {
             "arrays": {
                 "textures": {
                     "Array.skins": [

@@ -4,34 +4,30 @@
         "description": {
             "identifier": "billey:yutyrannus",
             "materials": {
-                "default": "entity_alphatest",
-                "cat": "cat"
+                "default": "entity_alphatest"
             },
             "textures": {
-                "default": "textures/entity/bill/yutyrannus",
-                "hat": "textures/entity/bill/yutyrannus"
+                "default": "textures/entity/billeys_mobs/yutyrannus"
             },
             "geometry": {
-                "default": "geometry.billyutyrannus",
-                "hat": "geometry.billyutyrannushat"
+                "default": "geometry.billeys_mobs.yutyrannus"
             },
             "animations": {
-                "new": "animation.billduckproj.body",
-                "move": "animation.billyutyrannus.walk",
-                "look_at_target": "animation.billyutyrannus.look",
-                "death": "animation.billyutyrannus.death",
-                "sit": "animation.billyutyrannus.sit",
-                "general": "animation.billyutyrannus.general",
-                "controller.sit": "controller.animation.billey.sit",
-                "eat": "animation.billyutyrannus.eat",
-                "dance": "animation.billyutyrannus.dance",
-                "eatcont": "controller.animation.billey.eat",
-                "hurt": "animation.billcat.hurt2",
-                "attackcont": "controller.animation.billey.attack",
-                "attack": "animation.billyutyrannus.attack",
-                "roar": "animation.billyutyrannus.roar",
-                "dancecont": "controller.animation.billey.dance",
-                "cont.scale_transition": "controller.animation.billey.scale_transition",
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.yutyrannus.walk",
+                "death": "animation.billeys_mobs.yutyrannus.death",
+                "sit": "animation.billeys_mobs.yutyrannus.sit",
+                "general": "animation.billeys_mobs.yutyrannus.general",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "eat": "animation.billeys_mobs.yutyrannus.eat",
+                "dance": "animation.billeys_mobs.yutyrannus.dance",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "hurt": "animation.billeys_mobs.cat.hurt2",
+                "attackcont": "controller.animation.billeys_mobs.attack",
+                "attack": "animation.billeys_mobs.yutyrannus.attack",
+                "roar": "animation.billeys_mobs.yutyrannus.roar",
+                "dancecont": "controller.animation.billeys_mobs.dance",
+                "cont.scale_transition": "controller.animation.billeys_mobs.scale_transition",
                 "scale_transition": "animation.billeys_mobs.scale_transition"
             },
             "scripts": {
@@ -70,15 +66,14 @@
                     }
                 ]
             },
+            "enable_attachables": true,
+            "hide_armor": false,
             "render_controllers": [
-                "controller.render.billey_default",
-                {
-                    "controller.render.billbduckhat": "q.is_powered"
-                }
+                "controller.render.billeys_mobs.yutyrannus"
             ],
             "spawn_egg": {
-                "overlay_color": "#92A5B5",
-                "base_color": "#e9e9f0"
+                "overlay_color": "#91cae2",
+                "base_color": "#f9f9ff"
             }
         }
     }

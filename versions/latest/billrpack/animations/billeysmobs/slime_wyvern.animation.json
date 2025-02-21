@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billslimewyvern.on_ground": {
+		"animation.billeys_mobs.slimewyvern.on_ground": {
 			"loop": true,
 			"bones": {
 				"Right_Hand": {
@@ -24,7 +24,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.look": {
+		"animation.billeys_mobs.slimewyvern.look": {
 			"loop": true,
 			"bones": {
 				"Neck": {
@@ -35,7 +35,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.fly": {
+		"animation.billeys_mobs.slimewyvern.fly": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time * 0.7,q.modified_distance_moved / 15)",
 			"bones": {
@@ -76,7 +76,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.walk": {
+		"animation.billeys_mobs.slimewyvern.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 10",
 			"bones": {
@@ -124,7 +124,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.sit": {
+		"animation.billeys_mobs.slimewyvern.sit": {
 			"loop": true,
 			"bones": {
 				"Right_Hand": {
@@ -175,7 +175,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.idle": {
+		"animation.billeys_mobs.slimewyvern.idle": {
 			"loop": true,
 			"bones": {
 				"Neck": {
@@ -201,7 +201,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.attack": {
+		"animation.billeys_mobs.slimewyvern.attack": {
 			"animation_length": 0.5,
 			"bones": {
 				"Body": {
@@ -237,7 +237,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.eat": {
+		"animation.billeys_mobs.slimewyvern.eat": {
 			"loop": true,
 			"bones": {
 				"Head": {
@@ -248,7 +248,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.hurt": {
+		"animation.billeys_mobs.slimewyvern.hurt": {
 			"loop": true,
 			"bones": {
 				"whole": {
@@ -265,7 +265,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.hiss": {
+		"animation.billeys_mobs.slimewyvern.hiss": {
 			"animation_length": 0.83333,
 			"bones": {
 				"ooo": {
@@ -332,7 +332,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.on_head": {
+		"animation.billeys_mobs.slimewyvern.on_head": {
 			"loop": true,
 			"bones": {
 				"ooo": {
@@ -383,7 +383,7 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.on_head_fly": {
+		"animation.billeys_mobs.slimewyvern.on_head_fly": {
 			"loop": true,
 			"bones": {
 				"ooo": {
@@ -430,11 +430,11 @@
 				}
 			}
 		},
-		"animation.billslimewyvern.mate_male": {
+		"animation.billeys_mobs.slimewyvern.mate_male": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 15
 		},
-		"animation.billslimewyvern.mate_female": {
+		"animation.billeys_mobs.slimewyvern.mate_female": {
 			"loop": true
 		}
 	}

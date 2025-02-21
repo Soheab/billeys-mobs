@@ -4,7 +4,7 @@
     "description": {
       "identifier": "billey:endflyingcat",
       "materials": {
-        "default": "spider",
+        "default": "entity_emissive_alpha",
         "wings": "skeleton"
       },
       "textures": {
@@ -23,15 +23,17 @@
         ]
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "idle": "animation.fcat.idle",
         "baby_transform": "animation.cat.baby_transform",
         "sit": "animation.fcat.sit",
         "look_at_target": "animation.common.look_at_target",
-        "controller.sit": "controller.animation.billey.sit",
-        "petted3": "animation.billcat.petted4"// /playanimation animations dont need tobe listed here
+        "controller.sit": "controller.animation.billeys_mobs.sit",
+        "petted3": "animation.billeys_mobs.cat.petted4"// /playanimation animations dont need tobe listed here
         //i did it to preview it in blockbench
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [ "controller.render.endflyingcat" ],
       "spawn_egg": {
         "texture": "egg_cat_enderman_angel"

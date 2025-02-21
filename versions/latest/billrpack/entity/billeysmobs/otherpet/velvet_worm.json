@@ -7,33 +7,33 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"normal": "textures/entity/bill/velvet_worm",
-				"blue": "textures/entity/bill/velvet_worm1",
-				"red": "textures/entity/bill/velvet_worm2",
-				"orange": "textures/entity/bill/velvet_worm3"
+				"normal": "textures/entity/billeys_mobs/velvet_worm",
+				"blue": "textures/entity/billeys_mobs/velvet_worm1",
+				"red": "textures/entity/billeys_mobs/velvet_worm2",
+				"orange": "textures/entity/billeys_mobs/velvet_worm3"
 			},
 			"geometry": {
-				"default": "geometry.billvelvet_worm"
+				"default": "geometry.billeys_mobs.velvet_worm"
 			},
 			"animations": {
-				"new": "animation.billduckproj.body",
-				"sheared": "animation.billvelvet_worm.antennas",
-				"walk": "animation.billvelvet_worm.walk",
-				"turn": "animation.billvelvet_worm.turn",
-				"sit": "animation.billvelvet_worm.sit",
-				"controller.sheared": "controller.animation.billey.shearedd",
-				"controller.climb": "controller.animation.billey.climbb",
-				"controller.attack": "controller.animation.billey.velvet_attack",
-				"melt": "controller.animation.billey.sit",
-				"climb": "animation.billvelvet_worm.climb",
-				"c.fall": "controller.animation.billey.ground",
-				"fall": "animation.billvelvet_worm.fall",
-				"angry": "animation.billvelvet_worm.angry",
-				"hurt": "animation.billvelvet_worm.hurt",
-				"death2": "animation.billkiwi.cancelvanilladeath",
-				"death": "animation.billvelvet_worm.death",
-				"attacking": "animation.billvelvet_worm.attacking",
-				"attacked": "animation.billvelvet_worm.attacked"
+				"new": "animation.billeys_mobs.duckproj.body",
+				"sheared": "animation.billeys_mobs.velvet_worm.antennas",
+				"walk": "animation.billeys_mobs.velvet_worm.walk",
+				"turn": "animation.billeys_mobs.velvet_worm.turn",
+				"sit": "animation.billeys_mobs.velvet_worm.sit",
+				"controller.sheared": "controller.animation.billeys_mobs.shearedd",
+				"controller.climb": "controller.animation.billeys_mobs.climbb",
+				"controller.attack": "controller.animation.billeys_mobs.velvet_attack",
+				"melt": "controller.animation.billeys_mobs.sit",
+				"climb": "animation.billeys_mobs.velvet_worm.climb",
+				"c.fall": "controller.animation.billeys_mobs.ground",
+				"fall": "animation.billeys_mobs.velvet_worm.fall",
+				"angry": "animation.billeys_mobs.velvet_worm.angry",
+				"hurt": "animation.billeys_mobs.velvet_worm.hurt",
+				"death2": "animation.billeys_mobs.kiwi.cancelvanilladeath",
+				"death": "animation.billeys_mobs.velvet_worm.death",
+				"attacking": "animation.billeys_mobs.velvet_worm.attacking",
+				"attacked": "animation.billeys_mobs.velvet_worm.attacked"
 			},
 			"particle_effects": {
 				"zeelol": "billey:zee"
@@ -72,7 +72,9 @@
 					}
 				]
 			},
-			"render_controllers": [
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
 				"controller.render.velvetwormbill"
 			],
 			"spawn_egg": {

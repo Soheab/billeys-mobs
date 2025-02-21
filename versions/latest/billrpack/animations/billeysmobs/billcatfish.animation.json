@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billcatfish.hurt": {
+		"animation.billeys_mobs.catfish.hurt": {
 			"loop": true,
 			"bones": {
 				"bone4": {
@@ -9,7 +9,7 @@
 				}
 			}
 		},
-		"animation.billcatfish.swim": {
+		"animation.billeys_mobs.catfish.swim": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 2,q.modified_distance_moved / 1.6)",
 			"bones": {
@@ -47,7 +47,7 @@
 				}
 			}
 		},
-		"animation.billcatfish.flip": {
+		"animation.billeys_mobs.catfish.flip": {
 			"loop": true,
 			"animation_length": 10,
 			"bones": {
@@ -63,7 +63,7 @@
 				}
 			}
 		},
-		"animation.billcatfish.pet": {
+		"animation.billeys_mobs.catfish.pet": {
 			"animation_length": 0.8,
 			"bones": {
 				"bone": {

@@ -5,31 +5,48 @@ import "./shooters";
 import "./interval";
 import "./blocks";
 import "./swords";
-import "./ratPotions";
-import "./infoBook";
-import "./pigeonMission";
+import "./rat_potions";
+import "./info_book";
+import "./pigeon_mission";
 import "./advancements";
 import "./morph";
-import "./ratKing";
-import "./betterPetOwnerSaving";
-import "./mobEquipment";
-import "./catfishSyringe";
-import "./pygmyDunkleosteus";
-import "./qualityOfLife";
+import "./rat_king";
+import "./better_pet_owner_saving";
+import "./pet_equipment/_index";
+import "./catfish_syringe";
+import "./pygmy_dunkleosteus";
+import "./quality_of_life";
 import "./plushies";
+import "./roasts";
+import "./duckatrice";
+import "./leveling";
 import { playSound } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
+import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 
 //im aware that this file needs to be split into other files
 
-const debugMode = false;
+const DEBUG_MODE = false;
 
-if (debugMode) {
+if (DEBUG_MODE) {
+	world.sendMessage("<Billey's Mobs> §eDebug Mode!");
 	const insignificantEvents = ["switch_movement", "add_sittable", "remove_sittable", "minecraft:entity_spawned"];
 	const insignificantScriptEvents = ["billey:add_script_tag"];
 	world.afterEvents.dataDrivenEntityTrigger.subscribe(e => {
 		if (!insignificantEvents.includes(e.eventId))
 			world.sendMessage("§e" + e.entity.typeId + "§f : §e" + e.eventId);
+		const modifiers = e.getModifiers();
+		/** @type {string[]} */
+		let addedComponentGroups = [];
+		modifiers.forEach(m => { addedComponentGroups = addedComponentGroups.concat(m.addedComponentGroups); })
+		let removedComponentGroups = [];
+		modifiers.forEach(m => { removedComponentGroups = removedComponentGroups.concat(m.removedComponentGroups); })
+		e.entity.__componentGroups ??= [];
+		e.entity.__componentGroups = e.entity.__componentGroups.filter(c => !removedComponentGroups.includes(c));
+		addedComponentGroups.forEach(a => {
+			if (!e.entity.__componentGroups.includes(a))
+				e.entity.__componentGroups.push(a);
+		});
 	});
 	system.afterEvents.scriptEventReceive.subscribe(e => {
 		if (!insignificantScriptEvents.includes(e.id))
@@ -38,7 +55,18 @@ if (debugMode) {
 	world.afterEvents.entitySpawn.subscribe(e => {
 		world.sendMessage("§f" + e.entity.typeId + "§7 : §f" + e.cause);
 	});
+	world.beforeEvents.playerInteractWithEntity.subscribe(({ player, target, itemStack }) => {
+		if (itemStack?.typeId == "minecraft:blaze_rod")
+			system.run(() => {
+				player.sendMessage("§6" + JSON.stringify(target.__componentGroups));
+			});
+	});
 }
+
+world.afterEvents.dataDrivenEntityTrigger.subscribe(({entity, eventId }) => {
+	if (eventId == "minecraft:ageable_grow_up")
+		playSound(entity, "billey.grow");
+});
 
 let parentColor = 0;
 let otherParentColor = 0;
@@ -59,6 +87,17 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
 	switch (data.id) {
 		case "billey:add_script_tag":
 			data.sourceEntity.addTag("billey_script_working");
+			break;
+		case "billey:tame_to_nearest_player":
+			system.run(() => {
+				data.sourceEntity.getComponent("tameable").tame(
+					data.sourceEntity.dimension.getEntities({
+						type: "minecraft:player",
+						closest: 1
+					})[0]
+				);
+				addOwnerAsDynamicProperty(data.sourceEntity);
+			});
 			break;
 		case "billey:handle_crossbreed":
 			switch (data.message) {
@@ -83,8 +122,8 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
 			data.sourceEntity.setDynamicProperty("owner_name", data.message);
 			break;
 		case "billey:handle_rat_crossbreed":
-			//this ensures that the crossbred rat will look like a mix of its parents
-			//and not identical to one of them as happened 50% of the time before this
+			//this ensures that the crossbred rat will always look like a mix of its parents
+			//and not identical to one of them as happened 50% of the time before this script
 			const rat = data.sourceEntity;
 			switch (data.message) {
 				case "parent":

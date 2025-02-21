@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billkiwi.walk": {
+		"animation.billeys_mobs.kiwi.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 6",
 			"bones": {
@@ -25,7 +25,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.ground": {
+		"animation.billeys_mobs.kiwi.ground": {
 			"loop": true,
 			"bones": {
 				"body2": {
@@ -43,7 +43,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.eat": {
+		"animation.billeys_mobs.kiwi.eat": {
 			"loop": true,
 			"bones": {
 				"bone4": {
@@ -54,7 +54,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.sit": {
+		"animation.billeys_mobs.kiwi.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -76,7 +76,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.baby": {
+		"animation.billeys_mobs.kiwi.baby": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -85,7 +85,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.cancelvanilladeath": {
+		"animation.billeys_mobs.kiwi.cancelvanilladeath": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -96,7 +96,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.death": {
+		"animation.billeys_mobs.kiwi.death": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.48,
 			"bones": {
@@ -160,7 +160,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.albino": {
+		"animation.billeys_mobs.kiwi.albino": {
 			"animation_length": 100.5,
 			"bones": {
 				"bone6": {
@@ -185,7 +185,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.general": {
+		"animation.billeys_mobs.kiwi.general": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -196,7 +196,7 @@
 				}
 			}
 		},
-		"animation.billkiwi.new": {
+		"animation.billeys_mobs.kiwi.new": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1.96,
 			"bones": {

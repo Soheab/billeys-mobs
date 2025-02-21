@@ -11,7 +11,7 @@
               ]
             },
             "animations": {
-              "tame": "controller.animation.billey.place_pickle"
+              "tame": "controller.animation.billeys_mobs.place_pickle"
             }
         },
         "component_groups": {

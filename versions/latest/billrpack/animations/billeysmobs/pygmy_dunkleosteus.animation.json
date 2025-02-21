@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billpygmy_dunkleosteus.hypsi_eeze_pose": {
+		"animation.billeys_mobs.pygmy_dunkleosteus.hypsi_eeze_pose": {
 			"loop": true,
 			"bones": {
 				"head": {
@@ -21,7 +21,7 @@
 				}
 			}
 		},
-		"animation.billpygmy_dunkleosteus.swim": {
+		"animation.billeys_mobs.pygmy_dunkleosteus.swim": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 2, q.modified_distance_moved / 2)",
 			"bones": {
@@ -51,7 +51,7 @@
 				}
 			}
 		},
-		"animation.billpygmy_dunkleosteus.attack": {
+		"animation.billeys_mobs.pygmy_dunkleosteus.attack": {
 			"animation_length": 0.5,
 			"bones": {
 				"body": {

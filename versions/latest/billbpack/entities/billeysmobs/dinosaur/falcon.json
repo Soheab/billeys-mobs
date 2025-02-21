@@ -40,14 +40,14 @@
                 ]
             },
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "set_follow_state": "animation.billey.set_follow_state",
-                "set_sitting_property": "controller.animation.billey.set_sitting_property",
-                     "rainbow_effects": "animation.billey.rainbow_effects",
-                     "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-                "tame": "controller.animation.billeysmobs.tame",
-                "health": "controller.animation.bill.falconlowhealth",
-                "checkifsitting": "controller.animation.bill.checkifsitting"
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "set_follow_state": "animation.billeys_mobs.set_follow_state",
+                "set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+                     "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                     "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "tame": "controller.animation.billeys_mobs.tame",
+                "health": "controller.animation.billeys_mobs.falconlowhealth",
+                "checkifsitting": "controller.animation.billeys_mobs.checkifsitting"
             }
         }, //wild fly is actually just the normal fly component group and is used
         //for tamed falcons too
@@ -86,7 +86,7 @@
                     "broadcast_anger": true,
                     "broadcast_range": 27,
                     "calm_event": {
-                        "event": "calmery",
+                        "event": "billey:pet_target_escape",
                         "target": "self"
                     },
                     "broadcast_filters": {
@@ -947,7 +947,7 @@
         "components": {
             "minecraft:on_target_acquired": {
                 "target": "self",
-                "event": "angery"
+                "event": "billey:pet_target_acquired"
             },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:type_family": {
@@ -1113,7 +1113,12 @@
             },
             "minecraft:conditional_bandwidth_optimization": {}
         },
-        "events": {
+        
+        "events": {"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
             "set_follow_state": {
                 "sequence": [
                     {
@@ -1153,8 +1158,8 @@
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1162,7 +1167,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
                 "add_sittable": {
@@ -1242,7 +1247,7 @@
                     ]
                 }
             },
-            "angery": {
+            "billey:pet_target_acquired": {
                 "sequence": [
                     {
                         "filters": {

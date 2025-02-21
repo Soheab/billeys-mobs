@@ -3,15 +3,18 @@
     "minecraft:entity": {
         "description": {
             "identifier": "billey:cucumbeel",
-            "runtime_identifier": "minecraft:axolotl",
+            "runtime_identifier": "minecraft:salmon",
             "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
-                "animate": [ "check_beta_apis",
+                "animate": [
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
-                    {"info":"!q.is_tamed"},
+                    {
+                        "info": "!q.is_tamed"
+                    },
                     "tame",
                     "fix",
                     "cucumba",
@@ -27,17 +30,65 @@
                 ]
             },
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-                "info": "animation.billeyinfo.cucumbeel",
-                "fix": "controller.animation.billcucumbeel.fix",
-                "tame": "controller.animation.billeysmobs.tame",
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.cucumbeel",
+                "fix": "controller.animation.billeys_mobs.cucumbeel.fix",
+                "tame": "controller.animation.billeys_mobs.tame",
                 "cucumba": "controller.animation.cucumba.vitamin",
                 "mineral": "controller.animation.cucumba.veryhighnumba",
                 "waterbreth": "controller.animation.cucumba.bacteria",
                 "goup": "animation.cucumba.goup",
                 "slow": "animation.cucumba.slow"
+            },
+            "properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                }
             }
         },
         "component_groups": {
@@ -85,7 +136,7 @@
             },
             "following": {
                 "minecraft:behavior.follow_owner": {
-					"can_teleport": false,
+                    "can_teleport": false,
                     "priority": 0,
                     "speed_multiplier": 1.25,
                     "start_distance": 7,
@@ -245,6 +296,27 @@
                 }
             },
             "tamed": {
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 1,
+                    "entity_types": {
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 2,
+                    "entity_types": {
+                        "max_dist": 127,
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
                 "minecraft:persistent": {},
                 "minecraft:leashable": {
                     "soft_distance": 6.0,
@@ -253,12 +325,12 @@
                 },
                 "minecraft:healable": {
                     "items": [
-                        
-                    {
-                        "item": "billey:poultry_orange",
-                        "heal_amount": 7
-                    },{
-                        "item": "billey:cooked_snail",
+                        {
+                            "item": "billey:poultry_orange",
+                            "heal_amount": 7
+                        },
+                        {
+                            "item": "billey:cooked_snail",
                             "heal_amount": 4,
                             "effects": [
                                 {
@@ -428,6 +500,36 @@
             }
         },
         "components": {
+            "minecraft:attack": {
+                "damage": [
+                    1,
+                    2
+                ]
+            },
+            "minecraft:behavior.melee_attack": {
+                "require_complete_path": true,
+                "priority": 2,
+                "speed_multiplier": 1,
+                "track_target": true
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 2,
+                "entity_types": {
+                    "filters": {
+                        "test": "has_tag",
+                        "subject": "self",
+                        "value": "billey:brave"
+                    }
+                }
+            },
+            "minecraft:on_target_acquired": {
+                "event": "billey:pet_target_acquired",
+                "target": "self"
+            },
+            "minecraft:on_target_escape": {
+                "event": "billey:pet_target_escape",
+                "target": "self"
+            },
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:experience_reward": {
                 "on_death": "q.last_hit_by_player ? Math.Random(1,3) : 0"
@@ -545,6 +647,27 @@
                             "event": "die"
                         },
                         "deals_damage": false
+                    },{
+                        "cause": "all",
+                        "deals_damage": false,
+                        "on_damage_sound_event": "armor.equip_generic",
+                        "on_damage": {
+                            "event": "destroy_head_equipment",
+                            "target": "self",
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_damage",
+                                        "value": "fatal"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "value": "billey:pet_hat",
+                                        "domain": "head"
+                                    }
+                                ]
+                            }
+                        }
                     }
                 ]
             },
@@ -640,7 +763,7 @@
                     {
                         "hurt_item": 1,
                         "play_sounds": "eat",
-                        "interact_text": "action.interact.billeysmobs.boost",
+                        "interact_text": "action.interact.billeys_mobs.boost",
                         "on_interact": {
                             "filters": {
                                 "all_of": [
@@ -669,7 +792,7 @@
                     {
                         "use_item": true,
                         "play_sounds": "eat",
-                        "interact_text": "action.interact.billeysmobs.boost",
+                        "interact_text": "action.interact.billeys_mobs.boost",
                         "on_interact": {
                             "filters": {
                                 "all_of": [
@@ -693,7 +816,7 @@
                     {
                         "play_sounds": "plop",
                         "swing": true,
-                        "interact_text": "action.interact.billeysmobs.boost",
+                        "interact_text": "action.interact.billeys_mobs.boost",
                         "on_interact": {
                             "filters": {
                                 "all_of": [
@@ -906,12 +1029,19 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "billey:pet_target_acquired": {},
+            "billey:pet_target_escape": {},
+            "destroy_head_equipment": {
+                "queue_command": {
+                    "command": "scriptevent billey:destroy_pet_head_equipment"
+                }
+            },
             "say_owner_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -919,7 +1049,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
             "add_sittable": {
@@ -941,9 +1071,9 @@
                     "target": "other",
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.cucumbeel\",\"with\":[\"\\n\"]}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.cucumbeel\",\"with\":[\"\\n\"]}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip6\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip6\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                     ]
                 }
@@ -1188,7 +1318,7 @@
                                 "weight": 1,
                                 "queue_command": {
                                     "command": [
-                                        "playanimation @s animation.billcat.petted"
+                                        "playanimation @s animation.billeys_mobs.cat.petted"
                                     ]
                                 }
                             }
@@ -1198,7 +1328,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "playanimation @s animation.billeyplayer.pet"
+                                "playanimation @s animation.billeys_mobsplayer.pet"
                             ]
                         }
                     },
@@ -1297,7 +1427,7 @@
                     "target": "other",
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @a[r=6,tag=!billeyinfotip6] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip6\"}]}",
+                        "tellraw @a[r=6,tag=!billeyinfotip6] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip6\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
                         "tag @a[r=6,tag=!billeyinfotip6] add billeyinfotip6"
                     ]

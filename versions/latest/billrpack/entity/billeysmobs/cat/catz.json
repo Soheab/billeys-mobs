@@ -8,7 +8,7 @@
       },
       "textures": {
         "white": "textures/entity/zcat/white",
-        "hat": "textures/entity/bill/hat",
+        "hat": "textures/entity/billeys_mobs/hat",
         "black": "textures/entity/zcat/tuxedo",
         "red": "textures/entity/zcat/redtabby",
         "siamese": "textures/entity/zcat/siamesecat",
@@ -43,12 +43,12 @@
       },
       "geometry": {
         "default": "geometry.zcat",
-        "hat": "geometry.billcathat",
+        "hat": "geometry.billeys_mobs.cathat",
         "eyes": "geometry.cateyes",
         "tail": "geometry.cattail"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "sneak": "animation.cat.sneak",
         "walk": "animation.cat.walk",
         "sprint": "animation.cat.sprint",
@@ -61,11 +61,11 @@
         "eat": "animation.cat.tailsnek",
         "beg": "animation.cat.beg",
         "look_at_target_cont": "controller.animation.bcat.look_at_target",
-        "sitcont": "controller.animation.billey.sitforcat",
+        "sitcont": "controller.animation.billeys_mobs.sitforcat",
         "baby": "controller.animation.bcat.baby",
-        "eatcont": "controller.animation.billey.eat",
-        "hurt": "animation.billcat.hurt",
-        "raising": "controller.animation.billey.eatnoblend"
+        "eatcont": "controller.animation.billeys_mobs.eat",
+        "hurt": "animation.billeys_mobs.cat.hurt",
+        "raising": "controller.animation.billeys_mobs.eatnoblend"
       },
       "scripts": {
         "animate": [ "new",
@@ -77,6 +77,8 @@
           { "hurt": "q.health < q.max_health" }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
         "controller.render.cat",
         "controller.render.cateyes",

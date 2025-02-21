@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billrat_king.walk": {
+		"animation.billeys_mobs.rat_king.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 8",
 			"bones": {
@@ -210,7 +210,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.run": {
+		"animation.billeys_mobs.rat_king.run": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 8",
 			"bones": {
@@ -444,7 +444,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.move": {
+		"animation.billeys_mobs.rat_king.move": {
 			"loop": true,
 			"bones": {
 				"rat3": {
@@ -485,7 +485,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.cook": {
+		"animation.billeys_mobs.rat_king.cook": {
 			"loop": true,
 			"animation_length": 6.5,
 			"bones": {
@@ -528,7 +528,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.cook2": {
+		"animation.billeys_mobs.rat_king.cook2": {
 			"loop": true,
 			"animation_length": 6.5,
 			"bones": {
@@ -571,7 +571,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.cook3": {
+		"animation.billeys_mobs.rat_king.cook3": {
 			"loop": true,
 			"animation_length": 6.5,
 			"bones": {
@@ -614,7 +614,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.cook4": {
+		"animation.billeys_mobs.rat_king.cook4": {
 			"loop": true,
 			"animation_length": 6.5,
 			"bones": {
@@ -657,7 +657,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.die": {
+		"animation.billeys_mobs.rat_king.die": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -1277,7 +1277,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.attack": {
+		"animation.billeys_mobs.rat_king.attack": {
 			"animation_length": 0.5,
 			"bones": {
 				"body": {
@@ -1398,7 +1398,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.spin": {
+		"animation.billeys_mobs.rat_king.spin": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -1407,7 +1407,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.fold_wings": {
+		"animation.billeys_mobs.rat_king.fold_wings": {
 			"loop": true,
 			"bones": {
 				"rightwing2": {
@@ -1440,7 +1440,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.fly": {
+		"animation.billeys_mobs.rat_king.fly": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time*2,q.modified_distance_moved / 15)",
 			"bones": {
@@ -1494,7 +1494,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.ascend": {
+		"animation.billeys_mobs.rat_king.ascend": {
 			"loop": "hold_on_last_frame",
 			"bones": {
 				"rat": {
@@ -1535,7 +1535,7 @@
 				}
 			}
 		},
-		"animation.billrat_king.descend": {
+		"animation.billeys_mobs.rat_king.descend": {
 			"loop": "hold_on_last_frame",
 			"bones": {
 				"rat": {

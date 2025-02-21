@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billtiktaalik",
+				"identifier": "geometry.billeys_mobs.tiktaalik",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 5,
@@ -25,6 +25,11 @@
 					"cubes": [
 						{"origin": [-4.5, 3, -22], "size": [9, 3, 9], "inflate": 0.02, "uv": [27, 0]}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "head",
+					"pivot": [0, 5.5, -22]
 				},
 				{
 					"name": "eyes",

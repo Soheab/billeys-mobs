@@ -9,45 +9,45 @@
                 "cat": "cat"
             },
             "textures": {
-                "default": "textures/entity/bill/slime_wyvern",
-                "variant1": "textures/entity/bill/slime_wyvern1",
-                "variant2": "textures/entity/bill/slime_wyvern2",
-                "variant3": "textures/entity/bill/slime_wyvern3",
-                "variant4": "textures/entity/bill/slime_wyvern4",
-                "variant5": "textures/entity/bill/slime_wyvern5",
-                "variant6": "textures/entity/bill/slime_wyvern6",
-                "variant7": "textures/entity/bill/slime_wyvern7",
-                "variant8": "textures/entity/bill/slime_wyvern8",
-                "cum": "textures/entity/bill/slime_wyvern_cum",
-                "drunk": "textures/entity/bill/slime_wyvern_drunk",
-                "nothing": "textures/entity/bill/slime_wyvern_nothing",
-                "hat": "textures/entity/bill/hat"
+                "default": "textures/entity/billeys_mobs/slime_wyvern",
+                "variant1": "textures/entity/billeys_mobs/slime_wyvern1",
+                "variant2": "textures/entity/billeys_mobs/slime_wyvern2",
+                "variant3": "textures/entity/billeys_mobs/slime_wyvern3",
+                "variant4": "textures/entity/billeys_mobs/slime_wyvern4",
+                "variant5": "textures/entity/billeys_mobs/slime_wyvern5",
+                "variant6": "textures/entity/billeys_mobs/slime_wyvern6",
+                "variant7": "textures/entity/billeys_mobs/slime_wyvern7",
+                "variant8": "textures/entity/billeys_mobs/slime_wyvern8",
+                "cum": "textures/entity/billeys_mobs/slime_wyvern_cum",
+                "drunk": "textures/entity/billeys_mobs/slime_wyvern_drunk",
+                "nothing": "textures/entity/billeys_mobs/slime_wyvern_nothing",
+                "hat": "textures/entity/billeys_mobs/hat"
             },
             "geometry": {
-                "default": "geometry.billslimewyvern",
-                "cum": "geometry.billslimewyverncum",
-                "hat": "geometry.billslimewyvernhat"
+                "default": "geometry.billeys_mobs.slimewyvern",
+                "cum": "geometry.billeys_mobs.slimewyverncum",
+                "hat": "geometry.billeys_mobs.slimewyvernhat"
             },
             "animations": {
-                "new": "animation.billduckproj.ooo",
-                "general": "controller.animation.billey.slime_wyvern",
-                "look": "animation.billslimewyvern.look",
-                "on_ground": "animation.billslimewyvern.on_ground",
-                "walk": "animation.billslimewyvern.walk",
-                "walk_preview": "animation.billslimewyvern.walk_preview",
-                "fly": "animation.billslimewyvern.fly",
-                "sit": "animation.billslimewyvern.sit",
-                "idle": "animation.billslimewyvern.idle",
-                "attack": "animation.billslimewyvern.attack",
-                "eat": "animation.billslimewyvern.eat",
-                "eatcont": "controller.animation.billey.eat",
-                "on_head_cont": "controller.animation.billey.on_head",
-                "on_head": "animation.billslimewyvern.on_head",
-                "on_head_fly": "animation.billslimewyvern.on_head_fly",
-                "big_power_up": "animation.billslimewyvern.big_power_up",
-                "cont.big_power_up": "controller.animation.billey.big_power_up",
-                "hurt": "animation.billslimewyvern.hurt",
-                "hiss": "animation.billslimewyvern.hiss"
+                "new": "animation.billeys_mobs.duckproj.ooo",
+                "general": "controller.animation.billeys_mobs.slime_wyvern",
+                "look": "animation.billeys_mobs.slimewyvern.look",
+                "on_ground": "animation.billeys_mobs.slimewyvern.on_ground",
+                "walk": "animation.billeys_mobs.slimewyvern.walk",
+                "walk_preview": "animation.billeys_mobs.slimewyvern.walk_preview",
+                "fly": "animation.billeys_mobs.slimewyvern.fly",
+                "sit": "animation.billeys_mobs.slimewyvern.sit",
+                "idle": "animation.billeys_mobs.slimewyvern.idle",
+                "attack": "animation.billeys_mobs.slimewyvern.attack",
+                "eat": "animation.billeys_mobs.slimewyvern.eat",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "on_head_cont": "controller.animation.billeys_mobs.on_head",
+                "on_head": "animation.billeys_mobs.slimewyvern.on_head",
+                "on_head_fly": "animation.billeys_mobs.slimewyvern.on_head_fly",
+                "big_power_up": "animation.billeys_mobs.slimewyvern.big_power_up",
+                "cont.big_power_up": "controller.animation.billeys_mobs.big_power_up",
+                "hurt": "animation.billeys_mobs.slimewyvern.hurt",
+                "hiss": "animation.billeys_mobs.slimewyvern.hiss"
             },
             "scripts": {
                 "pre_animation": [
@@ -72,13 +72,15 @@
                     "idle"
                 ]
             },
-            "render_controllers": [
-                "controller.render.billslimewyvern",
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs.slimewyvern",
                 {
-                    "controller.render.billslimewyvern.cum": "q.is_saddled"
+                    "controller.render.billeys_mobs.slimewyvern.cum": "q.is_saddled"
                 },
                 {
-                    "controller.render.billbduckhat": "q.is_powered"
+                    "controller.render.billeys_mobs.bduckhat": "q.is_powered"
                 }
             ],
             "spawn_egg": {

@@ -6,7 +6,7 @@
             "is_summonable": true,
             "is_spawnable": false,
             "animations": {
-                "clear_effects": "animation.billey.anglerfish_boost.clear_effects"
+                "clear_effects": "animation.billeys_mobs.anglerfish_boost.clear_effects"
             },
             "scripts": {
                 "animate": [

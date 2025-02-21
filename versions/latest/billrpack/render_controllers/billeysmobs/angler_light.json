@@ -1,7 +1,7 @@
 {
   "format_version": "1.8.0",
   "render_controllers": {
-    "controller.render.billangler_light": {
+    "controller.render.billeys_mobs.angler_light": {
       "arrays": {
         "textures": {
           "Array.variants": [

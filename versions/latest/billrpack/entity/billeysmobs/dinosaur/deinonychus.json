@@ -8,51 +8,51 @@
           "cat": "cat"
         },
         "textures": {
-          "zero": "textures/entity/bill/deinonychus",
-          "one": "textures/entity/bill/deinonychus1",
-          "two": "textures/entity/bill/deinonychus2",
-          "three": "textures/entity/bill/deinonychus3",
-          "four": "textures/entity/bill/deinonychus4",
-          "five": "textures/entity/bill/deinonychus5",
-          "six": "textures/entity/bill/deinonychus6",
-          "seven": "textures/entity/bill/deinonychus7",
-          "eight": "textures/entity/bill/deinonychus8",
-          "nine": "textures/entity/bill/deinonychus9",
-          "ten": "textures/entity/bill/deinonychus",
-          "eleven": "textures/entity/bill/deinonychus1",
-          "twelve": "textures/entity/bill/deinonychus2",
-          "thirteen": "textures/entity/bill/deinonychus3",
-          "fourteen": "textures/entity/bill/deinonychus4",
-          "fifteen": "textures/entity/bill/deinonychus5",
-          "sixteen": "textures/entity/bill/deinonychus6",
-          "seventeen": "textures/entity/bill/deinonychus7",
-          "eighteen": "textures/entity/bill/deinonychus8",
-          "nineteen": "textures/entity/bill/deinonychus9",
-          "twenty": "textures/entity/bill/deinonychus",
-          "twentyone": "textures/entity/bill/deinonychus1",
-          "hat": "textures/entity/bill/hat"
+          "zero": "textures/entity/billeys_mobs/deinonychus",
+          "one": "textures/entity/billeys_mobs/deinonychus1",
+          "two": "textures/entity/billeys_mobs/deinonychus2",
+          "three": "textures/entity/billeys_mobs/deinonychus3",
+          "four": "textures/entity/billeys_mobs/deinonychus4",
+          "five": "textures/entity/billeys_mobs/deinonychus5",
+          "six": "textures/entity/billeys_mobs/deinonychus6",
+          "seven": "textures/entity/billeys_mobs/deinonychus7",
+          "eight": "textures/entity/billeys_mobs/deinonychus8",
+          "nine": "textures/entity/billeys_mobs/deinonychus9",
+          "ten": "textures/entity/billeys_mobs/deinonychus",
+          "eleven": "textures/entity/billeys_mobs/deinonychus1",
+          "twelve": "textures/entity/billeys_mobs/deinonychus2",
+          "thirteen": "textures/entity/billeys_mobs/deinonychus3",
+          "fourteen": "textures/entity/billeys_mobs/deinonychus4",
+          "fifteen": "textures/entity/billeys_mobs/deinonychus5",
+          "sixteen": "textures/entity/billeys_mobs/deinonychus6",
+          "seventeen": "textures/entity/billeys_mobs/deinonychus7",
+          "eighteen": "textures/entity/billeys_mobs/deinonychus8",
+          "nineteen": "textures/entity/billeys_mobs/deinonychus9",
+          "twenty": "textures/entity/billeys_mobs/deinonychus",
+          "twentyone": "textures/entity/billeys_mobs/deinonychus1",
+          "hat": "textures/entity/billeys_mobs/hat"
         },
         "geometry": {
-          "default": "geometry.billdeinonychus",
-          "hat": "geometry.billdeinonychushat"
+          "default": "geometry.billeys_mobs.deinonychus",
+          "hat": "geometry.billeys_mobs.deinonychushat"
         },
         "animations": {
-          "controller.sit": "controller.animation.billey.sit",
-          "hurt": "animation.billcat.hurt2",
-          "sit": "animation.billdeinonychus.sit",
-          "eat": "animation.billdeinonychus.open_mouth",
-          "eatcont": "controller.animation.billey.eat",
-          "attackcont": "controller.animation.billey.random_attack",
-          "look": "animation.billdeinonychus.look",
-          "walk": "animation.billdeinonychus.walk",
-          "controller.ground": "controller.animation.billey.ground",
-          "fall": "animation.billdeinonychus.fall",
-          "attack1": "animation.billdeinonychus.attack",
-          "attack2": "animation.billdeinonychus.attack2",
-          "attack3": "animation.billdeinonychus.attack2",
-          "idle": "animation.billdeinonychus.idle",
-          "roar": "animation.billdeinonychus.roar",
-          "tail": "animation.billdeinonychus.tail"
+          "controller.sit": "controller.animation.billeys_mobs.sit",
+          "hurt": "animation.billeys_mobs.cat.hurt2",
+          "sit": "animation.billeys_mobs.deinonychus.sit",
+          "eat": "animation.billeys_mobs.deinonychus.open_mouth",
+          "eatcont": "controller.animation.billeys_mobs.eat",
+          "attackcont": "controller.animation.billeys_mobs.random_attack",
+          "look": "animation.billeys_mobs.deinonychus.look",
+          "walk": "animation.billeys_mobs.deinonychus.walk",
+          "controller.ground": "controller.animation.billeys_mobs.ground",
+          "fall": "animation.billeys_mobs.deinonychus.fall",
+          "attack1": "animation.billeys_mobs.deinonychus.attack",
+          "attack2": "animation.billeys_mobs.deinonychus.attack2",
+          "attack3": "animation.billeys_mobs.deinonychus.attack2",
+          "idle": "animation.billeys_mobs.deinonychus.idle",
+          "roar": "animation.billeys_mobs.deinonychus.roar",
+          "tail": "animation.billeys_mobs.deinonychus.tail"
         },
         "scripts": {
           "initialize": [
@@ -74,10 +74,12 @@
             }
           ]
         },
-        "render_controllers": [
-          "controller.render.billbettafish",
+        "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+          "controller.render.billeys_mobs.bettafish",
           {
-            "controller.render.billbduckhat": "q.is_powered"
+            "controller.render.billeys_mobs.bduckhat": "q.is_powered"
           }
         ],
         "spawn_egg": {

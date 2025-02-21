@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billendercat",
+				"identifier": "geometry.billeys_mobs.endercat",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 5,
@@ -34,6 +34,11 @@
 						{"origin": [1, 14, -9], "size": [1, 1, 2], "uv": [6, 10]},
 						{"origin": [-2.5, 10, -12], "size": [5, 4, 5], "inflate": -0.01, "uv": [0, 0]}
 					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 14, -9.4]
 				},
 				{
 					"name": "tail1",
@@ -124,6 +129,12 @@
 					"cubes": [
 						{"origin": [-2.1, 0, -6], "size": [2, 4, 2], "uv": [31, 20]}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "body",
+					"pivot": [0, 7, -7],
+					"rotation": [50, 0, 0]
 				}
 			]
 		}

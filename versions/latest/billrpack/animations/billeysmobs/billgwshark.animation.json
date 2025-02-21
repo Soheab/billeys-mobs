@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billshark.swim": {
+		"animation.billeys_mobs.shark.swim": {
 			"loop": true,
 			"anim_time_update": "math.max(q.anim_time + q.delta_time / 2,q.modified_distance_moved / 1.6)",
 			"bones": {
@@ -43,7 +43,7 @@
 				}
 			}
 		},
-		"animation.billshark.look": {
+		"animation.billeys_mobs.shark.look": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -51,7 +51,7 @@
 				}
 			}
 		},
-		"animation.billshark.attack": {
+		"animation.billeys_mobs.shark.attack": {
 			"animation_length": 0.5,
 			"bones": {
 				"head": {

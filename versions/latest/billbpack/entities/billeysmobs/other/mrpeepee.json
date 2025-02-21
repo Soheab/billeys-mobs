@@ -10,7 +10,7 @@
 	    "animate": [ "death" ]
 	  },
 	  "animations": {
-	    "death": "controller.animation.billeyangel_death"
+	    "death": "controller.animation.billeys_mobsangel_death"
     }
     },
 

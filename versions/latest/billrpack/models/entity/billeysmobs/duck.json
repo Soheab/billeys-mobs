@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billduck",
+				"identifier": "geometry.billeys_mobs.duck",
 				"texture_width": 48,
 				"texture_height": 48,
 				"visible_bounds_width": 2,
@@ -246,6 +246,11 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "head",
+					"pivot": [0, 7.5, -5]
 				},
 				{
 					"name": "bodylol",

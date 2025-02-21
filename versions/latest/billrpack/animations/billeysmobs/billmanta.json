@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billduckling.look_at_target": {
+		"animation.billeys_mobs.duckling.look_at_target": {
 			"loop": true,
 			"bones": {
 				"lol": {
@@ -9,7 +9,7 @@
 				}
 			}
 		},
-		"animation.billfishy.look": {
+		"animation.billeys_mobs.fishy.look": {
 			"loop": true,
 			"bones": {
 				"abody": {
@@ -96,7 +96,7 @@
 				}
 			}
 		},
-		"animation.billhmrshark.swim": {
+		"animation.billeys_mobs.hmrshark.swim": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -122,7 +122,7 @@
 				}
 			}
 		},
-		"animation.billhmrshark.turn": {
+		"animation.billeys_mobs.hmrshark.turn": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -130,7 +130,7 @@
 				}
 			}
 		},
-		"animation.billduck.walk": {
+		"animation.billeys_mobs.duck.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved * 600",
 			"bones": {

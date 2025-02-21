@@ -1,16 +1,18 @@
 {
     "format_version": "1.8.0",
     "render_controllers": {
-        "controller.render.billey.plushie": {
+        "controller.render.billeys_mobs.plushie": {
             "arrays": {
                 "textures": {
                     "Array.textures": [
-                        "Texture.slime_wyvern"
+                        "Texture.slime_wyvern",
+                        "Texture.rubber_ducky"
                     ]
                 },
                 "geometries": {
                     "Array.geometries": [
-                        "Geometry.slime_wyvern"
+                        "Geometry.slime_wyvern",
+                        "Geometry.rubber_ducky"
                     ]
                 }
             },

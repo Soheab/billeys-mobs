@@ -7,16 +7,16 @@
 				"default": "salmon"
 			},
 			"textures": {
-				"default": "textures/entity/bill/orca"
+				"default": "textures/entity/billeys_mobs/orca"
 			},
 			"geometry": {
-				"default": "geometry.billorca"
+				"default": "geometry.billeys_mobs.orca"
 			},
       "animations": {
-        "new": "animation.billduckproj.body",
-        "look": "animation.billorca.look",
-        "swim": "animation.billorca.swim",
-        "attack": "animation.billorca.attack"
+        "new": "animation.billeys_mobs.duckproj.body",
+        "look": "animation.billeys_mobs.orca.look",
+        "swim": "animation.billeys_mobs.orca.swim",
+        "attack": "animation.billeys_mobs.orca.attack"
       },
       "scripts": {
         "animate": [ "new",
@@ -25,7 +25,9 @@
           { "attack": "q.variant == 1" }
         ]
       },
-      "render_controllers": [ "controller.render.billey_default" ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs_default" ],
 			"spawn_egg": {
 				"base_color": "#07080A",
 				"overlay_color": "#E1D5FF"

@@ -1,7 +1,29 @@
 {
 	"format_version": "1.10.0",
 	"animation_controllers": {
-		"controller.animation.billey.set_sitting_property": {
+		"controller.animation.billeys_mobs.slime_wyvern_remove_angry": {
+			"initial_state": "calm",
+			"states": {
+				"calm": {
+					"transitions": [
+						{
+							"sitting": "q.has_target"
+						}
+					],
+					"on_entry": [
+						"@s billey:on_target_escape"
+					]
+				},
+				"has_target": {
+					"transitions": [
+						{
+							"calm": "!q.has_target"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.set_sitting_property": {
 			"initial_state": "standing",
 			"states": {
 				"standing": {
@@ -26,7 +48,7 @@
 				}
 			}
 		},
-		"controller.animation.billey.stand_up_when_hit": {
+		"controller.animation.billeys_mobs.stand_up_when_hit": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -61,7 +83,7 @@
 				}
 			}
 		},
-		"controller.animation.billey.sleeping": {
+		"controller.animation.billeys_mobs.sleeping": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -91,7 +113,7 @@
 				}
 			}
 		},
-		"controller.animation.bill.bananafire": {
+		"controller.animation.billeys_mobs.bananafire": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -121,7 +143,7 @@
 				}
 			}
 		},
-		"controller.animation.bill.standhamster": {
+		"controller.animation.billeys_mobs.standhamster": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -142,7 +164,7 @@
 				}
 			}
 		},
-		"controller.animation.bill.kiwialb": {
+		"controller.animation.billeys_mobs.kiwialb": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -170,7 +192,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.hmrbill": {
+		"controller.animation.billeys_mobs.hmrbill": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -191,7 +213,7 @@
 				}
 			}
 		},
-		"controller.animation.billduckhat.exdehe": {
+		"controller.animation.billeys_mobs.duckhat.exdehe": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -212,7 +234,32 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.despawn": {
+		"controller.animation.billeys_mobs.duckatrice.fix_after_ride": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"is_being_ridden": "q.has_rider"
+						}
+					],
+					"on_entry": [
+						"@s test_if_target"
+					]
+				},
+				"is_being_ridden": {
+					"transitions": [
+						{
+							"default": "!q.has_rider"
+						}
+					],
+					"on_exit": [
+						"/tp ~~~",
+						"/effect @s speed 0 255 true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.despawn": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -239,7 +286,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.mercatbreathing": {
+		"controller.animation.billeys_mobs.mercatbreathing": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -263,7 +310,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.mercatwater": {
+		"controller.animation.billeys_mobs.mercatwater": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -288,7 +335,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.tiktaalik_switch_movement": {
+		"controller.animation.billeys_mobs.tiktaalik_switch_movement": {
 			"initial_state": "on_land_or_sitting",
 			"states": {
 				"on_land_or_sitting": {
@@ -339,7 +386,7 @@
 				}
 			}
 		},
-		"controller.animation.billeyangel_death": {
+		"controller.animation.billeys_mobsangel_death": {
 			"states": {
 				"default": {
 					"on_entry": [
@@ -348,7 +395,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.pigeon": {
+		"controller.animation.billeys_mobs.pigeon": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -369,7 +416,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.dont_fly_while_mating": {
+		"controller.animation.billeys_mobs.dont_fly_while_mating": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -394,7 +441,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.eelflee": {
+		"controller.animation.billeys_mobs.eelflee": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -466,7 +513,7 @@
 				}
 			}
 		},
-		"controller.animation.velvet.billeyzambie": {
+		"controller.animation.velvet.billeys_mobszambie": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -483,27 +530,6 @@
 					],
 					"on_exit": [
 						"/summon billey:slimedrop"
-					]
-				}
-			}
-		},
-		"controller.animation.billey.get_xp": {
-			"states": {
-				"default": {
-					"transitions": [
-						{
-							"doing_thing": "v.attack_time"
-						}
-					]
-				},
-				"doing_thing": {
-					"transitions": [
-						{
-							"default": "!v.attack_time"
-						}
-					],
-					"on_exit": [
-						"@s get_xp"
 					]
 				}
 			}
@@ -529,7 +555,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.love_tag": {
+		"controller.animation.billeys_mobs.love_tag": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -553,7 +579,7 @@
 				}
 			}
 		},
-		"controller.animation.billeyrat.ride": {
+		"controller.animation.billeys_mobs.rat.ride": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -587,7 +613,7 @@
 				}
 			}
 		},
-		"controller.animation.billeywyvern.ride": {
+		"controller.animation.billeys_mobswyvern.ride": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -621,7 +647,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.tame": {
+		"controller.animation.billeys_mobs.tame": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -640,9 +666,9 @@
 						}
 					],
 					"on_entry": [
-						"/tellraw @a[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.leashwild\"}]}",
+						"/tellraw @a[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.leashwild\"}]}",
 						"/tag @p[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] add billeyinfoleashwild2",
-						"/tellraw @a[r=6,tag=!billeyinfoleashwild] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.leashwild\"}]}",
+						"/tellraw @a[r=6,tag=!billeyinfoleashwild] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.leashwild\"}]}",
 						"/tag @p[r=6,tag=!billeyinfoleashwild] add billeyinfoleashwild"
 					]
 				},
@@ -668,13 +694,13 @@
 						"/particle billey:sprinkles ~ ~.4 ~"
 					],
 					"on_entry": [
-						"/tellraw @p[r=6,tag=!billeyinfohurtpet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.tip5\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+						"/tellraw @p[r=6,tag=!billeyinfohurtpet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip5\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
 						"/tag @p[r=6,tag=!billeyinfohurtpet] add billeyinfohurtpet"
 					]
 				}
 			}
 		},
-		"controller.animation.billeysmobs.cocc": {
+		"controller.animation.billeys_mobs.cocc": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -686,7 +712,7 @@
 				"doing_thing": {
 					"on_entry": [
 						"/particle billey:sprinkles ~ ~.5 ~",
-						"/tellraw @a {\"rawtext\":[{\"translate\":\"rawtext.billeyhonk\"},{\"translate\":\"rawtext.billeyhonk2\"},{\"text\":\"\\n\\n\\n\\n\\n§ehttps://mcpedl.com/billeys-mobs-addon§r is where you should have gotten this addon from, if you got it from anywhere else then the website you got it from steals add-ons from mcpedl and no add-on you find there is actually uploaded by its creator. Popular examples of websites like that would be mcpеhub.ru, mc-аddons.com, mcpе-gаme.ru, monstеr-mcpе.com, minеcrаftpе-mods.com and every app where you can download addons, unless mcpеdl made their own app after this was written\\n\\n\\n\\n\"}]}",
+						"/tellraw @a {\"rawtext\":[{\"translate\":\"rawtext.billeys_mobshonk\"},{\"translate\":\"rawtext.billeys_mobshonk2\"},{\"text\":\"\\n\\n\\n\\n\\n§ehttps://mcpedl.com/billeys-mobs-addon§r is where you should have gotten this addon from, if you got it from anywhere else then the website you got it from steals add-ons from mcpedl and no add-on you find there is actually uploaded by its creator. Popular examples of websites like that would be mcpеhub.ru, mc-аddons.com, mcpе-gаme.ru, monstеr-mcpе.com, minеcrаftpе-mods.com and every app where you can download addons, unless mcpеdl made their own app after this was written\\n\\n\\n\\n\"}]}",
 						"/setblock ~~~ billey:zambie",
 						"/playsound billey.goose.say @a ~~~",
 						"/tp 0 0 0"
@@ -694,7 +720,7 @@
 				}
 			}
 		},
-		"controller.animation.billey.place_pickle": {
+		"controller.animation.billeys_mobs.place_pickle": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -742,7 +768,7 @@
 				}
 			}
 		},
-		"controller.animation.billey.can_sleep": {
+		"controller.animation.billeys_mobs.can_sleep": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -772,7 +798,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.shouldgetanorange": {
+		"controller.animation.billeys_mobs.shouldgetanorange": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -802,7 +828,7 @@
 				}
 			}
 		},
-		"controller.animation.billeysmobs.panicompo": {
+		"controller.animation.billeys_mobs.panicompo": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -833,7 +859,7 @@
 				}
 			}
 		},
-		"controller.animation.billbetta.boost": {
+		"controller.animation.billeys_mobs.betta.boost": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -854,7 +880,7 @@
 				}
 			}
 		},
-		"controller.animation.billgoose.eat": {
+		"controller.animation.billeys_mobs.goose.eat": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -902,7 +928,7 @@
 				}
 			}
 		},
-		"controller.animation.billgoose.isholdingitem": {
+		"controller.animation.billeys_mobs.goose.isholdingitem": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -932,7 +958,7 @@
 				}
 			}
 		},
-		"controller.animation.bill.checkifsitting": {
+		"controller.animation.billeys_mobs.checkifsitting": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -956,7 +982,7 @@
 				}
 			}
 		},
-		"controller.animation.billcucumbeel.fix": {
+		"controller.animation.billeys_mobs.cucumbeel.fix": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -980,7 +1006,7 @@
 				}
 			}
 		},
-		"controller.animation.bill.falconlowhealth": {
+		"controller.animation.billeys_mobs.falconlowhealth": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1002,7 +1028,7 @@
 				}
 			}
 		},
-		"controller.animation.bill.fixredstone": {
+		"controller.animation.billeys_mobs.fixredstone": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1023,7 +1049,7 @@
 				}
 			}
 		},
-		"controller.animation.bill.asspower": {
+		"controller.animation.billeys_mobs.asspower": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1044,7 +1070,7 @@
 				}
 			}
 		},
-		"controller.animation.billey.level_when_shooting": {
+		"controller.animation.billeys_mobs.level_when_shooting": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1065,7 +1091,7 @@
 				}
 			}
 		},
-		"controller.animation.billduck.gold": {
+		"controller.animation.billeys_mobs.duck.gold": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1081,7 +1107,7 @@
 				}
 			}
 		},
-		"controller.animation.billsnail.fix": {
+		"controller.animation.billeys_mobs.snail.fix": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1107,7 +1133,7 @@
 				}
 			}
 		},
-		"controller.animation.billsnail.fix2": {
+		"controller.animation.billeys_mobs.snail.fix2": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1131,7 +1157,7 @@
 				}
 			}
 		},
-		"controller.animation.billyuty.float": {
+		"controller.animation.billeys_mobs.yuty.float": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -1158,26 +1184,26 @@
 				}
 			}
 		},
-		"controller.animation.billyuty.rideable": {
+		"controller.animation.billeys_mobs.yuty.rideable": {
 			"states": {
 				"default": {
 					"transitions": [
 						{
-							"doing_thing": "q.is_tamed && !q.is_sitting && !q.is_baby"
+							"doing_thing": "q.is_tamed && !q.is_sitting && !q.is_baby && q.is_saddled"
 						}
+					],
+					"on_entry": [
+						"@s remove_rideable"
 					]
 				},
 				"doing_thing": {
 					"transitions": [
 						{
-							"default": "!q.is_tamed || q.is_sitting || q.is_baby"
+							"default": "q.is_sitting || q.is_baby || !q.is_saddled"
 						}
 					],
 					"on_entry": [
 						"@s add_rideable"
-					],
-					"on_exit": [
-						"@s remove_rideable"
 					]
 				}
 			}

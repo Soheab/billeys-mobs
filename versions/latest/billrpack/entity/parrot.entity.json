@@ -10,7 +10,7 @@
             "textures": {
                 "blue": "textures/entity/parrot/parrot_blue",
                 "green": "textures/entity/parrot/parrot_green",
-                "hat": "textures/entity/bill/hat",
+                "hat": "textures/entity/billeys_mobs/hat",
                 "red_blue": "textures/entity/parrot/parrot_red_blue",
                 "yellow_blue": "textures/entity/parrot/parrot_yellow_blue",
                 "grey": "textures/entity/parrot/parrot_grey"
@@ -31,8 +31,8 @@
                 ]
             },
             "animations": {
-        "new": "animation.billduckproj.body",
-                "baby": "animation.billkiwi.baby",
+        "new": "animation.billeys_mobs.duckproj.body",
+                "baby": "animation.billeys_mobs.kiwi.baby",
                 "moving": "animation.parrot.moving",
                 "base": "animation.parrot.base",
                 "dance": "animation.parrot.dance",
@@ -43,10 +43,12 @@
                 "setup": "controller.animation.parrot.setup",
                 "move": "controller.animation.parrot.move"
             },
-            "render_controllers": [
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
                 "controller.render.parrot",
                 {
-                    "controller.render.billbduckhat": "q.is_saddled"
+                    "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
                 }
             ],
             "spawn_egg": {

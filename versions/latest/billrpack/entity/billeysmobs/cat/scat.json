@@ -11,10 +11,10 @@
         "aggresive": "textures/entity/cat/scatangry"
       },
       "geometry": {
-        "default": "geometry.billscat"
+        "default": "geometry.billeys_mobs.scat"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "sneak": "animation.cat.sneak",
         "walk": "animation.cat.walk",
         "sprint": "animation.cat.sprint",
@@ -27,10 +27,10 @@
         "eat": "animation.scat.eat",
         "noteating": "animation.scat.noteat",
         "look_at_target_cont": "controller.animation.bcat.look_at_target",
-        "sitcont": "controller.animation.billey.sitforcat",
+        "sitcont": "controller.animation.billeys_mobs.sitforcat",
         "baby": "controller.animation.bcat.baby",
-        "hurt": "animation.billcat.hurt",
-        "eatcont": "controller.animation.billey.eatscat"
+        "hurt": "animation.billeys_mobs.cat.hurt",
+        "eatcont": "controller.animation.billeys_mobs.eatscat"
       },
       "scripts": {
         "animate": [ "new",
@@ -43,6 +43,8 @@
           "eatcont"
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [
         "controller.render.scat"
       ],

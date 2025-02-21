@@ -362,6 +362,42 @@
             "sounds": [
                 "sounds/billeysmobs/slip"
             ]
+        },
+        "billey.duckatrice.quack": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckatrice_ambient",
+                    "volume": 0.3
+                }
+            ]
+        },
+        "billey.duckatrice.hurt": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckatrice_hurt",
+                    "volume": 0.3
+                }
+            ]
+        },
+        "billey.duckatrice.summon": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckatrice_summon",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.grow": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/grow",
+                    "volume": 1.0
+                }
+            ]
         }
     }
 }

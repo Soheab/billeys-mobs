@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billswordfish.swim": {
+		"animation.billeys_mobs.swordfish.swim": {
 			"loop": true,
 			"bones": {
 				"body_front": {
@@ -22,7 +22,7 @@
 				}
 			}
 		},
-		"animation.billswordfish.flop": {
+		"animation.billeys_mobs.swordfish.flop": {
 			"loop": true,
 			"bones": {
 				"body_front": {

@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billslime_wyvern_plushie",
+				"identifier": "geometry.billeys_mobs.slime_wyvern_plushie",
 				"texture_width": 32,
 				"texture_height": 32,
 				"visible_bounds_width": 3,
@@ -12,12 +12,17 @@
 			},
 			"bones": [
 				{
-					"name": "head",
-					"pivot": [0, -8, 0]
+					"name": "hat",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "plushie_whole",
+					"parent": "hat",
+					"pivot": [0, 0, 0]
 				},
 				{
 					"name": "plushie_leg",
-					"parent": "head",
+					"parent": "plushie_whole",
 					"pivot": [2, 1, 0],
 					"rotation": [0, 45, 0],
 					"cubes": [
@@ -27,7 +32,7 @@
 				},
 				{
 					"name": "plushie_leg2",
-					"parent": "head",
+					"parent": "plushie_whole",
 					"pivot": [-2, 1, 0],
 					"rotation": [0, -45, 0],
 					"cubes": [
@@ -37,7 +42,7 @@
 				},
 				{
 					"name": "pushie_body",
-					"parent": "head",
+					"parent": "plushie_whole",
 					"pivot": [0, 2.5, -1]
 				},
 				{

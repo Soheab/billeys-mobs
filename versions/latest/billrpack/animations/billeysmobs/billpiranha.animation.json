@@ -32,7 +32,7 @@
 				}
 			}
 		},
-		"animation.billpiranha.swim": {
+		"animation.billeys_mobs.piranha.swim": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -55,7 +55,7 @@
 				}
 			}
 		},
-		"animation.billpiranha.thrown": {
+		"animation.billeys_mobs.piranha.thrown": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -78,7 +78,7 @@
 				}
 			}
 		},
-		"animation.billpiranha.flop": {
+		"animation.billeys_mobs.piranha.flop": {
 			"loop": true,
 			"animation_length": 2.6,
 			"bones": {

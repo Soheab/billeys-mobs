@@ -11,7 +11,7 @@
 	    "animate": [ "tame" ]
 	  },
 	  "animations": {
-	    "tame": "animation.billey.normal_weather"
+	    "tame": "animation.billeys_mobs.normal_weather"
     }
     },
     "components": { "minecraft:is_hidden_when_invisible": {},

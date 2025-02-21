@@ -5,15 +5,15 @@
       "identifier": "billey:swordfish",
       "materials": { "default": "entity_alphatest" },
       "textures": {
-        "default": "textures/entity/bill/swordfish"
+        "default": "textures/entity/billeys_mobs/swordfish"
       },
       "geometry": {
-        "default": "geometry.billswordfish"
+        "default": "geometry.billeys_mobs.swordfish"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "flop": "animation.billswordfish.flop",
-        "swim": "animation.billswordfish.swim"
+        "new": "animation.billeys_mobs.duckproj.body",
+        "flop": "animation.billeys_mobs.swordfish.flop",
+        "swim": "animation.billeys_mobs.swordfish.swim"
       },
       "scripts": {
         "animate": [ "new",
@@ -22,7 +22,9 @@
           { "flop": "!q.is_in_water" }
         ]
       },
-      "render_controllers": [ "controller.render.billey_default" ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs_default" ],
       "spawn_egg": {
         "base_color": "#2D4456",
         "overlay_color": "#AAC7E2"

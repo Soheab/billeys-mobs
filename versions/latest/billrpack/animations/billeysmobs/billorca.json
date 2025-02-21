@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billorca.look": {
+		"animation.billeys_mobs.orca.look": {
 			"loop": true,
 			"animation_length": 1.52,
 			"bones": {
@@ -28,7 +28,7 @@
 				}
 			}
 		},
-		"animation.billorca.attack": {
+		"animation.billeys_mobs.orca.attack": {
 			"loop": true,
 			"animation_length": 1.2,
 			"bones": {
@@ -48,7 +48,7 @@
 				}
 			}
 		},
-		"animation.billorca.swim": {
+		"animation.billeys_mobs.orca.swim": {
 			"loop": true,
 			"bones": {
 				"body": {

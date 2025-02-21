@@ -12,7 +12,7 @@
       "animate": [ "despawn" ]
     },
     "animations": {
-      "despawn": "controller.animation.billeysmobs.despawn"
+      "despawn": "controller.animation.billeys_mobs.despawn"
     }
     },
     "components": { "minecraft:is_hidden_when_invisible": {},

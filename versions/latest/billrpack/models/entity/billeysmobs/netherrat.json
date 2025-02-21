@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billnetherrat",
+				"identifier": "geometry.billeys_mobs.netherrat",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 4,
@@ -40,6 +40,11 @@
 					"locators": {
 						"lead": [0, 2, -2.5]
 					}
+				},
+				{
+					"name": "bowtie",
+					"parent": "frontbody",
+					"pivot": [0, 1.5, -2.5]
 				},
 				{
 					"name": "rightflap",

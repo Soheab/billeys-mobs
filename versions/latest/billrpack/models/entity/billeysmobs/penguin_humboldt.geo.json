@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billpenguin_humboldt",
+				"identifier": "geometry.billeys_mobs.penguin_humboldt",
 				"texture_width": 32,
 				"texture_height": 32,
 				"visible_bounds_width": 2,
@@ -22,6 +22,11 @@
 					"cubes": [
 						{"origin": [-2.5, 1, -2], "size": [5, 8, 4], "uv": [0, 7]}
 					]
+				},
+				{
+					"name": "bowtie",
+					"parent": "body",
+					"pivot": [0, 7.5, -2]
 				},
 				{
 					"name": "head",

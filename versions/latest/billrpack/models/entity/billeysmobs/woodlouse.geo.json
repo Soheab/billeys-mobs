@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billwoodlouse",
+				"identifier": "geometry.billeys_mobs.woodlouse",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -153,6 +153,12 @@
 					]
 				},
 				{
+					"name": "bowtie",
+					"parent": "body3",
+					"pivot": [0, 1, -6],
+					"rotation": [45, 0, 0]
+				},
+				{
 					"name": "left_leg0",
 					"parent": "body3",
 					"pivot": [3.5, 1, -5.5],
@@ -209,7 +215,10 @@
 								"down": {"uv": [6.032, 1.968], "uv_size": [3.936, -1.936]}
 							}
 						}
-					]
+					],
+					"locators": {
+						"lead": [0, 3, -6]
+					}
 				},
 				{
 					"name": "left_antenna",

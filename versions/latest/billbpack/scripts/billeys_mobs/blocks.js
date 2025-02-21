@@ -6,7 +6,7 @@ world.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry }) => {
 	blockComponentRegistry.registerCustomComponent("billey:banana_peel", {
 		onStepOn: (({ entity, block }) => {
 			if (!entity) return;
-			if (!entity.getComponent("is_tamed") && (entity.typeId != "minecraft:player" || block.typeId == "billey:banana_peel_player_block")) {
+			if (!entity.getComponent("is_tamed") && entity.typeId != "minecraft:item" && (entity.typeId != "minecraft:player" || block.typeId == "billey:banana_peel_player_block")) {
 				entity.addEffect("slowness", 20 * 2, { amplifier: 5 });
 				entity.addEffect("nausea", 20 * 12, { amplifier: 5 });
 				playSound(entity, "billey.banana.slip");

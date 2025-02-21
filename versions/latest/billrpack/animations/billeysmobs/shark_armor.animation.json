@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billshark_armor.attack": {
+		"animation.billeys_mobs.shark_armor.attack": {
 			"animation_length": 0.5,
 			"loop": true,
 			"bones": {
@@ -36,7 +36,7 @@
 				}
 			}
 		},
-		"animation.billshark_armor.swim": {
+		"animation.billeys_mobs.shark_armor.swim": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 2",
 			"bones": {

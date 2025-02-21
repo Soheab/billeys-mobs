@@ -82,6 +82,11 @@
 					]
 				},
 				{
+					"name": "bowtie",
+					"parent": "bodyxd",
+					"pivot": [0, 5, -7]
+				},
+				{
 					"name": "head",
 					"parent": "bodynohead",
 					"pivot": [0, 9, -9],
@@ -205,6 +210,11 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 11, -9.5]
 				},
 				{
 					"name": "tail1",

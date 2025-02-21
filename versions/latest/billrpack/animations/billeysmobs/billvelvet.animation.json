@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billvelvet.antennas": {
+		"animation.billeys_mobs.velvet.antennas": {
 			"loop": true,
 			"bones": {
 				"bone6": {
@@ -21,7 +21,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.turn": {
+		"animation.billeys_mobs.velvet.turn": {
 			"loop": true,
 			"bones": {
 				"bone": {
@@ -72,7 +72,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.walk": {
+		"animation.billeys_mobs.velvet.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 6",
 			"bones": {
@@ -159,7 +159,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.climb": {
+		"animation.billeys_mobs.velvet.climb": {
 			"loop": true,
 			"bones": {
 				"bone17": {
@@ -170,7 +170,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.fall": {
+		"animation.billeys_mobs.velvet.fall": {
 			"loop": true,
 			"bones": {
 				"bone17": {
@@ -182,7 +182,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.sit": {
+		"animation.billeys_mobs.velvet.sit": {
 			"loop": true,
 			"bones": {
 				"bone17": {
@@ -319,7 +319,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.hurt": {
+		"animation.billeys_mobs.velvet.hurt": {
 			"loop": true,
 			"bones": {
 				"bone8": {
@@ -340,7 +340,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.angry": {
+		"animation.billeys_mobs.velvet.angry": {
 			"loop": true,
 			"bones": {
 				"bone14": {
@@ -351,7 +351,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.hurt2": {
+		"animation.billeys_mobs.velvet.hurt2": {
 			"loop": true,
 			"bones": {
 				"bone20": {
@@ -360,7 +360,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.petted": {
+		"animation.billeys_mobs.velvet.petted": {
 			"animation_length": 1.56,
 			"bones": {
 				"bone17": {
@@ -492,7 +492,7 @@
 				}
 			}
 		},
-		"animation.billvelvet.death": {
+		"animation.billeys_mobs.velvet.death": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {

@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billpenguin_boots",
+				"identifier": "geometry.billeys_mobs.penguin_boots",
 				"texture_width": 32,
 				"texture_height": 16,
 				"visible_bounds_width": 10,

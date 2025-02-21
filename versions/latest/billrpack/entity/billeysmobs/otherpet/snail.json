@@ -10,26 +10,26 @@
 				"nodye": "entity"
 			},
 			"textures": {
-				"default": "textures/entity/bill/snail",
-				"one": "textures/entity/bill/snail1",
-				"two": "textures/entity/bill/snail2",
-				"three": "textures/entity/bill/snail3",
-				"four": "textures/entity/bill/snail4",
-				"five": "textures/entity/bill/snail5",
-				"six": "textures/entity/bill/snail6",
-				"seven": "textures/entity/bill/snail7"
+				"default": "textures/entity/billeys_mobs/snail",
+				"one": "textures/entity/billeys_mobs/snail1",
+				"two": "textures/entity/billeys_mobs/snail2",
+				"three": "textures/entity/billeys_mobs/snail3",
+				"four": "textures/entity/billeys_mobs/snail4",
+				"five": "textures/entity/billeys_mobs/snail5",
+				"six": "textures/entity/billeys_mobs/snail6",
+				"seven": "textures/entity/billeys_mobs/snail7"
 			},
 			"geometry": {
-				"default": "geometry.billsnail"
+				"default": "geometry.billeys_mobs.snail"
 			},
 			"animations": {
-        "new": "animation.billduckproj.body",
-				"healthcont": "controller.animation.billey.crack",
-				"sheared": "animation.billsnail.sit",
-				"controller.sheared": "controller.animation.billey.snail",
-				"controller.climb": "controller.animation.billey.climb",
-				"climb": "animation.billsnail.climb",
-				"poison": "animation.billsnail.poison"
+        "new": "animation.billeys_mobs.duckproj.body",
+				"healthcont": "controller.animation.billeys_mobs.crack",
+				"sheared": "animation.billeys_mobs.snail.sit",
+				"controller.sheared": "controller.animation.billeys_mobs.snail",
+				"controller.climb": "controller.animation.billeys_mobs.climb",
+				"climb": "animation.billeys_mobs.snail.climb",
+				"poison": "animation.billeys_mobs.snail.poison"
 			},
 			"sound_effects": {
 			  "crack": "block.turtle_egg.crack"
@@ -49,7 +49,9 @@
 					{ "poison": "q.variant" }
 				]
 			},
-			"render_controllers": ["controller.render.billsnail"],
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": ["controller.render.billeys_mobs.snail"],
 			"spawn_egg": {
 				"base_color": "#fedcbe",
 				"overlay_color": "#A8B881"

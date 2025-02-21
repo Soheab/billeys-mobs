@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billstickbug.walk": {
+		"animation.billeys_mobs.stickbug.walk": {
 			"loop": true,
 			"anim_time_update": "q.modified_distance_moved / 10",
 			"bones": {
@@ -39,7 +39,7 @@
 				}
 			}
 		},
-		"animation.billstickbug.dance": {
+		"animation.billeys_mobs.stickbug.dance": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {
@@ -102,7 +102,7 @@
 				}
 			}
 		},
-		"animation.billstickbug.sit": {
+		"animation.billeys_mobs.stickbug.sit": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -134,7 +134,7 @@
 				}
 			}
 		},
-		"animation.billstickbug.wiggle": {
+		"animation.billeys_mobs.stickbug.wiggle": {
 			"animation_length": 0.6,
 			"bones": {
 				"left_antena": {
@@ -153,7 +153,7 @@
 				}
 			}
 		},
-		"animation.billstickbug.hurt": {
+		"animation.billeys_mobs.stickbug.hurt": {
 			"loop": true,
 			"bones": {
 				"body": {
@@ -167,7 +167,7 @@
 				}
 			}
 		},
-		"animation.billstickbug.general": {
+		"animation.billeys_mobs.stickbug.general": {
 			"loop": true,
 			"bones": {
 				"left_antena": {
@@ -178,7 +178,7 @@
 				}
 			}
 		},
-		"animation.billstickbug.flap": {
+		"animation.billeys_mobs.stickbug.flap": {
 			"loop": true,
 			"bones": {
 				"left_wing": {
@@ -189,7 +189,7 @@
 				}
 			}
 		},
-		"animation.billstickbug.hide_wings": {
+		"animation.billeys_mobs.stickbug.hide_wings": {
 			"loop": true,
 			"bones": {
 				"left_wing": {

@@ -278,6 +278,11 @@
 					]
 				},
 				{
+					"name": "bowtie",
+					"parent": "bodyxd",
+					"pivot": [0, 18.5, -2]
+				},
+				{
 					"name": "wing0",
 					"parent": "bodylol",
 					"pivot": [0, 13.5, 4],

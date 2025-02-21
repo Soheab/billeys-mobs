@@ -8,54 +8,103 @@
 			"is_summonable": true,
 			"is_experimental": false,
 			"scripts": {
-                "animate": [
-                    {
-                        "set_follow_state": "q.is_tamed && q.property('billey:follow_owner_state') == 'unknown'"
-                    },
-                    {
-                        "set_sitting_property": "q.is_tamed"
-                    }, "check_beta_apis",
-                    {
-                        "rainbow_effects": "q.is_illager_captain"
-                    },
-                    {
-                        "stand_up_when_hit": "q.is_tamed"
-                    },
-					{"info":"!q.is_tamed"},
+				"animate": [
+					{
+						"set_follow_state": "q.is_tamed && q.property('billey:follow_owner_state') == 'unknown'"
+					},
+					{
+						"set_sitting_property": "q.is_tamed"
+					},
+					"check_beta_apis",
+					{
+						"rainbow_effects": "q.is_illager_captain"
+					},
+					{
+						"stand_up_when_hit": "q.is_tamed"
+					},
+					{
+						"info": "!q.is_tamed"
+					},
 					"tame"
 				]
 			},
-            "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "set_follow_state": "animation.billey.set_follow_state",
-                "set_sitting_property": "controller.animation.billey.set_sitting_property",
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-				"info": "animation.billeyinfo.skeleton_cat",
-				"tame": "controller.animation.billeysmobs.tame"
+			"animations": {
+				"check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+				"set_follow_state": "animation.billeys_mobs.set_follow_state",
+				"set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+				"rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+				"stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+				"info": "animation.billeys_mobs.info.skeleton_cat",
+				"tame": "controller.animation.billeys_mobs.tame"
 			},
-            "properties": {
-                "billey:follow_owner_state": {
-                    //only used so scripts can know whether it's following or wandering
-                    "type": "enum",
-                    "default": "unknown",
-                    "values": [
-                        "unknown",
-                        "following",
-                        "wandering"
-                    ]
+			"properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
                 },
-                "billey:is_sitting": {
-                    //only used so scripts can know whether or not it's sitting
-                    "type": "bool",
-                    "default": false
-                }
-            }
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+				"billey:follow_owner_state": {
+					//only used so scripts can know whether it's following or wandering
+					"type": "enum",
+					"default": "unknown",
+					"values": [
+						"unknown",
+						"following",
+						"wandering"
+					]
+				},
+				"billey:is_sitting": {
+					//only used so scripts can know whether or not it's sitting
+					"type": "bool",
+					"default": false
+				}
+			}
 		},
 		"component_groups": {
-            "sittable": {
-                "minecraft:sittable": {}
-            },
+			"sittable": {
+				"minecraft:sittable": {}
+			},
 			"tamed_component": {
 				"minecraft:is_tamed": {}
 			},
@@ -192,7 +241,8 @@
 							}
 						}
 					],
-					"breed_items": [ "billey:poultry_orange",
+					"breed_items": [
+						"billey:poultry_orange",
 						"nether_wart"
 					]
 				}
@@ -290,7 +340,7 @@
 					]
 				},
 				"minecraft:is_tamed": {},
-                "minecraft:tameable": {}, //for the script to be able to get the mob's owner
+				"minecraft:tameable": {}, //for the script to be able to get the mob's owner
 				"minecraft:health": {
 					"value": 20,
 					"max": 20
@@ -308,37 +358,28 @@
 				"minecraft:behavior.owner_hurt_target": {
 					"priority": 4,
 					"entity_types": {
-                        "max_dist": 127,
+						"max_dist": 127,
 						"filters": {
-							"all_of": [
+							"any_of": [
 								{
-									"any_of": [
-										{
-											"test": "has_component",
-											"subject": "other",
-											"value": "minecraft:breedable"
-										},
-										{
-											"test": "has_component",
-											"subject": "other",
-											"value": "minecraft:is_baby"
-										},
-										{
-											"test": "is_family",
-											"subject": "other",
-											"value": "animal"
-										}
-									]
+									"test": "has_component",
+									"subject": "other",
+									"value": "minecraft:breedable"
 								},
 								{
-									"any_of": [
-										{
-											"test": "has_component",
-											"subject": "other",
-											"operator": "not",
-											"value": "minecraft:is_tamed"
-										}
-									]
+									"test": "has_component",
+									"subject": "other",
+									"value": "minecraft:is_baby"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "animal"
+								},
+								{
+									"test": "has_tag",
+									"subject": "self",
+									"value": "billey:brave"
 								}
 							]
 						}
@@ -348,35 +389,26 @@
 					"priority": 4,
 					"entity_types": {
 						"filters": {
-							"all_of": [
+							"any_of": [
 								{
-									"any_of": [
-										{
-											"test": "has_component",
-											"subject": "other",
-											"value": "minecraft:breedable"
-										},
-										{
-											"test": "has_component",
-											"subject": "other",
-											"value": "minecraft:is_baby"
-										},
-										{
-											"test": "is_family",
-											"subject": "other",
-											"value": "animal"
-										}
-									]
+									"test": "has_component",
+									"subject": "other",
+									"value": "minecraft:breedable"
 								},
 								{
-									"any_of": [
-										{
-											"test": "has_component",
-											"subject": "other",
-											"operator": "not",
-											"value": "minecraft:is_tamed"
-										}
-									]
+									"test": "has_component",
+									"subject": "other",
+									"value": "minecraft:is_baby"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "animal"
+								},
+								{
+									"test": "has_tag",
+									"subject": "self",
+									"value": "billey:brave"
 								}
 							]
 						}
@@ -1173,6 +1205,14 @@
 			}
 		},
 		"components": {
+			"minecraft:on_target_acquired": {
+				"event": "billey:pet_target_acquired",
+				"target": "self"
+			},
+			"minecraft:on_target_escape": {
+				"event": "billey:pet_target_escape",
+				"target": "self"
+			},
 			"minecraft:is_hidden_when_invisible": {},
 			"minecraft:color": {
 				"value": 8
@@ -1230,12 +1270,12 @@
 			"minecraft:can_climb": {},
 			"minecraft:healable": {
 				"items": [
-					
-                    {
-                        "item": "billey:poultry_orange",
-                        "heal_amount": 7
-                    },{
-                        "item": "billey:cooked_snail",
+					{
+						"item": "billey:poultry_orange",
+						"heal_amount": 7
+					},
+					{
+						"item": "billey:cooked_snail",
 						"heal_amount": 4,
 						"effects": [
 							{
@@ -1333,24 +1373,30 @@
 					"deals_damage": false
 				},
 				{
-					"on_damage": {
-						"cause": "all"
-					},
-					"damage_multiplier": 1.0
-				},
-				{
 					"cause": "fall",
 					"deals_damage": false
 				},
 				{
+					"cause": "all",
+					"deals_damage": false,
+					"on_damage_sound_event": "armor.equip_generic",
 					"on_damage": {
+						"event": "destroy_head_equipment",
+						"target": "self",
 						"filters": {
-							"test": "is_family",
-							"subject": "other",
-							"value": "endrodprojectilexd"
+							"all_of": [
+								{
+									"test": "has_damage",
+									"value": "fatal"
+								},
+								{
+									"test": "has_equipment",
+									"value": "billey:pet_hat",
+									"domain": "head"
+								}
+							]
 						}
-					},
-					"damage_multiplier": 0.0
+					}
 				}
 			],
 			"minecraft:behavior.panic": {
@@ -1380,7 +1426,8 @@
 				"priority": 8,
 				"speed_multiplier": 0.8
 			},
-			"minecraft:behavior.look_at_player": { "probability": 0.01,
+			"minecraft:behavior.look_at_player": {
+				"probability": 0.01,
 				"priority": 9
 			},
 			"minecraft:behavior.beg": {
@@ -1399,77 +1446,96 @@
 			"minecraft:physics": {}
 		},
 		"events": {
-            "set_follow_state": {
-                "sequence": [
-                    {
-                        "filters": {
-                            "test": "has_component",
-                            "subject": "self",
-                            "value": "minecraft:behavior.follow_owner"
-                        },
-                        "set_property": {
-                            "billey:follow_owner_state": "following"
-                        }
-                    },
-                    {
-                        "filters": {
-                            "test": "has_component",
-                            "subject": "self",
-                            "operator": "not",
-                            "value": "minecraft:behavior.follow_owner"
-                        },
-                        "set_property": {
-                            "billey:follow_owner_state": "wandering"
-                        }
-                    }
-                ]
-            },
-            "set_sitting_property_false": {
-                "set_property": {
-                    "billey:is_sitting": false
-                }
-            },
-            "set_sitting_property_true": {
-                "set_property": {
-                    "billey:is_sitting": true
-                }
-            },
-            "say_owner_hit_pet_info": {
-                "queue_command": {
-                    "target": "other",
-                    "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
-                        "tag @s add billey:has_hurt_own_pet"
-                    ]
-                }
-            },
-            "say_other_hit_pet_info": {
-                "queue_command": {
-                    "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
-                }
-            },
-            "add_sittable": {
-                "add": {
-                    "component_groups": [
-                        "sittable"
-                    ]
-                }
-            },
-            "remove_sittable": {
-                "remove": {
-                    "component_groups": [
-                        "sittable"
-                    ]
-                }
-            },
+			"billey:pet_target_acquired": {
+				"add": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"billey:pet_target_escape": {
+				"remove": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"destroy_head_equipment": {
+				"queue_command": {
+					"command": "scriptevent billey:destroy_pet_head_equipment"
+				}
+			},
+			"set_follow_state": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "has_component",
+							"subject": "self",
+							"value": "minecraft:behavior.follow_owner"
+						},
+						"set_property": {
+							"billey:follow_owner_state": "following"
+						}
+					},
+					{
+						"filters": {
+							"test": "has_component",
+							"subject": "self",
+							"operator": "not",
+							"value": "minecraft:behavior.follow_owner"
+						},
+						"set_property": {
+							"billey:follow_owner_state": "wandering"
+						}
+					}
+				]
+			},
+			"set_sitting_property_false": {
+				"set_property": {
+					"billey:is_sitting": false
+				}
+			},
+			"set_sitting_property_true": {
+				"set_property": {
+					"billey:is_sitting": true
+				}
+			},
+			"say_owner_hit_pet_info": {
+				"queue_command": {
+					"target": "other",
+					"command": [
+						"titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+						"tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
+						"tag @s add billey:has_hurt_own_pet"
+					]
+				}
+			},
+			"say_other_hit_pet_info": {
+				"queue_command": {
+					"target": "other",
+					"command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
+				}
+			},
+			"add_sittable": {
+				"add": {
+					"component_groups": [
+						"sittable"
+					]
+				}
+			},
+			"remove_sittable": {
+				"remove": {
+					"component_groups": [
+						"sittable"
+					]
+				}
+			},
 			"send_info": {
 				"queue_command": {
 					"target": "other",
 					"command": [
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.skeleton_cat\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeyinfo.formore\"}]}",
+						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.skeleton_cat\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeys_mobs.info.formore\"}]}",
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
 					]
 				}
@@ -1495,52 +1561,52 @@
 					]
 				}
 			},
-            "eventwander": {
-                "sequence": [
-                    {
-                        "remove": {
-                            "component_groups": [
-                                "following"
-                            ]
-                        }
-                    },
-                    {
-                        "queue_command": {
-                            "command": [
-                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
-                            ]
-                        }
-                    },
-                    {
-                        "set_property": {
-                            "billey:follow_owner_state": "wandering"
-                        }
-                    }
-                ]
-            },
-            "eventfollow": {
-                "sequence": [
-                    {
-                        "add": {
-                            "component_groups": [
-                                "following"
-                            ]
-                        }
-                    },
-                    {
-                        "queue_command": {
-                            "command": [
-                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
-                            ]
-                        }
-                    },
-                    {
-                        "set_property": {
-                            "billey:follow_owner_state": "following"
-                        }
-                    }
-                ]
-            },
+			"eventwander": {
+				"sequence": [
+					{
+						"remove": {
+							"component_groups": [
+								"following"
+							]
+						}
+					},
+					{
+						"queue_command": {
+							"command": [
+								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
+							]
+						}
+					},
+					{
+						"set_property": {
+							"billey:follow_owner_state": "wandering"
+						}
+					}
+				]
+			},
+			"eventfollow": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"following"
+							]
+						}
+					},
+					{
+						"queue_command": {
+							"command": [
+								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
+							]
+						}
+					},
+					{
+						"set_property": {
+							"billey:follow_owner_state": "following"
+						}
+					}
+				]
+			},
 			"beenfedabanana": {
 				"sequence": [
 					{
@@ -1651,7 +1717,7 @@
 								"weight": 1,
 								"queue_command": {
 									"command": [
-										"playanimation @s animation.billcat.petted3 xd 0.3 \"q.is_moving || q.any_animation_finished || !q.is_on_ground\""
+										"playanimation @s animation.billeys_mobs.cat.petted3 xd 0.3 \"q.is_moving || q.any_animation_finished || !q.is_on_ground\""
 									]
 								}
 							},
@@ -1659,7 +1725,7 @@
 								"weight": 1,
 								"queue_command": {
 									"command": [
-										"playanimation @s animation.billcat.petted"
+										"playanimation @s animation.billeys_mobs.cat.petted"
 									]
 								}
 							}
@@ -1669,7 +1735,7 @@
 						"queue_command": {
 							"target": "other",
 							"command": [
-								"playanimation @s animation.billeyplayer.pet"
+								"playanimation @s animation.billeys_mobsplayer.pet"
 							]
 						}
 					},

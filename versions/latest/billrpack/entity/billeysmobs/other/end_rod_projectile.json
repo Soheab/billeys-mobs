@@ -7,14 +7,14 @@
         "default": "arrow"
       },
       "textures": {
-        "default": "textures/entity/bill/endrodarmor"
+        "default": "textures/entity/billeys_mobs/endrodarmor"
       },
       "geometry": {
         "default": "geometry.billduckproj"
       },
       "animations": {
         "move": "animation.arrow.move",
-        "new": "animation.billduckproj.body"
+        "new": "animation.billeys_mobs.duckproj.body"
       },
       "scripts": {
         "pre_animation": [

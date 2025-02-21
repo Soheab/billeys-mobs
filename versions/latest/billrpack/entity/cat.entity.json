@@ -7,8 +7,8 @@
       "textures": {
         "white": "textures/entity/cat/white",
         "black": "textures/entity/cat/tuxedo",
-        "hat": "textures/entity/bill/hat",
-        "hatopy": "textures/entity/bill/hatopy",
+        "hat": "textures/entity/billeys_mobs/hat",
+        "hatopy": "textures/entity/billeys_mobs/hatopy",
         "red": "textures/entity/cat/redtabby",
         "siamese": "textures/entity/cat/siamesecat",
         "british": "textures/entity/cat/britishshorthair",
@@ -23,6 +23,8 @@
         "pizza": "textures/entity/cat/pizza",
         "sugar": "textures/entity/cat/sugar",
         "all_black": "textures/entity/cat/allblackcat",
+        "lily": "textures/entity/cat/lily",
+        "tigerlily": "textures/entity/cat/tigerlily",
         "white_tame": "textures/entity/cat/white_tame",
         "black_tame": "textures/entity/cat/tuxedo_tame",
         "red_tame": "textures/entity/cat/redtabby_tame",
@@ -38,32 +40,34 @@
         "blackwhite_tame": "textures/entity/cat/blackwhite_tame",
         "perry_tame": "textures/entity/cat/perry_tame",
         "pizza_tame": "textures/entity/cat/pizza_tame",
-        "sugar_tame": "textures/entity/cat/sugar_tame"
+        "sugar_tame": "textures/entity/cat/sugar_tame",
+        "lily_tame": "textures/entity/cat/lily_tame"
       },
       "geometry": {
-        "hat": "geometry.billcathat",
+        "hat": "geometry.billeys_mobs.cathat",
         "default": "geometry.cat"
       },
       "scripts": {
         "animate": [ "new",
           {"hat": "q.is_powered"},
           "raising", "eatcont", "sitcont", "baby", "look_at_target_cont",
-          { "hurt": "q.health < q.max_health" }
+          { "hurt": "q.health < q.max_health" },
+          {"tigerlily": "q.get_name == 'Tigerlily'"}
         ]
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "look_at_target_cont": "controller.animation.bcat.look_at_target" ,
         "baby": "controller.animation.cat.baby" ,
-        "sitcont": "controller.animation.billey.sitforcat" ,
-        "eatcont": "controller.animation.billey.eat",
-        "raising": "controller.animation.billey.eatnoblend",
+        "sitcont": "controller.animation.billeys_mobs.sitforcat" ,
+        "eatcont": "controller.animation.billeys_mobs.eat",
+        "raising": "controller.animation.billeys_mobs.eatnoblend",
         "sneak": "animation.cat.sneak",
-        "hat": "animation.billcat.hat",
+        "hat": "animation.billeys_mobs.cat.hat",
         "walk": "animation.cat.walk",
         "sprint": "animation.cat.sprint",
         "sit": "animation.cat.sit",
-        "hurt": "animation.billcat.hurt",
+        "hurt": "animation.billeys_mobs.cat.hurt",
         "stand": "controller.animation.bcat.move",
         "look_at_target": "animation.common.look_at_target",
         "baby_transform": "animation.cat.baby_transform",
@@ -71,13 +75,16 @@
         "fix": "animation.bcat.fix",
         "eat": "animation.cat.tailsnek",
         "beg": "animation.cat.beg",
-        "petted3": "animation.billcat.petted3"// /playanimation animations dont need tobe listed here
+        "tigerlily": "animation.billeys_mobs.cat.tigerlily",
+        "petted3": "animation.billeys_mobs.cat.petted3"// /playanimation animations dont need tobe listed here
 //i did it to preview it in blockbench
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [ 
         "controller.render.cat",
         {
-            "controller.render.billbduckhat": "q.is_powered"
+            "controller.render.billeys_mobs.bduckhat": "q.is_powered"
         }
       ],
       "spawn_egg": {

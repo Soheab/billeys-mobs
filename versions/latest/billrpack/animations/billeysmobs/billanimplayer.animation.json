@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billanimplayer.new": {
+		"animation.billeys_mobs.animplayer.new": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {
@@ -96,7 +96,7 @@
 				}
 			}
 		},
-		"animation.billanimplayer.new2": {
+		"animation.billeys_mobs.animplayer.new2": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {
@@ -315,7 +315,7 @@
 				}
 			}
 		},
-		"animation.billanimplayer.new3": {
+		"animation.billeys_mobs.animplayer.new3": {
 			"loop": true,
 			"animation_length": 0.48,
 			"bones": {

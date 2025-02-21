@@ -5,23 +5,23 @@
         "identifier": "billey:electric_eel",
         "materials": { "default": "cat" },
         "textures": {
-          "zero": "textures/entity/bill/electriceel",
-          "one": "textures/entity/bill/electriceel1",
-          "two": "textures/entity/bill/electriceel2",
-          "three": "textures/entity/bill/electriceel3",
-          "four": "textures/entity/bill/electriceel4"
+          "zero": "textures/entity/billeys_mobs/electriceel",
+          "one": "textures/entity/billeys_mobs/electriceel1",
+          "two": "textures/entity/billeys_mobs/electriceel2",
+          "three": "textures/entity/billeys_mobs/electriceel3",
+          "four": "textures/entity/billeys_mobs/electriceel4"
         },
         "geometry": {
-          "default": "geometry.billelectriceel"
+          "default": "geometry.billeys_mobs.electriceel"
         },
         "animations": {
-          "new": "animation.billduckproj.body",
-          "swim": "animation.billelectriceel.swim",
-          "sleep": "animation.billelectriceel.sleep",
-          "turn": "animation.billelectriceel.turn",
-          "death1": "animation.billbettafish.cancelvanilladeathanim",
-          "death": "animation.billelectriceel.die",
-          "flop": "animation.billelectriceel.flop"
+          "new": "animation.billeys_mobs.duckproj.body",
+          "swim": "animation.billeys_mobs.electriceel.swim",
+          "sleep": "animation.billeys_mobs.electriceel.sleep",
+          "turn": "animation.billeys_mobs.electriceel.turn",
+          "death1": "animation.billeys_mobs.bettafish.cancelvanilladeathanim",
+          "death": "animation.billeys_mobs.electriceel.die",
+          "flop": "animation.billeys_mobs.electriceel.flop"
         },
         "particle_effects": {
           "zee": "billey:zeeduck"
@@ -36,7 +36,9 @@
             { "flop": "!q.is_in_water" }
           ]
         },
-        "render_controllers": [ "controller.render.billelectriceel"
+        "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs.electriceel"
           //in the betta fish file
          ],
         "spawn_egg": {

@@ -5,18 +5,18 @@
       "identifier": "billey:pigeon_vibe",
       "materials": { "default": "entity_alphatest","cat": "cat" },
       "textures": {
-        "default": "textures/entity/bill/pigeon",
-        "hat": "textures/entity/bill/hat"
+        "default": "textures/entity/billeys_mobs/pigeon",
+        "hat": "textures/entity/billeys_mobs/hat"
       },
       "geometry": {
-        "default": "geometry.billpigeon",
-        "hat": "geometry.billpigeonhat"
+        "default": "geometry.billeys_mobs.pigeon",
+        "hat": "geometry.billeys_mobs.pigeonhat"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
-        "walk": "animation.billpigeon.walk",
+        "new": "animation.billeys_mobs.duckproj.body",
+        "walk": "animation.billeys_mobs.pigeon.walk",
         "look_at_target": "animation.common.look_at_target",
-        "lol": "animation.billpigeon.new"
+        "lol": "animation.billeys_mobs.pigeon.new"
       },
       "scripts": {
         "animate": [ "new",
@@ -25,7 +25,9 @@
           "look_at_target"
         ]
       },
-      "render_controllers": [ "controller.render.billey_default", {"controller.render.billbduckhat":"q.is_powered"} ],
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs_default", {"controller.render.billeys_mobs.bduckhat":"q.is_powered"} ],
       "spawn_egg": {
         "base_color": "#2D4456",
         "overlay_color": "#AAC7E2"

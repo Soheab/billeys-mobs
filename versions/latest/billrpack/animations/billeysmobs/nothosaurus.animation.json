@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.billnothosaurus.walk": {
+		"animation.billeys_mobs.nothosaurus.walk": {
 			"loop": true,
 			"bones": {
 				"left_am": {

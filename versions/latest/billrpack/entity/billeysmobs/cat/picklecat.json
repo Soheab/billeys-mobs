@@ -19,18 +19,18 @@
         ]
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "look_at_target_cont": "controller.animation.bcat.look_at_target" ,
         "baby": "controller.animation.cat.baby" ,
-        "sitcont": "controller.animation.billey.sitforcat" ,
-        "eatcont": "controller.animation.billey.eat",
-        "raising": "controller.animation.billey.eatnoblend",
+        "sitcont": "controller.animation.billeys_mobs.sitforcat" ,
+        "eatcont": "controller.animation.billeys_mobs.eat",
+        "raising": "controller.animation.billeys_mobs.eatnoblend",
         "sneak": "animation.cat.sneak",
-        "hat": "animation.billcat.hat",
+        "hat": "animation.billeys_mobs.cat.hat",
         "walk": "animation.cat.walk",
         "sprint": "animation.cat.sprint",
         "sit": "animation.cat.sit",
-        "hurt": "animation.billcat.hurt",
+        "hurt": "animation.billeys_mobs.cat.hurt",
         "stand": "controller.animation.bcat.move",
         "look_at_target": "animation.common.look_at_target",
         "baby_transform": "animation.cat.baby_transform",
@@ -38,11 +38,13 @@
         "fix": "animation.bcat.fix",
         "eat": "animation.cat.tailsnek",
         "beg": "animation.cat.beg",
-        "petted3": "animation.billcat.petted3"// /playanimation animations dont need tobe listed here
+        "petted3": "animation.billeys_mobs.cat.petted3"// /playanimation animations dont need tobe listed here
         //i did it to preview it in blockbench
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [ 
-        "controller.render.billey_default", 
+        "controller.render.billeys_mobs_default", 
         {
           "controller.render.cucumbeel": "q.is_in_water || !q.is_baby"
         }

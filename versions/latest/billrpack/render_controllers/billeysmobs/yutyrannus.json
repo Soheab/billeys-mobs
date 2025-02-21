@@ -1,18 +1,23 @@
-{//not used
+{
     "format_version": "1.8.0",
     "render_controllers": {
-      "controller.render.billyutyrannus": {
+      "controller.render.billeys_mobs.yutyrannus": {
         "geometry": "Geometry.default",
         "materials": [
           {
             "*": "Material.default"
-          },
-          {
-              "hat": "Material.hat"
           }
         ],
         "textures": [
           "Texture.default"
+        ],
+        "part_visibility": [
+          {
+            "saddle_*": "q.is_saddled"
+          },
+          {
+            "rider_*": "q.has_rider"
+          }
         ],
         "is_hurt_color": {
             "r": "!q.is_illager_captain",
@@ -20,11 +25,6 @@
             "b": "0",
             "a": "0.5 + q.is_illager_captain / 3"
         },
-        "part_visibility": [
-          {
-              "hat": "q.is_powered"
-          }
-        ],
         "overlay_color": {
           "r": "math.sin(q.life_time * 200 + q.variant * 234)",
           "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",

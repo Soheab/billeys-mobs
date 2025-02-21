@@ -15,14 +15,17 @@
                     },
                     {
                         "set_sitting_property": "q.is_tamed"
-                    }, "check_beta_apis",
+                    },
+                    "check_beta_apis",
                     {
                         "rainbow_effects": "q.is_illager_captain"
                     },
                     {
                         "stand_up_when_hit": "q.is_tamed && (q.health < (16 * q.max_health / 30))"
                     },
-                    {"info":"!q.is_tamed"},
+                    {
+                        "info": "!q.is_tamed"
+                    },
                     "tame",
                     {
                         "shouldgetanorange": "q.is_tamed"
@@ -31,17 +34,63 @@
                 ]
             },
             "animations": {
-                "check_beta_apis": "animation.billey.check_beta_apis",
-                "set_follow_state": "animation.billey.set_follow_state",
-                "set_sitting_property": "controller.animation.billey.set_sitting_property",
-                "rainbow_effects": "animation.billey.rainbow_effects",
-                "stand_up_when_hit": "controller.animation.billey.stand_up_when_hit",
-                "info": "animation.billeyinfo.orange_penguin",
-                "tame": "controller.animation.billeysmobs.tame",
-                "panicompo": "controller.animation.billeysmobs.panicompo",
-                "shouldgetanorange": "controller.animation.billeysmobs.shouldgetanorange"
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "set_follow_state": "animation.billeys_mobs.set_follow_state",
+                "set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.orange_penguin",
+                "tame": "controller.animation.billeys_mobs.tame",
+                "panicompo": "controller.animation.billeys_mobs.panicompo",
+                "shouldgetanorange": "controller.animation.billeys_mobs.shouldgetanorange"
             },
             "properties": {
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
                 "billey:follow_owner_state": {
                     //only used so scripts can know whether it's following or wandering
                     "type": "enum",
@@ -113,7 +162,7 @@
                     "broadcast_anger": true,
                     "broadcast_range": 40,
                     "calm_event": {
-                        "event": "calmery",
+                        "event": "billey:pet_target_escape",
                         "target": "self"
                     },
                     "broadcast_filters": {
@@ -132,7 +181,7 @@
                     "broadcast_anger": true,
                     "broadcast_range": 40,
                     "calm_event": {
-                        "event": "calmery",
+                        "event": "billey:pet_target_escape",
                         "target": "self"
                     },
                     "broadcast_filters": {
@@ -153,16 +202,28 @@
                     "stop_distance": 5
                 }
             },
-            "hat": {
-                "minecraft:is_charged": {},
-                "minecraft:color": {
-                    "value": 12
-                },
-                "minecraft:is_dyeable": {
-                    "interact_text": "action.interact.dye"
-                }
-            },
             "tamed": {
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 1,
+                    "entity_types": {
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 2,
+                    "entity_types": {
+                        "max_dist": 127,
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
                 "minecraft:behavior.avoid_mob_type": {
                     "priority": 0,
                     "max_flee": 16,
@@ -207,12 +268,12 @@
                 },
                 "minecraft:healable": {
                     "items": [
-                        
-                    {
-                        "item": "billey:poultry_orange",
-                        "heal_amount": 7
-                    },{
-                        "item": "billey:cooked_snail",
+                        {
+                            "item": "billey:poultry_orange",
+                            "heal_amount": 7
+                        },
+                        {
+                            "item": "billey:cooked_snail",
                             "heal_amount": 4,
                             "effects": [
                                 {
@@ -518,7 +579,8 @@
                             }
                         }
                     ],
-                    "breed_items": [ "billey:poultry_orange",
+                    "breed_items": [
+                        "billey:poultry_orange",
                         "billey:betta_fish",
                         "clownfish"
                     ]
@@ -531,7 +593,7 @@
                     "on_death": "q.last_hit_by_player ? Math.Random(1,3) : 0"
                 },
                 "minecraft:on_target_acquired": {
-                    "event": "angery",
+                    "event": "billey:pet_target_acquired",
                     "target": "self"
                 },
                 "minecraft:rideable": {
@@ -605,6 +667,28 @@
                             "filters": {
                                 "all_of": [
                                     {
+                                        "test": "has_component",
+                                        "value": "minecraft:is_sheared",
+                                        "subject": "self"
+                                    },
+                                    {
+                                        "test": "has_damage",
+                                        "operator": "not",
+                                        "value": "magic"
+                                    }
+                                ]
+                            },
+                            "target": "self",
+                            "event": "hit_orange"
+                        },
+                        "cause": "entity_attack",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
                                         "test": "is_owner",
                                         "subject": "other",
                                         "value": true
@@ -649,50 +733,22 @@
                         "deals_damage": false
                     },
                     {
-                        "on_damage": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "test": "has_component",
-                                        "value": "minecraft:is_sheared",
-                                        "subject": "self"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "value": "minecraft:is_charged",
-                                        "operator": "not",
-                                        "subject": "self"
-                                    },
-                                    {
-                                        "test": "has_damage",
-                                        "operator": "not",
-                                        "value": "magic"
-                                    }
-                                ]
-                            },
-                            "target": "self",
-                            "event": "hit_orange"
-                        },
-                        "cause": "entity_attack",
-                        "deals_damage": false
-                    },
-                    {
                         "cause": "all",
                         "deals_damage": false,
                         "on_damage_sound_event": "armor.equip_generic",
                         "on_damage": {
-                            "event": "nohat",
+                            "event": "destroy_head_equipment",
                             "target": "self",
                             "filters": {
                                 "all_of": [
                                     {
                                         "test": "has_damage",
-                                        "operator": "not",
-                                        "value": "magic"
+                                        "value": "fatal"
                                     },
                                     {
-                                        "test": "has_component",
-                                        "value": "minecraft:is_charged"
+                                        "test": "has_equipment",
+                                        "value": "billey:pet_hat",
+                                        "domain": "head"
                                     }
                                 ]
                             }
@@ -990,97 +1046,6 @@
                             "event": "nokroma",
                             "target": "self"
                         }
-                    },
-                    {
-                        "use_item": true,
-                        "play_sounds": "armor.equip_generic",
-                        "interact_text": "action.interact.equip",
-                        "on_interact": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:pet_hat"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "operator": "not",
-                                        "value": "minecraft:is_charged"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": true
-                                    }
-                                ]
-                            },
-                            "event": "wearhat",
-                            "target": "self"
-                        }
-                    },
-                    {
-                        "use_item": true,
-                        "play_sounds": "armor.equip_generic",
-                        "interact_text": "action.interact.use",
-                        "on_interact": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "minecraft:dried_kelp"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "value": "minecraft:is_charged"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": true
-                                    }
-                                ]
-                            },
-                            "event": "blackstripehat",
-                            "target": "self"
-                        }
-                    },
-                    {
-                        "use_item": false,
-                        "play_sounds": "armor.equip_generic",
-                        "spawn_items": {
-                            "table": "loot_tables/entities/billeyhat.json"
-                        },
-                        "interact_text": "action.interact.equip",
-                        "on_interact": {
-                            "filters": {
-                                "all_of": [
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "value": "billey:pet_hat"
-                                    },
-                                    {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "value": "minecraft:is_charged"
-                                    },
-                                    {
-                                        "test": "is_owner",
-                                        "subject": "other",
-                                        "value": true
-                                    }
-                                ]
-                            },
-                            "event": "nohat",
-                            "target": "self"
-                        }
                     }
                 ]
             },
@@ -1145,7 +1110,8 @@
                 "priority": 5,
                 "speed_multiplier": 1.0
             },
-            "minecraft:behavior.look_at_player": { "probability": 0.01,
+            "minecraft:behavior.look_at_player": {
+                "probability": 0.01,
                 "priority": 7,
                 "look_distance": 6.0
             },
@@ -1160,6 +1126,11 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "destroy_head_equipment": {
+                "queue_command": {
+                    "command": "scriptevent billey:destroy_pet_head_equipment"
+                }
+            },
             "set_follow_state": {
                 "sequence": [
                     {
@@ -1199,8 +1170,8 @@
                 "queue_command": {
                     "target": "other",
                     "command": [
-                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeyinfo.owner_hit_pet\"}]}",
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1208,7 +1179,7 @@
             "say_other_hit_pet_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billey.other_hit_pet\"}]}"
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
             "add_sittable": {
@@ -1228,9 +1199,11 @@
             "send_info": {
                 "queue_command": {
                     "target": "other",
-                    "command": ["tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeyinfo.orange_penguin\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeyinfo.formore\"}]}"
-                    ,"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"]
+                    "command": [
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.orange_penguin\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeys_mobs.info.formore\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
+                    ]
                 }
             },
             "untame": {
@@ -1438,7 +1411,7 @@
                     ]
                 }
             },
-            "angery": {
+            "billey:pet_target_acquired": {
                 "add": {
                     "component_groups": [
                         "angry"
@@ -1964,7 +1937,7 @@
                     ]
                 }
             },
-            "calmery": {
+            "billey:pet_target_escape": {
                 "remove": {
                     "component_groups": [
                         "angry",
@@ -2000,7 +1973,7 @@
                                 "weight": 1,
                                 "queue_command": {
                                     "command": [
-                                        "playanimation @s animation.billcat.petted"
+                                        "playanimation @s animation.billeys_mobs.cat.petted"
                                     ]
                                 }
                             }
@@ -2010,7 +1983,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "playanimation @s animation.billeyplayer.pet"
+                                "playanimation @s animation.billeys_mobsplayer.pet"
                             ]
                         }
                     },

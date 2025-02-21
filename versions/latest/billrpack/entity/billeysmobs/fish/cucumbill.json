@@ -7,7 +7,7 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "cucumbeel": "textures/entity/bill/cucumbeel",
+        "cucumbeel": "textures/entity/billeys_mobs/cucumbeel",
         "default": "textures/blocks/sea_pickle"
       },
       "geometry": {
@@ -15,7 +15,7 @@
         "glowing": "geometry.cucumbeelglow"
       },
       "animations": {
-        "new": "animation.billduckproj.body",
+        "new": "animation.billeys_mobs.duckproj.body",
         "flop": "animation.cucumbeel.flop",
         "swim": "animation.cucumbeel.swim"
       },
@@ -29,8 +29,10 @@
           }
         ]
       },
+      "enable_attachables": true,
+      "hide_armor": false,
       "render_controllers": [ 
-        "controller.render.billcucumbeel", 
+        "controller.render.billeys_mobs.cucumbeel", 
         {
           "controller.render.cucumbeel": "q.is_in_water"
         }

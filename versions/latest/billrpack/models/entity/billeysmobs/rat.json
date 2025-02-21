@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billrat",
+				"identifier": "geometry.billeys_mobs.rat",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 4,
@@ -88,6 +88,12 @@
 					}
 				},
 				{
+					"name": "bowtie",
+					"parent": "frontbody",
+					"pivot": [0, 1.5, -2.5],
+					"rotation": [90, 0, 0]
+				},
+				{
 					"name": "rightflap",
 					"parent": "frontbody",
 					"pivot": [1.5, 1.5, -0.5]
@@ -151,7 +157,7 @@
 				{
 					"name": "hat",
 					"parent": "head",
-					"pivot": [0, 5, -4]
+					"pivot": [0, 5, -3.5]
 				},
 				{
 					"name": "tail",

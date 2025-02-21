@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.billshark_armor",
+				"identifier": "geometry.billeys_mobs.shark_armor",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 10,
