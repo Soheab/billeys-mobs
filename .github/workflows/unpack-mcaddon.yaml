@@ -13,8 +13,8 @@ jobs:
         - name: Setup Python Version
           uses: actions/setup-python@v2
           with:
-            python-version: 3.12
+            python-version: 3.13
 
         - name: Execute Python Script
-          run: python .github/handle_addon_file.py
+          run: python -OO .github/handle_addon_file.py
 
