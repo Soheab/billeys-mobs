@@ -222,18 +222,3 @@ world.beforeEvents.chatSend.subscribe((data) => {
 		})
 	}
 });
-
-world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
-	if (eventId != "billey:pet_target_acquired"
-		|| !entity.isValid()
-	)
-		return;
-
-	if (
-		entity.target?.getComponent("tameable")?.tamedToPlayerId
-		== entity.getComponent("tameable")?.tamedToPlayerId
-	) {
-		//didn't work
-		entity.triggerEvent("reset_target");
-	}
-});

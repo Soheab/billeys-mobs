@@ -1846,7 +1846,7 @@
                 "minecraft:is_tamed": {},
                 "minecraft:tameable": {}, //for the script to be able to get the mob's owner
                 "minecraft:behavior.owner_hurt_by_target": {
-                    "priority": 1,
+                    "priority": 2,
                     "entity_types": {
                         "filters": {
                             "any_of": [
@@ -1868,7 +1868,6 @@
                 "minecraft:behavior.owner_hurt_target": {
                     "priority": 2,
                     "entity_types": {
-                        "max_dist": 127,
                         "filters": {
                             "any_of": [
                                 {

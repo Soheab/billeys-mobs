@@ -1,5 +1,5 @@
 {
-    //Didn't work
+    //Didn't work (or did it? i changed something and then didn't check again)
     "format_version": "1.21.60",
     "minecraft:crafting_items_catalog": {
         "categories": [

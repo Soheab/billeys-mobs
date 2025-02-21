@@ -1,7 +1,7 @@
 import { world, system, EquipmentSlot, EntityDamageCause, Dimension } from "@minecraft/server";
 import { subtract, getDistanceXZ, headPets, normalize, ridePets, scale, DIMENSIONS, validateHeightOf } from "./utility";
 import { isMorph, morphTick } from "./morph";
-import { /*removeWaystoneLoader,*/ tpAllFollowingPets } from "./quality_of_life";
+import { /*removeWaystoneLoader,*/ tpAllFollowingPets, tpAllFollowingPetsUsingStructure } from "./quality_of_life";
 import { decrementDuckatriceStares, duckatriceBossStare, duckatriceStareDamage } from "./duckatrice";
 import { giveInfoBookOnMove } from "./info_book";
 
@@ -19,8 +19,8 @@ system.runInterval(() => {
 			&& player.__prevDimension.id == player.dimension.id
 			&& validateHeightOf(player)
 		) {
-			player.dimension.spawnEntity("billey:chunk_loader2", player.__prevLoc);
-			tpAllFollowingPets(player, true);
+			const chunkLoader = player.dimension.spawnEntity("billey:chunk_loader", player.__prevLoc);
+			tpAllFollowingPetsUsingStructure(player, chunkLoader);
 		}
 
 		/*if (

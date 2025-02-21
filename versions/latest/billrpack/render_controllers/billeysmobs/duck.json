@@ -42,7 +42,7 @@
       "materials": [ { "*": "Material.default" } ],
       "part_visibility": [ 
         { "dontshowonbaby": "!q.is_baby" }],
-      "textures": [ "((!q.is_sleeping && !q.is_sheared && !q.is_saddled) || q.is_baby) ? ((q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? (Array.changer[q.life_time * 1.5 + q.variant + q.is_baby * 8]) : (q.is_baby ? Array.baby[q.variant] : Array.skins[q.variant]))" ],
+        "textures": [ "(q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? (Array.changer[q.life_time * 1.5 + q.variant + q.is_baby * 8]) : (q.is_baby ? Array.baby[q.variant] : Array.skins[q.variant])" ],
       "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
           "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",

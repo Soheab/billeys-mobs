@@ -1,4 +1,4 @@
-import { world, system, Player, Entity } from "@minecraft/server";
+import { world, system, Player, Entity, BlockVolume } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { DIMENSIONS } from "./utility";
 
@@ -14,10 +14,7 @@ world.afterEvents.entityDie.subscribe(
             if (player.id != deadEntity.id)
                 return;
             world.afterEvents.playerSpawn.unsubscribe(subscription);
-            tpAllFollowingPets(player, false);
-            system.runTimeout(() => {
-                chunkLoader.remove();
-            }, 2);
+            tpAllFollowingPetsUsingStructure(player, chunkLoader);
         });
     },
     {
@@ -52,7 +49,7 @@ export async function showSettingForm(player) {
 let nextXPushDirection = 1;
 let nextZPushDirection = 1;
 /** 
- * @param {Player} player
+ * @param {Player} player The owner of the pets
  * @param {boolean} alwaysUnjumble Push the pet around even if it's only one
 */
 export function tpAllFollowingPets(player, alwaysUnjumble) {
@@ -71,10 +68,8 @@ export function tpAllFollowingPets(player, alwaysUnjumble) {
             })
             .filter(entity =>
                 entity.getProperty("billey:is_sitting") === false
-                &&
-                entity.getComponent("tameable")?.tamedToPlayerId == player.id
-                &&
-                isFollowingOwner(entity)
+                && entity.getComponent("tameable")?.tamedToPlayerId == player.id
+                && isFollowingOwner(entity)
             );
         for (const pet of followingPets) {
             pet.teleport(player.location, { dimension: player.dimension });
@@ -85,11 +80,75 @@ export function tpAllFollowingPets(player, alwaysUnjumble) {
                 nextXPushDirection *= -1;
             else
                 nextZPushDirection *= -1;
-            pet.applyImpulse({x, y: 0, z});
+            pet.applyImpulse({ x, y: 0, z });
         }
         //removeWaystoneLoader(player);
     }
 }
+
+/** 
+ * @param {Player} player The owner of the pets
+ * @param {Entity} chunkLoader 
+ * Teleports all following pets by saving them as structures, deleting them, and then 
+ * placing the structure. This fixes the invisible pet after tp vanilla bug
+*/
+export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepeat) {
+    for (const dimension of DIMENSIONS) {
+        const followingPets = dimension
+            /**
+             * the tamed tag is added to all tamed billey mobs.
+             * it was used back in the day when scripts didn't yet exist
+             * to allow commands to detect if a mob is tamed or not,
+             * eg. angel cats giving regeneration.
+             * Here it wasn't needed but probably
+             * slightly optimizes this function.
+             */
+            .getEntities({
+                tags: ["tamed"]
+            })
+            .filter(entity =>
+                entity.getProperty("billey:is_sitting") === false
+                && entity.getComponent("tameable")?.tamedToPlayerId == player.id
+                && isFollowingOwner(entity)
+            );
+        for (const pet of followingPets) {
+            pet.teleport(player.location, { dimension: player.dimension });
+            pet.setDynamicProperty("unjumble_on_load", true);
+        }
+        //removeWaystoneLoader(player);
+    }
+    const { dimension } = player;
+    const structureId = `billey:${player.id}_tped_pets`;
+    world.structureManager.delete(structureId);
+    world.structureManager.createFromWorld(
+        structureId,
+        dimension, player.location, player.location
+    );
+    dimension.getEntitiesAtBlockLocation(player.location)
+        .forEach(e => { if (!(e instanceof Player)) e.remove(); });
+    world.structureManager.place(structureId, dimension, player.location, {
+        includeBlocks: false
+    });
+    world.structureManager.delete(structureId);
+    chunkLoader?.remove();
+    system.run(() => {
+        if (!doNotRepeat)
+            tpAllFollowingPetsUsingStructure(player, undefined, true);
+    });
+}
+
+world.afterEvents.entityLoad.subscribe(({ entity }) => {
+    if (entity.getDynamicProperty("unjumble_on_load")) {
+        const x = Math.max(0.1, Math.random() / 2) * nextXPushDirection;
+        const z = Math.max(0.1, Math.random() / 2) * nextZPushDirection;
+        if (Math.random() < 0.5)
+            nextXPushDirection *= -1;
+        else
+            nextZPushDirection *= -1;
+        entity.applyImpulse({ x, y: 0, z });
+        entity.setDynamicProperty("unjumble_on_load", undefined);
+    }
+});
 
 /** 
  * @param {Entity} pet
@@ -106,7 +165,7 @@ function isFollowingOwner(pet) {
 }
 
 world.afterEvents.playerDimensionChange.subscribe(({ player }) => {
-    tpAllFollowingPets(player, true);
+    tpAllFollowingPetsUsingStructure(player);
 });
 
 /** @param {Player} player 
@@ -132,3 +191,5 @@ world.afterEvents.entityLoad.subscribe(({ entity }) => {
         block.location
     );
 });*/
+
+//world.sendMessage(world.structureManager.getWorldStructureIds().join("\n"))

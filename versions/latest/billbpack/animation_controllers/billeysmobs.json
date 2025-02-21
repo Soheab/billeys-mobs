@@ -679,9 +679,10 @@
 						}
 					],
 					"on_entry": [
-						"/tag @s add tamed"
+						"/tag @s add tamed",
 						//read (behavior pack)/readme.txt for what the
 						//tamed tag is used for
+						"/tag @s add billey:tamed"
 					]
 				},
 				"hurt": {
