@@ -142,11 +142,19 @@ def update_latest_dir(last_addition: Version) -> bool:
 
 def move_addon_file(addon_file: pathlib.Path, version: Version) -> None:
     mcaddons_dir.mkdir(exist_ok=True)
-    destination = mcaddons_dir / f"{version}.mcaddon"
+    destination = mcaddons_dir / f"Billey's Mobs {version}.mcaddon"
     if not destination.exists():
         shutil.move(str(addon_file), str(destination))
     else:
         addon_file.unlink(missing_ok=True)
+
+
+def zipmcaddon_to_mcaddon(zipmcaddon: pathlib.Path) -> pathlib.Path:
+    mcaddon = mcaddons_dir / zipmcaddon.with_suffix(".mcaddon").name
+    with zipfile.ZipFile(zipmcaddon, "w") as zip_ref:
+        zip_ref.write(zipmcaddon)
+    shutil.move(zipmcaddon, mcaddon)
+    return mcaddon
 
 
 def handle_addon_file(addon_file: pathlib.Path, version: Version) -> tuple[bool, str]:
@@ -167,7 +175,8 @@ def handle_addon_file(addon_file: pathlib.Path, version: Version) -> tuple[bool,
         new_file.unlink(missing_ok=True)
         move_addon_file(addon_file, version)
         return False, f"Error unzipping file: {e}"
-    new_file.unlink()
+
+    zipmcaddon_to_mcaddon(new_file)
     return True, str(version)
 
 
