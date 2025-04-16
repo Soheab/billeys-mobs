@@ -36,7 +36,7 @@ world.afterEvents.itemCompleteUse.subscribe(data => {
 			break;
 		case "billey:chocolate_catfish":
 			data.source.addEffect("speed", 400, { amplifier: 3 });
-			data.source.runCommandAsync("execute @s[tag=!billeyadv_chocolate_catfish] ~~~ scriptevent billey:advancement chocolate_catfish");
+			data.source.runCommand("execute @s[tag=!billeyadv_chocolate_catfish] ~~~ scriptevent billey:advancement chocolate_catfish");
 			break;
 		case "billey:cooked_snail":
 			data.source.addEffect("strength", 300);
@@ -142,14 +142,14 @@ world.afterEvents.itemCompleteUse.subscribe(data => {
 			data.source.addEffect("regeneration", 300);
 			data.source.addEffect("resistance", 300, { amplifier: 1 });
 			data.source.addEffect("night_vision", 400);
-			data.source.runCommandAsync("execute @s[tag=!billeyadv_ratatouille] ~~~ scriptevent billey:advancement ratatouille");
+			data.source.runCommand("execute @s[tag=!billeyadv_ratatouille] ~~~ scriptevent billey:advancement ratatouille");
 			break;
 		case "billey:spicy_ratatouille":
 			data.source.applyDamage(8, { cause: "fire" });
 			data.source.addEffect("regeneration", 300);
 			data.source.addEffect("resistance", 300, { amplifier: 1 });
 			data.source.addEffect("fire_resistance", 300);
-			data.source.runCommandAsync("execute @s[tag=!billeyadv_ratatouille] ~~~ scriptevent billey:advancement ratatouille");
+			data.source.runCommand("execute @s[tag=!billeyadv_ratatouille] ~~~ scriptevent billey:advancement ratatouille");
 			break;
 		case "billey:mercat_milk":
 			data.source.applyDamage(8, { cause: "fire" });

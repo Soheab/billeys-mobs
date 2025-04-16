@@ -12,7 +12,7 @@ for (const plushie of PLUSHIES) {
 	});
 }
 
-world.beforeEvents.worldInitialize.subscribe(({ itemComponentRegistry }) =>
+system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) =>
 	itemComponentRegistry.registerCustomComponent("billey:plushie", {
 		onUseOn: ({ itemStack: item }) => {
 			const subscription = world.afterEvents.entitySpawn.subscribe(({ entity }) => {
@@ -56,19 +56,19 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity, id }) => {
 			plushieSqueezer = sourceEntity;
 			return;
 		case "billey:plushie_say_owner": {
-			if (!plushieSqueezer?.isValid()) return;
+			if (!plushieSqueezer?.isValid) return;
 			/** @type {string|undefined} */
 			const ownerName = sourceEntity.getDynamicProperty("ITEM_owner_name");
 			const variant = sourceEntity.getComponent("variant")?.value ?? 0;
 			if (ownerName) {
 				plushieSqueezer.sendMessage({
-					translate: "chat.billeys_mobs.info.plushie" + variant,
+					translate: "ui.billeys_mobs.info.plushie" + variant,
 					with: [ownerName]
 				});
 			}
 			else if (!SIMPLE_PLUSHIES.includes(PLUSHIES[variant]))
 				plushieSqueezer.sendMessage({
-					translate: "chat.billeys_mobs.info.plushie.no_owner"
+					translate: "ui.billeys_mobs.info.plushie.no_owner"
 				});
 			plushieSqueezer = undefined;
 			return;

@@ -398,6 +398,33 @@
                     "volume": 1.0
                 }
             ]
+        },
+        "billey.fury_start": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/fury_start",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.fury_end": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/fury_end",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.level_up": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/level_up",
+                    "volume": 1.0
+                }
+            ]
         }
     }
 }

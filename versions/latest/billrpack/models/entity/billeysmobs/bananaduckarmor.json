@@ -12,7 +12,12 @@
 			},
 			"bones": [
 				{
+					"name": "ooo",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "pop",
+					"parent": "ooo",
 					"pivot": [0, 0, 0]
 				},
 				{
@@ -248,11 +253,11 @@
 				{
 					"name": "duck_tail",
 					"parent": "bone2",
-					"pivot": [0, 10, 1.75],
+					"pivot": [0, 10, 1.85],
 					"rotation": [90, -67.5, -90],
 					"cubes": [
 						{
-							"origin": [-0.5, 9, 0.25],
+							"origin": [-0.5, 9, 0.35],
 							"size": [3, 1, 3],
 							"inflate": 0.11,
 							"uv": {
@@ -269,10 +274,10 @@
 				{
 					"name": "wing5",
 					"parent": "duck_tail",
-					"pivot": [2.5, 9, 3.75],
+					"pivot": [2.5, 9, 3.85],
 					"cubes": [
 						{
-							"origin": [1.5, 4, 0.25],
+							"origin": [1.5, 4, 0.35],
 							"size": [1, 4.8, 3],
 							"inflate": 0.11,
 							"uv": {

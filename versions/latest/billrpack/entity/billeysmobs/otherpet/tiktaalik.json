@@ -17,12 +17,10 @@
         "six": "textures/entity/billeys_mobs/tiktaalik6",
         "seven": "textures/entity/billeys_mobs/tiktaalik7",
         "eight": "textures/entity/billeys_mobs/tiktaalik8",
-        "nine": "textures/entity/billeys_mobs/tiktaalik9",
-        "hat": "textures/entity/billeys_mobs/hat"
+        "nine": "textures/entity/billeys_mobs/tiktaalik9"
       },
       "geometry": {
-        "default": "geometry.billeys_mobs.tiktaalik",
-        "hat": "geometry.billeys_mobs.tiktaalikhat"
+        "default": "geometry.billeys_mobs.tiktaalik"
       },
       "animations": {
         "new": "animation.billeys_mobs.duckproj.body",
@@ -64,10 +62,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.tiktaalik",
-        {
-          "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
-        }
+        "controller.render.billeys_mobs.tiktaalik"
       ],
       "spawn_egg": {
         "base_color": "#9BA491",

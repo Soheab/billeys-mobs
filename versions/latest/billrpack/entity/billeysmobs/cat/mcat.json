@@ -16,12 +16,10 @@
         "five": "textures/entity/cat/fotd5",
         "six": "textures/entity/cat/fotd6",
         "eight": "textures/entity/cat/fotd7",
-        "nine": "textures/entity/cat/fotd",
-        "hat": "textures/entity/billeys_mobs/hat"
+        "nine": "textures/entity/cat/fotd"
       },
       "geometry": {
-        "default": "geometry.billeys_mobs.mercat",
-        "hat": "geometry.billeys_mobs.mercathat"
+        "default": "geometry.billeys_mobs.mercat"
       },
       "animations": {
         "new": "animation.billeys_mobs.duckproj.body",
@@ -63,10 +61,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.mercat",
-        {
-            "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
-        }
+        "controller.render.billeys_mobs.mercat"
       ],
       "spawn_egg": {
         "base_color": "#316469",

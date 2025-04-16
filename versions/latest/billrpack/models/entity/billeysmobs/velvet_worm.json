@@ -10,8 +10,16 @@
 				"visible_bounds_height": 2.5,
 				"visible_bounds_offset": [0, 0.75, 0]
 			},
-			"bones": [
-				{
+			"bones": [{
+				"name": "ooo",
+				"pivot": [
+					0,
+					0,
+					0
+				]
+			},
+			{
+				"parent": "ooo",
 					"name": "death",
 					"pivot": [0, 0, 0]
 				},

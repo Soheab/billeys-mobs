@@ -666,9 +666,9 @@
 						}
 					],
 					"on_entry": [
-						"/tellraw @a[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.leashwild\"}]}",
+						"/tellraw @a[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.leashwild\"}]}",
 						"/tag @p[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] add billeyinfoleashwild2",
-						"/tellraw @a[r=6,tag=!billeyinfoleashwild] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.leashwild\"}]}",
+						"/tellraw @a[r=6,tag=!billeyinfoleashwild] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.leashwild\"}]}",
 						"/tag @p[r=6,tag=!billeyinfoleashwild] add billeyinfoleashwild"
 					]
 				},
@@ -695,7 +695,7 @@
 						"/particle billey:sprinkles ~ ~.4 ~"
 					],
 					"on_entry": [
-						"/tellraw @p[r=6,tag=!billeyinfohurtpet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip5\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+						"/tellraw @p[r=6,tag=!billeyinfohurtpet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip5\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
 						"/tag @p[r=6,tag=!billeyinfohurtpet] add billeyinfohurtpet"
 					]
 				}

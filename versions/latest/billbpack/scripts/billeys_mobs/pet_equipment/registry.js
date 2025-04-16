@@ -49,4 +49,12 @@ export let PET_EQUIPMENT_DATA = {};
 export function registerPetEquipment(slot, equipmentId, equipmentComponents) {
     PET_EQUIPMENT[slot][equipmentId] = equipmentComponents;
     PET_EQUIPMENT_DATA[equipmentId] = equipmentComponents;
+    allPetEquipmentIds.push(equipmentId);
+}
+
+/** @type {string} */
+let allPetEquipmentIds = [];
+
+export function getAllPetEquipmentIds() {
+    return allPetEquipmentIds;
 }

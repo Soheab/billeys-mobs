@@ -14,7 +14,7 @@
 		},
 		"minecraft:icon": {
 		  "textures": {
-			"default": "billhat"
+			"default": "billey.pet_hat"
 		  }
 		}
 	  }

@@ -9,7 +9,6 @@
       },
       "textures": {
         "default": "textures/entity/billeys_mobs/pigeon",
-        "hat": "textures/entity/billeys_mobs/hat",
         "white": "textures/entity/billeys_mobs/pigeon1",
         "mixed": "textures/entity/billeys_mobs/pigeon2",
         "gray": "textures/entity/billeys_mobs/pigeon3",
@@ -22,8 +21,7 @@
         "blackw": "textures/entity/billeys_mobs/pigeon9"
       },
       "geometry": {
-        "default": "geometry.billeys_mobs.pigeon",
-        "hat": "geometry.billeys_mobs.pigeonhat"
+        "default": "geometry.billeys_mobs.pigeon"
       },
       "animations": {
         "new2": "animation.billeys_mobs.duckproj.body",
@@ -84,10 +82,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.pigeon",
-        {
-          "controller.render.billeys_mobs.bduckhat": "q.is_powered"
-        }
+        "controller.render.billeys_mobs.pigeon"
       ],
       "spawn_egg": {
         "base_color": "#303437",

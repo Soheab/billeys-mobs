@@ -9,7 +9,6 @@
       },
       "textures": {
         "zero": "textures/entity/billeys_mobs/gwshark",
-        "hat": "textures/entity/billeys_mobs/hat",
         "one": "textures/entity/billeys_mobs/shark1",
         "two": "textures/entity/billeys_mobs/shark2",
         "three": "textures/entity/billeys_mobs/shark3",
@@ -17,8 +16,7 @@
         "five": "textures/entity/billeys_mobs/shark"
       },
       "geometry": {
-        "default": "geometry.billeys_mobs.gwshark",
-        "hat": "geometry.billeys_mobs.gwsharkhat"
+        "default": "geometry.billeys_mobs.gwshark"
       },
       "animations": {
         "new": "animation.billeys_mobs.duckproj.body",
@@ -38,11 +36,8 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.shark",        
+        "controller.render.billeys_mobs.shark"
         //in the rat file
-        {
-            "controller.render.billeys_mobs.bduckhat": "q.is_powered"
-        }
       ],
       "spawn_egg": {
         "base_color": "#6f7880",

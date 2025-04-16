@@ -5,7 +5,7 @@ import { setKillNextLoad } from "./rat_potions";
 system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id, message }) => {
     switch (id) {
         case "billey:rat_minion_transform":
-            if (!entity?.isValid()) return;
+            if (!entity?.isValid) return;
             let l = entity.location;
             const { min, max } = entity.dimension.heightRange;
             if (l.y < min + 0.5) l.y = min + 1;
@@ -20,7 +20,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id, mes
             else entity.kill();
             return;
         case "billey:rat_king_finish_cooking": {
-            if (!entity?.isValid()) return;
+            if (!entity?.isValid) return;
             entity.getComponent("rideable")?.getRiders()[0]?.remove();
             let loc = entity.location;
             loc.y += 1;
@@ -40,20 +40,20 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id, mes
             return;
         }
         case "billey:set_health": {
-            if (!entity?.isValid()) return;
+            if (!entity?.isValid) return;
             if (entity.getDynamicProperty("cant_set_health")) return;
             entity.getComponent("health").setCurrentValue(message * 1);
             return;
         }
         case "billey:cant_set_health": {
-            if (!entity?.isValid()) return;
+            if (!entity?.isValid) return;
             entity.setDynamicProperty("cant_set_health", true);
             return;
         }
         case "billey:drop_target_equipment": {
-            if (!entity?.isValid()) return;
+            if (!entity?.isValid) return;
             const { target } = entity;
-            if (!target?.isValid())
+            if (!target?.isValid)
                 return;
             dropMainhandEquipment(target, entity);
             return;
@@ -85,14 +85,14 @@ world.afterEvents.entityRemove.subscribe(({ typeId, removedEntityId }) => {
 });
 
 world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
-    if (!hitEntity.isValid()) return;
+    if (!hitEntity.isValid) return;
     if (damagingEntity.typeId == "billey:rat_king") {
         const { x, z } = normalize(subtract(hitEntity.location, damagingEntity.location));
         const phase = damagingEntity.getProperty("billey:phase");
         hitEntity.applyKnockback(
-            x,
-            z,
-            0.5 * phase,
+            {
+                x: x * 0.5 * phase, z: z * 0.5 * phase
+            },
             0.25 * phase
         );
         if (phase == 1)
@@ -111,14 +111,14 @@ world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
     }
     else if (hitEntity.typeId == "billey:rat_king" && damagingEntity.typeId != "minecraft:player") {
         hitEntity.setDynamicProperty("has_been_hit_by_mob", true);
-        if (damagingEntity.isValid())
+        if (damagingEntity.isValid)
         damagingEntity.addTag("billey:rat_king_target");
     }
 });
 
 world.afterEvents.entitySpawn.subscribe(({ entity }) => {
     if (entity.typeId != "minecraft:lightning_bolt") return;
-    if (!entity.isValid()) return;
+    if (!entity.isValid) return;
     const { dimension, location } = entity;
     const player = dimension.getEntities({
         type: "minecraft:player",

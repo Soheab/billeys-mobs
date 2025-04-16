@@ -1,6 +1,7 @@
 import { world, system, TicksPerDay, TicksPerSecond, EffectTypes, ItemStack, Player, Entity, ContainerSlot, BlockPermutation, EntityTameMountComponent } from "@minecraft/server";
 import { crossMagnitude, decrementStack, duckArmors, nameOf, playSound } from "./utility";
 import { getPetEquipment, setPetEquipment, SLOTS } from "./pet_equipment/_index";
+import { getAllHappinessIds } from "./happiness/happiness";
 
 /**
  * @typedef {{
@@ -77,7 +78,7 @@ world.beforeEvents.itemUse.subscribe(data => {
 //do_event1
 
 system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => {
-    if (!duck?.isValid())
+    if (!duck?.isValid)
         return;
     switch (id) {
         case "billey:duck_become_duckatrice": {
@@ -119,6 +120,11 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
                     duck.getProperty(colorPropertyName)
                 );
             }
+
+            for (const happinessId of getAllHappinessIds) {
+                duckatrice[happinessId].value = duck[happinessId].value;
+            }
+
             playSound(duckatrice, "billey.grow");
             duck.dimension.getPlayers({
                 location: duck.location,
@@ -310,13 +316,13 @@ export function duckatriceBossStare(player, hostileDuck) {
     player.__duckatriceStareTime++;
 }
 
-world.afterEvents.itemUseOn.subscribe(({ source, itemStack }) => {
+world.afterEvents.itemStartUseOn.subscribe(({ source, itemStack }) => {
     if (
         itemStack.typeId != "billey:duckatrice_spawn_egg"
         || source.hasTag("billeyinfoduckatrice")
     )
         return;
-    source.sendMessage({ translate: "chat.billeys_mobs.short_info.duckatrice" });
+    source.sendMessage({ translate: "ui.billeys_mobs.short_info.duckatrice" });
     source.playSound("random.orb");
     source.addTag("billeyinfoduckatrice");
 });

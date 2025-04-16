@@ -364,6 +364,12 @@
 					}
 				}
 			}
+		},
+		"animation.billeys_mobs.mercat.thunder_ritual": {
+			"loop": true
+		},
+		"animation.billeys_mobs.mercat.ritual": {
+			"loop": true
 		}
 	}
 }

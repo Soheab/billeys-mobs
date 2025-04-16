@@ -28,13 +28,11 @@
         "diamond": "textures/entity/billeys_mobs/duckdiamond",
         "chest": "textures/entity/billeys_mobs/cuteduckchest",
         "endrodpetarmor": "textures/entity/bill/endrodarmor",
-        "hat": "textures/entity/billeys_mobs/hat",
         "netherite": "textures/entity/billeys_mobs/ducknetherite",
         "centipedehat": "textures/entity/billeys_mobs/centipedehat"
       },
       "geometry": {
         "default": "geometry.billeys_mobs.duck",
-        "hat": "geometry.billeys_mobs.duckhat",
         "chest": "geometry.billeys_mobs.duckchest",
         "armor": "geometry.billeys_mobs.duckarmor",
         "endrod": "geometry.billduckendrod"
@@ -145,9 +143,6 @@
         },
         {
           "controller.render.billeys_mobs.duckendrod": "q.mark_variant == 7"
-        },
-        {
-          "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
         },
         {
           "controller.render.billeys_mobs.duckchest": "q.is_chested"

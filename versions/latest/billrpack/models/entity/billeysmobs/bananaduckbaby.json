@@ -12,7 +12,12 @@
 			},
 			"bones": [
 				{
+					"name": "ooo",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "body",
+					"parent": "ooo",
 					"pivot": [0, 5, 1]
 				},
 				{

@@ -2760,7 +2760,7 @@
                     "target": "other",
                     "command": [
                         "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -2861,7 +2861,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 80.0 //xp_level_3
+                                    "value": 90.0 //xp_level_3
                                 }
                             ]
                         },
@@ -2880,7 +2880,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 150.0 //xp_level_4
+                                    "value": 180.0 //xp_level_4
                                 }
                             ]
                         },
@@ -2899,7 +2899,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 240.0 //xp_level_5
+                                    "value": 310.0 //xp_level_5
                                 }
                             ]
                         },
@@ -2918,7 +2918,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 330.0 //xp_level_6
+                                    "value": 520.0 //xp_level_6
                                 }
                             ]
                         },
@@ -2937,7 +2937,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 440.0 //xp_level_7
+                                    "value": 890.0 //xp_level_7
                                 }
                             ]
                         },
@@ -2956,7 +2956,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 550.0 //xp_level_8
+                                    "value": 1650.0 //xp_level_8
                                 }
                             ]
                         },
@@ -2975,7 +2975,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 670.0 //xp_level_9
+                                    "value": 3310.0 //xp_level_9
                                 }
                             ]
                         },
@@ -2994,7 +2994,7 @@
                                     "test": "float_property",
                                     "domain": "billey:xp",
                                     "operator": ">=",
-                                    "value": 810.0 //xp_level_10
+                                    "value": 7150.0 //xp_level_10
                                 }
                             ]
                         },
@@ -3019,7 +3019,7 @@
                         "queue_command": {
                             "command": [
                                 "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.reset\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3048,7 +3048,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3064,7 +3064,7 @@
                         },
                         "set_property": {
                             "billey:level": "3",
-                            "billey:xp": "80" //xp_level_3
+                            "billey:xp": "90" //xp_level_3
                         }
                     },
                     {
@@ -3077,7 +3077,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5",
                                 "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.withering\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}"
                             ]
                         }
@@ -3094,7 +3094,7 @@
                         },
                         "set_property": {
                             "billey:level": "4",
-                            "billey:xp": "150" //xp_level_4
+                            "billey:xp": "180" //xp_level_4
                         }
                     },
                     {
@@ -3107,7 +3107,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3123,7 +3123,7 @@
                         },
                         "set_property": {
                             "billey:level": "5",
-                            "billey:xp": "240" //xp_level_5
+                            "billey:xp": "310" //xp_level_5
                         }
                     },
                     {
@@ -3136,7 +3136,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3152,7 +3152,7 @@
                         },
                         "set_property": {
                             "billey:level": "6",
-                            "billey:xp": "330" //xp_level_6
+                            "billey:xp": "520" //xp_level_6
                         }
                     },
                     {
@@ -3165,7 +3165,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3181,7 +3181,7 @@
                         },
                         "set_property": {
                             "billey:level": "7",
-                            "billey:xp": "440" //xp_level_7
+                            "billey:xp": "890" //xp_level_7
                         }
                     },
                     {
@@ -3194,7 +3194,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3210,7 +3210,7 @@
                         },
                         "set_property": {
                             "billey:level": "8",
-                            "billey:xp": "550" //xp_level_8
+                            "billey:xp": "1650" //xp_level_8
                         }
                     },
                     {
@@ -3223,7 +3223,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5",
                                 "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.oneshot\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}"
                             ]
                         }
@@ -3240,7 +3240,7 @@
                         },
                         "set_property": {
                             "billey:level": "9",
-                            "billey:xp": "670" //xp_level_9
+                            "billey:xp": "3310" //xp_level_9
                         }
                     },
                     {
@@ -3253,7 +3253,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3269,7 +3269,7 @@
                         },
                         "set_property": {
                             "billey:level": "10",
-                            "billey:xp": "810" //xp_level_10
+                            "billey:xp": "7150" //xp_level_10
                         }
                     },
                     {
@@ -3282,7 +3282,7 @@
                                 "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
                                 "tag @a remove got_lvl_msg",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=30] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3298,7 +3298,7 @@
                         },
                         "set_property": {
                             "billey:level": "11",
-                            "billey:xp": "810" //xp_level_10
+                            "billey:xp": "7150" //xp_level_10
                         }
                     },
                     {
@@ -3306,7 +3306,7 @@
                             "command": [
                                 "tellraw @a[r=10] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.big_stone\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"\\n\"}]}}]}",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=10] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=10] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3322,7 +3322,7 @@
                         },
                         "set_property": {
                             "billey:level": "12",
-                            "billey:xp": "810" //xp_level_10
+                            "billey:xp": "7150" //xp_level_10
                         }
                     },
                     {
@@ -3330,7 +3330,7 @@
                             "command": [
                                 "tellraw @a[r=10] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.small_stone\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"\\n\"}]}}]}",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=10] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=10] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3346,7 +3346,7 @@
                         },
                         "set_property": {
                             "billey:level": "10",
-                            "billey:xp": "810" //xp_level_10
+                            "billey:xp": "7150" //xp_level_10
                         }
                     },
                     {
@@ -3354,7 +3354,7 @@
                             "command": [
                                 "tellraw @a[r=10] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.normal_stone\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"\\n\"}]}}]}",
                                 "effect @s instant_health 1 255 true",
-                                "playsound random.levelup @a[r=10] ~~~ 1.0 1.1 0.5"
+                                "playsound billey.level_up @a[r=10] ~~~ 1.0 1.1 0.5"
                             ]
                         }
                     }
@@ -3373,7 +3373,7 @@
                             "command": [
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                                "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.banana_duck\",\"with\":[\"\\n\"]}]}",
+                                "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.banana_duck\",\"with\":[\"\\n\"]}]}",
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                             ]
                         }
@@ -3387,7 +3387,7 @@
                             "target": "other",
                             "command": [
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                                "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.rideable_duck\"}]}",
+                                "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.rideable_duck\"}]}",
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                             ]
                         }
@@ -3396,7 +3396,7 @@
                         "queue_command": {
                             "target": "other",
                             "command": [
-                                "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip3\"}]}",
+                                "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip3\"}]}",
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                             ]
                         }
@@ -4232,8 +4232,8 @@
                         ]
                     },
                     {
-                        "set_property": {
-                            "billey:xp": "q.property('billey:xp') + 2.5 / q.property('billey:level')"
+                        "queue_command": {
+                            "command": "scriptevent billey:banana_duck_banana_xp"
                         }
                     },
                     {
@@ -5164,7 +5164,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "execute @a[r=10,tag=!billeyinforideable_bduck] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.rideable_duck\"}]}",
+                                "execute @a[r=10,tag=!billeyinforideable_bduck] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.rideable_duck\"}]}",
                                 "tag @a[r=10,tag=!billeyinforideable_bduck] add billeyinforideable_bduck"
                             ]
                         }
@@ -5278,7 +5278,7 @@
                     {
                         "queue_command": {
                             "command": [
-                                "tellraw @a[r=6,tag=!billeyinfolevelbduck,tag=billeyinfotip3v_2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.short_info.leveling\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfolevelbduck,tag=billeyinfotip3v_2] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.leveling\"}]}",
                                 "tag @a[r=6,tag=!billeyinfolevelbduck,tag=billeyinfotip3v_2] add billeyinfolevelbduck"
                             ]
                         }
@@ -5287,7 +5287,7 @@
                         "queue_command": {
                             "command": [
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                                "tellraw @a[r=6,tag=!billeyinfotip3v_2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip3\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfotip3v_2] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip3\"}]}",
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
                                 "tag @a[r=6,tag=!billeyinfotip3v_2] add billeyinfotip3v_2"
                             ]
@@ -5311,7 +5311,7 @@
                         "queue_command": {
                             "command": [
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                                "tellraw @a[r=6,tag=!billeyinfotip3v_2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip3\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfotip3v_2] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip3\"}]}",
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
                                 "tag @a[r=6,tag=!billeyinfotip3v_2] add billeyinfotip3v_2"
                             ]

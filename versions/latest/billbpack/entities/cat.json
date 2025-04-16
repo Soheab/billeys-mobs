@@ -25,6 +25,7 @@
 				]
 			},
 			"animations": {
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
 				"set_follow_state": "animation.billeys_mobs.set_follow_state",
 				"set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
 				"rainbow_effects": "animation.billeys_mobs.rainbow_effects",
@@ -1573,7 +1574,7 @@
 					"target": "other",
 					"command": [
 						"titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
-						"tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
+						"tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
 						"tag @s add billey:has_hurt_own_pet"
 					]
 				}

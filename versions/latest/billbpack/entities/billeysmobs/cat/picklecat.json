@@ -1447,7 +1447,7 @@
                     "target": "other",
                     "command": [
                         "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1477,9 +1477,9 @@
                     "target": "other",
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.pickle_cat\",\"with\":[\"\\n\"]}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.pickle_cat\",\"with\":[\"\\n\"]}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip6\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip6\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                     ]
                 }
@@ -2229,7 +2229,7 @@
                             "target": "other",
                             "command": [
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                                "tellraw @a[r=6,tag=!billeyinfotip6] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip6\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfotip6] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip6\"}]}",
                                 "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
                                 "tag @a[r=6,tag=!billeyinfotip6] add billeyinfotip6"
                             ]

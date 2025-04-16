@@ -13,7 +13,7 @@ world.afterEvents.entityDie.subscribe(
     ({ damageSource }) => {
         const { damagingEntity } = damageSource;
         if (
-            !damagingEntity?.isValid()
+            !damagingEntity?.isValid
             ||
             !damagingEntity.typeId.startsWith("billey:")
             ||

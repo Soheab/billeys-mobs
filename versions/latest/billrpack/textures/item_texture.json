@@ -137,8 +137,8 @@
 		"billhamstercooked": {
 			"textures": "textures/billeyitems/billhamstercooked"
 		},
-		"billhat": {
-			"textures": "textures/billeyitems/billhat"
+		"billey.pet_hat": {
+			"textures": "textures/billeyitems/pet_hat"
 		},
 		"billcatfishraw": {
 			"textures": "textures/billeyitems/billcatfishraw"
@@ -412,6 +412,9 @@
 		},
 		"billey.duckatrice_amber": {
 			"textures": "textures/billeyitems/duckatrice_amber"
+		},
+		"billey.pet_straw_hat": {
+			"textures": "textures/billeyitems/pet_straw_hat"
 		}
 		//stfu blockception extension
 	}

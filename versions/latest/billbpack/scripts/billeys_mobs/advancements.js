@@ -66,7 +66,7 @@ function giveAdvancement(player, advancementName) {
  */
 function slimeWyvernLevel10Advancement(slimeWyvern) {
     const player = slimeWyvern.getComponent("tameable").tamedToPlayer;
-    if (!player?.isValid()) return;
+    if (!player?.isValid) return;
     if (player.hasTag("billeyadv_slime_wyvern_level_10")) return;
     giveAdvancement(player, "slime_wyvern_level_10");
     slimeWyvern.addTag("billey:has_given_lvl10_adv");
@@ -75,11 +75,11 @@ function slimeWyvernLevel10Advancement(slimeWyvern) {
 system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity, id, message }) => {
     switch (id) {
         case "billey:advancement":
-            if (!sourceEntity.isValid()) return;
+            if (!sourceEntity.isValid) return;
             giveAdvancement(sourceEntity, message);
             break;
         case "billey:slime_wyvern_level_10":
-            if (!sourceEntity.isValid()) return;
+            if (!sourceEntity.isValid) return;
             slimeWyvernLevel10Advancement(sourceEntity);
             break;
     }
@@ -194,7 +194,6 @@ export async function showAdvancementForm(player) {
         rawtext: rawText
     });
     form2.button({ translate: "gui.back" });
-    form2.button({ translate: "gui.exit" });
     const { selection: selection2 } = await form2.show(player);
     if (selection2 === 0)
         showAdvancementForm(player);

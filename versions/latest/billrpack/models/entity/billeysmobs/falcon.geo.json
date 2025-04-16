@@ -10,8 +10,16 @@
 				"visible_bounds_height": 33,
 				"visible_bounds_offset": [0, -14.5, 0]
 			},
-			"bones": [
-				{
+			"bones": [{
+				"name": "ooo",
+				"pivot": [
+					0,
+					0,
+					0
+				]
+			},
+			{
+				"parent": "ooo",
 					"name": "flyrotation",
 					"pivot": [0, 4, 0]
 				},

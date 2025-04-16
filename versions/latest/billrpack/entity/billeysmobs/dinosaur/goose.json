@@ -15,12 +15,10 @@
         "three": "textures/entity/billeys_mobs/goose3",
         "four": "textures/entity/billeys_mobs/goose4",
         "five": "textures/entity/billeys_mobs/goose5",
-        "six": "textures/entity/billeys_mobs/goose6",
-        "hat": "textures/entity/billeys_mobs/hat"
+        "six": "textures/entity/billeys_mobs/goose6"
       },
       "geometry": {
-        "default": "geometry.billeys_mobs.goose",
-        "hat": "geometry.billeys_mobs.goosehat"
+        "default": "geometry.billeys_mobs.goose"
       },
       "particle_effects": {
         "zeelol": "billey:zeeduck"
@@ -120,10 +118,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.goose", //in the billey.json file
-        {
-          "controller.render.billeys_mobs.bduckhat": "q.is_stunned"
-        }
+        "controller.render.billeys_mobs.goose" //in the billey.json file
       ],
       "spawn_egg": {
         "base_color": "#FEFFFF",

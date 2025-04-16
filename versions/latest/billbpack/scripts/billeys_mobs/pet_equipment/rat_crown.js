@@ -17,7 +17,7 @@ registerPetEquipment("Head", "billey:rat_crown",
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
     if (eventId != "billey:pet_target_acquired"
-        || !entity.isValid() ||
+        || !entity.isValid ||
         getPetEquipmentId(entity, "Head") != "billey:rat_crown")
         return;
 
@@ -57,11 +57,11 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
         () => ratMinions.forEach(ratMinion => {
             //crownedRatOwner is undefined if the crowned rat's owner is offline
             //getComponent("tameable") was also undefined once, i forgot in what situation
-            if (crownedRatOwner?.isValid())
+            if (crownedRatOwner?.isValid)
                 ratMinion.getComponent("tameable")?.tame(crownedRatOwner);
 
             //make the rat minions angry at the crowned rat's target
-            if (entity.isValid() && entity.target) {
+            if (entity.isValid && entity.target) {
                 ratMinion.applyDamage(1, {
                     damagingEntity: entity.target,
                     cause: "entityAttack"
@@ -75,7 +75,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
 
 system.afterEvents.scriptEventReceive.subscribe(
     async ({ id, sourceEntity: ratMinion }) => {
-        if (id != "billey:friendly_rat_minion_despawn" || !ratMinion?.isValid())
+        if (id != "billey:friendly_rat_minion_despawn" || !ratMinion?.isValid)
             return;
         await dropAllPetEquipment(ratMinion);
         ratMinionPoof(ratMinion);

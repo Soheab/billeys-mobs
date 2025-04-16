@@ -18,15 +18,13 @@
                 "six": "textures/entity/billeys_mobs/kiwi6",
                 "eight": "textures/entity/billeys_mobs/kiwi8",
                 "nine": "textures/entity/billeys_mobs/kiwi9",
-                "hat": "textures/entity/billeys_mobs/hat",
                 "sheared": "textures/entity/billeys_mobs/kiwisheared",
                 "sheared2": "textures/entity/billeys_mobs/kiwisheared2",
                 "nothing": "textures/entity/billeys_mobs/nothing"
             },
             "geometry": {
                 "default": "geometry.billeys_mobs.kiwi",
-                "sheared": "geometry.billeys_mobs.kiwisheared",
-                "hat": "geometry.billeys_mobs.kiwihat"
+                "sheared": "geometry.billeys_mobs.kiwisheared"
             },
             "animations": {
                 "new": "animation.billeys_mobs.duckproj.body",
@@ -79,10 +77,7 @@
       "hide_armor": false,
       "render_controllers": [
                 "controller.render.billeys_mobszambie.kiwi",
-                "controller.render.billeys_mobszambie.kiwi.shear",
-                {
-                    "controller.render.billeys_mobs.bduckhat": "q.is_powered"
-                }
+                "controller.render.billeys_mobszambie.kiwi.shear"
             ],
             "spawn_egg": {
                 "overlay_color": "#6E4F24",

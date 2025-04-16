@@ -4,12 +4,13 @@ import { isMorph, morphTick } from "./morph";
 import { /*removeWaystoneLoader,*/ tpAllFollowingPets, tpAllFollowingPetsUsingStructure } from "./quality_of_life";
 import { decrementDuckatriceStares, duckatriceBossStare, duckatriceStareDamage } from "./duckatrice";
 import { giveInfoBookOnMove } from "./info_book";
+import { happinessTick, TICKS_PER_HAPPY_TICK } from "./happiness/happiness";
 
 system.runInterval(() => {
 	const { currentTick } = system;
 	const players = world.getPlayers();
 	for (const player of players) {
-		if (!player.isValid()) continue;
+		if (!player.isValid) continue;
 
 		const playerEquippable = player.getComponent("equippable");
 
@@ -60,16 +61,24 @@ system.runInterval(() => {
 		for (const rider of riders) {
 			if (!ridePets.includes(rider.typeId)) continue;
 			if (rider.typeId == "billey:slime_wyvern") {
-				if (riders.length > 1)
+				if (riders.length > 1) {
 					rider.teleport(player.location);
+					rider.triggerEvent("rode_player");
+					continue;
+				}
+				player.addEffect("slow_falling", 5, { showParticles: false });
+				if (rider.getProperty("billey:level") < 10)
+					player.addEffect("slowness", 5, { showParticles: false, amplifier: 1 });
 			}
 			else if (headPets.includes(rider.typeId))
 				rider.setProperty(
 					"billey:sit_on_head",
-					riders.length < 2
+					riders.length == 1
 				);
-			if (player.isSneaking && player.isJumping)
+			if (player.isSneaking && player.isJumping) {
 				rider.teleport(player.location);
+				rider.triggerEvent("rode_player");
+			}
 		}
 		if (isMorph(player, "duck")) {
 			morphTick(player, "duck"); //this looks kinda stupid, will change when more morphs come
@@ -154,6 +163,14 @@ system.runInterval(() => {
 			pet.setProperty("billey:mob_nearby",
 				dimension.getEntities({ location: pet.location, maxDistance: 1.2, type: "billey:rat", tags: ["in_love"] }).length > 1)
 		});
+
+		if (currentTick % TICKS_PER_HAPPY_TICK == 0) {
+			dimension.getEntities({ tags: ["tamed"] }).forEach(pet => {
+				if (pet.typeId.startsWith("billey:")) {
+					happinessTick(pet);
+				}
+			});
+		}
 	}
 });
 

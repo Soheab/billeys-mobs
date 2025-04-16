@@ -1,8 +1,8 @@
-import { world, BlockPermutation } from "@minecraft/server";
+import { world, BlockPermutation, system } from "@minecraft/server";
 import { playSound } from "./utility";
 
 
-world.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry }) => {
+system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
 	blockComponentRegistry.registerCustomComponent("billey:banana_peel", {
 		onStepOn: (({ entity, block }) => {
 			if (!entity) return;

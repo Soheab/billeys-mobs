@@ -7,7 +7,6 @@
       "textures": {
         "white": "textures/entity/cat/white",
         "black": "textures/entity/cat/tuxedo",
-        "hat": "textures/entity/billeys_mobs/hat",
         "hatopy": "textures/entity/billeys_mobs/hatopy",
         "red": "textures/entity/cat/redtabby",
         "siamese": "textures/entity/cat/siamesecat",
@@ -44,7 +43,6 @@
         "lily_tame": "textures/entity/cat/lily_tame"
       },
       "geometry": {
-        "hat": "geometry.billeys_mobs.cathat",
         "default": "geometry.cat"
       },
       "scripts": {
@@ -82,10 +80,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [ 
-        "controller.render.cat",
-        {
-            "controller.render.billeys_mobs.bduckhat": "q.is_powered"
-        }
+        "controller.render.cat"
       ],
       "spawn_egg": {
         "texture": "spawn_egg",

@@ -7,7 +7,7 @@ import { playSound, titleCase } from "./utility";
 function ratPotionOnHit(projectile) {
 	switch (projectile.typeId) {
 		case "billey:rat_potion": {
-			if (!projectile.isValid()) return;
+			if (!projectile.isValid) return;
 			const maxHeight = projectile.dimension.heightRange.max;
 			if (projectile.location.y + 5 > maxHeight) return;
 			const ofRatKing = projectile.getDynamicProperty("of_rat_king");
@@ -54,7 +54,7 @@ function ratPotionOnHit(projectile) {
 			return;
 		}
 		case "billey:rat_king_boost_potion": {
-			if (!projectile.isValid()) return;
+			if (!projectile.isValid) return;
 			const king = projectile.dimension.getEntities({
 				location: projectile.location,
 				type: "billey:rat_king",
@@ -71,7 +71,7 @@ function ratPotionOnHit(projectile) {
 			return;
 		}
 		case "billey:rat_king_deter_potion": {
-			if (!projectile.isValid()) return;
+			if (!projectile.isValid) return;
 			const king = projectile.dimension.getEntities({
 				location: projectile.location,
 				type: "billey:rat_king",

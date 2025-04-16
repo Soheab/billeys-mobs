@@ -5,8 +5,7 @@
       "identifier": "billey:pigeon_vibe",
       "materials": { "default": "entity_alphatest","cat": "cat" },
       "textures": {
-        "default": "textures/entity/billeys_mobs/pigeon",
-        "hat": "textures/entity/billeys_mobs/hat"
+        "default": "textures/entity/billeys_mobs/pigeon"
       },
       "geometry": {
         "default": "geometry.billeys_mobs.pigeon",

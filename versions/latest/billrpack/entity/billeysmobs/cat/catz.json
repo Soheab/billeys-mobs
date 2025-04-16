@@ -8,7 +8,6 @@
       },
       "textures": {
         "white": "textures/entity/zcat/white",
-        "hat": "textures/entity/billeys_mobs/hat",
         "black": "textures/entity/zcat/tuxedo",
         "red": "textures/entity/zcat/redtabby",
         "siamese": "textures/entity/zcat/siamesecat",

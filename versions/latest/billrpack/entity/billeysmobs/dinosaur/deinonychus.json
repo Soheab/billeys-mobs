@@ -29,12 +29,10 @@
           "eighteen": "textures/entity/billeys_mobs/deinonychus8",
           "nineteen": "textures/entity/billeys_mobs/deinonychus9",
           "twenty": "textures/entity/billeys_mobs/deinonychus",
-          "twentyone": "textures/entity/billeys_mobs/deinonychus1",
-          "hat": "textures/entity/billeys_mobs/hat"
+          "twentyone": "textures/entity/billeys_mobs/deinonychus1"
         },
         "geometry": {
-          "default": "geometry.billeys_mobs.deinonychus",
-          "hat": "geometry.billeys_mobs.deinonychushat"
+          "default": "geometry.billeys_mobs.deinonychus"
         },
         "animations": {
           "controller.sit": "controller.animation.billeys_mobs.sit",
@@ -77,10 +75,7 @@
         "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-          "controller.render.billeys_mobs.bettafish",
-          {
-            "controller.render.billeys_mobs.bduckhat": "q.is_powered"
-          }
+          "controller.render.billeys_mobs.bettafish"
         ],
         "spawn_egg": {
           "base_color": "#9b897d",

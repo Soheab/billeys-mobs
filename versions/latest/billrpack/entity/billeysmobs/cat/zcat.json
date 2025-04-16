@@ -6,7 +6,6 @@
       "materials": { "default": "cat" },
       "textures": {
         "wild": "textures/entity/cat/zcat",
-        "hat": "textures/entity/billeys_mobs/hat",
         "tamed": "textures/entity/cat/zcat_tame"
       },
       "geometry": {

@@ -6,7 +6,7 @@ import { dropAll, nameOf } from "./utility";
 system.afterEvents.scriptEventReceive.subscribe(data => {
     if (data.id != "billey:pigeon_mission") return;
     const pigeon = data.sourceEntity;
-    if (!pigeon?.isValid()) return;
+    if (!pigeon?.isValid) return;
     const player = world.getAllPlayers().find(p => p.name == pigeon.getDynamicProperty("owner_name"));
     switch (data.message) {
         case "phase3":
@@ -94,7 +94,7 @@ export function pigeonUI(player, pigeon, dimension) {
         .show(player)
         .then(e => {
             if (e.canceled) return;
-            if (players[e.formValues[0]].isValid()) {
+            if (players[e.formValues[0]].isValid) {
                 pigeon.triggerEvent("start_mission");
                 pigeon.setDynamicProperty("target_name", playerNames[[e.formValues[0]]]);
                 pigeon.setDynamicProperty("original_location", pigeon.location);

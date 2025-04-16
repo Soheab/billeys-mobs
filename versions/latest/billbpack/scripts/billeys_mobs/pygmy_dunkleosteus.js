@@ -92,7 +92,7 @@ world.afterEvents.itemUse.subscribe(({ source: player, itemStack }) => {
 
 world.afterEvents.entityHurt.subscribe(
 	({ hurtEntity, damage }) => {
-		if (!hurtEntity.isValid()) return;
+		if (!hurtEntity.isValid) return;
 		let reinforcedArmorProtection = 0;
 		for (const slotName of ARMOR_SLOT_NAMES) {
 			const armor = hurtEntity.getComponent("equippable").getEquipment(slotName);

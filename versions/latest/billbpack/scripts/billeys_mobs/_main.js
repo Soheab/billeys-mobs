@@ -1,4 +1,5 @@
 import { world, system, Player, ItemStack } from "@minecraft/server";
+import "./happiness/petting_happiness";
 import "./food";
 import "./interactions";
 import "./shooters";
@@ -20,11 +21,18 @@ import "./plushies";
 import "./roasts";
 import "./duckatrice";
 import "./leveling";
+import "./happiness/happiness";
+import "./happiness/owner_presence_happiness";
+import "./happiness/buddy_presence_happiness";
+import "./happiness/not_sitting_happiness";
+import "./happiness/health_happiness";
+import "./happiness/travel_happiness";
+import "./version";
 import { playSound } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 
-//im aware that this file needs to be split into other files
+//this file is a mess
 
 const DEBUG_MODE = false;
 
@@ -83,7 +91,7 @@ let ratOtherParentMarkVariant = 0;
 let piranhaLoader;
 
 system.afterEvents.scriptEventReceive.subscribe(data => {
-	if (!data.sourceEntity?.isValid()) return;
+	if (!data.sourceEntity?.isValid) return;
 	switch (data.id) {
 		case "billey:add_script_tag":
 			data.sourceEntity.addTag("billey_script_working");
@@ -161,7 +169,7 @@ world.beforeEvents.chatSend.subscribe((data) => {
 	if (data.message.startsWith("!run ")) {
 		data.cancel = true;
 		system.run(() => {
-			data.sender.runCommandAsync(data.message.slice(5, undefined))
+			data.sender.runCommand(data.message.slice(5, undefined))
 		})
 	}
 	else if (data.message.startsWith("!sayas ")) {
@@ -194,7 +202,7 @@ world.beforeEvents.chatSend.subscribe((data) => {
 	else if (data.message == "!ket") {
 		data.cancel = true;
 		system.run(() => {
-			data.sender.runCommandAsync("kill @e[tag=!tamed]")
+			data.sender.runCommand("kill @e[tag=!tamed]")
 		})
 	}
 	else if (data.message == "!removebilleytags") {

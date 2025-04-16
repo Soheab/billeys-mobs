@@ -63,7 +63,7 @@ function addDuckTarget(duckTarget) {
         duckTarget.addTag("billey_duck_attack");
         system.runTimeout(
             () => {
-                if (duckTarget?.isValid())
+                if (duckTarget?.isValid)
                     duckTarget.removeTag("billey_duck_attack");
             },
             45 * TicksPerSecond
@@ -71,7 +71,7 @@ function addDuckTarget(duckTarget) {
     }
 }
 
-world.afterEvents.playerSpawn.subscribe(({ player }) => 
+world.afterEvents.playerSpawn.subscribe(({ player }) =>
     player.removeTag("billey_duck_attack")
 );
 
@@ -108,7 +108,7 @@ export function morphTick(player, morphName) {
                 z: player.location.z
             });
             if (block.typeId == "minecraft:water")
-                player.applyKnockback(0, 0, 0, 0.1);
+                player.applyKnockback({ x: 0, z: 0 }, 0.1);
             break;
     }
     health.setCurrentValue(Math.min(health.currentValue, maxHealthValue));
@@ -117,7 +117,7 @@ export function morphTick(player, morphName) {
 
 world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
     let duckTarget;
-    if (!damagingEntity.isValid() || !hitEntity.isValid()) return;
+    if (!damagingEntity.isValid || !hitEntity.isValid) return;
     if (isMorph(damagingEntity, "duck")) {
         duckTarget = hitEntity;
     }

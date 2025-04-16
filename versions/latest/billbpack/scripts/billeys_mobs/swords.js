@@ -17,7 +17,7 @@ world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
 			case "billey:shark_tooth_sword":
 				damagingEntity.addTag("immunetosharksword");
 				let lol = damagingEntity;
-				if (hitEntity.isValid()) {
+				if (hitEntity.isValid) {
 					hitEntity.addTag("immunetosharksword");
 					lol = hitEntity;
 				};
@@ -26,7 +26,7 @@ world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
 				else
 				damagingEntity.runCommand("execute @s ^^^2 damage @e[tag=!tamed,type=!xp_orb,type=!item,family=!inanimate,family=!wolf,tag=!immunetosharksword,r=3.25] 11 entity_attack entity @s");
 				damagingEntity.removeTag("immunetosharksword");
-				if (hitEntity.isValid()) hitEntity.removeTag("immunetosharksword");
+				if (hitEntity.isValid) hitEntity.removeTag("immunetosharksword");
 				lol.dimension.spawnParticle("billey:wave", lol.location);
 				damageItem(damagingEntity);
 				break;

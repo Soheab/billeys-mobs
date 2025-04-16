@@ -10,7 +10,6 @@
             },
             "textures": {
                 "zero": "textures/entity/billeys_mobs/netherrat",
-                "hat": "textures/entity/billeys_mobs/rat",
                 "one": "textures/entity/billeys_mobs/netherrat1",
                 "two": "textures/entity/billeys_mobs/netherrat2",
                 "three": "textures/entity/billeys_mobs/netherrat3",
@@ -42,8 +41,7 @@
                 "fived": "textures/entity/billeys_mobs/netherrat5d"
             },
             "geometry": {
-                "default": "geometry.billeys_mobs.netherrat",
-                "hat": "geometry.billeys_mobs.rathat"
+                "default": "geometry.billeys_mobs.netherrat"
             },
             "animations": {
                 "new": "animation.billeys_mobs.duckproj.body",

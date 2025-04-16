@@ -30,12 +30,10 @@
         "eighteen": "textures/entity/billeys_mobs/woodlouse18",
         "nineteen": "textures/entity/billeys_mobs/woodlouse19",
         "twenty": "textures/entity/billeys_mobs/woodlouse20",
-        "twentyone": "textures/entity/billeys_mobs/woodlouse21",
-        "hat": "textures/entity/billeys_mobs/hat"
+        "twentyone": "textures/entity/billeys_mobs/woodlouse21"
       },
       "geometry": {
-        "default": "geometry.billeys_mobs.woodlouse",
-        "hat": "geometry.billeys_mobs.woodlousehat"
+        "default": "geometry.billeys_mobs.woodlouse"
       },
       "animations": {
         "controller.sit": "controller.animation.billeys_mobs.sit",
@@ -72,10 +70,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.bettafish",
-        {
-          "controller.render.billeys_mobs.bduckhat": "q.is_powered"
-        }
+        "controller.render.billeys_mobs.bettafish"
       ],
       "spawn_egg": {
         "base_color": "#8c8f96",

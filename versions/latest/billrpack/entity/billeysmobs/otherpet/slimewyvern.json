@@ -20,13 +20,11 @@
                 "variant8": "textures/entity/billeys_mobs/slime_wyvern8",
                 "cum": "textures/entity/billeys_mobs/slime_wyvern_cum",
                 "drunk": "textures/entity/billeys_mobs/slime_wyvern_drunk",
-                "nothing": "textures/entity/billeys_mobs/slime_wyvern_nothing",
-                "hat": "textures/entity/billeys_mobs/hat"
+                "nothing": "textures/entity/billeys_mobs/slime_wyvern_nothing"
             },
             "geometry": {
                 "default": "geometry.billeys_mobs.slimewyvern",
-                "cum": "geometry.billeys_mobs.slimewyverncum",
-                "hat": "geometry.billeys_mobs.slimewyvernhat"
+                "cum": "geometry.billeys_mobs.slimewyverncum"
             },
             "animations": {
                 "new": "animation.billeys_mobs.duckproj.ooo",
@@ -78,9 +76,6 @@
                 "controller.render.billeys_mobs.slimewyvern",
                 {
                     "controller.render.billeys_mobs.slimewyvern.cum": "q.is_saddled"
-                },
-                {
-                    "controller.render.billeys_mobs.bduckhat": "q.is_powered"
                 }
             ],
             "spawn_egg": {

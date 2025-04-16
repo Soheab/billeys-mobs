@@ -1462,7 +1462,7 @@
                     "target": "other",
                     "command": [
                         "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1492,7 +1492,7 @@
                     "target": "other",
                     "command": [
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-                        "tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.zombie_cat\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"chat.billeys_mobs.info.formore\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.zombie_cat\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"ui.billeys_mobs.info.formore\"}]}",
                         "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
                     ]
                 }

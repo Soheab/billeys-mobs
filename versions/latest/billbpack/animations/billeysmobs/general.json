@@ -5,7 +5,7 @@
 			"animation_length": 1.0,
 			"loop": true,
 			"timeline": {
-				"0.1": [
+				"0.15": [
 					"@s set_follow_state"
 				]
 			}
@@ -52,16 +52,6 @@
 					"/tag @s[tag=!male] add self",
 					"/execute @s[tag=!male] ~~~ event entity @e[tag=!self,tag=in_love,r=1,c=1] become_male",
 					"/tag @s remove self"
-				]
-			}
-		},
-		"animation.billeys_mobs.give_owner_slow_falling": {
-			"animation_length": 1.0,
-			"loop": true,
-			"timeline": {
-				"0.0": [
-					"/effect @p slow_falling 3 0 true",
-					"/execute @s[tag=!billey:level10] ~~~ effect @p slowness 2 1 true"
 				]
 			}
 		},

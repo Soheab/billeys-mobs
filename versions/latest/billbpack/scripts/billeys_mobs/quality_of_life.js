@@ -1,10 +1,12 @@
-import { world, system, Player, Entity, BlockVolume } from "@minecraft/server";
-import { ModalFormData } from "@minecraft/server-ui";
-import { DIMENSIONS } from "./utility";
+import { world, system, Player, Entity, BlockVolume, InputPermissionCategory } from "@minecraft/server";
+import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
+import { DIMENSIONS, nameOf, titleCase } from "./utility";
+import { xpOfNextLevel } from "./leveling";
+import { calculateTotalEffectiveHappinessPercentage, calculateTotalEffectiveHappinessPercentage2, getAllHappinessIds, getMentalStateColor, getMentalStateName, MAX_HAPPINESS, valueToEffectiveValue } from "./happiness/happiness";
 
 world.afterEvents.entityDie.subscribe(
     ({ deadEntity }) => {
-        if (!deadEntity.isValid())
+        if (!deadEntity.isValid)
             return;
         const chunkLoader = deadEntity.dimension.spawnEntity(
             "billey:chunk_loader",
@@ -73,14 +75,8 @@ export function tpAllFollowingPets(player, alwaysUnjumble) {
             );
         for (const pet of followingPets) {
             pet.teleport(player.location, { dimension: player.dimension });
-            if (!alwaysUnjumble && followingPets.length == 1) continue;
-            const x = Math.max(0.1, Math.random() / 2) * nextXPushDirection;
-            const z = Math.max(0.1, Math.random() / 2) * nextZPushDirection;
-            if (Math.random() < 0.5)
-                nextXPushDirection *= -1;
-            else
-                nextZPushDirection *= -1;
-            pet.applyImpulse({ x, y: 0, z });
+            if (alwaysUnjumble || followingPets.length > 1)
+                pushAround(pet);
         }
         //removeWaystoneLoader(player);
     }
@@ -131,6 +127,7 @@ export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepea
     });
     world.structureManager.delete(structureId);
     chunkLoader?.remove();
+    removeWaystoneLoader(player);
     system.run(() => {
         if (!doNotRepeat)
             tpAllFollowingPetsUsingStructure(player, undefined, true);
@@ -139,22 +136,31 @@ export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepea
 
 world.afterEvents.entityLoad.subscribe(({ entity }) => {
     if (entity.getDynamicProperty("unjumble_on_load")) {
-        const x = Math.max(0.1, Math.random() / 2) * nextXPushDirection;
-        const z = Math.max(0.1, Math.random() / 2) * nextZPushDirection;
-        if (Math.random() < 0.5)
-            nextXPushDirection *= -1;
-        else
-            nextZPushDirection *= -1;
-        entity.applyImpulse({ x, y: 0, z });
+        pushAround(entity);
         entity.setDynamicProperty("unjumble_on_load", undefined);
     }
 });
+
+/**
+ * @param {Entity} entity 
+ */
+function pushAround(entity) {
+    const unitX = Math.random();
+    const unitY = Math.sqrt(1 - unitX * unitX);
+    const x = unitX / 2 * nextXPushDirection;
+    const z = unitY / 2 * nextZPushDirection;
+    if (Math.random() < 0.5)
+        nextXPushDirection *= -1;
+    else
+        nextZPushDirection *= -1;
+    entity.applyImpulse({ x, y: 0, z });
+}
 
 /** 
  * @param {Entity} pet
  */
 function isFollowingOwner(pet) {
-    if (!pet.isValid()) {
+    if (!pet.isValid) {
         world.sendMessage(`§cError: The '${pet.typeId}' was not actually loaded. §ePlease let Bill know.`);
     }
     const followOwnerState = pet.getProperty("billey:follow_owner_state");
@@ -168,28 +174,138 @@ world.afterEvents.playerDimensionChange.subscribe(({ player }) => {
     tpAllFollowingPetsUsingStructure(player);
 });
 
-/** @param {Player} player 
+/** @param {Player} player */
 export function removeWaystoneLoader(player) {
     const waystoneLoader = player.__waystoneLoader;
-    /** @type {Entity|undefined}
-    if (waystoneLoader?.isValid())
+    /* @type {Entity|undefined} */
+    if (waystoneLoader?.isValid)
         waystoneLoader.remove();
     player.__waystoneLoader = undefined;
-} */
+}
 
 world.afterEvents.entityLoad.subscribe(({ entity }) => {
     if (entity.typeId == "billey:chunk_loader")
         entity.remove();
 });
 
-/*world.afterEvents.playerInteractWithBlock.subscribe(({ block, player }) => {
-    if (!block.isValid() || !block.typeId.includes("waystone"))
+world.afterEvents.playerInteractWithBlock.subscribe(({ block, player }) => {
+    if (!block.isValid || !block.typeId.includes("waystone"))
         return;
     removeWaystoneLoader(player);
     player.__waystoneLoader = player.dimension.spawnEntity(
         "billey:chunk_loader",
         block.location
     );
-});*/
+});
 
-//world.sendMessage(world.structureManager.getWorldStructureIds().join("\n"))
+world.afterEvents.entityHitEntity.subscribe(({ damagingEntity, hitEntity }) => {
+    if (
+        !(damagingEntity instanceof Player)
+        || !damagingEntity.isSneaking
+        || !hitEntity.typeId.startsWith("billey:")
+        || (!hitEntity.getComponent("tameable")?.isTamed && !hitEntity.hasComponent("is_tamed"))
+    ) {
+        return;
+    }
+
+    const isOwner = damagingEntity == hitEntity.getComponent("tameable")?.tamedToPlayer;
+
+    if (
+        isOwner && damagingEntity.hasTag("billey:can_hit_own_pet")
+        || !isOwner && !damagingEntity.hasTag("billey:cant_hit_other_pet")
+    ) {
+        return;
+    }
+
+    showPetStatForm(damagingEntity, hitEntity);
+});
+
+/**
+ * @param {Player} player 
+ * @param {Entity} pet 
+ */
+export function showPetStatForm(player, pet) {
+    const form = new ActionFormData();
+    form.title(nameOf(pet));
+    const healthComponent = pet.getComponent("health");
+    const currentHealth = Math.round(healthComponent.currentValue);
+    const maxHealth = Math.round(healthComponent.defaultValue);
+    const healthPercentage = currentHealth / maxHealth;
+    let healthColor = "§a";
+    if (healthPercentage >= 1)
+        /* do nothing */;
+    else if (healthPercentage < 0.25 || currentHealth < 5)
+        healthColor = "§4";
+    else if (healthPercentage < 0.5 || currentHealth < 8)
+        healthColor = "§c";
+    else if (healthPercentage < 0.75 || currentHealth < 11)
+        healthColor = "§6";
+    else if (healthPercentage < 1)
+        healthColor = "§e";
+
+    const happinessPercentage = calculateTotalEffectiveHappinessPercentage2(pet);
+    const mentalStateColor = getMentalStateColor(happinessPercentage);
+    const mentalStateName = getMentalStateName(happinessPercentage);
+
+    /** @type {import("@minecraft/server").RawMessage[]} */
+    let body = [
+        { translate: "ui.billeys_mobs.pet_stats.owner" },
+        { text: `: §b${pet.getDynamicProperty("owner_name")}§r\n` },
+        { translate: "ui.billeys_mobs.pet_stats.health" },
+        { text: `: ${healthColor + currentHealth}§r / ${"§a" + maxHealth}§r\n` }
+    ];
+
+    /** @type {number|undefined} */
+    const level = pet.getProperty("billey:level");
+    if (level && !pet.hasComponent("is_baby")) {
+        body.push(
+            {
+                translate: "ui.billeys_mobs.pet_stats.level",
+                with: [level.toString()]
+            },
+            { text: "§r\n" }
+        );
+        if (level < 10) {
+            const nextLevelXp = xpOfNextLevel(level);
+            const thisLevelXp = xpOfNextLevel(level - 1);
+            const currentXp = Math.min(
+                Math.floor(10 * pet.getProperty("billey:xp")),
+                nextLevelXp - 1
+            );
+            const xpLeft = nextLevelXp - currentXp;
+            body.push(
+                {
+                    translate: "ui.billeys_mobs.pet_stats.xp",
+                    with: [
+                        (level + 1).toString(),
+                        (currentXp - thisLevelXp).toString(),
+                        (nextLevelXp - thisLevelXp).toString(),
+                        xpLeft.toString()
+                    ]
+                },
+                { text: "§r\n" }
+            );
+        }
+    }
+
+    body.push({
+        translate: "ui.billeys_mobs.pet_stats.mental_state",
+        with: {
+            rawtext: [
+                { text: mentalStateColor },
+                { translate: "mental_state.billeys_mobs." + mentalStateName }
+            ]
+        }
+    });
+    if (true) {
+        body.push({ text: `§r\n\n§lTechnical details:§r\nTotal Happiness: ${(happinessPercentage).toFixed(2)}\n` });
+        for (const happinessId of getAllHappinessIds()) {
+            body.push({ text: `§r\n\n${happinessId}: ${((pet[happinessId].effectiveValue) / MAX_HAPPINESS).toFixed(2)} (${((pet[happinessId].value) / MAX_HAPPINESS).toFixed(2)})` });
+        }
+    }
+
+    form.body({ rawtext: body });
+    form.button({ translate: "gui.ok" });
+
+    form.show(player);
+}

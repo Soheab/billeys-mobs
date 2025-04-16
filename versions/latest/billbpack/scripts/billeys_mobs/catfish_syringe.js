@@ -80,7 +80,7 @@ function useCatfishAntibodies(entity, slot, injector) {
         system.clearRun(entity.effectImmunityStopId);
     entity.effectImmunityStopId = system.runTimeout(
         () => {
-            if (entity.isValid())
+            if (entity.isValid)
                 clearImmunities(entity);
         },
         600 * TicksPerSecond
@@ -123,7 +123,7 @@ function loadEffectImmunityData(entity) {
     //const immunityTimeLeftInSeconds = (Date.now() - entity.getDynamicProperty("time_to_stop_effect_immunity") + Date.now() - world.getDynamicProperty("last_leave_time")) / 1000;
     entity.effectImmunityStopId = system.runTimeout(
         () => {
-            if (entity.isValid())
+            if (entity.isValid)
                 clearImmunities(entity);
         },
         300 * TicksPerSecond

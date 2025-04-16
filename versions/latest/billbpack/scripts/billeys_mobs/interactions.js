@@ -1,6 +1,10 @@
 import { world, ItemStack, system, GameMode, Entity, Player, EntityMovementAmphibiousComponent } from "@minecraft/server";
 import { addItemToPigeon, pigeonUI } from "./pigeon_mission";
 import { playerPetDuckatrice } from "./duckatrice";
+import { PettingHappiness } from "./happiness/petting_happiness";
+import { DEFAULT_HAPPINESS_VALUE, MAX_HAPPINESS } from "./happiness/happiness";
+import { xpOfNextLevel } from "./leveling";
+import { showPetStatForm } from "./quality_of_life";
 
 const lvl10XP = 10 * 810 //xp_level10
 
@@ -51,24 +55,29 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
 		//if you're reading this then i forgot to improve it
 		data.cancel = mob.typeId.startsWith("billey:");
 		if (mob.nameTag == "") {
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"\\n§d\"},{\"translate\":\"entity." + mob.typeId + ".name" + "\"}]}");
+			player.runCommand("tellraw @s {\"rawtext\":[{\"text\":\"\\n§d\"},{\"translate\":\"entity." + mob.typeId + ".name" + "\"}]}");
 		} else {
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"\\n§d" + mob.nameTag + "\"}]}");
+			player.runCommand("tellraw @s {\"rawtext\":[{\"text\":\"\\n§d" + mob.nameTag + "\"}]}");
 		}
 		if (mob.typeId.startsWith("billey:") && mob.getComponent("is_tamed"))
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Owner:§9 " +
+			player.runCommand("tellraw @s {\"rawtext\":[{\"text\":\"Owner:§9 " +
 				mob.getDynamicProperty("owner_name") + "\"}]}");
 		let currentXP = Math.floor(10 * mob.getProperty("billey:xp"));
 		let level = mob.getProperty("billey:level");
-		player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Health:§9 " + Math.floor(mob.getComponent("health").currentValue) + " / " + mob.getComponent("health").effectiveMax + "\"}]}");
-		let nextXP = 100 * Math.floor(3 * level ** 1.5);
+		player.runCommand("tellraw @s {\"rawtext\":[{\"text\":\"Health:§9 " + Math.floor(mob.getComponent("health").currentValue) + " / " + mob.getComponent("health").effectiveMax + "\"}]}");
+		let nextXP = xpOfNextLevel(level);
 		if (level)
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"Level:§9 " + level + "\"}]}");
+			player.runCommand("tellraw @s {\"rawtext\":[{\"text\":\"Level:§9 " + level + "\"}]}");
 		if (level < 10) {
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP:§9 " + currentXP + "\"}]}");
-			player.runCommandAsync("tellraw @s {\"rawtext\":[{\"text\":\"XP required for Level " + (level + 1) + ":§a " + nextXP + " §7(" + Math.max(nextXP - currentXP, 1) + " left)" + "\"}]}");
+			player.runCommand("tellraw @s {\"rawtext\":[{\"text\":\"XP:§9 " + currentXP + "\"}]}");
+			player.runCommand("tellraw @s {\"rawtext\":[{\"text\":\"XP required for Level " + (level + 1) + ":§a " + nextXP + " §7(" + Math.max(nextXP - currentXP, 1) + " left)" + "\"}]}");
 		}
-		//player.runCommandAsync("tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.not_levelable\"}]}");
+		if (data.cancel) {
+			system.run(() => {
+				showPetStatForm(player, mob);
+			});
+		}
+		//player.runCommand("tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.not_levelable\"}]}");
 	}
 	else if (item.typeId.startsWith("billey:to_level") && mob.getProperty("billey:level")
 		&& mob.hasComponent("is_tamed") && !mob.hasComponent("is_baby")) {

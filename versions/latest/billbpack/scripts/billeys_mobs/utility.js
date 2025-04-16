@@ -6,10 +6,14 @@ export const trueBeneficialEffects = ["speed", "regeneration", "absorption", "ni
 export const beneficalEffects = [...trueBeneficialEffects, "jump_boost"];
 export const detrimentalEffects = ["weakness", "hunger", "levitation", "blindness", "darkness", "instant_damage", "mining_fatigue", "nausea", "poison", "slowness", "wither"];
 export const duckArmors = ["no", "leather", "golden", "chain", "iron", "diamond", "netherite", "endrod"];
-export const DIMENSIONS = DimensionTypes.getAll().map(d => world.getDimension(d.typeId));
+/** All dimensions, including custom ones if they ever become a thing */
+export let DIMENSIONS;
+
+system.run(()=>DIMENSIONS = DimensionTypes.getAll().map(d => world.getDimension(d.typeId)));
 
 /**
  * @param {string} str 
+ * Stolen
  */
 export function titleCase(str) {
 	return str.replace(
@@ -162,6 +166,13 @@ export function decrementStack(player) {
 export function getDistanceXZ({ x: x1, z: z1 }, { x: x2, z: z2 }) {
 	return Math.hypot(x2 - x1, z2 - z1);
 }
+/**
+ * @param {import("@minecraft/server").Vector3} vector1 
+ * @param {import("@minecraft/server").Vector3} vector2 
+ */
+export function getDistanceXYZ({ x: x1, y: y1, z: z1 }, { x: x2, y: y2, z: z2 }) {
+	return Math.hypot(x2 - x1, y2 - y1, z2 - z1);
+}
 
 export function magnitude(vector) {
 	return Math.sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
@@ -231,3 +242,36 @@ export function changeItemType(oldItem, newTypeId) {
 	return newItem;
 }
 
+/**
+ * @param {Entity} entity 
+ * @param {string} dpid 
+ * @param {number} value 
+ */
+export function addToDynamicProperty(entity, dpid, value) {
+	entity.setDynamicProperty(
+		dpid,
+		entity.getDynamicProperty(dpid) + value
+	);
+}
+
+/**
+ * @param {Entity} entity 
+ * @param {string} dpid
+ */
+export function incrementDynamicProperty(entity, dpid) {
+	entity.setDynamicProperty(
+		dpid,
+		entity.getDynamicProperty(dpid) + 1
+	);
+}
+
+/**
+ * @param {Entity} entity 
+ * @param {string} dpid
+ */
+export function decrementDynamicProperty(entity, dpid) {
+	entity.setDynamicProperty(
+		dpid,
+		entity.getDynamicProperty(dpid) - 1
+	);
+}

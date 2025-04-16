@@ -1439,7 +1439,7 @@
 					]
 				},
 				"minecraft:behavior.pet_sleep_with_owner": {
-					"priority": 3,
+					"priority": 2,
 					"speed_multiplier": 1.5,
 					"search_radius": 10,
 					"search_height": 10,
@@ -1706,7 +1706,7 @@
                     "target": "other",
                     "command": [
                         "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
-                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
                         "tag @s add billey:has_hurt_own_pet"
                     ]
                 }
@@ -1736,9 +1736,9 @@
 					"target": "other",
 					"command": [
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.mercat\",\"with\":[\"\\n\"]}]}",
+						"tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.mercat\",\"with\":[\"\\n\"]}]}",
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-						"tellraw @s {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip5\"}]}",
+						"tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip5\"}]}",
 						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
 					]
 				}
@@ -2522,7 +2522,7 @@
 						"queue_command": {
 							"command": [
 								"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
-								"tellraw @a[r=6,tag=!billeyinfotip5_v2] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.info.tip5\"}]}",
+								"tellraw @a[r=6,tag=!billeyinfotip5_v2] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip5\"}]}",
 								"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
 								"tag @a[r=6,tag=!billeyinfotip5_v2] add billeyinfotip5_v2"
 							]

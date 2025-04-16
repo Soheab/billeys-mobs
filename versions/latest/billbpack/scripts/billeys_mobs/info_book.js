@@ -5,12 +5,14 @@ import { BILLEYS_MOBS } from "./billeys_mobs_list";
 import { showSettingForm } from "./quality_of_life";
 import { add, magnitudeXY, magnitudeXZ, subtract } from "./utility";
 import { getIsAnniversary, giveAnniversaryPetHatsOfAlreadyDoneAdvancements } from "./pet_equipment/anniversary_hats";
+import { showPetEquipmentInfoForm } from "./pet_equipment/info_book_page";
 
 const categories = [
 	"recommended",
 	"dinosaur",
 	"other",
 	"water",
+	"pet_equipment",
 	"boss",
 	"advancement",
 	"settings",
@@ -33,7 +35,7 @@ export function giveInfoBookOnMove(player) {
 	if (player.__hasMoved && player.__hasLooked) {
 
 		system.runTimeout(() => {
-			if (!player.isValid())
+			if (!player.isValid)
 				return;
 
 			const mainhand = player.getComponent("equippable").getEquipmentSlot("Mainhand");
@@ -53,7 +55,7 @@ export function giveInfoBookOnMove(player) {
 					try {
 						player.dimension.spawnItem(item, player.location)
 							.applyImpulse(headLocation);
-					} catch (error) {}
+					} catch (error) { }
 					player.sendMessage({ text: "\n" });
 					player.sendMessage({ translate: "chat.billeys_mobs.got_info_book" });
 					player.playSound("random.orb");
@@ -116,6 +118,8 @@ export function showInfoBookForm(player) {
 				return showAdvancementForm(player);
 			if (c == "settings")
 				return showSettingForm(player);
+			if (c == "pet_equipment")
+				return showPetEquipmentInfoForm(player);
 
 			const mobs = BILLEYS_MOBS.filter(mob => {
 				if (mob.category instanceof Array)
@@ -142,7 +146,7 @@ export function showInfoBookForm(player) {
 					rawtext: [
 						{ text: "\n" },
 						{
-							translate: "chat.billeys_mobs.info." + mob.id,
+							translate: "ui.billeys_mobs.info." + mob.id,
 							with: ["\n"]
 						}
 					]
@@ -151,7 +155,7 @@ export function showInfoBookForm(player) {
 				player.sendMessage({
 					rawtext: [
 						{ text: "\n" },
-						{ translate: "chat.billeys_mobs.info.tip" + tipNumber },
+						{ translate: "ui.billeys_mobs.info.tip" + tipNumber },
 						{ text: "\n\n§fOpen the chat to read " },
 						{ translate: `entity.billey:${mob.id}.name` },
 						{ text: "'s info." }

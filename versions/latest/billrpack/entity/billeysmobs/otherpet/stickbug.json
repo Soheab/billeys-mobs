@@ -14,8 +14,7 @@
                 "hat": "textures/entity/billeys_mobs/stickbug"
             },
             "geometry": {
-                "default": "geometry.billeys_mobs.stickbug",
-                "hat": "geometry.billeys_mobs.stickbughat"
+                "default": "geometry.billeys_mobs.stickbug"
             },
             "animations": {
                 "new": "animation.billeys_mobs.duckproj.body",
@@ -58,10 +57,7 @@
             "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-                "controller.render.billeys_mobs.hmrshark",
-                {
-                    "controller.render.billeys_mobs.bduckhat": "q.is_powered"
-                }
+                "controller.render.billeys_mobs.hmrshark"
             ],
             "spawn_egg": {
                 "overlay_color": "#159F02",

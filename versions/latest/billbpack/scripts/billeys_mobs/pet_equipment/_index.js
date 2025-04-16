@@ -45,7 +45,7 @@ let duckArmor = "";
 let duckArmorerWasntInCreative = false;
 
 system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) => {
-    if (!entity?.isValid()) return;
+    if (!entity?.isValid) return;
     switch (id) {
         //the duck ones are a mess
         case "billey:set_duck_armor":
@@ -73,7 +73,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) =
                 }
             return;
         case "billey:cant_shoot_projectiles":
-            if (entity.isValid())
+            if (entity.isValid)
                 entity.setDynamicProperty("cant_shoot_projectiles", true);
             return;
         case "billey:destroy_pet_head_equipment":
@@ -84,11 +84,11 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) =
 });
 
 world.afterEvents.entitySpawn.subscribe(({ entity }) => {
-    if (!entity.isValid()) return;
+    if (!entity.isValid) return;
     const projectile = entity.getComponent("projectile");
     if (!projectile) return;
     const { owner } = projectile;
-    if (!owner?.isValid()) return;
+    if (!owner?.isValid) return;
     if (owner.getDynamicProperty("cant_shoot_projectiles"))
         entity.remove();
 });
@@ -210,9 +210,9 @@ export async function setPetEquipment(pet, slot, item, dontApplyDefaultColor) {
     if (commandItemId && slot != "Head")
         commandItemId += "_attachable";
 
-    await pet.runCommandAsync(`replaceitem entity @s ${COMMAND_SLOT_MAP[slot]} 0 ${commandItemId ?? "air"}`);
+    await pet.runCommand(`replaceitem entity @s ${COMMAND_SLOT_MAP[slot]} 0 ${commandItemId ?? "air"}`);
 
-    /*This has to be after the runCommandAsync because otherwise removing
+    /*This has to be after the runCommand because otherwise removing
     the chef hat of a cooking pet made it finish instantly*/
     if (itemId) {
         const { onEquip } = equipmentComponents;

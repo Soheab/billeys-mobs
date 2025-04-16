@@ -455,14 +455,13 @@
 					"on_entry": ["v.prev_scale = v.curr_scale;"],
 					"animations": ["scale_transition"],
 					"transitions": [
-						{"update": "v.prev_scale != v.curr_scale"}
+						{"update": "v.prev_scale != v.curr_scale && q.state_time > 0.15"}
 					],
 					"blend_transition": 0.15
 				},
 				"update": {
-					"on_entry": ["v.scale_timer = q.life_time + 0.15;"],
 					"transitions": [
-						{"default": "q.life_time >= v.scale_timer"}
+						{"default": "q.state_time > 0.15"}
 					]
 				}
 			}

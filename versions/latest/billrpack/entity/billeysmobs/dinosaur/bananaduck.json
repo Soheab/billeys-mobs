@@ -11,7 +11,6 @@
       "textures": {
         "default": "textures/entity/billeys_mobs/duck5",
         "endrodpetarmor": "textures/entity/bill/endrodarmor",
-        "hat": "textures/entity/billeys_mobs/hat",
         "hatopy": "textures/entity/billeys_mobs/hatopy",
         "second": "textures/entity/billeys_mobs/duck6",
         "golden": "textures/entity/billeys_mobs/duck9",
@@ -28,7 +27,6 @@
       },
       "geometry": {
         "default": "geometry.billeys_mobs.banana_duck",
-        "hat": "geometry.billeys_mobs.banana_duckhat",
         "armor": "geometry.billeys_mobs.banana_duckarmor",
         "endrod": "geometry.billduckendrod"
       },
@@ -138,9 +136,6 @@
         },
         {
           "controller.render.billeys_mobs.duckendrod": "q.mark_variant == 7"
-        },
-        {
-          "controller.render.billeys_mobs.bduckhat": "q.is_powered"
         }
       ],
       "spawn_egg": {
