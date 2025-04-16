@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:hammerhead_shark",
+      "materials": { "default": "entity_alphatest" },
+      "textures": {
+        "normal": "textures/entity/billeys_mobs/billhmrshark",
+        "gay": "textures/entity/billeys_mobs/billhmrsharkgray",
+        "desat": "textures/entity/billeys_mobs/billhmrsharkdesat"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.hmrshark"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "swim": "animation.billeys_mobs.hmrshark.swim",
+        "turn": "animation.billeys_mobs.hmrshark.turn"
+      },
+      "scripts": {
+        "animate": [ "new",
+          { "swim": "q.is_in_water" },
+          { "turn": "q.is_in_water" },
+          { "swim": "!q.is_in_water ? math.sin(q.life_time * 200) + 1 : 0" }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs.hmrshark" ],
+      "spawn_egg": {
+        "base_color": "#739cb9",
+        "overlay_color": "#ecffff"
+      }
+    }
+  }
+}

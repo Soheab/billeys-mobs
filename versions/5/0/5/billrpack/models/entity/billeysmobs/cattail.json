@@ -1,0 +1,79 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.cattail",
+				"texture_width": 64,
+				"texture_height": 32,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 1,
+				"visible_bounds_offset": [0, 0, 0]
+			},
+			"bones": [{
+				"name": "ooo",
+				"pivot": [
+					0,
+					0,
+					0
+				]
+			},
+			{
+				"parent": "ooo",
+					"name": "body",
+					"pivot": [0, 7, 1]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 9, -9]
+				},
+				{
+					"name": "tail1",
+					"parent": "body",
+					"pivot": [0, 9, 8]
+				},
+				{
+					"name": "tail2",
+					"parent": "tail1",
+					"pivot": [0, 9, 16],
+					"cubes": [
+						{
+							"origin": [-0.5, 1, 16],
+							"size": [1, 1, 1],
+							"inflate": 0.02,
+							"uv": {
+								"north": {"uv": [5, 23], "uv_size": [0, 1]},
+								"east": {"uv": [7, 23], "uv_size": [0, 1]},
+								"south": {"uv": [5, 23], "uv_size": [0, 1]},
+								"west": {"uv": [5, 23], "uv_size": [0, 1]},
+								"up": {"uv": [5, 24], "uv_size": [0, -1]},
+								"down": {"uv": [5, 24], "uv_size": [0, -1]}
+							}
+						}
+					]
+				},
+				{
+					"name": "backLegL",
+					"parent": "body",
+					"pivot": [1.1, 6, 7]
+				},
+				{
+					"name": "backLegR",
+					"parent": "body",
+					"pivot": [-1.1, 6, 7]
+				},
+				{
+					"name": "frontLegL",
+					"parent": "body",
+					"pivot": [1.2, 10, -4]
+				},
+				{
+					"name": "frontLegR",
+					"parent": "body",
+					"pivot": [-1.2, 10, -4]
+				}
+			]
+		}
+	]
+}
