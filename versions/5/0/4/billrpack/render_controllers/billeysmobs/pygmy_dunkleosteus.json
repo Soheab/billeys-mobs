@@ -1,0 +1,110 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.billeys_mobs.pygmy_dunkleosteus": {
+			"arrays": {
+				"textures": {
+					"Array.base": [
+						"Texture.variant0",
+						"Texture.variant1",
+						"Texture.variant2",
+						"Texture.variant3",
+						"Texture.variant4",
+						"Texture.variant5",
+						"Texture.variant6",
+						"Texture.variant7"
+					],
+					"Array.patterns": [
+						"Texture.variant0a",
+						"Texture.variant0b",
+						"Texture.variant0c",
+						"Texture.variant0d",
+						"Texture.variant0e",
+						"Texture.variant0f",
+						"Texture.variant0g",
+						"Texture.variant1a",
+						"Texture.variant1b",
+						"Texture.variant1c",
+						"Texture.variant1d",
+						"Texture.variant1e",
+						"Texture.variant1f",
+						"Texture.variant1g",
+						"Texture.variant2a",
+						"Texture.variant2b",
+						"Texture.variant2c",
+						"Texture.variant2d",
+						"Texture.variant2e",
+						"Texture.variant2f",
+						"Texture.variant2g",
+						"Texture.variant3a",
+						"Texture.variant3b",
+						"Texture.variant3c",
+						"Texture.variant3d",
+						"Texture.variant3e",
+						"Texture.variant3f",
+						"Texture.variant3g",
+						"Texture.variant4a",
+						"Texture.variant4b",
+						"Texture.variant4c",
+						"Texture.variant4d",
+						"Texture.variant4e",
+						"Texture.variant4f",
+						"Texture.variant4g",
+						"Texture.variant5a",
+						"Texture.variant5b",
+						"Texture.variant5c",
+						"Texture.variant5d",
+						"Texture.variant5e",
+						"Texture.variant5f",
+						"Texture.variant5g",
+						"Texture.variant6a",
+						"Texture.variant6b",
+						"Texture.variant6c",
+						"Texture.variant6d",
+						"Texture.variant6e",
+						"Texture.variant6f",
+						"Texture.variant6g",
+						"Texture.variant7a",
+						"Texture.variant7b",
+						"Texture.variant7c",
+						"Texture.variant7d",
+						"Texture.variant7e",
+						"Texture.variant7f",
+						"Texture.variant7g",
+						"Texture.nothing"
+					]
+				}
+			},
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+                "Array.base[q.variant]",
+                "Array.patterns[q.mark_variant]"
+			],
+			"overlay_color": {
+				"r": "math.sin(q.life_time * 200 + q.variant * 234)",
+				"g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+				"b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+				"a": "q.is_illager_captain ? 0.4 : 0.0"
+			},
+			"is_hurt_color": {
+				"r": "!q.is_illager_captain",
+				"g": "0",
+				"b": "0",
+				"a": "0.5 + q.is_illager_captain / 3"
+			},
+			"part_visibility": [
+				{
+					"small_tail_fin": "!q.property('billey:big_tail')"
+				},
+				{
+					"big_tail_fin_*": "q.property('billey:big_tail')"
+				}
+			]
+		}
+	}
+}

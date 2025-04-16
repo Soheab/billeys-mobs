@@ -1,0 +1,522 @@
+{
+  "format_version": "1.16.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs_default": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "part_visibility": [
+        {
+          "tail3": "q.is_sheared || q.is_interested"
+        },
+        {
+          "tail1": "!q.is_sheared && !q.is_interested"
+        },
+        {
+          "tail4": "q.is_sheared || q.is_interested"
+        },
+        {
+          "tail2": "!q.is_sheared && !q.is_interested"
+        },
+        {
+          "tail5": "q.is_sheared || q.is_interested"
+        },
+        {
+          "tail6": "q.is_sheared || q.is_interested"
+        }
+      ],
+      "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.ocator": {
+      //i dont know if this is used
+      "geometry": "Geometry.locator",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "is_hurt_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 1200)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 1200 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 1200 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.goose": {
+        "geometry": "Geometry.default",
+        "arrays": {
+            "textures": {
+                "Array.variants": [
+                    "Texture.zero",
+                    "Texture.one",
+                    "Texture.two",
+                    "Texture.three",
+                    "Texture.four",
+                    "Texture.five",
+                    "Texture.six"
+                ],
+                "Array.baby": [
+                  "Texture.baby",
+                  "Texture.two",
+                  "Texture.two",
+                  "Texture.three",
+                  "Texture.four",
+                  "Texture.five",
+                  "Texture.six"
+                ]
+            }
+        },
+        "materials": [
+            {
+                "*": "Material.default"
+            }
+        ],
+        "textures": [
+            "q.is_baby ? Array.baby[q.variant] : Array.variants[q.variant]"
+        ],
+        "overlay_color": {
+            "r": "q.variant == 2 ? math.sin(q.life_time * 250 + q.variant * 234) : math.sin(q.life_time * 200 + q.variant * 234)",
+            "g": "q.variant == 2 ? math.sin(q.life_time * 200 + q.variant * 234 + 120) : math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+            "b": "q.variant == 2 ? math.sin(q.life_time * 150 + q.variant * 234 + 240) : math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+            "a": "q.is_illager_captain ? 0.4 : 0.0"
+        },
+        "is_hurt_color": {
+            "r": "!q.is_illager_captain",
+            "g": "0",
+            "b": "0",
+            "a": "0.5 + q.is_illager_captain / 3"
+        }
+    },
+    "controller.render.billeys_mobs.cucumbeel": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.cucumbeel"
+      ],
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.duckendrod": {
+      "geometry": "Geometry.endrod",
+      "materials": [
+        {
+          "*": "Material.dyeable"
+        }
+      ],
+      "textures": [
+        "Texture.endrodpetarmor"
+      ],
+      "ignore_lighting": true,
+      "is_hurt_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 1200)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 1200 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 1200 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "overlay_color": {
+        "r": "math.sin(-q.life_time * 175 + q.variant * 1200)",
+        "g": "math.sin(-q.life_time * 175 + q.variant * 1200 + 120)",
+        "b": "math.sin(-q.life_time * 175 + q.variant * 1200 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.pigeonhat": {
+      "geometry": "Geometry.hat",
+      "materials": [
+        {
+          "*": "Material.cat"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
+        "g": "math.sin(q.life_time * 300 + q.variant * 234 + 220)",
+        "b": "math.sin(q.life_time * 300 + q.variant * 234 + 340)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 1200)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 1200 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 1200 + 240)",
+        "a": "0"
+      }
+    },
+    "controller.render.billeys_mobs.centipedehat": {
+      "geometry": "Geometry.hatcenti",
+      "materials": [
+        {
+          "*": "Material.cat"
+        }
+      ],
+      "textures": [
+        "Texture.centipedehat"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
+        "g": "math.sin(q.life_time * 300 + q.variant * 234 + 220)",
+        "b": "math.sin(q.life_time * 300 + q.variant * 234 + 340)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(q.life_time * 1200 + q.variant * 1200)",
+        "g": "math.sin(q.life_time * 1200 + q.variant * 1200 + 120)",
+        "b": "math.sin(q.life_time * 1200 + q.variant * 1200 + 240)",
+        "a": "q.is_illager_captain ? 0.5 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.duckchest": {
+      "geometry": "Geometry.chest",
+      "materials": [
+        {
+          "*": "Material.skeleton"
+        }
+      ],
+      "textures": [
+        "Texture.chest"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 250 - q.variant * 600 + 100)",
+        "g": "math.sin(q.life_time * 250 - q.variant * 600 + 220)",
+        "b": "math.sin(q.life_time * 250 - q.variant * 600 + 340)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 1200)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 1200 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 1200 + 240)",
+        "a": "0"
+      }
+    },
+    "controller.render.billeys_mobs.bduckhat": {
+      "geometry": "Geometry.hat",
+      "materials": [
+        {
+          "*": "Material.cat"
+        }
+      ],
+      "textures": [
+        "Texture.hat"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
+        "g": "math.sin(q.life_time * 300 + q.variant * 234 + 220)",
+        "b": "math.sin(q.life_time * 300 + q.variant * 234 + 340)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 1200)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 1200 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 1200 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.cucumbeel": {
+      "geometry": "Geometry.glowing",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "part_visibility": [
+        {
+          "pickle6": "q.is_alive"
+        },
+        {
+          "pickle4": "!q.is_alive"
+        }
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 170 + q.variant * 234)",
+        "g": "math.sin(q.life_time * 170 + q.variant * 234 + 120)",
+        "b": "math.sin(q.life_time * 170 + q.variant * 234 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "ignore_lighting": true
+    },
+    "controller.render.birdpoopxd": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "1",
+        "g": "1",
+        "b": "1",
+        "a": "0.5"
+      }
+    },
+    "controller.render.velvetwormbill": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.normal",
+            "Texture.blue",
+            "Texture.red",
+            "Texture.orange"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[q.variant]"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 590 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      }
+    },
+    "controller.render.billeys_mobs.hmrshark": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.normal",
+            "Texture.gay",
+            "Texture.desat"
+          ]
+        }
+      },
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "saddle*": "q.model_scale >= 0.06"
+        },
+        {
+          "topfin": "q.model_scale < 0.06"
+        }
+      ],
+      "textures": [
+        "Array.skins[q.variant]"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 590 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.catfish": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.zero",
+            "Texture.one",
+            "Texture.two",
+            "Texture.three",
+            "Texture.four",
+            "Texture.five",
+            "Texture.six",
+            "Texture.seven",
+            "Texture.eight",
+            "Texture.nine",
+            "Texture.ten"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "textures": [
+        "q.get_name == 'Pizza' ? Texture.pizza : (q.get_name == 'Πίτσα' ? Texture.pizza : Array.skins[q.variant])"
+      ], //my cat named pizza sat on my hand and pressed something in paint.net that made the texture look like that
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 590 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobszambie.kiwi": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.zero",
+            "Texture.one",
+            "Texture.two",
+            "Texture.three",
+            "Texture.four",
+            "Texture.five",
+            "Texture.six",
+            "Texture.eight",
+            "Texture.nine"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "part_visibility": [
+        {
+          "fluff*": "!q.is_sheared && !q.is_saddled"
+        }
+      ],
+      "textures": [
+        "(q.get_name == 'Perry' || q.get_name == 'Πέρι') ? Array.skins[q.variant+q.life_time*1.5] : Array.skins[q.variant]"
+      ],
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 590)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 590 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.mercat": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.zero",
+            "Texture.one",
+            "Texture.two",
+            "Texture.three",
+            "Texture.four",
+            "Texture.five",
+            "Texture.six",
+            "Texture.eight",
+            "Texture.nine"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "q.variant == 3 ? Material.cat : Material.default"
+        }
+      ],
+      "textures": [
+        "(q.get_name == 'Perry' || q.get_name == 'Peri' || q.get_name == 'Πέρι') ? Array.skins[q.variant+q.life_time*1.5] : Array.skins[q.variant]"
+      ],
+      "is_hurt_color": {
+          "r": "!q.is_illager_captain",
+          "g": "0",
+          "b": "0",
+          "a": "0.5 + q.is_illager_captain / 3"
+      },
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 200 + q.variant * 590)",
+        "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+        "b": "math.sin(q.life_time * 200 + q.variant * 590 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobszambie.kiwi.shear": {
+      "geometry": "Geometry.sheared",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "q.is_sheared ? Texture.sheared : (q.is_saddled ? Texture.sheared2 : Texture.nothing)"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 175 + q.variant * 590)",
+        "g": "math.sin(q.life_time * 175 + q.variant * 234 + 120)",
+        "b": "math.sin(q.life_time * 175 + q.variant * 590 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "is_hurt_color": {
+        "r": "0",
+        "g": "1",
+        "b": "0",
+        "a": "0.125"
+      }
+    }
+  }
+}

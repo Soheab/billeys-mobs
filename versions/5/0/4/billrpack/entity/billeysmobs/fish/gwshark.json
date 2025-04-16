@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:gwshark",
+      "materials": {
+        "default": "entity_alphatest",
+        "cat": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/billeys_mobs/gwshark",
+        "one": "textures/entity/billeys_mobs/shark1",
+        "two": "textures/entity/billeys_mobs/shark2",
+        "three": "textures/entity/billeys_mobs/shark3",
+        "four": "textures/entity/billeys_mobs/shark4",
+        "five": "textures/entity/billeys_mobs/shark"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.gwshark"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "swim": "animation.billeys_mobs.shark.swim",
+        "look": "animation.billeys_mobs.shark.look",
+        "attack": "animation.billeys_mobs.shark.attack"
+      },
+      "scripts": {
+        "animate": [
+          "new",
+          "look",
+					{
+						"swim": "q.is_in_water ? math.max(0.3,q.modified_move_speed / 0.4) : math.sin(q.life_time * 200) / 2 + 0.5"
+					}
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.shark"
+        //in the rat file
+      ],
+      "spawn_egg": {
+        "base_color": "#6f7880",
+        "overlay_color": "#afa9bb"
+      }
+    }
+  }
+}
