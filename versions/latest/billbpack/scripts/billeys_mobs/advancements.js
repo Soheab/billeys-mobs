@@ -16,7 +16,7 @@ const MEDAL_COLORS = ["§q", "§s", "§p"];
  * @param {Player} player 
  * @param {string} advancementName 
  */
-function giveAdvancement(player, advancementName) {
+export function giveAdvancement(player, advancementName) {
     if (!(player instanceof Player))
         return world.sendMessage(`§cError: Billey's Mobs advancements can only be given to players. Attempted to give ${message} to ${player.typeId}.`);
     const advancement = ADVANCEMENTS.find(a => a.name == advancementName);
@@ -126,7 +126,7 @@ export async function showAdvancementForm(player) {
     const form2 = new ActionFormData();
     form2.title({ translate: "advancements.billeys_mobs." + adv.name });
     /** @type {string[]} */
-    const completedPlayerNames = advancementPlayerCompletionOrder[adv.name];
+    const completedPlayerNames = advancementPlayerCompletionOrder[adv.name] ?? [];
     let rankText = "";
     for (let i = 0; i < completedPlayerNames.length; i++) {
         const color = MEDAL_COLORS[i] ?? "§7";

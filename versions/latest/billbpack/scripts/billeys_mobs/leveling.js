@@ -1,4 +1,4 @@
-import { world, system, Player, Dimension, DataDrivenEntityTriggerAfterEvent, Entity } from "@minecraft/server";
+import { world, system, Player, Dimension, DataDrivenEntityTriggerAfterEvent, Entity, TicksPerSecond } from "@minecraft/server";
 import { getPetEquipmentId } from "./pet_equipment/_index";
 import { add, playSound } from "./utility";
 import { calculateTotalEffectiveHappinessPercentage2 } from "./happiness/happiness";
@@ -37,10 +37,17 @@ world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource, damage }) =>
             xpTarget.__isCheckingLevel = false;
         });
     xpTarget.__isCheckingLevel = true;
+
+    if (
+        damager.getComponent("type_family").hasTypeFamily("duck")
+        && damager.getProperty("billey:level") >= 3
+    ) {
+        hurtEntity.addEffect("wither", 5 * TicksPerSecond);
+    }
 });
 
 world.afterEvents.entityDie.subscribe(({ deadEntity, damageSource }) => {
-    if (deadEntity instanceof Player || !deadEntity.hasComponent("health"))
+    if (!deadEntity.isValid || deadEntity instanceof Player || !deadEntity.hasComponent("health"))
         return;
     const damager = damageSource.damagingEntity;
     if (!damager?.typeId.startsWith("billey:") || !damager.isValid)
@@ -174,7 +181,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
 
 /** @param {number} level */
 export function xpOfNextLevel(level) {
-    return 100 * Math.floor(3 * level ** 1.5) + 90 * Math.floor(2.4 ** (level + 1) / 10);
+    return 100 * Math.floor(3 * level ** 1.5) + 100 * Math.floor(2.4 ** (level + 1) / 10);
 }
 
 system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {

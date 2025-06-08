@@ -30,7 +30,13 @@
 				"spawn_fish": "animation.billeys_mobs.anglerfish.spawn_fish",
 				"tame": "controller.animation.billeys_mobs.tame"
 			},
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:head_equipment_color": {
                     "client_sync": true,
                     "type": "int",

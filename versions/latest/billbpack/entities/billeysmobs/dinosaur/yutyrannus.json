@@ -41,7 +41,13 @@
                 "rideable": "controller.animation.billeys_mobs.yuty.rideable",
                 "ride_attack": "controller.animation.billeys_mobs.yuty.ride_attack"
             },
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:head_equipment_color": {
                     "client_sync": true,
                     "type": "int",
@@ -2601,7 +2607,7 @@
                 "queue_command": {
                     "command": [
                         "playsound random.eat @a ~~~ 1.0 0.75",
-                        "effect @s regeneration 1 4 true"
+                        "effect @s regeneration 1 2 true"
                     ]
                 }
             },

@@ -2,9 +2,8 @@ import { Entity, system, Trigger, world } from "@minecraft/server";
 import { loadHappiness } from "./happiness/happiness";
 import { DIMENSIONS } from "./utility";
 
-export const CURRENT_VERSION = "5.0.3";
+export const CURRENT_VERSION = "5.0.6";
 export const LAST_LOADED_BILLEYS_MOBS_VERSION_DPID = "last_loaded_billeys_mobs_version";
-const VERSION_HAPPINESS_WAS_ADDED = "5.0.3";
 
 /**
  * @param {string} str1 
@@ -27,7 +26,7 @@ export function versionGreaterThan(str1, str2) {
     return false;
 }
 
-const onEntityLoad = world.afterEvents.entityLoad.subscribe(({ entity }) => {
+export const entityLoadHappiness = world.afterEvents.entityLoad.subscribe(({ entity }) => {
     if (entity.typeId.startsWith("billey:") && entity.getComponent("tameable")) {
         loadHappiness(entity);
 
@@ -35,12 +34,12 @@ const onEntityLoad = world.afterEvents.entityLoad.subscribe(({ entity }) => {
     }
 });
 
-world.afterEvents.entitySpawn.subscribe(onEntityLoad);
+world.afterEvents.entitySpawn.subscribe(entityLoadHappiness);
 
 //for the /reload command
 
 system.run(() => {
     for (const dimension of DIMENSIONS) {
-        dimension.getEntities().forEach(entity => onEntityLoad({ entity }));
+        dimension.getEntities().forEach(entity => entityLoadHappiness({ entity }));
     }
 });

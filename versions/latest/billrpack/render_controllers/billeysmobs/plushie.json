@@ -6,13 +6,15 @@
                 "textures": {
                     "Array.textures": [
                         "Texture.slime_wyvern",
-                        "Texture.rubber_ducky"
+                        "Texture.rubber_ducky",
+                        "Texture.mercat"
                     ]
                 },
                 "geometries": {
                     "Array.geometries": [
                         "Geometry.slime_wyvern",
-                        "Geometry.rubber_ducky"
+                        "Geometry.rubber_ducky",
+                        "Geometry.mercat"
                     ]
                 }
             },

@@ -42,7 +42,13 @@
                 "tame": "controller.animation.billeys_mobs.tame",
                 "dropslimeonattack": "controller.animation.velvet.billeys_mobszambie"
             },
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:head_equipment_color": {
                     "client_sync": true,
                     "type": "int",

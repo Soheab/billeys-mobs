@@ -47,10 +47,6 @@
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "q.get_name == 'Tigerlily' ? Texture.tigerlily : ((q.get_name == 'Bill' || q.get_name == 'Billey' || q.get_name == 'Βασίλης') ? (Array.tame[q.life_time * 1.5 + q.variant]) : (q.get_name == 'Sugar' || q.get_name == 'Ζαχαρώτος' || q.get_name == 'Ζαχαρωτός') ? Texture.sugar : ((q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? Texture.pizza : ((q.get_name == 'Perry' || q.get_name == 'Peri' || q.get_name == 'Πέρι') ? Texture.perry : (q.is_tamed ? Array.tame[q.variant] : Array.skins[q.variant]))))" ],
-      "part_visibility": [ { "tail3": "q.is_sheared || q.is_interested" },
-      { "tail1": "!q.is_sheared && !q.is_interested" },{ "tail4": "q.is_sheared || q.is_interested" },
-      { "tail2": "!q.is_sheared && !q.is_interested" },{ "tail5": "q.is_sheared || q.is_interested" },
-      { "tail6": "q.is_sheared || q.is_interested" } ],
       "overlay_color": {
           
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",

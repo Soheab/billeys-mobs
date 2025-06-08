@@ -17,26 +17,6 @@
           "b": "0",
           "a": "0.5 + q.is_illager_captain / 3"
       },
-      "part_visibility": [
-        {
-          "tail3": "q.is_sheared || q.is_interested"
-        },
-        {
-          "tail1": "!q.is_sheared && !q.is_interested"
-        },
-        {
-          "tail4": "q.is_sheared || q.is_interested"
-        },
-        {
-          "tail2": "!q.is_sheared && !q.is_interested"
-        },
-        {
-          "tail5": "q.is_sheared || q.is_interested"
-        },
-        {
-          "tail6": "q.is_sheared || q.is_interested"
-        }
-      ],
       "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
           "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",

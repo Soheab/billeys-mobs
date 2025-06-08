@@ -23,6 +23,7 @@
       },
       "animations": {
         "new": "animation.billeys_mobs.duckproj.body",
+        "ritual": "animation.billeys_mobs.mercat.ritual",
         "flop": "animation.billeys_mobs.mercat.flop",
         "upside_down": "animation.billeys_mobs.mercat.upside_down",
         "lookwater": "animation.billeys_mobs.mercat.lookwater",
@@ -39,7 +40,8 @@
         "swim2": "animation.billeys_mobs.mercat.swim2",
         "hurt": "animation.billeys_mobs.cat.hurt2",
         "swim_with_fins": "animation.billeys_mobs.mercat.swim_with_fins",
-        "spin": "animation.billeys_mobs.mercat.spin"
+        "spin": "animation.billeys_mobs.mercat.spin",
+        "ritual_or_anything_else_cont": "controller.animation.billeys_mobs.mercat.ritual_or_anything_else"
       },
       "scripts": {
         "initialize": [
@@ -47,14 +49,9 @@
         ],
         "animate": [
           "new",
-          "general",
+          "ritual_or_anything_else_cont",
           {
             "baby": "q.is_baby"
-          },
-          { "hurt": "q.health < q.max_health" },
-          "look_cont",
-          {
-            "spin_cont": "q.is_in_water"
           }
         ]
       },

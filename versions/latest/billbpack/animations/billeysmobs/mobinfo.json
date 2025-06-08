@@ -60,12 +60,12 @@
 			"start_delay": "math.random(0,2)",
 			"loop": true,
 			"timeline": {
-				"0.0": "/execute @a[r=10,tag=!billeyinfomercat_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.mercat\"}]}",
-				"0.05": "/execute @a[r=10,tag=!billeyinfomercat_v2] ~~~ playsound random.orb @s",
-				"0.1": "/tag @a[r=10,tag=!billeyinfomercat_v2] add billeyinfomercat_v2",
+				"0.0": "/execute @a[r=10,tag=!billeyinfomercat_v3] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.mercat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfomercat_v3] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfomercat_v3] add billeyinfomercat_v3",
 				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
-				"7.0": "/execute @a[r=10,tag=billeyinfomercat_v2,tag=!billeyinfomercat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
-				"7.05": "/tag @a[r=10,tag=billeyinfomercat_v2,tag=!billeyinfomercat2] add billeyinfomercat2"
+				"7.0": "/execute @a[r=10,tag=billeyinfomercat_v3,tag=!billeyinfomercat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfomercat_v3,tag=!billeyinfomercat2] add billeyinfomercat2"
 			}
 		},
 		"animation.billeys_mobs.info.orca": {

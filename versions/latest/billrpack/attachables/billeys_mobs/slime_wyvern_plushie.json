@@ -18,12 +18,13 @@
 				"on_player_head": "animation.billeys_mobs.plushie.on_player_head"
 			},
 			"scripts": {
+				"parent_setup": "variable.helmet_layer_visible = 0.0;",
 				"initialize": [
-					"v.is_on_player = q.owner_identifier == 'minecraft:player';"
+					"v.is_on_billey_mob = c.owning_entity -> q.has_property('billey:is_billey_mob');"
 				],
 				"animate": [
 					{
-						"on_player_head": "v.is_on_player ?? 0"
+						"on_player_head": "!v.is_on_billey_mob"
 					}
 				]
 			},

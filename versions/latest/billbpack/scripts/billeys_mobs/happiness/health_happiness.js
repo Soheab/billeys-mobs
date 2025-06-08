@@ -1,4 +1,4 @@
-import { DEFAULT_HAPPINESS_VALUE, registerPetHappiness } from "./happiness";
+import { DEFAULT_HAPPINESS_VALUE, MAX_HAPPINESS, registerPetHappiness } from "./happiness";
 import { PetNegativeHappiness } from "./negative_happiness";
 
 const ID = "health_happiness";
@@ -22,7 +22,7 @@ export class HealthHappiness extends PetNegativeHappiness {
     tick() {
         const pet = this.pet;
         const healthComponent = pet.getComponent("health");
-        const maxHealth = healthComponent.defaultValue;
+        const maxHealth = Math.min(healthComponent.defaultValue, healthComponent.effectiveMax);
         const currentHealth = Math.min(healthComponent.currentValue, healthComponent.effectiveMax);
         const hurtValue = (currentHealth - maxHealth) / maxHealth;
         if (hurtValue < 0)
@@ -34,10 +34,10 @@ export class HealthHappiness extends PetNegativeHappiness {
     /** @override */
     get effectiveValue() {
         const healthComponent = this.pet.getComponent("health");
-        const maxHealth = healthComponent.defaultValue;
-        const currentHealth = healthComponent.currentValue;
-        const percentage = currentHealth / maxHealth;
-        return (super.effectiveValue + DEFAULT_HAPPINESS_VALUE * percentage) / 2
+        const maxHealth = Math.min(healthComponent.defaultValue, healthComponent.effectiveMax);
+        const currentHealth = Math.min(healthComponent.currentValue, healthComponent.effectiveMax);
+        const percentage = 1.5 * (currentHealth / maxHealth) - 1;
+        return (super.effectiveValue + MAX_HAPPINESS * percentage) / 2
     }
 }
 

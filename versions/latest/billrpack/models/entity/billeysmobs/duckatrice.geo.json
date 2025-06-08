@@ -110,6 +110,14 @@
 					]
 				},
 				{
+					"name": "tongue",
+					"parent": "Jaw",
+					"pivot": [0, 36, -24],
+					"cubes": [
+						{"origin": [-1, 35.5, -27.25], "size": [2, 1, 3], "uv": [118, 0]}
+					]
+				},
+				{
 					"name": "hat",
 					"parent": "Head",
 					"pivot": [0, 40, -20]

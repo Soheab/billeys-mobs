@@ -773,7 +773,7 @@
 				"tail4": {
 					"rotation": [37.5, 0, 0]
 				},
-				"tail5": {
+				"tail2": {
 					"rotation": [45, 0, 0]
 				},
 				"tail6": {
@@ -818,10 +818,10 @@
 					"rotation": [-90, 0, 0],
 					"position": [0.1, -1.8, 3]
 				},
-				"tail3": {
+				"tail1": {
 					"position": [1.5, -4, -6.9]
 				},
-				"tail5": {
+				"tail2": {
 					"rotation": [0, 0, -180],
 					"position": [1, 0, 0]
 				}
@@ -855,7 +855,7 @@
 					"rotation": [62.5, 0, 0],
 					"position": [-2, -2.75, 3.25]
 				},
-				"tail3": {
+				"tail1": {
 					"rotation": [-90, 0, 0],
 					"position": [0, 1, -1],
 					"scale": [2, 1, 1]

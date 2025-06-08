@@ -192,7 +192,10 @@ export class BuddyPresenceHappiness extends PetAbstractHappiness {
         //transform the 0 to 6 range to -1 to 2 (the effective happiness range)
         this.bestMatchHappiness = bestMatchScore / 2 - 1;
 
-        return -30 + bestMatchScore * 30;
+        let result = -30 + bestMatchScore * 30;
+        if (result < 0)
+            result /= 2;
+        return result;
     }
 
     /** @override */

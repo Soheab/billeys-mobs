@@ -143,6 +143,7 @@ export function damageItem(entity, amount) {
 		playSound(entity, "random.break");
 	}
 	else item.getComponent("durability").damage += damage;
+	entity.getComponent("equippable").setEquipment("Mainhand", item);
 };
 
 /**

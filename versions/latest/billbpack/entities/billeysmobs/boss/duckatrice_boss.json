@@ -5,7 +5,13 @@
             "identifier": "billey:duckatrice_boss",
             "is_spawnable": true,
             "is_summonable": true,
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:is_fly_attacking": {
                     "client_sync": true,
                     "type": "bool",

@@ -34,7 +34,7 @@
         "minecraft:spawns_underground": {},
         "minecraft:spawns_underwater": {},
         "minecraft:weight": {
-          "default": 5
+          "default": 1
         },
         "minecraft:brightness_filter": {
           "min": 0,

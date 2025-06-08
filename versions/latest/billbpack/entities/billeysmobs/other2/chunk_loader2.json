@@ -7,7 +7,7 @@
             "is_summonable": true
         },
         "component_groups": {
-            "despawning": {
+            "despawn": {
                 "minecraft:instant_despawn": {}
             }
         },
@@ -44,7 +44,7 @@
             "despawn": {
                 "add": {
                     "component_groups": [
-                        "despawning"
+                        "despawn"
                     ]
                 }
             }

@@ -61,6 +61,10 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id, mes
     }
 });
 
+/** 
+ * @param {Entity} target 
+ * @param {Entity} robber 
+ * */
 function dropMainhandEquipment(target, robber) {
     const equippable = target.getComponent("equippable");
     if (!equippable)
@@ -69,10 +73,10 @@ function dropMainhandEquipment(target, robber) {
     if (!itemStack || itemStack.lockMode != "none")
         return;
     if (!target.__justGotRobbed) 
-        robber.dimension.spawnItem(itemStack, robber.location);
+        equippable.setEquipment("Mainhand", undefined);
     target.__justGotRobbed = true;
     system.run(() =>{
-        equippable.setEquipment("Mainhand", undefined);
+        robber.dimension.spawnItem(itemStack, robber.location);
         target.__justGotRobbed = false;
     });
 }

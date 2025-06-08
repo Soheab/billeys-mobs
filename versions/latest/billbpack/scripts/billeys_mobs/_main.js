@@ -28,6 +28,7 @@ import "./happiness/not_sitting_happiness";
 import "./happiness/health_happiness";
 import "./happiness/travel_happiness";
 import "./version";
+import "./mercat";
 import { playSound } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
@@ -37,7 +38,7 @@ import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 const DEBUG_MODE = false;
 
 if (DEBUG_MODE) {
-	world.sendMessage("<Billey's Mobs> §eDebug Mode!");
+	system.run(()=>world.sendMessage("<Billey's Mobs> §eDebug Mode!"));
 	const insignificantEvents = ["switch_movement", "add_sittable", "remove_sittable", "minecraft:entity_spawned"];
 	const insignificantScriptEvents = ["billey:add_script_tag"];
 	world.afterEvents.dataDrivenEntityTrigger.subscribe(e => {

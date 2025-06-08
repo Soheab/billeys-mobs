@@ -1,4 +1,4 @@
-import { Entity, EquipmentSlot } from "@minecraft/server";
+import { Entity, EquipmentSlot, system } from "@minecraft/server";
 
 /** @enum {number} */
 const PetEquipmentColor = {
@@ -52,9 +52,17 @@ export function registerPetEquipment(slot, equipmentId, equipmentComponents) {
     allPetEquipmentIds.push(equipmentId);
 }
 
-/** @type {string} */
+/** @type {string[]} */
 let allPetEquipmentIds = [];
 
 export function getAllPetEquipmentIds() {
     return allPetEquipmentIds;
 }
+
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id != "billey:register_pet_hat") {
+        return;
+    }
+    const data = JSON.parse(message);
+    registerPetEquipment("Head", data.id, data);
+});

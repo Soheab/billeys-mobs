@@ -44,7 +44,13 @@
                 "panicompo": "controller.animation.billeys_mobs.panicompo",
                 "shouldgetanorange": "controller.animation.billeys_mobs.shouldgetanorange"
             },
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:head_equipment_color": {
                     "client_sync": true,
                     "type": "int",

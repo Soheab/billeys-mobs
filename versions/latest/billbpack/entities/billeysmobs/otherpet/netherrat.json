@@ -41,7 +41,13 @@
                 "dont_fly_while_mating": "controller.animation.billeys_mobs.dont_fly_while_mating",
                 "ride": "controller.animation.billeys_mobs.rat.ride"
             },
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:head_equipment_color": {
                     "client_sync": true,
                     "type": "int",
@@ -944,13 +950,6 @@
                         "on_interact": {
                             "filters": {
                                 "all_of": [
-                                    {
-                                        "test": "has_equipment",
-                                        "subject": "other",
-                                        "domain": "hand",
-                                        "operator": "!=",
-                                        "value": "billey:stick_bug_staff"
-                                    },
                                     {
                                         "test": "has_equipment",
                                         "subject": "other",

@@ -1,7 +1,8 @@
-import { world, system, TicksPerDay, TicksPerSecond, EffectTypes, ItemStack, Player, Entity, ContainerSlot, BlockPermutation, EntityTameMountComponent } from "@minecraft/server";
+import { world, system, TicksPerSecond, EffectTypes, ItemStack, Player, Entity, ContainerSlot, BlockPermutation, EntityTameMountComponent } from "@minecraft/server";
 import { crossMagnitude, decrementStack, duckArmors, nameOf, playSound } from "./utility";
 import { getPetEquipment, setPetEquipment, SLOTS } from "./pet_equipment/_index";
 import { getAllHappinessIds } from "./happiness/happiness";
+import { entityLoadHappiness } from "./version";
 
 /**
  * @typedef {{
@@ -121,7 +122,8 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
                 );
             }
 
-            for (const happinessId of getAllHappinessIds) {
+            entityLoadHappiness({entity: duckatrice});
+            for (const happinessId of getAllHappinessIds()) {
                 duckatrice[happinessId].value = duck[happinessId].value;
             }
 
@@ -198,7 +200,7 @@ function turnNearestFrogspawnToDuckatriceEgg(duck) {
         const block = dimension.getBlock(blockPos);
 
         if (block && block.typeId == "minecraft:frog_spawn") {
-            // Replace frogspawn with a frog and exit loop (only converts the first one found)
+            // Replace frogspawn with a duckatrice egg and exit loop (only converts the first one found)
             dimension.spawnEntity("billey:duckatrice_egg", blockPos);
             block.setPermutation(BlockPermutation.resolve("minecraft:air"));
             playSound(duck, "billey.grow", { pitch: 0.5 });
@@ -318,7 +320,7 @@ export function duckatriceBossStare(player, hostileDuck) {
 
 world.afterEvents.itemStartUseOn.subscribe(({ source, itemStack }) => {
     if (
-        itemStack.typeId != "billey:duckatrice_spawn_egg"
+        itemStack?.typeId != "billey:duckatrice_spawn_egg"
         || source.hasTag("billeyinfoduckatrice")
     )
         return;

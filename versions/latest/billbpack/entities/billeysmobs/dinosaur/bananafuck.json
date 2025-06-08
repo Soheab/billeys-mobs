@@ -52,7 +52,13 @@
                 "ornithologist": "animation.banana_duck.ornithologist",
                 "can_sleep": "controller.animation.billeys_mobs.can_sleep"
             },
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:head_equipment_color": {
                     "client_sync": true,
                     "type": "int",
@@ -1697,8 +1703,7 @@
                     ]
                 },
                 "minecraft:persistent": {},
-                "minecraft:behavior.pet_sleep_with_owner": {
-                    "priority": 2,
+                "minecraft:behavior.pet_sleep_with_owner": {                     "priority": 3,
                     "speed_multiplier": 1.2,
                     "search_radius": 10,
                     "search_height": 10,
@@ -2801,18 +2806,7 @@
                     ]
                 }
             },
-            "on_attack": {
-                "filters": {
-                    "test": "int_property",
-                    "domain": "billey:level",
-                    "operator": ">=",
-                    "value": 3
-                },
-                "queue_command": {
-                    "target": "target",
-                    "command": "effect @s wither 7 0"
-                }
-            },
+            "on_attack": {},
             "on_kill": {},
             "check_level": {
                 "filters": {

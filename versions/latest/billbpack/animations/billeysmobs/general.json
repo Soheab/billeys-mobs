@@ -55,6 +55,13 @@
 				]
 			}
 		},
+		"animation.billeys_mobs.mercat.in_ritual_timer": {
+			"animation_length": 11.0,
+			"loop": true,
+			"timeline": {
+				"10.0": "@s finish_ritual"
+			}
+		},
 		"animation.billeys_mobs.penguin.water": {
 			"animation_length": 40.0,
 			"loop": true,

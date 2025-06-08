@@ -3,7 +3,7 @@ import { registerPetEquipment } from "./pet_equipment/registry";
 import { normalize, subtract } from "./utility";
 
 const SIMPLE_PLUSHIES = ["billey:rubber_ducky"];
-const PLUSHIES = ["billey:slime_wyvern_plushie", "billey:rubber_ducky"];
+const PLUSHIES = ["billey:slime_wyvern_plushie", "billey:rubber_ducky", "billey:mercat_plushie"];
 
 for (const plushie of PLUSHIES) {
 	registerPetEquipment("Head", plushie, {

@@ -23,7 +23,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity, id }) => {
             return;
         case "billey:shame_bucket_mercat":
             if (world.getAllPlayers().length == 1) return;
-            world.sendMessage(`SHAME ON §c${sourceEntity.name.toUpperCase()}§r for trying to crash the realm by bucketing a yellow or pink mercat!`);
+            world.sendMessage(`SHAME ON §c${sourceEntity.name.toUpperCase()}§r for trying to crash the server by bucketing a yellow or pink mercat!`);
             return;
     }
 });

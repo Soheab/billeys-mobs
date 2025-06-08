@@ -224,12 +224,12 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity, hitEntity }) => {
  * @param {Player} player 
  * @param {Entity} pet 
  */
-export function showPetStatForm(player, pet) {
+export async function showPetStatForm(player, pet) {
     const form = new ActionFormData();
     form.title(nameOf(pet));
     const healthComponent = pet.getComponent("health");
+    const maxHealth = Math.round(Math.min(healthComponent.defaultValue, healthComponent.effectiveMax));
     const currentHealth = Math.round(healthComponent.currentValue);
-    const maxHealth = Math.round(healthComponent.defaultValue);
     const healthPercentage = currentHealth / maxHealth;
     let healthColor = "§a";
     if (healthPercentage >= 1)
@@ -297,15 +297,63 @@ export function showPetStatForm(player, pet) {
             ]
         }
     });
-    if (true) {
-        body.push({ text: `§r\n\n§lTechnical details:§r\nTotal Happiness: ${(happinessPercentage).toFixed(2)}\n` });
-        for (const happinessId of getAllHappinessIds()) {
-            body.push({ text: `§r\n\n${happinessId}: ${((pet[happinessId].effectiveValue) / MAX_HAPPINESS).toFixed(2)} (${((pet[happinessId].value) / MAX_HAPPINESS).toFixed(2)})` });
-        }
-    }
 
     form.body({ rawtext: body });
+    form.button({ translate: "ui.billeys_mobs.pet_stats.technical_details" });
     form.button({ translate: "gui.ok" });
 
-    form.show(player);
+    const { selection } = await form.show(player);
+    if (selection === 0)
+        showTechnicalDetailForm(player, pet);
 }
+
+/**
+ * @param {Player} player 
+ * @param {Entity} pet 
+ */
+async function showTechnicalDetailForm(player, pet) {
+    const form = new ActionFormData();
+    form.title({ translate: "ui.billeys_mobs.pet_stats.technical_details" });
+    let body = [];
+    const happinessPercentage = calculateTotalEffectiveHappinessPercentage2(pet);
+    body.push({ text: `Total Happiness: ${(happinessPercentage).toFixed(2)}\n` });
+    for (const happinessId of getAllHappinessIds()) {
+        body.push({ text: `§r\n${happinessId}: ${((pet[happinessId].effectiveValue) / MAX_HAPPINESS).toFixed(2)}` });//(${((pet[happinessId].value) / MAX_HAPPINESS).toFixed(2)})
+    }
+    for (const dpid of pet.getDynamicPropertyIds()) {
+        body.push({ text: `§r\n\n${dpid.replace("equipmentLegs", "equipmentBowtie")}: ${displayDynamicProperty(pet.getDynamicProperty(dpid))}` });
+    }
+    form.body({ rawtext: body });
+    form.button({ translate: "gui.back" });
+    form.button({ translate: "gui.ok" });
+
+    const { selection } = await form.show(player);
+    if (selection === 0)
+        showPetStatForm(player, pet);
+}
+
+function displayDynamicProperty(a) {
+    if (a instanceof Number)
+        return a.toFixed(2);
+    if (a.x != undefined)
+        return a.x.toFixed(2) + " " + a.y.toFixed(2) + " " + a.z.toFixed(2);
+    return JSON.stringify(a);
+}
+
+world.afterEvents.dataDrivenEntityTrigger.subscribe(({eventId,entity})=>{
+    if (eventId == "say_owner_hit_pet_info") {
+        entity.extinguishFire();
+    }
+});
+
+world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
+    const killer = damageSource.damagingEntity;
+    if (!deadEntity.isValid || !killer?.isValid)
+        return;
+    if (killer.typeId.startsWith("billey:")){
+        const killerHealth = killer.getComponent("health");
+        killerHealth.setCurrentValue(
+            killerHealth.currentValue + deadEntity.getComponent("health").effectiveMax / 3
+        );
+    }
+});

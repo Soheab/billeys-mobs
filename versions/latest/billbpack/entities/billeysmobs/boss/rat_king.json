@@ -5,7 +5,13 @@
             "identifier": "billey:rat_king",
             "is_spawnable": true,
             "is_summonable": true,
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 /*
                 Phases are mostly used like you'd expect, with the rat king going up a phase
                 whenever its health is decreased to a certain amount.

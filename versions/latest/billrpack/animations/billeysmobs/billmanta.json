@@ -41,14 +41,14 @@
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.214,
 			"bones": {
-				"tail3": {
+				"tail1": {
 					"rotation": {
 						"0.0": ["(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 40 : 0", 0, 0],
 						"0.04": ["25 + ((q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 40 : 20)", 0, 0]
 					},
 					"position": [0, 0, "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 0 : 1"]
 				},
-				"tail5": {
+				"tail2": {
 					"rotation": {
 						"0.04": [0, 0, 0],
 						"0.08": [12.5, 0, 0]
@@ -74,10 +74,10 @@
 		"animation.cat.tailsnek": {
 			"loop": true,
 			"bones": {
-				"tail3": {
+				"tail1": {
 					"rotation": [0, "math.sin(q.anim_time * 150) * 10", 0]
 				},
-				"tail5": {
+				"tail2": {
 					"rotation": [0, 0, "math.sin(q.anim_time * 150 + 2 * 90) * 10"]
 				},
 				"tail4": {

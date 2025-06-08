@@ -5,6 +5,7 @@ import { /*removeWaystoneLoader,*/ tpAllFollowingPets, tpAllFollowingPetsUsingSt
 import { decrementDuckatriceStares, duckatriceBossStare, duckatriceStareDamage } from "./duckatrice";
 import { giveInfoBookOnMove } from "./info_book";
 import { happinessTick, TICKS_PER_HAPPY_TICK } from "./happiness/happiness";
+import { onPlayerGetOnBed, onPlayerGetOutOfBed } from "./mercat";
 
 system.runInterval(() => {
 	const { currentTick } = system;
@@ -136,7 +137,7 @@ system.runInterval(() => {
 			const raycast = player.getEntitiesFromViewDirection({
 				families: ["duckatrice"]
 			})[0] ?? player.getEntitiesFromViewDirection({
-				families: ["duck_minion_hostile"]
+				families: ["duck_minion"]
 			})[0];
 			player.__duckatriceStareTime ??= 0;
 			if (raycast && playerEquippable.getEquipment("Head")?.typeId != "minecraft:carved_pumpkin") {
@@ -153,6 +154,14 @@ system.runInterval(() => {
 			giveInfoBookOnMove(player);
 		}
 
+		if (!player.__wasSleeping && player.isSleeping) {
+			onPlayerGetOnBed(player);
+		}
+		else if (player.__wasSleeping && !player.isSleeping) {
+			onPlayerGetOutOfBed(player);
+		}
+
+		player.__wasSleeping = player.isSleeping;
 		player.__wasSneaking = player.isSneaking;
 		player.__wasJumping = player.isJumping;
 	}

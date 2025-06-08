@@ -1,5 +1,5 @@
 import { system, world, Player, ItemStack, Entity, EquipmentSlot, PlayerCursorInventoryComponent } from "@minecraft/server";
-import { decrementStack, dropAll, duckArmors, playSound } from "../utility";
+import { damageItem, decrementStack, dropAll, duckArmors, playSound } from "../utility";
 import "./registry";
 import "./misc";
 import "./rat_crown";
@@ -103,7 +103,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
         return;
     if (player.isSneaking)
         return;
-    const beforePlayerHelmet = player.getComponent("equippable").getEquipment("Head");
+    //const beforePlayerHelmet = player.getComponent("equippable").getEquipment("Head");
     if (itemStack.typeId.startsWith("minecraft:") && itemStack.typeId.endsWith("_dye")) {
         for (const slot of SLOTS) {
             const equipmentId = getPetEquipmentId(entity, slot);
@@ -138,6 +138,21 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
     //non-hat pet equipment will go here
     /* hats are different from other cosmetics in that every single one
     of them can be put on every single mob */
+    if (itemStack.typeId == "minecraft:shears") {
+        for (const slot of SLOTS) {
+            const equipmentId = getPetEquipmentId(entity, slot);
+            if (equipmentId) {
+                data.cancel = true;
+                break;
+            }
+        }
+        if (data.cancel) system.runTimeout(() => {
+            dropAllPetEquipment(entity);
+            playSound(entity, "mob.sheep.shear");
+            system.run(() => damageItem(player));
+        }, 2);
+        return;
+    }
 });
 
 /**
@@ -187,6 +202,9 @@ export async function setPetEquipment(pet, slot, item, dontApplyDefaultColor) {
     }
     const prevItemId = getPetEquipmentId(pet, slot);
     pet.setDynamicProperty("equipment" + slot, itemId);
+    if (slot == EquipmentSlot.Head)
+        //lets other addons what the pet is wearing
+        pet.runCommand("scriptevent billey:head_equipment_changed_to " + (itemId ?? ""));
     updateBravery(pet);
     /** @type {import("./registry").PetEquipmentComponents} */
     const equipmentComponents = PET_EQUIPMENT[slot][itemId];
@@ -210,22 +228,24 @@ export async function setPetEquipment(pet, slot, item, dontApplyDefaultColor) {
     if (commandItemId && slot != "Head")
         commandItemId += "_attachable";
 
-    await pet.runCommand(`replaceitem entity @s ${COMMAND_SLOT_MAP[slot]} 0 ${commandItemId ?? "air"}`);
+    system.run(() => {
+        pet.runCommand(`replaceitem entity @s ${COMMAND_SLOT_MAP[slot]} 0 ${commandItemId ?? "air"}`);
 
-    /*This has to be after the runCommand because otherwise removing
-    the chef hat of a cooking pet made it finish instantly*/
-    if (itemId) {
-        const { onEquip } = equipmentComponents;
-        if (onEquip)
-            onEquip(pet);
-    }
-    else {
-        /** @type {import("./registry").PetEquipmentComponents} */
-        const prevEquipmentComponents = PET_EQUIPMENT[slot][prevItemId];
-        const { onUnequip } = prevEquipmentComponents;
-        if (onUnequip)
-            onUnequip(pet);
-    }
+        /*This has to be after the runCommand because otherwise removing
+        the chef hat of a cooking pet made it finish instantly*/
+        if (itemId) {
+            const { onEquip } = equipmentComponents;
+            if (onEquip)
+                onEquip(pet);
+        }
+        else {
+            /** @type {import("./registry").PetEquipmentComponents} */
+            const prevEquipmentComponents = PET_EQUIPMENT[slot][prevItemId];
+            const { onUnequip } = prevEquipmentComponents;
+            if (onUnequip)
+                onUnequip(pet);
+        }
+    })
 }
 
 /**
@@ -275,7 +295,7 @@ function updateBravery(pet) {
 }
 
 world.afterEvents.entityDie.subscribe(({ deadEntity: entity }) => {
-    if (!entity.hasComponent("is_tamed") || (!entity.typeId.startsWith("billey:")
+    if (!entity.isValid || !entity.hasComponent("is_tamed") || (!entity.typeId.startsWith("billey:")
         && entity.typeId != "minecraft:cat"))
         return;
     for (const slot of SLOTS) {

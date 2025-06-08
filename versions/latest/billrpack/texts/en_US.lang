@@ -559,6 +559,8 @@ item.billey:duckatrice_amber=Duckatrice Amber
 
 item.billey:pet_straw_hat=Pet Straw Hat
 
+item.billey:mercat_plushie=Mercat Plushie
+
 
 ##Blocks
 
@@ -652,6 +654,8 @@ action.interact.evolve=Evolve
 
 action.interact.ride=Ride
 
+action.interact.change_the_weather=Change the Weather
+
 advancements.billeys_mobs.golden_duck=Shiny Duck
 
 advancements.billeys_mobs.golden_duck.desc=Breed a duck and a penguin to get a golden duck. Use a book or a feather on it for info.
@@ -708,13 +712,17 @@ advancements.billeys_mobs.slime_wyvern_level_10=Slime Wyvern Overlord
 
 advancements.billeys_mobs.slime_wyvern_level_10.desc=Level up a slime wyvern to level 10.
 
+advancements.billeys_mobs.mercat_napper=Mercat Napper
+
+advancements.billeys_mobs.mercat_napper.desc=Sleep 20 nights with a mercat. Sleeping without one resets the counter but not sleeping doesn't.
+
 advancements.billeys_mobs.info.rewards=Rewards upon completion:
 
 advancements.billeys_mobs.info.rewards.xp=%1- %2 §aX§eP§r
 
 advancements.billeys_mobs.info.rewards.bananas=%1- %2 §bPower Bananas§r
 
-advancements.billeys_mobs.info.rewards.item=%1- %2
+advancements.billeys_mobs.info.rewards.item=%1- §d%2§r
 
 advancements.billeys_mobs.info.is_hidden=This advancement is secret. Only players who have completed it can see it. 
 
@@ -828,14 +836,13 @@ chat.billeys_mobs.duckatrice_stare_added=§6Your helmet has been granted Duckatr
 
 chat.billeys_mobs.duckatrice_stare_ran_out=§6Your helmet's Duckatrice's Stare has been exhausted. Pet your duckatrice again to replenish it.
 
-chat.billeys_mobs.duckatrice_stare_ran_out=§6Your helmet's Duckatrice's Stare has been exhausted. Pet your duckatrice again to replenish it.
-
 chat.billeys_mobs.duckatrice_rise_need_sugar=§fDuckatrices have §alimited stamina§f for going §aupwards§f unless they're on sugar. §aFeed your duckatrice a sweet billey's mobs food§f or some rat beer or warped wine to go upwards freely.
 
 chat.billeys_mobs.anniversary_got_advancements=§9You have been given %1 §e6th Year Anniversary Pet Hats§9 for the advancements you had already completed!
 
 chat.billeys_mobs.anniversary_hat=§9You got a §e6 Year Anniversary Pet Hat§9!
 
+## this isn't actually a feature
 chat.billeys_mobs.pet_depressed_untamed=§c%1 has become depressed because you didn't take care of it. It can now be re-tamed by anyone (including yourself).
 
 
@@ -910,6 +917,8 @@ ui.billeys_mobs.pet_stats.level=Level: §9Level §d%1
 ui.billeys_mobs.pet_stats.xp=XP for Level %1: §9%2§r / §d%3§7 (%4 left)
 
 ui.billeys_mobs.pet_stats.mental_state=Mental State: %1%2
+
+ui.billeys_mobs.pet_stats.technical_details=Technical Details
 
 ##Mental states
 
@@ -995,9 +1004,10 @@ ui.billeys_mobs.info.orca=§e§l=========ORCA=========%1%1§r§aOrcas don't spaw
 
 ui.billeys_mobs.short_info.orca=§aOrcas§f are tamed with sea pizza(from pizzafish which spawn in coral reefs) and after you tame one you can sit on it. Better use(and definitely a better model) coming soon. They also don't spawn naturally due to how bad their model and "AI" are.
 
-ui.billeys_mobs.info.mercat=§e§l=========MERCAT=========%1%1§r§l§6- General%1§r§aMercats§9 spawn in §alakes and rivers§9 that aren't frozen, and are §atamed with raw piranha§9 or§a sea pizza§9. They §acan't breathe underwater§9 and will have to come up to breathe air, can survive indefinitely without water, and can only be made to sit while on land, though like every mob in the add-on you can use a stick to make them walk/swim around instead of following you.%1%1§l§6- Milking%1§r§aYou can milk them with bottles and drink to get rid of only weakness, slowness and withering or use them to craft fermented mercat milk§9(mercat milk bottles + either colorful powder or nether fungi)§a, which when thrown, makes mobs mad at random mobs around them. You can also §ause mercat milk to craft throwable mercat milk§9 which §aremoves weakness, slowness and withering§9 from whatever mob it's thrown at. Also if you sleep while one is not sitting, you'll get random sea items when you wake up§9.%1%1§l§6- Sleeping loot%1§r§9You can sleep with a mercat by having one near you not sitting before you sleep. When you wake up, the mercat §awill bring you a random sea related item§9.%1%1§l§6- Other%1§r§9They also §aobliterate groups of small fish, including piranhas§9, after being tamed. By the way, fermented mercat milk will probably be used to craft mercat cheese in the future.%1%1§l§6- Credits%1§r§eMercat texture by BOYOFTHEMONSTERS.
+ui.billeys_mobs.info.mercat=§e§l=========MERCAT=========%1%1§r§l§6- General%1§r§aMercats§9 spawn in §alakes and rivers§9 that aren't frozen, and are §atamed with raw piranha§9 or§a sea pizza§9. They §acan't breathe underwater§9 and will have to come up to breathe air, can survive indefinitely without water, and can only be made to sit while on land, though like every mob in the add-on you can use a stick to make them walk/swim around instead of following you.%1%1§l§6- Changing the weather%1§r§9If you use a §anautilus shell§9 on a tamed mercat it'll §achange the weather§9. It'll turn clear weather to a §athunderstorm§9, and thunderstroms or rain to clear weather.%1If in §amultiplayer§9, for this to work you need §aat least half§9 of all online players to be §anext to a mercat§9 that is currently changing the weather. This can be achieved by either making the players each use a nautilus shell on their mercat, or by having the players around one's mercat.%1%1§l§6- Sleeping loot%1§r§9You can sleep with a mercat by having one near you not sitting before you sleep. When you wake up, the mercat §awill bring you a random sea related item§9.%1%1§l§6- Other%1§r§9They also §aobliterate groups of small fish, including piranhas§9, after being tamed. By the way, fermented mercat milk will probably be used to craft mercat cheese in the future.%1%1§l§6- Credits%1§r§eMercat texture by BOYOFTHEMONSTERS.
 
-ui.billeys_mobs.short_info.mercat=§aMercats§f are tamed with raw piranha, bring you random items when you sleep, and can be milked with bottles to get mercat milk which has several uses.
+
+ui.billeys_mobs.short_info.mercat=§aMercats§f are tamed with raw piranha, can change the weather, bring you random items when you sleep.
 
 ui.billeys_mobs.info.pigeon=§e§l=========PIGEON=========%1%1§r§l§6- General%1§r§aPigeons§9 spawn in §aplains§9 and are especially common in §aflower forests§9 and §abirch forests§9. They are §atamed with any kind of seeds§9,§a carrots§9 or§a bread§9.%1%1§l§6- Pooping%1§r§aThey poop randomly, and their poop can either be used to craft bone meal, used to boost pollinating mobs of this add-on(pill bugs and stick bugs), or used with a boring powder in a crafting table to craft a potion of slow falling§9.%1%1§l§6- Finding apples%1§r§9Tamed pigeons will also §afind apples in trees§9, if you haven't made them sit.%1%1§l§6- Sending items to players%1§r§9Pigeons can also be used to send items to other players. To start §acraft a pigeon backpack§9(2 string, 1 kiwi feathers and 2 leather) and §aput it on a pigeon§9. §aPet§9(sneak + long tap or right click or pet button) §athe pigeon while holding item to put it in it§9, §apet it while you're holding an item and the pigeon is full to make the pigeon drop its items§9 and §apet it with an empty hand to select the player to send the pigeon to§9(the players must be in the same dimension as you and not right next to you). The pigeon backpack can also be dyed by using a dye on the pigeon that's wearing it.
 
@@ -1167,6 +1177,10 @@ ui.billeys_mobs.info.plushie.no_owner=This plushie was acquired through commands
 
 ui.billeys_mobs.info.plushie0=§b%1§e got a slime wyvern to level 10!
 
+ui.billeys_mobs.info.plushie1=Rubber duckies don't have such a text because they aren't obtained by an advancement. This text will never show up in-game
+
+ui.billeys_mobs.info.plushie2=§b%1§e slept 20 times with a mercat!
+
 ui.billeys_mobs.info.tip1=§6Billey's Mobs Tip §b1§6/§b10§6: §6Taming a mob ensures it won't despawn and that other mobs won't attack it. Vanilla fish can also be tamed, with seeds, carrots or sea pizza.
 
 ui.billeys_mobs.info.tip2=§6Billey's Mobs Tip §b2§6/§b10§6: §6You can make mobs from billey's mobs, and vanilla cats, fish and parrots, §bmove around instead of following you§6 by using a stick on them.
@@ -1181,7 +1195,7 @@ ui.billeys_mobs.info.tip6=§6Billey's Mobs Tip §b6§6/§b10§6: §6The colorful
 
 ui.billeys_mobs.info.tip7=§6Billey's Mobs Tip §b7§6/§b10§6: §6If you §blose this book§6 you can get it back by saying §b!givebilleyinfobook§6 in the chat.
 
-ui.billeys_mobs.info.tip8=§6Billey's Mobs Tip §b8§6/§b10§6: §6You can §bview a mob's health and leveling progress§6 by using §bleather§6 on it.
+ui.billeys_mobs.info.tip8=§6Billey's Mobs Tip §b8§6/§b10§6: §6You can §bview a mob's health and leveling progress§6 by using §bsneaking and punching§6 it if you have "Be able to hurt own pet" disabled in the info book.
 
 ui.billeys_mobs.info.tip9=§6Billey's Mobs Tip §b9§6/§b10§6: §bPet teleportation§6 of billey's mobs is §bway more reliable§6 than vanilla. Whether you die, use /tp, use a waystone from another add-on or go through a portal, §byour pets will still teleport to you§6. Beware however that your pets probably won't teleport to you if you use waystones from other add-ons to teleport between different dimensions. You can also §bforce §6following pets to §bteleport to you§6 by double-sneaking.
 

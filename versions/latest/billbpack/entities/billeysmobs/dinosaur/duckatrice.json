@@ -35,7 +35,13 @@
                 "rideable": "controller.animation.billeys_mobs.yuty.rideable",
                 "fix_after_ride": "controller.animation.billeys_mobs.duckatrice.fix_after_ride"
             },
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:is_fly_attacking": {
                     "client_sync": true,
                     "type": "bool",
@@ -1976,7 +1982,7 @@
                 "queue_command": {
                     "command": [
                         "playsound random.eat @a ~~~ 1.0 0.75",
-                        "effect @s regeneration 1 4 true"
+                        "effect @s regeneration 1 2 true"
                     ]
                 }
             },

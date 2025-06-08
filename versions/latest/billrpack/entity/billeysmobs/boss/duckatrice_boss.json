@@ -36,10 +36,13 @@
                 "angry": "animation.billeys_mobs.duckatrice.angry",
                 "flap": "animation.billeys_mobs.duckatrice.flap",
                 "fly": "animation.billeys_mobs.duckatrice.fly",
-                "glide": "animation.billeys_mobs.duckatrice.glide"
+                "glide": "animation.billeys_mobs.duckatrice.glide",
+                "moisturize_teeth": "animation.billeys_mobs.duckatrice.moisturize_teeth",
+                "controller.moisturize_teeth": "controller.animation.billeys_mobs.duckatrice.moisturize_teeth"
             },
             "scripts": {
                 "initialize": [
+                    "v.is_moisturizing_teeth = 0;",
                     "v.time_to_quack = 0;",
                     "v.quack_random_choice = 0;",
                     "v.flying_x_rotation_smoothened = 0;",
@@ -71,6 +74,7 @@
                         "idle": "q.is_alive"
                     },
                     "attackcont",
+                    "controller.moisturize_teeth",
                     {
                         "controller.flying_or_not": "q.is_alive"
                     },

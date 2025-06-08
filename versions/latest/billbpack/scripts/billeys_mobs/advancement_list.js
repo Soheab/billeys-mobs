@@ -85,5 +85,13 @@ export const ADVANCEMENTS = [
         xp: 10,
         isChallenge: false,
         isHidden: true
+    },
+    {
+        name: "mercat_napper",
+        icon: "textures/billey_icons/mercat",
+        xp: 100,
+        isChallenge: false,
+        isHidden: false,
+        trophy: "billey:mercat_plushie"
     }
 ];

@@ -1,4 +1,4 @@
-import { Entity } from "@minecraft/server";
+import { Entity, world } from "@minecraft/server";
 import { calculateTotalEffectiveHappinessPercentage, DEFAULT_HAPPINESS_VALUE, MAX_HAPPINESS, valueToEffectiveValue } from "./happiness";
 import { clamp } from "../utility";
 
@@ -48,10 +48,10 @@ export class PetAbstractHappiness {
         const happinessPercentage = calculateTotalEffectiveHappinessPercentage(this.pet);
 
         //Make the extremes harder to get to, and only obtainable if the pet is already sad/happy overall
-        if (value < -1 * MAX_HAPPINESS && this.value > -1 * MAX_HAPPINESS &&  happinessPercentage > 0.25){
+        if (value < -1 * MAX_HAPPINESS && this.value > -1 * MAX_HAPPINESS &&  happinessPercentage > 0.125){
             value = -1 * MAX_HAPPINESS;
         }
-        else if (value > 2 * MAX_HAPPINESS && happinessPercentage < 0.75)
+        else if (value > 2 * MAX_HAPPINESS && happinessPercentage < 0.875)
             value = 2 * MAX_HAPPINESS;
 
         value = clamp(this.getAbsoluteMin(), this.getAbsoluteMax(), value);
@@ -60,7 +60,7 @@ export class PetAbstractHappiness {
 
         //Make recovery from depression harder
         if (happinessPercentage < 0 && deltaValue > 0)
-            deltaValue /= 2;
+            deltaValue /= 4;
 
         this.pet.setDynamicProperty(this.getId(), this.value + deltaValue);
     }

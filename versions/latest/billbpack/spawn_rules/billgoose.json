@@ -3,7 +3,7 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "billey:goose",
-      "population_control": "animal"
+      "population_control": "water_animal"
     },
     "conditions": [
       {
@@ -14,11 +14,11 @@
         "minecraft:spawns_underwater": {},
         "minecraft:brightness_filter": {
           "min": 0,
-          "max": 11,
+          "max": 15,
           "adjust_for_weather": false
         },
         "minecraft:weight": {
-          "default": 50
+          "default": 3
         },
         "minecraft:herd": {
           "min_size": 3,

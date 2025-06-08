@@ -40,7 +40,13 @@
                 "tame": "controller.animation.billeys_mobs.tame",
                 "give_water_breathing": "animation.billeys_mobs.pickle_cat.give_water_breathing"
             },
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:head_equipment_color": {
                     "client_sync": true,
                     "type": "int",
@@ -411,8 +417,7 @@
                     "priority": 7,
                     "speed_multiplier": 1
                 },
-                "minecraft:behavior.pet_sleep_with_owner": {
-                    "priority": 2,
+                "minecraft:behavior.pet_sleep_with_owner": {                     "priority": 3,
                     "speed_multiplier": 1.2,
                     "search_radius": 10,
                     "search_height": 10,

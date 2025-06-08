@@ -365,11 +365,29 @@
 				}
 			}
 		},
-		"animation.billeys_mobs.mercat.thunder_ritual": {
-			"loop": true
-		},
 		"animation.billeys_mobs.mercat.ritual": {
-			"loop": true
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["-(q.anim_time)*73", 0, 0],
+					"position": [0, "math.atan(q.anim_time)/7.4", 0]
+				},
+				"backLegL": {
+					"rotation": ["-30*math.sin(q.anim_time*720)", "-30*math.cos(q.anim_time*720)", 0]
+				},
+				"backLegR": {
+					"rotation": ["-30*math.sin(q.anim_time*720)", "-30*math.cos(q.anim_time*720)", 0]
+				},
+				"frontLegL": {
+					"rotation": ["30*math.sin(q.anim_time*720)", "30*math.cos(q.anim_time*720)", 0]
+				},
+				"frontLegR": {
+					"rotation": ["30*math.sin(q.anim_time*720)", "30*math.cos(q.anim_time*720)", 0]
+				},
+				"ooo": {
+					"rotation": [0, "v.body_y_rot_at_start_of_ritual - q.body_y_rotation", 0]
+				}
+			}
 		}
 	}
 }

@@ -5,7 +5,13 @@
             "identifier": "billey:plushie",
             "is_spawnable": false,
             "is_summonable": true,
+            
             "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
                 "billey:is_enchanted": {
                     "type": "bool",
                     "default": false,
@@ -55,6 +61,24 @@
                             "pivot": [
                                 0,
                                 0.2,
+                                0
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mercat": {
+                "minecraft:variant": {
+                    "value": 2
+                },
+                "minecraft:custom_hit_test": {
+                    "hitboxes": [
+                        {
+                            "width": 0.7,
+                            "height": 0.2,
+                            "pivot": [
+                                0,
+                                0.1,
                                 0
                             ]
                         }
@@ -177,6 +201,14 @@
                     ]
                 }
             },
+            "mercat": {
+                "add": {
+                    "component_groups": [
+                        "undamaged",
+                        "mercat"
+                    ]
+                }
+            },
             "damage": {
                 "sequence": [
                     {
@@ -199,6 +231,7 @@
             "destroy": {
                 "queue_command": {
                     "command": [
+                        "playsound destroy.cloth @a ~~~",
                         "scriptevent billey:plushie_destroyed"
                     ]
                 }
@@ -256,6 +289,18 @@
                             "command": [
                                 "playanimation @s animation.billeys_mobs.rubber_ducky.squish",
                                 "playsound billey.duck.say @a ~~~ 1.0 1.6"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "is_variant",
+                            "value": 2
+                        },
+                        "queue_command": {
+                            "command": [
+                                "playanimation @s animation.billeys_mobs.plushie.mercat.squish",
+                                "playsound mob.cat.purreow @a ~~~ 1.0 1.6"
                             ]
                         }
                     }
