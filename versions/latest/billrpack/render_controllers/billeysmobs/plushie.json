@@ -4,28 +4,28 @@
         "controller.render.billeys_mobs.plushie": {
             "arrays": {
                 "textures": {
-                    "Array.textures": [
-                        "Texture.slime_wyvern",
-                        "Texture.rubber_ducky",
-                        "Texture.mercat"
+                    "array.textures": [
+                        "texture.slime_wyvern",
+                        "texture.rubber_ducky",
+                        "texture.mercat"
                     ]
                 },
                 "geometries": {
-                    "Array.geometries": [
+                    "array.geometries": [
                         "Geometry.slime_wyvern",
                         "Geometry.rubber_ducky",
                         "Geometry.mercat"
                     ]
                 }
             },
-            "geometry": "Array.geometries[q.variant]",
+            "geometry": "array.geometries[q.variant]",
             "materials": [
                 {
                     "*": "Material.default"
                 }
             ],
             "textures": [
-                "Array.textures[q.variant]"
+                "array.textures[q.variant]"
             ],
             "overlay_color": {
                 "r": "q.property('billey:is_enchanted') ? 0.25 + 0.125 * math.cos(q.life_time*360)",

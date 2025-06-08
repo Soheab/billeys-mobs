@@ -18,11 +18,11 @@
           "adjust_for_weather": false
         },
         "minecraft:weight": {
-          "default": 3
+          "default": 1
         },
         "minecraft:herd": {
-          "min_size": 3,
-          "max_size": 8
+          "min_size": 2,
+          "max_size": 4
         },
         "minecraft:distance_filter": {
           "min": 24,

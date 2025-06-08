@@ -1,5 +1,5 @@
 import { world, ItemStack, system, EquipmentSlot, GameMode } from "@minecraft/server";
-import { calculateDamage, playSound } from "./utility";
+import { calculateDamage, playSoundAtEntity } from "./utility";
 
 /**
  * See utility.js/shoot
@@ -24,7 +24,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
 						emptyLauncher.getComponent("durability").damage = data.itemStack.getComponent("durability").damage + calculateDamage(data.itemStack);
 						if (emptyLauncher.getComponent("durability").damage == emptyLauncher.getComponent("durability").maxDurability) {
 							data.source.getComponent("equippable").setEquipment(EquipmentSlot.Mainhand, undefined);
-							playSound(data.source, "random.break");
+							playSoundAtEntity(data.source, "random.break");
 						}
 						else data.source.getComponent("equippable").setEquipment(EquipmentSlot.Mainhand, emptyLauncher);
 					}
@@ -34,7 +34,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
 						item.getComponent("durability").damage += calculateDamage(item);
 						if (item.getComponent("durability").damage == item.getComponent("durability").maxDurability) {
 							data.source.getComponent("equippable").setEquipment(EquipmentSlot.Mainhand, new ItemStack("billey:piranha", item.getLore()[0] * 1));
-							playSound(data.source, "random.break");
+							playSoundAtEntity(data.source, "random.break");
 						}
 						else data.source.getComponent("equippable").setEquipment(EquipmentSlot.Mainhand, item);
 					}
@@ -48,7 +48,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
 				item.getComponent("durability").damage += calculateDamage(item);
 				if (item.getComponent("durability").damage == item.getComponent("durability").maxDurability) {
 					data.source.getComponent("equippable").setEquipment(EquipmentSlot.Mainhand, undefined);
-					playSound(data.source, "random.break");
+					playSoundAtEntity(data.source, "random.break");
 				}
 				else data.source.getComponent("equippable").setEquipment(EquipmentSlot.Mainhand, item);
 			});

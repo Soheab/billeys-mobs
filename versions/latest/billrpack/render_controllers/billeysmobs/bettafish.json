@@ -5,29 +5,29 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.base": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three"
+                    "array.base": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three"
                     ],
-                    "Array.patterns": [
-                        "Texture.zeroa",
-                        "Texture.onea",
-                        "Texture.twoa",
-                        "Texture.threea",
-                        "Texture.zerob",
-                        "Texture.oneb",
-                        "Texture.twob",
-                        "Texture.threeb",
-                        "Texture.zeroc",
-                        "Texture.onec",
-                        "Texture.twoc",
-                        "Texture.threec",
-                        "Texture.zerod",
-                        "Texture.oned",
-                        "Texture.twod",
-                        "Texture.threed"
+                    "array.patterns": [
+                        "texture.zeroa",
+                        "texture.onea",
+                        "texture.twoa",
+                        "texture.threea",
+                        "texture.zerob",
+                        "texture.oneb",
+                        "texture.twob",
+                        "texture.threeb",
+                        "texture.zeroc",
+                        "texture.onec",
+                        "texture.twoc",
+                        "texture.threec",
+                        "texture.zerod",
+                        "texture.oned",
+                        "texture.twod",
+                        "texture.threed"
                     ]
                 }
             },
@@ -47,8 +47,8 @@
                 //since they spawn in cold biomes and it would make them lose heat
             ],
             "textures": [
-                "q.get_name == 'lol' ? Array.base[q.life_time] : Array.base[q.variant]",
-                "q.get_name == 'lol' ? Array.patterns[q.life_time*1.33] : Array.patterns[q.property('billey:mark_variant')]"
+                "q.get_name == 'lol' ? array.base[q.life_time] : array.base[q.variant]",
+                "q.get_name == 'lol' ? array.patterns[q.life_time*1.33] : array.patterns[q.property('billey:mark_variant')]"
             ],
             "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
@@ -67,29 +67,29 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.poohole": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five",
-                        "Texture.six",
-                        "Texture.seven",
-                        "Texture.eight",
-                        "Texture.nine",
-                        "Texture.ten",
-                        "Texture.eleven",
-                        "Texture.twelve",
-                        "Texture.thirteen",
-                        "Texture.fourteen",
-                        "Texture.fifteen",
-                        "Texture.sixteen",
-                        "Texture.seventeen",
-                        "Texture.eighteen",
-                        "Texture.nineteen",
-                        "Texture.twenty",
-                        "Texture.twentyone"
+                    "array.poohole": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five",
+                        "texture.six",
+                        "texture.seven",
+                        "texture.eight",
+                        "texture.nine",
+                        "texture.ten",
+                        "texture.eleven",
+                        "texture.twelve",
+                        "texture.thirteen",
+                        "texture.fourteen",
+                        "texture.fifteen",
+                        "texture.sixteen",
+                        "texture.seventeen",
+                        "texture.eighteen",
+                        "texture.nineteen",
+                        "texture.twenty",
+                        "texture.twentyone"
                     ]
                 }
             },
@@ -102,7 +102,7 @@
                 }
             ],
             "textures": [
-                "q.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[q.variant]"
+                "q.get_name == 'Tofu' ? texture.sixteen : array.poohole[q.variant]"
             ],
             "overlay_color": {
                 "r": "q.is_illager_captain ? (math.sin(v.colordelay+q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
@@ -121,29 +121,29 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.poohole": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five",
-                        "Texture.six",
-                        "Texture.seven",
-                        "Texture.eight",
-                        "Texture.nine",
-                        "Texture.ten",
-                        "Texture.eleven",
-                        "Texture.twelve",
-                        "Texture.thirteen",
-                        "Texture.fourteen",
-                        "Texture.fifteen",
-                        "Texture.sixteen",
-                        "Texture.seventeen",
-                        "Texture.eighteen",
-                        "Texture.nineteen",
-                        "Texture.twenty",
-                        "Texture.twentyone"
+                    "array.poohole": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five",
+                        "texture.six",
+                        "texture.seven",
+                        "texture.eight",
+                        "texture.nine",
+                        "texture.ten",
+                        "texture.eleven",
+                        "texture.twelve",
+                        "texture.thirteen",
+                        "texture.fourteen",
+                        "texture.fifteen",
+                        "texture.sixteen",
+                        "texture.seventeen",
+                        "texture.eighteen",
+                        "texture.nineteen",
+                        "texture.twenty",
+                        "texture.twentyone"
                     ]
                 }
             },
@@ -156,7 +156,7 @@
                 }
             ],
             "textures": [
-                "q.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[q.variant]"
+                "q.get_name == 'Tofu' ? texture.sixteen : array.poohole[q.variant]"
             ],
             "part_visibility": [
                 {
@@ -183,29 +183,29 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.poohole": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five",
-                        "Texture.six",
-                        "Texture.seven",
-                        "Texture.eight",
-                        "Texture.nine",
-                        "Texture.ten",
-                        "Texture.eleven",
-                        "Texture.twelve",
-                        "Texture.thirteen",
-                        "Texture.fourteen",
-                        "Texture.fifteen",
-                        "Texture.sixteen",
-                        "Texture.seventeen",
-                        "Texture.eighteen",
-                        "Texture.nineteen",
-                        "Texture.twenty",
-                        "Texture.twentyone"
+                    "array.poohole": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five",
+                        "texture.six",
+                        "texture.seven",
+                        "texture.eight",
+                        "texture.nine",
+                        "texture.ten",
+                        "texture.eleven",
+                        "texture.twelve",
+                        "texture.thirteen",
+                        "texture.fourteen",
+                        "texture.fifteen",
+                        "texture.sixteen",
+                        "texture.seventeen",
+                        "texture.eighteen",
+                        "texture.nineteen",
+                        "texture.twenty",
+                        "texture.twentyone"
                     ]
                 }
             },
@@ -218,7 +218,7 @@
                 }
             ],
             "textures": [
-                "q.get_name == 'Tofu' ? Texture.sixteen : Array.poohole[q.variant]"
+                "q.get_name == 'Tofu' ? texture.sixteen : array.poohole[q.variant]"
             ],
             "part_visibility": [
                 {
@@ -247,19 +247,19 @@
                 }
             ],
             "textures": [
-                "Texture.one"
+                "texture.one"
             ]
         },/////////////////
         "controller.render.billeys_mobs.electriceel": {
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.poohole": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four"
+                    "array.poohole": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four"
                     ]
                 }
             },
@@ -269,7 +269,7 @@
                 }
             ],
             "textures": [
-                "q.get_name == 'George' ? Texture.two : Array.poohole[q.variant]"
+                "q.get_name == 'George' ? texture.two : array.poohole[q.variant]"
             ],
             "overlay_color": {
                 "r": "math.sin(q.life_time * 200 + q.variant * 234)",
@@ -288,13 +288,13 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.variants": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five"
+                    "array.variants": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five"
                     ]
                 }
             },
@@ -304,7 +304,7 @@
                 }
             ],
             "textures": [
-                "q.variant > 14 ? Array.variants[q.variant - 12] : Array.variants[q.variant / 5]"
+                "q.variant > 14 ? array.variants[q.variant - 12] : array.variants[q.variant / 5]"
             ],
             "part_visibility": [
                 {

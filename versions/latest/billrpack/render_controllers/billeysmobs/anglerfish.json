@@ -4,15 +4,15 @@
     "controller.render.billeys_mobs.anglerfish": {
       "arrays": {
         "textures": {
-          "Array.variants": [
-            "Texture.variant1",
-            "Texture.variant2",
-            "Texture.variant3",
-            "Texture.variant4",
-            "Texture.variant5",
-            "Texture.variant6",
-            "Texture.variant7",
-            "Texture.variant8"
+          "array.variants": [
+            "texture.variant1",
+            "texture.variant2",
+            "texture.variant3",
+            "texture.variant4",
+            "texture.variant5",
+            "texture.variant6",
+            "texture.variant7",
+            "texture.variant8"
           ]
         }
       },
@@ -31,7 +31,7 @@
           "b": "0",
           "a": "0.5 + q.is_illager_captain / 3"
       },
-      "textures": [ "(q.get_name == 'Sugar' || q.get_name == 'Ζαχαρωτός') ? Array.variants[q.life_time * 1.5 + q.variant] : Array.variants[q.variant]" ]
+      "textures": [ "(q.get_name == 'Sugar' || q.get_name == 'Ζαχαρωτός') ? array.variants[q.life_time * 1.5 + q.variant] : array.variants[q.variant]" ]
     }
   }
 }

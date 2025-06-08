@@ -1359,6 +1359,41 @@
                     },
                     "plop": "mob.chicken.plop"
                 }
+            },
+            "billey:giraffe_cat": {
+                "volume": 1.0,
+                "pitch": [
+                    0.6,
+                    1.0
+                ],
+                "events": {
+                    "ambient.tame": "mob.cat.meow",
+                    "ambient": "mob.cat.straymeow",
+                    "hurt": {
+                        "pitch": [
+                            0.6,
+                            1.0
+                        ],
+                        "sound": "mob.cat.hit",
+                        "volume": 0.45
+                    },
+                    "death": {
+                        "pitch": 0.7,
+                        "sound": "mob.cat.hit",
+                        "volume": 0.5
+                    },
+                    "admire": {
+                        "sound": "hit.gravel",
+                        "volume": 0.25,
+                        "pitch": [
+                            0.7,
+                            0.9
+                        ]
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow",
+                    "eat": "mob.cat.eat"
+                }
             }
         }
     }

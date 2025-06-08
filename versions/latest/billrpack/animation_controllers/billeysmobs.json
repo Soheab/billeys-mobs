@@ -9,11 +9,11 @@
 					"blend_via_shortest_path": true,
 					"transitions": [
 						{
-							"sit": "q.is_interested && !q.is_sleeping"
+							"eat": "q.is_interested && !q.is_sleeping"
 						}
 					]
 				},
-				"sit": {
+				"eat": {
 					"animations": [
 						"eat"
 					],
@@ -22,6 +22,100 @@
 					"transitions": [
 						{
 							"default": "!q.is_interested || q.is_sleeping"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.giraffe_cat.look_at_target": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"bend_over": "q.property('billey:should_bend_over') || (v.attack_time && v.attack_time < 0.2)"
+						}
+					]
+				},
+				"bend_over": {
+					"animations": [
+						"bend_over"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.property('billey:should_bend_over') && (!v.attack_time || v.attack_time > 0.2)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.giraffe_cat.general": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look_at_target_cont",
+						"sitcont",
+						{
+							"hurt": "q.health < q.max_health"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ladder": "v.is_ladder"
+						},
+						{
+							"digging": "v.is_digging"
+						},
+						{
+							"yeeting": "v.is_yeeting"
+						}
+					]
+				},
+				"ladder": {
+					"animations": [
+						"ladder"
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_ladder"
+						}
+					]
+				},
+				"digging": {
+					"animations": [
+						"dig",
+						"set_dig_variables"
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_digging"
+						}
+					]
+				},
+				"yeeting": {
+					"animations": [
+						"yeet",
+						"sitcont"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_yeeting"
 						}
 					]
 				}

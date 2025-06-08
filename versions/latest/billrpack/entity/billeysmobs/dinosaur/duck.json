@@ -87,8 +87,16 @@
           "v.prevhealth = 0;",
           "v.head_size_x = 4;",
           "v.head_size_y = 3;",
-          "v.head_size_z = 3;"
+          "v.head_size_z = 3;",
+          "v.smooth_scale = q.model_scale;",
+          "v.smooth_baby = q.is_baby;"
         ],
+        "pre_animation": [
+          "v.show_details = q.distance_from_camera < 7;",
+          "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+          "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;"
+        ],
+        "scale": "v.smooth_scale / q.model_scale",
         "animate": [
           {
             "hitcont": "!q.is_stunned"
@@ -129,7 +137,7 @@
             "controller.quackbaby": "q.is_baby && v.state != 4 && !q.has_target && !q.is_sleeping && q.health >= q.max_health"
           },
           {
-            "look_at_target_baby": "q.is_baby - math.sin(v.attack_time * 180) * 4"
+            "look_at_target_baby": "v.smooth_baby - math.sin(v.attack_time * 180) * 4"
           },
           {
             "flap_wings": "!q.is_in_water && !q.has_rider && !q.is_on_ground"
@@ -138,7 +146,7 @@
             "move": "q.modified_move_speed"
           },
           {
-            "baby_transform": "q.is_baby"
+            "baby_transform": "v.smooth_baby"
           }
         ]
       },

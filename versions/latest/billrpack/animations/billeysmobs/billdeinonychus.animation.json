@@ -52,8 +52,7 @@
 					"rotation": [0, 0, 15]
 				},
 				"head": {
-					"rotation": [-11, 0, 0],
-					"position": [0, -1, 0]
+					"rotation": [-11, 0, 0]
 				}
 			}
 		},

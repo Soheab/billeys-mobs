@@ -195,7 +195,8 @@
             "tamed_component": {
                 "minecraft:is_tamed": {}
             },
-            "untamed": {
+            "untamed": { /*This is just for ones untamed by the untaming stick.
+The real tame items of this mob are in the wild component group*/
                 "minecraft:tameable": {
                     "probability": 1.0,
                     "tame_event": {
@@ -2085,6 +2086,34 @@
             "eventwander": {
                 "sequence": [
                     {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "eventwander_silent"
+                    }
+                ]
+            },
+            "eventfollow": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "eventfollow_silent"
+                    }
+                ]
+            },
+            "eventwander_silent": {
+                "sequence": [
+                    {
                         "add": {
                             "component_groups": [
                                 "wandering"
@@ -2093,13 +2122,6 @@
                         "remove": {
                             "component_groups": [
                                 "following"
-                            ]
-                        }
-                    },
-                    {
-                        "queue_command": {
-                            "command": [
-                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
                             ]
                         }
                     },
@@ -2110,7 +2132,7 @@
                     }
                 ]
             },
-            "eventfollow": {
+            "eventfollow_silent": {
                 "sequence": [
                     {
                         "remove": {
@@ -2121,13 +2143,6 @@
                         "add": {
                             "component_groups": [
                                 "following"
-                            ]
-                        }
-                    },
-                    {
-                        "queue_command": {
-                            "command": [
-                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
                             ]
                         }
                     },

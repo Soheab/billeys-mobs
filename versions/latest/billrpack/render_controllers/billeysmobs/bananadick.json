@@ -4,14 +4,14 @@
     "controller.render.billeys_mobs.banana_duck": {
       "arrays": {
         "textures": {
-          "Array.skins": [
-            "Texture.default",
-            "Texture.second",
-            "Texture.golden",
-            "Texture.green",
-            "Texture.purple",
-            "Texture.white",
-            "Texture.inverted"
+          "array.skins": [
+            "texture.default",
+            "texture.second",
+            "texture.golden",
+            "texture.green",
+            "texture.purple",
+            "texture.white",
+            "texture.inverted"
           ]
         }
       },
@@ -28,7 +28,7 @@
         }
       ],
       "textures": [
-        "(q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? Array.skins[q.life_time * 1.5 + q.variant] : Array.skins[q.variant]"
+        "(q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? array.skins[q.life_time * 1.5 + q.variant] : array.skins[q.variant]"
       ],
       //4556616817791844, 5/2025, 216
       //have fun

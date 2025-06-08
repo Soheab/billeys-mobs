@@ -4,15 +4,15 @@
     "controller.render.zcat": {
       "arrays": {
         "textures": {
-          "Array.skins": [
-            "Texture.wild",
-            "Texture.tamed"
+          "array.skins": [
+            "texture.wild",
+            "texture.tamed"
           ]
         }
       },
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Array.skins[q.is_tamed]" ],
+      "textures": [ "array.skins[q.is_tamed]" ],
       "overlay_color": {
           
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",

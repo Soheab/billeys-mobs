@@ -1,5 +1,5 @@
 import { world, system, EquipmentSlot, ContainerSlot, ItemStack, Entity, InvalidContainerError } from "@minecraft/server";
-import { decrementStack, itemEnglishName, nameOf, playSound, titleCase } from "./utility";
+import { decrementStack, itemEnglishName, nameOf, playSoundAtEntity, titleCase } from "./utility";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 
 //This entire file is a fucking mess because I wanted to do it in an hour
@@ -138,7 +138,7 @@ world.afterEvents.entityHurt.subscribe(
 				armor.setLore(
 					armor.getLore().filter(l => l != "§r§6Reinforced")
 				);
-				playSound(hurtEntity, "random.break", { pitch: 1.5 });
+				playSoundAtEntity(hurtEntity, "random.break", { pitch: 1.5 });
 				let color = "§f";
 				if (armor.getComponent("enchantable").getEnchantments().length)
 					color = "§b";

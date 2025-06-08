@@ -1,5 +1,5 @@
 import { Entity, Player, world, system } from "@minecraft/server";
-import { playSound, titleCase } from "./utility";
+import { playSoundAtEntity, titleCase } from "./utility";
 
 /**
  * @param {Entity} projectile
@@ -43,7 +43,7 @@ function ratPotionOnHit(projectile) {
 				world.structureManager.createFromWorld("billey:" + rat.id, mob.dimension, mob.location, mob.location, { includeBlocks: false });
 				mob.remove();
 			});
-			playSound(projectile, "random.glass");
+			playSoundAtEntity(projectile, "random.glass");
 			if (ofRatKing)
 				projectile.dimension.getEntities({
 					location: projectile.location,
@@ -66,7 +66,7 @@ function ratPotionOnHit(projectile) {
 			king.addEffect("regeneration", 5 * 20, { amplifier: 3 });
 			king.addEffect("speed", 5 * 20, { amplifier: 1 });
 			king.addEffect("strength", 5 * 20, { amplifier: 1 });
-			playSound(projectile, "random.glass");
+			playSoundAtEntity(projectile, "random.glass");
 			projectile.remove();
 			return;
 		}
@@ -94,7 +94,7 @@ function ratPotionOnHit(projectile) {
 				mob.addEffect("slowness", 5 * 20, { amplifier: 1 });
 				mob.addEffect("weakness", 5 * 20, { amplifier: 1 });
 			});
-			playSound(projectile, "random.glass");
+			playSoundAtEntity(projectile, "random.glass");
 			projectile.remove();
 			return;
 		}

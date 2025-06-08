@@ -1,5 +1,5 @@
 import { Entity, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
-import { playSound } from "./utility";
+import { playSoundAtEntity } from "./utility";
 
 /**
  * Currently this file is quite messy as around half of it is ready for more morphs to come
@@ -37,7 +37,7 @@ world.afterEvents.itemCompleteUse.subscribe(({ source: player, source: { dimensi
             item.keepOnDeath = true;
             equippable.setEquipment("Offhand", item);
             player.sendMessage("You have become a duck.");
-            playSound(player, "random.pop");
+            playSoundAtEntity(player, "random.pop");
             return;
         case "billey:empty_morph_potion":
             if (!isMorph(player, "duck")) return;
@@ -50,7 +50,7 @@ world.afterEvents.itemCompleteUse.subscribe(({ source: player, source: { dimensi
                 player.setDynamicProperty("nametag_before_morph", undefined);
             }
             player.sendMessage("You are no longer a duck.");
-            playSound(player, "random.pop");
+            playSoundAtEntity(player, "random.pop");
             return;
     }
 });

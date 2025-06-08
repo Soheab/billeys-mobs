@@ -89,7 +89,8 @@
 			"tamed_component": {
 				"minecraft:is_tamed": {}
 			},
-			"untamed": {
+			"untamed": { /*This is just for ones untamed by the untaming stick.
+The real tame items of this mob are in the wild component group*/
 				"minecraft:tameable": {
 					"probability": 1.0,
 					"tame_event": {

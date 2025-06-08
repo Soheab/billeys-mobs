@@ -1,6 +1,6 @@
 import { Entity, system, world } from "@minecraft/server";
 import { getPetEquipmentId } from "./_index";
-import { normalize, playSound, scale, subtract } from "../utility";
+import { normalize, playSoundAtEntity, scale, subtract } from "../utility";
 
 /*All plushies are automatically registered as pet head equipment in
 the ../plushies.js file. Rubber duckies are technically plushies so
@@ -35,7 +35,7 @@ world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
     );
     rubberDuckyPet.__rubberDuckying = true;
     rubberDuckyPet.playAnimation("animation.billeys_mobs.rubber_ducky.squish");
-    playSound(rubberDuckyPet, "billey.duck.say", { pitch: 1.6 });
+    playSoundAtEntity(rubberDuckyPet, "billey.duck.say", { pitch: 1.6 });
     if (rubberDuckyPet.typeId != "billey:slime_wyvern")
         system.runTimeout(() => {
             if (rubberDuckyPet.isValid) {

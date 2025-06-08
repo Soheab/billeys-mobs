@@ -4,17 +4,17 @@
         "controller.render.billeys_mobs.tiktaalik": {
             "arrays": {
                 "textures": {
-                    "Array.skins": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five",
-                        "Texture.six",
-                        "Texture.seven",
-                        "Texture.eight",
-                        "Texture.nine"
+                    "array.skins": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five",
+                        "texture.six",
+                        "texture.seven",
+                        "texture.eight",
+                        "texture.nine"
                     ]
                 }
             },
@@ -25,7 +25,7 @@
                 }
             ],
             "textures": [
-                "(q.get_name == 'Perry' || q.get_name == 'Peri' || q.get_name == 'Πέρι') ? Array.skins[q.variant+q.life_time*1.5] : Array.skins[q.variant]"
+                "(q.get_name == 'Perry' || q.get_name == 'Peri' || q.get_name == 'Πέρι') ? array.skins[q.variant+q.life_time*1.5] : array.skins[q.variant]"
             ],
             "is_hurt_color": {
                 "r": "!q.is_illager_captain",

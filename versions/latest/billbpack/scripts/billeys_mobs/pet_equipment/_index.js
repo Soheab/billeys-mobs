@@ -1,5 +1,5 @@
 import { system, world, Player, ItemStack, Entity, EquipmentSlot, PlayerCursorInventoryComponent } from "@minecraft/server";
-import { damageItem, decrementStack, dropAll, duckArmors, playSound } from "../utility";
+import { damageItem, decrementStack, dropAll, duckArmors, playSoundAtEntity } from "../utility";
 import "./registry";
 import "./misc";
 import "./rat_crown";
@@ -77,7 +77,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) =
                 entity.setDynamicProperty("cant_shoot_projectiles", true);
             return;
         case "billey:destroy_pet_head_equipment":
-            playSound(entity, "random.break", { pitch: 1.1 });
+            playSoundAtEntity(entity, "random.break", { pitch: 1.1 });
             setPetEquipment(entity, "Head", undefined);
             return;
     }
@@ -148,7 +148,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
         }
         if (data.cancel) system.runTimeout(() => {
             dropAllPetEquipment(entity);
-            playSound(entity, "mob.sheep.shear");
+            playSoundAtEntity(entity, "mob.sheep.shear");
             system.run(() => damageItem(player));
         }, 2);
         return;
@@ -196,7 +196,7 @@ export async function dropAllPetEquipment(pet) {
  */
 export async function setPetEquipment(pet, slot, item, dontApplyDefaultColor) {
     const itemId = item?.typeId;
-    playSound(pet, "armor.equip_generic");
+    playSoundAtEntity(pet, "armor.equip_generic");
     for (const dpid of pet.getDynamicPropertyIds().filter(i => i.startsWith(`equipment${slot}_`))) {
         pet.setDynamicProperty(dpid, undefined);
     }
@@ -205,7 +205,7 @@ export async function setPetEquipment(pet, slot, item, dontApplyDefaultColor) {
     if (slot == EquipmentSlot.Head)
         //lets other addons what the pet is wearing
         pet.runCommand("scriptevent billey:head_equipment_changed_to " + (itemId ?? ""));
-    updateBravery(pet);
+    refreshBravery(pet);
     /** @type {import("./registry").PetEquipmentComponents} */
     const equipmentComponents = PET_EQUIPMENT[slot][itemId];
     if (item) {
@@ -300,7 +300,7 @@ export function getPetEquipmentId(pet, slot) {
 }
 
 /** @param {Entity} pet  */
-function updateBravery(pet) {
+export function refreshBravery(pet) {
     for (const slot of SLOTS) {
         if (PET_EQUIPMENT[slot][getPetEquipmentId(pet, slot)]?.isBrave) {
             pet.addTag("billey:brave");

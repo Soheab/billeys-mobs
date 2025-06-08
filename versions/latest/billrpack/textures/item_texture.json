@@ -424,6 +424,18 @@
 		},
 		"billey.banana_duck_spawn_egg": {
 			"textures": "textures/billeyitems/banana_duck_spawn_egg"
+		},
+		"billey.shark_spawn_egg": {
+			"textures": "textures/billeyitems/shark_spawn_egg"
+		},
+		"billey.hammerhead_shark_spawn_egg": {
+			"textures": "textures/billeyitems/hammerhead_shark_spawn_egg"
+		},
+		"billey.giraffe_cat_spawn_egg": {
+			"textures": "textures/billeyitems/giraffe_cat_spawn_egg"
+		},
+		"billey.giraffe_cat_treat": {
+			"textures": "textures/billeyitems/giraffe_cat_treat"
 		}
 		//stfu blockception extension
 	}

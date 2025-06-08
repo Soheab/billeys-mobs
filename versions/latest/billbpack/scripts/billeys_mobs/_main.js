@@ -29,8 +29,9 @@ import "./happiness/health_happiness";
 import "./happiness/travel_happiness";
 import "./version";
 import "./mercat";
+import "./giraffe_cat";
 import "./end_rod_projectile";
-import { playSound } from "./utility";
+import { playSoundAtEntity } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 
@@ -75,7 +76,7 @@ if (DEBUG_MODE) {
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
 	if (eventId == "minecraft:ageable_grow_up")
-		playSound(entity, "billey.grow");
+		playSoundAtEntity(entity, "billey.grow");
 });
 
 let parentColor = 0;
@@ -160,7 +161,7 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
 				case "baby":
 					if (ratParentVariant == rat.getComponent("variant").value)
 						rat.setProperty("billey:mark_variant", ratOtherParentMarkVariant);
-					else if (ratOtherParentVariant == rat.getComponent("variant").value)
+					else// if (ratOtherParentVariant == rat.getComponent("variant").value)
 						rat.setProperty("billey:mark_variant", ratParentMarkVariant);
 					break;
 			}
@@ -170,7 +171,7 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
 			break;
 		case "billey:load_piranha_launcher_piranha":
 			loadPiranhaLauncher(piranhaLoader, data.sourceEntity, piranhaLoader.getComponent("equippable").getEquipment("Mainhand"));
-			playSound(piranhaLoader, "mob.cow.milk");
+			playSoundAtEntity(piranhaLoader, "mob.cow.milk");
 			piranhaLoader = undefined;
 			break;
 	}

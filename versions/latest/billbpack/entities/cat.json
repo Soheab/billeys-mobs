@@ -109,7 +109,8 @@
 			"tamed_component": {
 				"minecraft:is_tamed": {}
 			},
-			"untamed": {
+			"untamed": { /*This is just for ones untamed by the untaming stick.
+The real tame items of this mob are in the wild component group*/
 				"minecraft:tameable": {
 					"probability": 1.0,
 					"tame_event": {
@@ -220,7 +221,15 @@
 								"event": "minecraft:entity_born_variant6",
 								"target": "baby"
 							}
-						}
+						},
+                        {
+                            "mate_type": "billey:giraffe_cat",
+                            "baby_type": "billey:giraffe_cat",
+                            "breed_event": {
+                                "event": "minecraft:entity_born",
+                                "target": "baby"
+                            }
+                        }
 					],
 					"breed_items": [
 						"billey:poultry_orange",
@@ -1513,7 +1522,12 @@
 			"minecraft:on_target_escape": {
 				"event": "billey:pet_target_escape"
 			},
-			"minecraft:physics": {}
+			"minecraft:physics": {},
+			//so scripts can always get it for the giraffe cat crossbreeding (giraffe_cat.js)
+			"minecraft:variant": {
+				"value": 0
+			}
+			//cats that were born instead of spawned don't have the variant component in vanilla
 		},
 		"events": {
             "reset_target": {
@@ -1645,52 +1659,66 @@
 					]
 				}
 			},
-			"eventwander": {
-				"sequence": [
-					{
-						"remove": {
-							"component_groups": [
-								"following"
-							]
-						}
-					},
-					{
-						"queue_command": {
-							"command": [
-								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
-							]
-						}
-					},
-					{
-						"set_property": {
-							"billey:follow_owner_state": "wandering"
-						}
-					}
-				]
-			},
-			"eventfollow": {
-				"sequence": [
-					{
-						"add": {
-							"component_groups": [
-								"following"
-							]
-						}
-					},
-					{
-						"queue_command": {
-							"command": [
-								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
-							]
-						}
-					},
-					{
-						"set_property": {
-							"billey:follow_owner_state": "following"
-						}
-					}
-				]
-			},
+            "eventwander": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "eventwander_silent"
+                    }
+                ]
+            },
+            "eventfollow": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "eventfollow_silent"
+                    }
+                ]
+            },
+            "eventwander_silent": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "eventfollow_silent": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    }
+                ]
+            },
 			"beenfedabanana": {
 				"sequence": [
 					{

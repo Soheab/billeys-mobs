@@ -499,7 +499,7 @@
 					"rotation": ["math.cos(q.modified_distance_moved * 38.17) * 40.3 * q.modified_move_speed", 0, 0],
 					"position": [
 						0,
-						"math.sin(q.modified_distance_moved * 38.17) * 1 * q.modified_move_speed",
+						"1+math.sin(q.modified_distance_moved * 38.17) * 1 * q.modified_move_speed",
 						"math.cos(q.modified_distance_moved * 38.17) * 1 * q.modified_move_speed"
 					]
 				},
@@ -769,9 +769,6 @@
 				"frontLegR": {
 					"rotation": [-77.5, 0, 0],
 					"position": [0, -1, -1]
-				},
-				"tail4": {
-					"rotation": [37.5, 0, 0]
 				},
 				"tail4": {
 					"rotation": [45, 0, 0]

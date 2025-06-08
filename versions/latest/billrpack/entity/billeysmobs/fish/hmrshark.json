@@ -45,8 +45,7 @@
       "hide_armor": false,
       "render_controllers": [ "controller.render.billeys_mobs.hammerhead_shark" ],
       "spawn_egg": {
-        "base_color": "#739cb9",
-        "overlay_color": "#ecffff"
+        "texture": "billey.hammerhead_shark_spawn_egg"
       }
     }
   }

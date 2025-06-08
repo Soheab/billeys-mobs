@@ -9,7 +9,7 @@
           }
         ],
         "textures": [
-          "Texture.default"
+          "texture.default"
         ],
         "part_visibility": [
           {

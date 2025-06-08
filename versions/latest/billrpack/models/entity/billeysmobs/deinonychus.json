@@ -119,6 +119,12 @@
 					"pivot": [0, 9.25, -12]
 				},
 				{
+					"name": "bowtie",
+					"parent": "neck",
+					"pivot": [0, 7.25, -6],
+					"rotation": [90, 0, 0]
+				},
+				{
 					"name": "tail",
 					"parent": "body",
 					"pivot": [0, 11, 6],

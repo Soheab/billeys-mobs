@@ -73,14 +73,20 @@
                     "v.head_size_y = 3;",
                     "v.head_size_z = 3;",
                     "v.time_to_idle = 0;",
-                    "v.can_use_sit2 = 1;"
                     //hamsters' animation code was written 2.5 years ago
                     //i dont remember if this variable actually has something to do with twerking
                     //it probably doesnt
+                    "v.can_use_sit2 = 1;",
+                    "v.smooth_scale = q.model_scale;",
+                    "v.smooth_baby = q.is_baby;"
                 ],
                 "pre_animation": [
-                    "v.is_mating = q.property('billey:mob_nearby') && q.is_in_love && !q.is_sitting;"
+                    "v.is_mating = q.is_in_love && q.property('billey:mob_nearby') && !q.is_sitting;",
+                    "v.show_details = q.distance_from_camera < 7;",
+                    "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+                    "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;"
                 ],
+                "scale": "v.smooth_scale / q.model_scale",
                 "animate": [
                     "new",
                     {

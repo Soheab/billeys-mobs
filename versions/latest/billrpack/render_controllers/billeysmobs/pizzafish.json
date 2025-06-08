@@ -5,7 +5,7 @@
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
       "textures": [
-        "Texture.default"
+        "texture.default"
       ],
       "overlay_color": {
           

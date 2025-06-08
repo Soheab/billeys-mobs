@@ -5,35 +5,35 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.base": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five"
+                    "array.base": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five"
                     ],
-                    "Array.patterns": [
-                        "Texture.zeroa",
-                        "Texture.onea",
-                        "Texture.twoa",
-                        "Texture.threea",
-                        "Texture.zerob",
-                        "Texture.oneb",
-                        "Texture.twob",
-                        "Texture.threeb",
-                        "Texture.zeroc",
-                        "Texture.onec",
-                        "Texture.twoc",
-                        "Texture.threec",
-                        "Texture.zerod",
-                        "Texture.oned",
-                        "Texture.twod",
-                        "Texture.threed",
-                        "Texture.foura",
-                        "Texture.fourb",
-                        "Texture.fourc",
-                        "Texture.fourd"
+                    "array.patterns": [
+                        "texture.zeroa",
+                        "texture.onea",
+                        "texture.twoa",
+                        "texture.threea",
+                        "texture.zerob",
+                        "texture.oneb",
+                        "texture.twob",
+                        "texture.threeb",
+                        "texture.zeroc",
+                        "texture.onec",
+                        "texture.twoc",
+                        "texture.threec",
+                        "texture.zerod",
+                        "texture.oned",
+                        "texture.twod",
+                        "texture.threed",
+                        "texture.foura",
+                        "texture.fourb",
+                        "texture.fourc",
+                        "texture.fourd"
                     ]
                 }
             },
@@ -43,8 +43,8 @@
                 }
             ],
             "textures": [
-                "q.get_name == 'XD' ? Array.base[q.life_time] : Array.base[q.variant]",
-                "q.get_name == 'XD' ? Array.patterns[q.life_time*1.25] : Array.patterns[q.property('billey:mark_variant')]"
+                "q.get_name == 'XD' ? array.base[q.life_time] : array.base[q.variant]",
+                "q.get_name == 'XD' ? array.patterns[q.life_time*1.25] : array.patterns[q.property('billey:mark_variant')]"
             ],
             "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
@@ -63,39 +63,39 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.base": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five"
+                    "array.base": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five"
                     ],
-                    "Array.patterns": [
-                        "Texture.zeroa",
-                        "Texture.onea",
-                        "Texture.twoa",
-                        "Texture.threea",
-                        "Texture.zerob",
-                        "Texture.oneb",
-                        "Texture.twob",
-                        "Texture.threeb",
-                        "Texture.zeroc",
-                        "Texture.onec",
-                        "Texture.twoc",
-                        "Texture.threec",
-                        "Texture.zerod",
-                        "Texture.oned",
-                        "Texture.twod",
-                        "Texture.threed",
-                        "Texture.foura",
-                        "Texture.fourb",
-                        "Texture.fourc",
-                        "Texture.fourd",
-                        "Texture.fivea",
-                        "Texture.fiveb",
-                        "Texture.fivec",
-                        "Texture.fived"
+                    "array.patterns": [
+                        "texture.zeroa",
+                        "texture.onea",
+                        "texture.twoa",
+                        "texture.threea",
+                        "texture.zerob",
+                        "texture.oneb",
+                        "texture.twob",
+                        "texture.threeb",
+                        "texture.zeroc",
+                        "texture.onec",
+                        "texture.twoc",
+                        "texture.threec",
+                        "texture.zerod",
+                        "texture.oned",
+                        "texture.twod",
+                        "texture.threed",
+                        "texture.foura",
+                        "texture.fourb",
+                        "texture.fourc",
+                        "texture.fourd",
+                        "texture.fivea",
+                        "texture.fiveb",
+                        "texture.fivec",
+                        "texture.fived"
                     ]
                 }
             },
@@ -108,8 +108,8 @@
                 }
             ],
             "textures": [
-                "q.get_name == 'XD' ? Array.base[q.life_time] : Array.base[q.variant]",
-                "q.get_name == 'XD' ? Array.patterns[q.life_time*1.25] : Array.patterns[q.property('billey:mark_variant')]"
+                "q.get_name == 'XD' ? array.base[q.life_time] : array.base[q.variant]",
+                "q.get_name == 'XD' ? array.patterns[q.life_time*1.25] : array.patterns[q.property('billey:mark_variant')]"
             ],
             "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
@@ -128,13 +128,13 @@
             "geometry": "Geometry.default",
             "arrays": {
                 "textures": {
-                    "Array.base": [
-                        "Texture.zero",
-                        "Texture.one",
-                        "Texture.two",
-                        "Texture.three",
-                        "Texture.four",
-                        "Texture.five"
+                    "array.base": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five"
                     ]
                 }
             },
@@ -144,7 +144,7 @@
                 }
             ],
             "textures": [
-                "q.get_name == 'XD' ? Array.base[q.life_time] : Array.base[q.variant]"
+                "q.get_name == 'XD' ? array.base[q.life_time] : array.base[q.variant]"
             ],
             "part_visibility": [
                 {
@@ -172,7 +172,7 @@
                 }
             ],
             "textures": [
-                "q.is_saddled ? Texture.zero : (q.property('billey:head_equipment') == 'rat_crown' ? Texture.crown : Texture.royal_hat)"
+                "q.is_saddled ? texture.zero : (q.property('billey:head_equipment') == 'rat_crown' ? texture.crown : texture.royal_hat)"
             ],
             "overlay_color": {
                 "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
@@ -190,10 +190,10 @@
         "controller.render.billeys_mobs.rat_minion": {
             "arrays": {
                 "textures": {
-                    "Array.variants": [
-                        "Texture.of_potion",
-                        "Texture.hostile",
-                        "Texture.friendly"
+                    "array.variants": [
+                        "texture.of_potion",
+                        "texture.hostile",
+                        "texture.friendly"
                     ]
                 }
             },
@@ -207,7 +207,7 @@
                 }
             ],
             "textures": [
-                "Array.variants[q.variant]"
+                "array.variants[q.variant]"
             ],
             "is_hurt_color": {
                 "r": "1",
@@ -227,7 +227,7 @@
                 }
             ],
             "textures": [
-                "Texture.default"
+                "texture.default"
             ],
             "is_hurt_color": {
                 "r": "1",

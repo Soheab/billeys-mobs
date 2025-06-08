@@ -6,7 +6,9 @@ export const trueBeneficialEffects = ["speed", "regeneration", "absorption", "ni
 export const beneficalEffects = [...trueBeneficialEffects, "jump_boost"];
 export const detrimentalEffects = ["weakness", "hunger", "levitation", "blindness", "darkness", "instant_damage", "mining_fatigue", "nausea", "poison", "slowness", "wither"];
 export const duckArmors = ["no", "leather", "golden", "chain", "iron", "diamond", "netherite", "endrod"];
-/** All dimensions, including custom ones if they ever become a thing */
+/** All dimensions, including custom ones if they ever become a thing
+ * @type {Dimension[]}
+ */
 export let DIMENSIONS;
 
 system.run(()=>DIMENSIONS = DimensionTypes.getAll().map(d => world.getDimension(d.typeId)));
@@ -111,7 +113,7 @@ export function dropAll(container, dimension, location) {
  * @param {import('@minecraft/server').WorldSoundOptions | undefined} options
  * Plays a sound at the location and dimension of an entity for all players.
  */
-export function playSound(entity, sound, options) {
+export function playSoundAtEntity(entity, sound, options) {
 	entity.dimension.playSound(sound, entity.location, options);
 };
 /**
@@ -140,7 +142,7 @@ export function damageItem(entity, amount) {
 	let damage = (amount ?? 1) * calculateDamage(item);
 	if (item.getComponent("durability").damage + damage >= item.getComponent("durability").maxDurability) {
 		entity.getComponent("equippable").setEquipment("Mainhand", undefined);
-		playSound(entity, "random.break");
+		playSoundAtEntity(entity, "random.break");
 	}
 	else item.getComponent("durability").damage += damage;
 	entity.getComponent("equippable").setEquipment("Mainhand", item);

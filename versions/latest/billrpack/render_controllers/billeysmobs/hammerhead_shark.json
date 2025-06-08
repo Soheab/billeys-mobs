@@ -4,14 +4,14 @@
         "controller.render.billeys_mobs.hammerhead_shark": {
             "arrays": {
                 "textures": {
-                    "Array.skins": [
-                        "Texture.cartoony",
-                        "Texture.scalloped",
-                        "Texture.great",
-                        "Texture.smooth",
-                        "Texture.gray",
-                        "Texture.albino",
-                        "Texture.saturated"
+                    "array.skins": [
+                        "texture.cartoony",
+                        "texture.scalloped",
+                        "texture.great",
+                        "texture.smooth",
+                        "texture.gray",
+                        "texture.albino",
+                        "texture.saturated"
                     ]
                 }
             },
@@ -36,7 +36,7 @@
                 }
             ],
             "textures": [
-                "Array.skins[q.variant]"
+                "array.skins[q.variant]"
             ],
             "overlay_color": {
                 "r": "math.sin(q.life_time * 200 + q.variant * 234)",
@@ -48,10 +48,10 @@
         "controller.render.billeys_mobs.old_hammerhead_shark": {
             "arrays": {
                 "textures": {
-                    "Array.skins": [
-                        "Texture.normal",
-                        "Texture.gay",
-                        "Texture.desat"
+                    "array.skins": [
+                        "texture.normal",
+                        "texture.gay",
+                        "texture.desat"
                     ]
                 }
             },
@@ -76,7 +76,7 @@
                 }
             ],
             "textures": [
-                "Array.skins[q.variant]"
+                "array.skins[q.variant]"
             ],
             "overlay_color": {
                 "r": "math.sin(q.life_time * 200 + q.variant * 234)",

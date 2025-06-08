@@ -1,6 +1,6 @@
 import { world, system, Player, Dimension, DataDrivenEntityTriggerAfterEvent, Entity, TicksPerSecond } from "@minecraft/server";
 import { getPetEquipmentId } from "./pet_equipment/_index";
-import { add, playSound } from "./utility";
+import { add, playSoundAtEntity } from "./utility";
 import { calculateTotalEffectiveHappinessPercentage2 } from "./happiness/happiness";
 
 world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource, damage }) => {
@@ -25,12 +25,7 @@ world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource, damage }) =>
             return;
         xpMultiplier /= 4;
     }
-    if (getPetEquipmentId(damager, "Head")?.startsWith("billey:anniversary_pet_hat"))
-        xpMultiplier *= 2;
-    xpTarget.setProperty(
-        "billey:xp",
-        xpTarget.getProperty("billey:xp") + additionalLevelingModifiers(0.6 * xpMultiplier, xpTarget)
-    );
+    addPetLevelingXP(xpTarget, 0.6 * xpMultiplier, damager);
     if (!xpTarget.__isCheckingLevel)
         system.run(() => {
             xpTarget.triggerEvent("check_level");
@@ -68,12 +63,7 @@ world.afterEvents.entityDie.subscribe(({ deadEntity, damageSource }) => {
             return;
         xpMultiplier /= 4;
     }
-    if (getPetEquipmentId(damager, "Head")?.startsWith("billey:anniversary_pet_hat"))
-        xpMultiplier *= 2;
-    xpTarget.setProperty(
-        "billey:xp",
-        xpTarget.getProperty("billey:xp") + additionalLevelingModifiers(1 * xpMultiplier, xpTarget)
-    );
+    addPetLevelingXP(xpTarget, 1 * xpMultiplier, damager);
     if (!xpTarget.__isCheckingLevel)
         system.run(() => {
             xpTarget.triggerEvent("check_level");
@@ -81,6 +71,24 @@ world.afterEvents.entityDie.subscribe(({ deadEntity, damageSource }) => {
         });
     xpTarget.__isCheckingLevel = true;
 });
+
+/**
+ * @param {Entity} mob 
+ * @param {number} amount 
+ * @param {Entity|undefined} mobToTakeEffectsFrom 
+ */
+export function addPetLevelingXP(mob, amount, mobToTakeEffectsFrom) {
+    mobToTakeEffectsFrom ??= mob;
+    let multiplier = 1;
+    if (getPetEquipmentId(mobToTakeEffectsFrom, "Head")?.startsWith("billey:anniversary_pet_hat"))
+        multiplier *= 2;
+    const happyPercentage = calculateTotalEffectiveHappinessPercentage2(mob);
+    multiplier *= happyPercentage + 1;
+    mob.setProperty(
+        "billey:xp",
+        mob.getProperty("billey:xp") + amount * multiplier
+    );
+}
 
 /** @param {Entity} pet  */
 function secondaryTargetsOf(pet) {
@@ -144,13 +152,13 @@ function fury(pet, targets) {
             system.runTimeout(furyStep, FURY_STEP_TICKS);
         else
             system.runTimeout(
-                () => playSound(pet, "billey.fury_end"),
+                () => playSoundAtEntity(pet, "billey.fury_end"),
                 FURY_STEP_TICKS
             );
 
     }
     furyStep();
-    playSound(pet, "billey.fury_start")
+    playSoundAtEntity(pet, "billey.fury_start")
 }
 
 /*
@@ -189,23 +197,8 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {
         return;
     switch (id) {
         case "billey:banana_duck_banana_xp": {
-            sourceEntity.setProperty(
-                "billey:xp",
-                sourceEntity.getProperty("billey:xp")
-                + additionalLevelingModifiers(2.5 / sourceEntity.getProperty("billey:level"))
-            );
+            addPetLevelingXP(sourceEntity, 2.5 / sourceEntity.getProperty("billey:level"));
             return;
         }
     }
 });
-
-/**
- * @param {number} baseAmount 
- * @param {Entity} pet 
- */
-function additionalLevelingModifiers(baseAmount, pet) {
-    let multiplier = 1;
-    const happy = calculateTotalEffectiveHappinessPercentage2(pet);
-    multiplier *= happy + 1;
-    return baseAmount * multiplier;
-}

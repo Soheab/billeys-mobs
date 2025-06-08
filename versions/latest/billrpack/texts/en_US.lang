@@ -289,6 +289,10 @@ entity.billey:duck_minion.name=Duck Minion
 
 entity.billey:duckatrice_egg.name=Duckatrice Egg
 
+entity.billey:giraffe_cat.name=Giraffe Cat
+
+item.spawn_egg.entity.billey:giraffe_cat.name=Giraffe Cat Spawn Egg
+
 
 ##Items
 
@@ -561,6 +565,8 @@ item.billey:pet_straw_hat=Pet Straw Hat
 
 item.billey:mercat_plushie=Mercat Plushie
 
+item.billey:giraffe_cat_treat=Giraffe Cat Treat
+
 
 ##Blocks
 
@@ -655,6 +661,10 @@ action.interact.evolve=Evolve
 action.interact.ride=Ride
 
 action.interact.change_the_weather=Change the Weather
+
+action.interact.start_ladder=Start Ladder
+
+action.interact.stop_ladder=Stop Ladder
 
 advancements.billeys_mobs.golden_duck=Shiny Duck
 
@@ -799,6 +809,8 @@ chat.billeys_mobs.levelup=§9LEVEL UP! §d%1§f has advanced to §9level §d%2§
 chat.billeys_mobs.levelup.reset=§d%1§f's §9level§f has been reset to §9level §d1§f.
 
 chat.billeys_mobs.levelup.info=§7%1's health and attack damage, speed and reach have increased.
+
+chat.billeys_mobs.levelup.info.only_health_and_damage=§7%1's health and attack damage have increased.
 
 chat.billeys_mobs.levelup.withering=§a%1 now inflicts withering when attacking.
 
@@ -1169,6 +1181,10 @@ ui.billeys_mobs.info.duckatrice=§e§l=========DUCKATRICE (PET)=========%1%1§r�
 ui.billeys_mobs.short_info.duckatrice=§aDuckatrices§f can be used as a flying ride. §7Since duckatrices don't spawn naturally, wild duckatrices don't exist. Because of this, they spawn already tamed if spawned through a spawn egg.
 
 ui.billeys_mobs.info.duckatrice_boss=§e§l=========DUCKATRICE BOSS=========%1%1§r§l§6- General%1§r§9The §aDuckatrice Boss§9 is a §abig, flying, scary-looking duck§9 that you have to §akill to get §9"§aDuckatrice Amber§9", which allows you to §aturn a level 10 duck of yours into your own pet duckatrice§9(which can fly and is rideable).%1%1§l§6- Summoning%1§r§9To §asummon§9 a duckatrice, get a §aduck§9 to sit next to some §afrogspawn§9(frog eggs) and feed the duck an §aominous potion§9(the potion dropped by illager captains). The frogspawn will then transform into a §aDuckatrice Boss Egg§9 that if §ahit twice§9 within a second, will §asummon the duckatrice boss§9. The egg §acannot be moved§9, meaning you should §achoose the place to do this wisely§9 since it'll also be the place you fight the duckatrice in. The duck you use for the summoning doesn't have to be in level 10 and also doesn't have to be the duck you'll later evolve into a duckatrice. But most importantly, §amake sure to bring strong pets to the battle and a diverse range of weapons§9.%1%1§l§6- Stare Damage%1§r§9If you §astare at the boss§9 while it's angry at you you'll get §adamaged§9, and §athe more you look at it§9 the more damage it will inflict. The boss also heals whenever its stare damages you.%1%1§l§6- Phases%1§r§9The duckatrice boss has §a3 phases§9 depending on how much health it has left. In phase 1 it §achooses whether to fly or not§9 depending on whether or not it can reach you, in phase 2 it §aonly flies§9, and in phase 3 it (mostly) §aonly walks§9. In phases 2 and 3 it also summons hostile §aduck minions§9.
+
+ui.billeys_mobs.info.giraffe_cat=§e§l======GIRAFFE CAT======%1%1§r§l§6- General%1§r§aGiraffe cats§9 spawn in §asavannas§9 and can be §atamed with§9 raw or cooked §afish, chicken or hamster§9, or with §aleaves§9.%1%1§l§6- Throwing Pets%1§r§9When a tamed giraffe cat has a §atarget§9 and there's a nearby §atamed pet§9 of the same owner, it will §apick up and yeet the other pet at the enemy§9. If the thrown pet hits the target it will §adeal damage on impact§9 and will continue to attack the target, even if it doesn't usually defend its owner. Pets that are sitting won't be yeeted.%1%1§l§6- Living Ladder%1§r§9If you §ause a ladder§9 on the giraffe cat, it will transform into a tall organic ladder, letting you §aclimb using levitation or slow falling§9. You can §aincrease or decrease§9 its ladder height up to §a64 blocks§9. After climbing above it, the giraffe cat §ateleports to you§9 and returns to normal.%1%1§l§6- Digging Up Mobs%1§r§9If the giraffe cat is §astanding on grass§9 or dirt, and §afed a giraffe cat treat§9, it will shove its head in the ground and eventually §adig up a random borrowing critter§9 like a §arat§9, §ahamster§9, or §akiwi§9. Other add-ons can add more mobs to the diggable mobs, see line 428 in scripts/billeys_mobs/giraffe_cat.js in the add-on's behavior pack if you're an add-on creator.%1%1§l§6- Crossbreeding with Cats%1§r§9If you breed a giraffe cat with a cat, the result will be a giraffe cat with the texture of the cat.%1%1§l§d- Leveling%1§r§9Giraffe cats can §alevel up§9 by killing mobs, either directly or by throwing pets. When they level up §atheir health and attack damage increase§9.
+
+ui.billeys_mobs.short_info.giraffe_cat=§aGiraffe cats§f are tamed with raw or cooked fish, chicken or hamster. They can be used as ladders, dig out rodents, and throw your pets at the enemy.
 
 ui.billeys_mobs.info.leveling=...
 

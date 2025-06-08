@@ -1,5 +1,5 @@
 import { world, system, Player, TicksPerSecond, ContainerSlot, Entity, ItemStack, EntityTypes } from "@minecraft/server";
-import { detrimentalEffects, playSound } from "./utility";
+import { detrimentalEffects, playSoundAtEntity } from "./utility";
 
 /**
  * @type {Player}
@@ -88,7 +88,7 @@ function useCatfishAntibodies(entity, slot, injector) {
     entity.setDynamicProperty("immune_to_effects", JSON.stringify(entity.immuneToEffects));
     //entity.setDynamicProperty("time_to_stop_effect_immunity", Date.now() + 600 * 1000);
     entity.getEffects().forEach(effect => entity.removeEffect(effect.typeId));
-    playSound(entity, "mob.sheep.shear");
+    playSoundAtEntity(entity, "mob.sheep.shear");
     if ((injector ?? entity).getGameMode() != "creative")
         slot.setItem(undefined);
     if (injector) {

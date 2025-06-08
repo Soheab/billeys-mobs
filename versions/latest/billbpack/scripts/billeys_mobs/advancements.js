@@ -1,6 +1,6 @@
 import { world, system, ItemStack, Player, Entity } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
-import { playSound, translateItem } from "./utility";
+import { playSoundAtEntity, translateItem } from "./utility";
 import { showInfoBookForm } from "./info_book";
 import { ADVANCEMENTS } from "./advancement_list";
 import { getIsAnniversary } from "./pet_equipment/anniversary_hats";
@@ -30,7 +30,7 @@ export function giveAdvancement(player, advancementName) {
     if (completedPlayers.length)
         xp /= 2;
     player.addExperience(xp);
-    playSound(player, "random.orb");
+    playSoundAtEntity(player, "random.orb");
     const powerBananas = Math.floor(xp / XP_PER_POWER_BANANA);
     if (powerBananas) {
         const item = new ItemStack("billey:power_banana", powerBananas);

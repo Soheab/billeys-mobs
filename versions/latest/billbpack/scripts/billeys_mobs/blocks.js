@@ -1,5 +1,5 @@
 import { world, BlockPermutation, system } from "@minecraft/server";
-import { playSound } from "./utility";
+import { playSoundAtEntity } from "./utility";
 
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
@@ -9,7 +9,7 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
 			if (!entity.getComponent("is_tamed") && entity.typeId != "minecraft:item" && (entity.typeId != "minecraft:player" || block.typeId == "billey:banana_peel_player_block")) {
 				entity.addEffect("slowness", 20 * 2, { amplifier: 5 });
 				entity.addEffect("nausea", 20 * 12, { amplifier: 5 });
-				playSound(entity, "billey.banana.slip");
+				playSoundAtEntity(entity, "billey.banana.slip");
 				entity.addTag("billey_slipped");
 				entity.dimension.spawnEntity("billey:banana_slipper", entity.location);
 				//what i did with that entity is probably possible with scripts now

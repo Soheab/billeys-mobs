@@ -9,7 +9,7 @@
         }
       ],
       "textures": [
-        "Texture.default"
+        "texture.default"
       ],
       "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",

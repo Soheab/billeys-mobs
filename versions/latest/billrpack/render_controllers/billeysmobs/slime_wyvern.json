@@ -4,16 +4,16 @@
         "controller.render.billeys_mobs.slimewyvern": {
             "arrays": {
                 "textures": {
-                    "Array.variants": [
-                        "Texture.default",
-                        "Texture.variant1",
-                        "Texture.variant2",
-                        "Texture.variant3",
-                        "Texture.variant4",
-                        "Texture.variant5",
-                        "Texture.variant6",
-                        "Texture.variant7",
-                        "Texture.variant8"
+                    "array.variants": [
+                        "texture.default",
+                        "texture.variant1",
+                        "texture.variant2",
+                        "texture.variant3",
+                        "texture.variant4",
+                        "texture.variant5",
+                        "texture.variant6",
+                        "texture.variant7",
+                        "texture.variant8"
                     ]
                 }
             },
@@ -36,8 +36,8 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             },
             "textures": [
-                "Array.variants[q.variant]",
-                "q.is_sheared ? Texture.drunk : Texture.nothing"
+                "array.variants[q.variant]",
+                "q.is_sheared ? texture.drunk : texture.nothing"
             ]
         },
         "controller.render.billeys_mobs.slimewyvern.cum": {
@@ -60,7 +60,7 @@
                 "a": "0.5 + q.is_illager_captain / 3"
             },
             "textures": [
-                "Texture.cum"
+                "texture.cum"
             ]
         }
     }

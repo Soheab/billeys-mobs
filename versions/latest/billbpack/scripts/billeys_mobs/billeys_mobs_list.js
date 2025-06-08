@@ -169,5 +169,9 @@ export const BILLEYS_MOBS = [
 	{
 		id: "duckatrice_boss",
 		category: ["boss", "recommended"]
+	},
+	{
+		id: "giraffe_cat",
+		category: ["cat", "recommended", "other"]
 	}
 ];

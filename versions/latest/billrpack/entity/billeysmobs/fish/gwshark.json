@@ -50,8 +50,7 @@
         //in the rat file
       ],
       "spawn_egg": {
-        "base_color": "#6f7880",
-        "overlay_color": "#afa9bb"
+        "texture": "billey.shark_spawn_egg"
       }
     }
   }

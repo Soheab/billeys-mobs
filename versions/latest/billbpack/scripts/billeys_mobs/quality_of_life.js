@@ -1,4 +1,4 @@
-import { world, system, Player, Entity, BlockVolume, InputPermissionCategory } from "@minecraft/server";
+import { world, system, Player, Entity, BlockVolume, InputPermissionCategory, EntityDamageCause } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { DIMENSIONS, nameOf, titleCase } from "./utility";
 import { xpOfNextLevel } from "./leveling";
@@ -376,4 +376,19 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
             killerHealth.currentValue + deadEntity.getComponent("health").effectiveMax / 5
         );
     }
+});
+
+world.afterEvents.entityHurt.subscribe(({ damageSource, hurtEntity }) => {
+    if (!hurtEntity.isValid)
+        return;
+
+    if (damageSource.cause == "drowning"
+        && hurtEntity.getProperty("billey:follow_owner_state") == "following"
+    ) {
+        const owner = hurtEntity.getComponent("tameable").tamedToPlayer;
+        if (owner?.isValid) {
+            hurtEntity.teleport(owner.location, { dimension: owner.dimension });
+        }
+    }
+    
 });

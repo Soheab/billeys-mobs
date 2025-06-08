@@ -4,47 +4,47 @@
     "controller.render.scat": {
       "arrays": {
         "textures": {
-          "Array.skins": [
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default",
-            "Texture.default"
+          "array.skins": [
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default",
+            "texture.default"
           ],
-          "Array.tame": [
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive",
-            "Texture.aggresive"
+          "array.tame": [
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive",
+            "texture.aggresive"
           ]
         }
       },
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "q.is_sheared ? Array.tame[q.variant] : Array.skins[q.variant]" ],
+      "textures": [ "q.is_sheared ? array.tame[q.variant] : array.skins[q.variant]" ],
       "overlay_color": {
           
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",

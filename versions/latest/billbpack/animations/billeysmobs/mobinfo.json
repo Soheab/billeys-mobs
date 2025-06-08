@@ -548,6 +548,19 @@
 				"7.0": "/execute @a[r=10,tag=billeyinfopygmy_dunkleosteus,tag=!billeyinfopygmy_dunkleosteus2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
 				"7.05": "/tag @a[r=10,tag=billeyinfopygmy_dunkleosteus,tag=!billeyinfopygmy_dunkleosteus2] add billeyinfopygmy_dunkleosteus2"
 			}
+		},
+		"animation.billeys_mobs.info.giraffe_cat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfogiraffe_cat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.giraffe_cat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfogiraffe_cat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfogiraffe_cat] add billeyinfogiraffe_cat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfogiraffe_cat,tag=!billeyinfogiraffe_cat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfogiraffe_cat,tag=!billeyinfogiraffe_cat2] add billeyinfogiraffe_cat2"
+			}
 		}
 	}
 }

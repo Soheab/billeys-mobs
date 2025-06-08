@@ -399,6 +399,33 @@
                 }
             ]
         },
+        "billey.shrink": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/shrink",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.grow2": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/grow2",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.shrink2": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/shrink2",
+                    "volume": 1.0
+                }
+            ]
+        },
         "billey.fury_start": {
             "category": "neutral",
             "sounds": [

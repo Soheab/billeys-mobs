@@ -1,5 +1,5 @@
 import { world, system, TicksPerSecond, EffectTypes, ItemStack, Player, Entity, ContainerSlot, BlockPermutation, EntityTameMountComponent } from "@minecraft/server";
-import { crossMagnitude, decrementStack, duckArmors, nameOf, playSound } from "./utility";
+import { crossMagnitude, decrementStack, duckArmors, nameOf, playSoundAtEntity } from "./utility";
 import { getPetEquipment, setPetEquipment, SLOTS } from "./pet_equipment/_index";
 import { getAllHappinessIds } from "./happiness/happiness";
 import { entityLoadHappiness } from "./version";
@@ -70,8 +70,8 @@ world.beforeEvents.itemUse.subscribe(data => {
     system.run(() => {
         duckatrice.addEffect("speed", 2 * duration * TicksPerSecond, { amplifier: (speedAmplifier + 2) * 3 + 3 * duckatrice.getProperty("billey:level") });
         decrementStack(player);
-        playSound(duckatrice, "random.eat");
-        playSound(duckatrice, "billey.duckatrice.summon", { pitch: 1.2 + speedAmplifier / 10 });
+        playSoundAtEntity(duckatrice, "random.eat");
+        playSoundAtEntity(duckatrice, "billey.duckatrice.summon", { pitch: 1.2 + speedAmplifier / 10 });
         if (giveBottle)
             system.runTimeout(() => player.dimension.spawnItem(new ItemStack("minecraft:glass_bottle"), player.location), 2);
     })
@@ -128,7 +128,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
                 duckatrice[happinessId].value = duck[happinessId].value;
             }
 
-            playSound(duckatrice, "billey.grow");
+            playSoundAtEntity(duckatrice, "billey.grow");
             duck.dimension.getPlayers({
                 location: duck.location,
                 maxDistance: 10
@@ -152,21 +152,21 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
         }
         case "billey:duckatrice_egg_hit": {
             const egg = duck;
-            playSound(egg, "block.sniffer_egg.crack");
+            playSoundAtEntity(egg, "block.sniffer_egg.crack");
             return;
         }
         case "billey:duckatrice_start_hatching": {
             const egg = duck;
-            playSound(egg, "block.sniffer_egg.crack");
-            playSound(egg, "mob.zombie.remedy", { volume: 0.5 });
-            playSound(egg, "billey.duckatrice.summon");
+            playSoundAtEntity(egg, "block.sniffer_egg.crack");
+            playSoundAtEntity(egg, "mob.zombie.remedy", { volume: 0.5 });
+            playSoundAtEntity(egg, "billey.duckatrice.summon");
             return;
         }
         case "billey:duckatrice_hatched": {
             const egg = duck;
             egg.dimension.spawnParticle("minecraft:large_explosion", { x: egg.location.x, y: egg.location.y + 1, z: egg.location.z });
-            playSound(egg, "random.explode");
-            playSound(egg, "block.sniffer_egg.crack");
+            playSoundAtEntity(egg, "random.explode");
+            playSoundAtEntity(egg, "block.sniffer_egg.crack");
             egg.dimension.spawnEntity("billey:duckatrice_boss", egg.location);
             egg.remove();
             return;
@@ -206,7 +206,7 @@ function turnNearestFrogspawnToDuckatriceEgg(duck) {
             // Replace frogspawn with a duckatrice egg and exit loop (only converts the first one found)
             dimension.spawnEntity("billey:duckatrice_egg", blockPos);
             block.setPermutation(BlockPermutation.resolve("minecraft:air"));
-            playSound(duck, "billey.grow", { pitch: 0.5 });
+            playSoundAtEntity(duck, "billey.grow", { pitch: 0.5 });
             return;
         }
     }
@@ -231,7 +231,7 @@ export function playerPetDuckatrice(player, duckatrice) {
     )
         return;
     player.addLevels(-3);
-    playSound(player, "random.orb", { pitch: 0.9 });
+    playSoundAtEntity(player, "random.orb", { pitch: 0.9 });
     const levelRomanNumeral = ROMAN_NUMERALS[duckatriceLevel];
     playerHelmet.setLore([
         ...(playerHelmet.getLore().filter(s => !s.startsWith("§r§6Duckatrice's Stare"))),
@@ -263,7 +263,7 @@ export function decrementDuckatriceStares(slot, player) {
         slot.setLore(
             slot.getLore().filter(s => !s.startsWith("§r§6Duckatrice's Stare"))
         );
-        playSound(player, "random.break", { pitch: 1.5 });
+        playSoundAtEntity(player, "random.break", { pitch: 1.5 });
         player.sendMessage({ translate: "chat.billeys_mobs.duckatrice_stare_ran_out" });
     }
     else

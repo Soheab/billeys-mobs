@@ -89,6 +89,11 @@ export const INFO = {
         family: ["cat", "felid", "mammal", "vertebrate"],
         size: 1
     },
+    "minecraft:giraffe_cat": {
+        weight: 1,
+        family: ["cat", "felid", "mammal", "vertebrate"],
+        size: 1
+    },
     "billey:zombie_cat": {
         weight: 1,
         family: ["cat", "felid", "mammal", "vertebrate"],

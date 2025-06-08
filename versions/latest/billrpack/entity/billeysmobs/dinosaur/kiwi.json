@@ -52,8 +52,16 @@
                 "initialize": [
                   "v.head_size_x = 3;",
                   "v.head_size_y = 3;",
-                  "v.head_size_z = 4;"
-                ],
+                  "v.head_size_z = 4;",
+          "v.smooth_scale = q.model_scale;",
+          "v.smooth_baby = q.is_baby;"
+        ],
+        "pre_animation": [
+          "v.show_details = q.distance_from_camera < 7;",
+          "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+          "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;"
+        ],
+        "scale": "v.smooth_scale / q.model_scale",
                 "animate": [
                     "new",
                     "albcont",
@@ -79,7 +87,7 @@
                         "move": "q.modified_move_speed * 2.5 * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
                     },
                     {
-                        "baby_transform": "q.is_baby"
+                        "baby_transform": "v.smooth_baby"
                     }
                 ]
             },

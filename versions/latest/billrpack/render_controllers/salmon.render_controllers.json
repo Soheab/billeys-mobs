@@ -9,7 +9,7 @@
         }
       ],
       "textures": [
-        "Texture.default"
+        "texture.default"
       ],
       "is_hurt_color": {
           "r": "!q.is_illager_captain",

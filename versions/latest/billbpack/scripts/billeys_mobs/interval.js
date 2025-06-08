@@ -6,6 +6,7 @@ import { decrementDuckatriceStares, duckatriceBossStare, duckatriceStareDamage }
 import { giveInfoBookOnMove } from "./info_book";
 import { happinessTick, TICKS_PER_HAPPY_TICK } from "./happiness/happiness";
 import { onPlayerGetOnBed, onPlayerGetOutOfBed } from "./mercat";
+import { giraffeCatTick, playerLandAfterClimbingGiraffeCat } from "./giraffe_cat";
 
 system.runInterval(() => {
 	const { currentTick } = system;
@@ -163,6 +164,10 @@ system.runInterval(() => {
 			onPlayerGetOutOfBed(player);
 		}
 
+		if (player.__climbingGiraffeCat && player.isOnGround) {
+			playerLandAfterClimbingGiraffeCat(player);
+		}
+
 		/*
 		const lol = player.getEntitiesFromViewDirection()?.[0]?.entity;
 		if (lol) {
@@ -181,6 +186,8 @@ system.runInterval(() => {
 			pet.setProperty("billey:mob_nearby",
 				dimension.getEntities({ location: pet.location, maxDistance: 1.2, type: "billey:rat", tags: ["in_love"] }).length > 1)
 		});
+
+		dimension.getEntities({ type: "billey:giraffe_cat" }).forEach(giraffeCatTick);
 
 		if (currentTick % TICKS_PER_HAPPY_TICK == 0) {
 			dimension.getEntities({ tags: ["tamed"] }).forEach(pet => {
