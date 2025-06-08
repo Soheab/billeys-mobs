@@ -39,7 +39,7 @@ import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 const DEBUG_MODE = false;
 
 if (DEBUG_MODE) {
-	system.run(()=>world.sendMessage("<Billey's Mobs> §eDebug Mode!"));
+	system.run(() => world.sendMessage("<Billey's Mobs> §eDebug Mode!"));
 	const insignificantEvents = ["switch_movement", "add_sittable", "remove_sittable", "minecraft:entity_spawned"];
 	const insignificantScriptEvents = ["billey:add_script_tag"];
 	world.afterEvents.dataDrivenEntityTrigger.subscribe(e => {
@@ -92,6 +92,19 @@ let ratOtherParentMarkVariant = 0;
 /** @type {Player} */
 let piranhaLoader;
 
+//pygmy dunks have their own thing
+const OLD_PATTERN_PETS = ["billey:rat", "billey:netherrat", "billey:terraphin"];
+
+world.afterEvents.entityLoad.subscribe(world.afterEvents.entitySpawn.subscribe(({ entity }) => {
+	if (OLD_PATTERN_PETS.includes(entity.typeId)) {
+		system.run(() => {
+			if (entity.getProperty("billey:mark_variant") == 1000) {
+				entity.setProperty("billey:mark_variant", entity.getComponent("mark_variant").value);
+			}
+		});
+	}
+}));
+
 system.afterEvents.scriptEventReceive.subscribe(data => {
 	if (!data.sourceEntity?.isValid) return;
 	switch (data.id) {
@@ -138,17 +151,17 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
 			switch (data.message) {
 				case "parent":
 					ratParentVariant = rat.getComponent("variant").value;
-					ratParentMarkVariant = rat.getComponent("mark_variant").value;
+					ratParentMarkVariant = rat.getProperty("billey:mark_variant");
 					break;
 				case "other":
 					ratOtherParentVariant = rat.getComponent("variant").value;
-					ratOtherParentMarkVariant = rat.getComponent("mark_variant").value;
+					ratOtherParentMarkVariant = rat.getProperty("billey:mark_variant");
 					break;
 				case "baby":
 					if (ratParentVariant == rat.getComponent("variant").value)
-						rat.getComponent("mark_variant").value = ratOtherParentMarkVariant;
+						rat.setProperty("billey:mark_variant", ratOtherParentMarkVariant);
 					else if (ratOtherParentVariant == rat.getComponent("variant").value)
-						rat.getComponent("mark_variant").value = ratParentMarkVariant;
+						rat.setProperty("billey:mark_variant", ratParentMarkVariant);
 					break;
 			}
 			break;

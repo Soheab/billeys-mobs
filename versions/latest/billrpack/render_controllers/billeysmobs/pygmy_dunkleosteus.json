@@ -83,7 +83,7 @@
 			],
 			"textures": [
                 "Array.base[q.variant]",
-                "Array.patterns[q.mark_variant]"
+                "Array.patterns[q.property('billey:mark_variant')]"
 			],
 			"overlay_color": {
 				"r": "math.sin(q.life_time * 200 + q.variant * 234)",

@@ -36,7 +36,10 @@
         "blackwhite_tame": "textures/entity/cat/fblackwhite",
         "perry_tame": "textures/entity/cat/fperry",
         "pizza_tame": "textures/entity/cat/fpizza",
-        "sugar_tame": "textures/entity/cat/fsugar"
+        "sugar_tame": "textures/entity/cat/fsugar",
+        "lily": "textures/entity/cat/lily",
+        "tigerlily": "textures/entity/cat/tigerlily",
+        "lily_tame": "textures/entity/cat/lily_tame"
       },
       "geometry": {
         "default": "geometry.fcat"

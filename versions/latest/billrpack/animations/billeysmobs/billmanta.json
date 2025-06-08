@@ -42,17 +42,7 @@
 			"animation_length": 0.214,
 			"bones": {
 				"tail3": {
-					"rotation": {
-						"0.0": ["(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 40 : 0", 0, 0],
-						"0.04": ["25 + ((q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 40 : 20)", 0, 0]
-					},
-					"position": [0, 0, "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 0 : 1"]
-				},
-				"tail4": {
-					"rotation": {
-						"0.04": [0, 0, 0],
-						"0.08": [12.5, 0, 0]
-					}
+					"rotation": ["(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 20 : 62.5", 0, 0]
 				},
 				"tail4": {
 					"rotation": {
@@ -65,9 +55,6 @@
 						"0.04": [0, 0, 0],
 						"0.08": [20, 0, 0]
 					}
-				},
-				"tail3": {
-					"rotation": ["(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 20 : 62.5", 0, 0]
 				}
 			}
 		},
@@ -76,9 +63,6 @@
 			"bones": {
 				"tail3": {
 					"rotation": [0, "math.sin(q.anim_time * 150) * 10", 0]
-				},
-				"tail4": {
-					"rotation": [0, 0, "math.sin(q.anim_time * 150 + 2 * 90) * 10"]
 				},
 				"tail4": {
 					"rotation": [0, 0, "math.sin(q.anim_time * 150 + 90) * 10"]
@@ -93,40 +77,6 @@
 			"bones": {
 				"tail3": {
 					"position": [0, 2, 1]
-				}
-			}
-		},
-		"animation.billeys_mobs.hmrshark.swim": {
-			"loop": true,
-			"bones": {
-				"bone": {
-					"rotation": ["q.is_in_water ? q.target_x_rotation / 2 : 0", "5 * math.sin(280 * q.life_time) + (q.is_in_water ? q.target_y_rotation / 2 : 0)", 0]
-				},
-				"topfin": {
-					"position": [0, 0, 0]
-				},
-				"back": {
-					"rotation": [0, "15 * math.sin(280 * q.life_time + 10)", 0]
-				},
-				"bone2": {
-					"rotation": [0, "15 * math.sin(280 * q.life_time + 2 * 10)", 0]
-				},
-				"bone3": {
-					"rotation": [0, "15 * math.sin(280 * q.life_time + 3 * 10)", 0]
-				},
-				"tail": {
-					"rotation": [0, "15 * math.sin(280 * q.life_time + 4 * 15)", 0]
-				},
-				"head": {
-					"rotation": [0, "2 * math.sin(280 * q.life_time)", 0]
-				}
-			}
-		},
-		"animation.billeys_mobs.hmrshark.turn": {
-			"loop": true,
-			"bones": {
-				"bone": {
-					"rotation": [0, 0, "math.clamp(q.target_y_rotation/2,-15,15)"]
 				}
 			}
 		},

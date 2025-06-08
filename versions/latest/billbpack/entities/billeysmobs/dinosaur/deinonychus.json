@@ -2420,7 +2420,7 @@
                     {
                         "randomize": [
                             {
-                                "weight": 3,
+                                "weight": 5,
                                 "add": {
                                     "component_groups": [
                                         "variant_zero"
@@ -2428,7 +2428,7 @@
                                 }
                             },
                             {
-                                "weight": 3,
+                                "weight": 20,
                                 "add": {
                                     "component_groups": [
                                         "variant_three"
@@ -2444,7 +2444,7 @@
                                 }
                             },
                             {
-                                "weight": 10,
+                                "weight": 20,
                                 "add": {
                                     "component_groups": [
                                         "variant_one"
@@ -2452,7 +2452,7 @@
                                 }
                             },
                             {
-                                "weight": 10,
+                                "weight": 20,
                                 "add": {
                                     "component_groups": [
                                         "variant_two"
@@ -2460,7 +2460,7 @@
                                 }
                             },
                             {
-                                "weight": 10,
+                                "weight": 20,
                                 "add": {
                                     "component_groups": [
                                         "variant_four"
@@ -2468,7 +2468,7 @@
                                 }
                             },
                             {
-                                "weight": 10,
+                                "weight": 20,
                                 "add": {
                                     "component_groups": [
                                         "variant_five"
@@ -2476,7 +2476,7 @@
                                 }
                             },
                             {
-                                "weight": 10,
+                                "weight": 20,
                                 "add": {
                                     "component_groups": [
                                         "variant_seven"
@@ -2484,7 +2484,7 @@
                                 }
                             },
                             {
-                                "weight": 10,
+                                "weight": 1,
                                 "add": {
                                     "component_groups": [
                                         "variant_eight"

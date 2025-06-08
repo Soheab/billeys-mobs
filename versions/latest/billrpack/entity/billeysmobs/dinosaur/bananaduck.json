@@ -147,8 +147,7 @@
         }
       ],
       "spawn_egg": {
-        "base_color": "#fecb32",
-        "overlay_color": "#FFF0BB"
+        "texture": "billey.banana_duck_spawn_egg"
       }
     }
   }

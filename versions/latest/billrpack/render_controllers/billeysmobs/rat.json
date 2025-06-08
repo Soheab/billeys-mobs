@@ -44,7 +44,7 @@
             ],
             "textures": [
                 "q.get_name == 'XD' ? Array.base[q.life_time] : Array.base[q.variant]",
-                "q.get_name == 'XD' ? Array.patterns[q.life_time*1.25] : Array.patterns[q.mark_variant]"
+                "q.get_name == 'XD' ? Array.patterns[q.life_time*1.25] : Array.patterns[q.property('billey:mark_variant')]"
             ],
             "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
@@ -109,7 +109,7 @@
             ],
             "textures": [
                 "q.get_name == 'XD' ? Array.base[q.life_time] : Array.base[q.variant]",
-                "q.get_name == 'XD' ? Array.patterns[q.life_time*1.25] : Array.patterns[q.mark_variant]"
+                "q.get_name == 'XD' ? Array.patterns[q.life_time*1.25] : Array.patterns[q.property('billey:mark_variant')]"
             ],
             "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",

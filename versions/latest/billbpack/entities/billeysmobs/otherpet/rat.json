@@ -45,8 +45,16 @@
                 "switch_gender": "animation.billeys_mobs.switch_gender",
                 "ride": "controller.animation.billeys_mobs.rat.ride"
             },
-            
             "properties": {
+                "billey:mark_variant": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        1000
+                    ],
+                    "default": 1000
+                },
                 "billey:is_billey_mob": {
                     "client_sync": true,
                     "type": "bool",

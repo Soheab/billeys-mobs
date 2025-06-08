@@ -42,7 +42,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.hmrshark"
+        "controller.render.billeys_mobs.old_hammerhead_shark"
       ],
       "spawn_egg": {
         "base_color": "#6C6C6C",

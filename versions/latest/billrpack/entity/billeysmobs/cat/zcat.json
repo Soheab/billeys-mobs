@@ -9,7 +9,6 @@
         "tamed": "textures/entity/cat/zcat_tame"
       },
       "geometry": {
-        "hat": "geometry.billeys_mobs.cathat",
         "default": "geometry.cat"
       },
       "animations": {
@@ -22,6 +21,7 @@
         "look_at_target": "animation.common.look_at_target",
         "baby_transform": "animation.cat.baby_transform",
         "lie_down": "animation.cat.lie_down",
+        "sleep": "animation.cat.lie_down",
         "fix": "animation.cat.fix",
         "eat": "animation.cat.tailsnek",
         "beg": "animation.cat.beg",

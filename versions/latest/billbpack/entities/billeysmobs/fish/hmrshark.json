@@ -138,6 +138,11 @@
 			"kromatik": {
 				"minecraft:is_illager_captain": {}
 			},
+			"var0": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
 			"var1": {
 				"minecraft:variant": {
 					"value": 1
@@ -148,29 +153,29 @@
 					"value": 2
 				}
 			},
-			"littletiny": {
-				"minecraft:scale": {
-					"value": 0.1
+			"var3": {
+				"minecraft:variant": {
+					"value": 3
 				}
 			},
-			"small": {
-				"minecraft:scale": {
-					"value": 0.6
+			"var4": {
+				"minecraft:variant": {
+					"value": 4
 				}
 			},
-			"medium": {
-				"minecraft:scale": {
-					"value": 0.7
+			"var5": {
+				"minecraft:variant": {
+					"value": 5
 				}
 			},
-			"big": {
-				"minecraft:scale": {
-					"value": 0.8
+			"var6": {
+				"minecraft:variant": {
+					"value": 6
 				}
 			},
 			"huge": {
 				"minecraft:scale": {
-					"value": 1.0
+					"value": 1.5
 				},
 				"minecraft:is_saddled": {},
 				"minecraft:addrider": {
@@ -1665,8 +1670,8 @@
 				]
 			},
 			"minecraft:collision_box": {
-				"width": 1.1,
-				"height": 1.0
+				"width": 0.9,
+				"height": 0.6
 			},
 			"minecraft:breathable": {
 				"total_supply": 15,
@@ -1861,67 +1866,6 @@
 						"queue_command": {
 							"command": [
 								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
-							]
-						}
-					}
-				]
-			},
-			"spawnlittletiny": {
-				"sequence": [
-					{
-						"randomize": [
-							{
-								"weight": 2,
-								"add": {
-									"component_groups": [
-										"alive",
-										"dry",
-										"wild",
-										"neutral"
-									]
-								}
-							},
-							{
-								"weight": 1,
-								"add": {
-									"component_groups": [
-										"alive",
-										"dry",
-										"wild",
-										"shy"
-									]
-								}
-							}
-						]
-					},
-					{
-						"randomize": [
-							{
-								"weight": 1
-							},
-							{
-								"weight": 1,
-								"add": {
-									"component_groups": [
-										"var1"
-									]
-								}
-							},
-							{
-								"weight": 1,
-								"add": {
-									"component_groups": [
-										"var2"
-									]
-								}
-							}
-						]
-					},
-					{
-						"weight": 1,
-						"add": {
-							"component_groups": [
-								"littletiny"
 							]
 						}
 					}
@@ -2185,10 +2129,15 @@
 					{
 						"randomize": [
 							{
-								"weight": 1
+								"weight": 75,
+								"add": {
+									"component_groups": [
+										"var0"
+									]
+								}
 							},
 							{
-								"weight": 1,
+								"weight": 50,
 								"add": {
 									"component_groups": [
 										"var1"
@@ -2196,10 +2145,42 @@
 								}
 							},
 							{
-								"weight": 1,
+								"weight": 50,
 								"add": {
 									"component_groups": [
 										"var2"
+									]
+								}
+							},
+							{
+								"weight": 100,
+								"add": {
+									"component_groups": [
+										"var3"
+									]
+								}
+							},
+							{
+								"weight": 25,
+								"add": {
+									"component_groups": [
+										"var4"
+									]
+								}
+							},
+							{
+								"weight": 2,
+								"add": {
+									"component_groups": [
+										"var5"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"var6"
 									]
 								}
 							}
@@ -2226,36 +2207,7 @@
 								}
 							},
 							{
-								"weight": 200,
-								"add": {
-									"component_groups": [
-										"small"
-									]
-								}
-							},
-							{
-								"weight": 1,
-								"add": {
-									"component_groups": [
-										"littletiny"
-									]
-								}
-							},
-							{
-								"weight": 200,
-								"add": {
-									"component_groups": [
-										"medium"
-									]
-								}
-							},
-							{
-								"weight": 200,
-								"add": {
-									"component_groups": [
-										"big"
-									]
-								}
+								"weight": 400
 							},
 							{
 								"weight": 8,

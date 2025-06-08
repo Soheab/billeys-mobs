@@ -26,6 +26,15 @@
 			},
 			
             "properties": {
+                "billey:mark_variant": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        56
+                    ],
+                    "default": 56
+                },
                 "billey:is_billey_mob": {
                     "client_sync": true,
                     "type": "bool",
@@ -2488,7 +2497,7 @@
 					},
 					{
 						"queue_command": {
-							"command": "scriptevent billey:pygmy_dunk_set_mark_variant initialize"
+							"command": "scriptevent billey:pygmy_dunk_set_mark_variant"
 						}
 					}
 				]

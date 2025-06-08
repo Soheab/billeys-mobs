@@ -40,6 +40,15 @@
             },
             
             "properties": {
+                "billey:mark_variant": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        1000
+                    ],
+                    "default": 1000
+                },
                 "billey:is_billey_mob": {
                     "client_sync": true,
                     "type": "bool",

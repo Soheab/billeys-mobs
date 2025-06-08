@@ -10,8 +10,7 @@
             "textures": {
                 "normal": "textures/entity/billeys_mobs/stickbug",
                 "gay": "textures/entity/billeys_mobs/stickbug1",
-                "desat": "textures/entity/billeys_mobs/stickbug2",
-                "hat": "textures/entity/billeys_mobs/stickbug"
+                "desat": "textures/entity/billeys_mobs/stickbug2"
             },
             "geometry": {
                 "default": "geometry.billeys_mobs.stickbug"
@@ -65,7 +64,7 @@
             "enable_attachables": true,
             "hide_armor": false,
             "render_controllers": [
-                "controller.render.billeys_mobs.hmrshark"
+                "controller.render.billeys_mobs.old_hammerhead_shark"
             ],
             "spawn_egg": {
                 "overlay_color": "#159F02",

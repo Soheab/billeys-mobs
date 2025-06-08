@@ -1,4 +1,4 @@
-import { world, system, EquipmentSlot, ContainerSlot, ItemStack } from "@minecraft/server";
+import { world, system, EquipmentSlot, ContainerSlot, ItemStack, Entity, InvalidContainerError } from "@minecraft/server";
 import { decrementStack, itemEnglishName, nameOf, playSound, titleCase } from "./utility";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 
@@ -24,17 +24,47 @@ const REINFORCIBLE_ITEM_TYPE_IDS = [
 	"minecraft:iron_boots"
 ];
 
-system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity, id, message }) => {
-	if (id != "billey:pygmy_dunk_set_mark_variant") return;
-	const markVariant = sourceEntity.getComponent("mark_variant");
-	const variantValue = sourceEntity.getComponent("variant").value;
-	if (!message && (markVariant.value < variantValue * 7 || markVariant.value >= (variantValue + 1) * 7))
-		return; //don't change the pattern if it's visible
-	markVariant.value = (
+const INVIS_MARK_VARIANT = 56;
+
+/**
+ * @param {Entity} pygmyDunk
+ */
+function setPygmyDunkMarkVariant(pygmyDunk) {
+	const markVariantProperty = pygmyDunk.getProperty("billey:mark_variant");
+	const markVariantComponentValue = pygmyDunk.getComponent("mark_variant").value;
+
+	if (markVariantProperty == INVIS_MARK_VARIANT && markVariantComponentValue != INVIS_MARK_VARIANT) {
+		pygmyDunk.setProperty("billey:mark_variant", markVariantComponentValue);
+		return;
+	}
+
+	const variantValue = pygmyDunk.getComponent("variant").value;
+
+	if (
+		markVariantProperty != INVIS_MARK_VARIANT
+		&& (
+			markVariantProperty < variantValue * 7
+			|| markVariantProperty >= (variantValue + 1) * 7
+		)
+	) {
+		return;
+	}
+
+	pygmyDunk.setProperty("billey:mark_variant", (
 		variantValue * 7
 		+
 		Math.floor(Math.random() * 7)
-	);
+	));
+}
+
+system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: pygmyDunk, id }) => {
+	if (id == "billey:pygmy_dunk_set_mark_variant")
+		setPygmyDunkMarkVariant(pygmyDunk);
+});
+
+world.afterEvents.entityLoad.subscribe(({ entity }) => {
+	if (entity.typeId == "billey:pygmy_dunkleosteus")
+		setPygmyDunkMarkVariant(entity);
 });
 
 world.afterEvents.entityDie.subscribe(({ deadEntity, damageSource: { damagingEntity } }) => {

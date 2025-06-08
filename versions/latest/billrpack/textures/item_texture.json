@@ -418,6 +418,12 @@
 		},
 		"billey.mercat_plushie": {
 			"textures": "textures/billeyitems/mercat_plushie"
+		},
+		"billey.duck_spawn_egg": {
+			"textures": "textures/billeyitems/duck_spawn_egg_2"
+		},
+		"billey.banana_duck_spawn_egg": {
+			"textures": "textures/billeyitems/banana_duck_spawn_egg"
 		}
 		//stfu blockception extension
 	}

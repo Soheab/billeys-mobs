@@ -38,7 +38,10 @@
         "blackwhite_tame": "textures/entity/zcat/blackwhite_tame",
         "perry_tame": "textures/entity/zcat/perry_tame",
         "pizza_tame": "textures/entity/zcat/pizza_tame",
-        "sugar_tame": "textures/entity/zcat/sugar_tame"
+        "sugar_tame": "textures/entity/zcat/sugar_tame",
+        "lily": "textures/entity/cat/lily",
+        "tigerlily": "textures/entity/cat/tigerlily",
+        "lily_tame": "textures/entity/cat/lily_tame"
       },
       "geometry": {
         "default": "geometry.zcat",

@@ -15,7 +15,8 @@
         "three": "textures/entity/billeys_mobs/goose3",
         "four": "textures/entity/billeys_mobs/goose4",
         "five": "textures/entity/billeys_mobs/goose5",
-        "six": "textures/entity/billeys_mobs/goose6"
+        "six": "textures/entity/billeys_mobs/goose6",
+        "seven": "textures/entity/billeys_mobs/goose7"
       },
       "geometry": {
         "default": "geometry.billeys_mobs.goose"
