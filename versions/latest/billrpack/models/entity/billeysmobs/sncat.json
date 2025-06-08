@@ -84,7 +84,7 @@
 					"rotation": [180, 0, 0]
 				},
 				{
-					"name": "tail1",
+					"name": "tail3",
 					"parent": "body",
 					"pivot": [0, 4, -6],
 					"cubes": [
@@ -103,7 +103,7 @@
 					]
 				},
 				{
-					"name": "tail2",
+					"name": "tail4",
 					"parent": "body",
 					"pivot": [0, 4, -5],
 					"cubes": [
@@ -257,7 +257,7 @@
 					]
 				},
 				{
-					"name": "tail10",
+					"name": "tail30",
 					"parent": "body",
 					"pivot": [0, 4, 3],
 					"cubes": [
@@ -278,7 +278,7 @@
 					]
 				},
 				{
-					"name": "tail11",
+					"name": "tail31",
 					"parent": "body",
 					"pivot": [0, 4, 4],
 					"cubes": [
@@ -297,7 +297,7 @@
 					]
 				},
 				{
-					"name": "tail12",
+					"name": "tail32",
 					"parent": "body",
 					"pivot": [0, 4, 5],
 					"cubes": [
@@ -316,7 +316,7 @@
 					]
 				},
 				{
-					"name": "tail13",
+					"name": "tail33",
 					"parent": "body",
 					"pivot": [0, 4, 6],
 					"cubes": [
@@ -335,7 +335,7 @@
 					]
 				},
 				{
-					"name": "tail14",
+					"name": "tail34",
 					"parent": "body",
 					"pivot": [0, 4, 7],
 					"cubes": [
@@ -356,7 +356,7 @@
 					]
 				},
 				{
-					"name": "tail15",
+					"name": "tail35",
 					"parent": "body",
 					"pivot": [0, 4, 8],
 					"cubes": [

@@ -101,14 +101,14 @@
 					]
 				},
 				{
-					"name": "tail2",
+					"name": "tail4",
 					"parent": "bodynohead",
 					"pivot": [0, 9, 8],
 					"rotation": [90, 0, 0]
 				},
 				{
 					"name": "tailboneskecat",
-					"parent": "tail2",
+					"parent": "tail4",
 					"pivot": [0, 9, 8],
 					"cubes": [
 						{"origin": [-0.5, 1, 8], "size": [1, 8, 1], "inflate": -0.2, "uv": [8, 22]}

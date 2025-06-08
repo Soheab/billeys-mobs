@@ -7,10 +7,10 @@
 				"body": {
 					"scale": [1.1, 1, 1]
 				},
-				"tail1": {
+				"tail3": {
 					"position": ["math.sin(q.life_time * v.s + v.n) * v.a", 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 2) * v.a", 0, 0]
 				},
 				"tail3": {
@@ -34,22 +34,22 @@
 				"tail9": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 9) * v.a", 0, 0]
 				},
-				"tail10": {
+				"tail30": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 10) * v.a", 0, 0]
 				},
-				"tail11": {
+				"tail31": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 11) * v.a", 0, 0]
 				},
-				"tail12": {
+				"tail32": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 12) * v.a", 0, 0]
 				},
-				"tail13": {
+				"tail33": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 13) * v.a", 0, 0]
 				},
-				"tail14": {
+				"tail34": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 14) * v.a", 0, 0]
 				},
-				"tail15": {
+				"tail35": {
 					"position": ["math.sin(q.life_time * v.s + v.n * 15) * v.a", 0, 0]
 				},
 				"bone": {

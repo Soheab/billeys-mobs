@@ -29,6 +29,7 @@ import "./happiness/health_happiness";
 import "./happiness/travel_happiness";
 import "./version";
 import "./mercat";
+import "./end_rod_projectile";
 import { playSound } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";

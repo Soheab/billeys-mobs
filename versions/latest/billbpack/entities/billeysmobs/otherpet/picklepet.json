@@ -276,10 +276,6 @@
 						{
 							"item": "billey:pizzapiece",
 							"growth": 0.40
-						},
-						{
-							"item": "billey:picklepet_fertilizer",
-							"growth": 10.0
 						}
 					],
 					"grow_up": {
@@ -404,10 +400,6 @@
 						{
 							"item": "billey:pizzapiece",
 							"growth": 0.20
-						},
-						{
-							"item": "billey:picklepet_fertilizer",
-							"growth": 10.0
 						}
 					],
 					"grow_up": {
@@ -622,51 +614,6 @@
 						},
 						{
 							"use_item": true,
-							"play_sounds": "eat",
-							"interact_text": "Fertilize",
-							"on_interact": {
-								"filters": {
-									"all_of": [
-										{
-											"test": "has_equipment",
-											"subject": "other",
-											"domain": "hand",
-											"value": "billey:picklepet_fertilizer"
-										},
-										{
-											"test": "has_component",
-											"subject": "self",
-											"value": "minecraft:is_shaking",
-											"operator": "not"
-										}
-									]
-								},
-								"event": "get_fertilized",
-								"target": "self"
-							}
-						},
-						{
-							"use_item": false,
-							"on_interact": {
-								"filters": {
-									"all_of": [
-										{
-											"test": "has_equipment",
-											"subject": "other",
-											"domain": "hand",
-											"value": "billey:picklepet_fertilizer"
-										},
-										{
-											"test": "has_component",
-											"subject": "self",
-											"value": "minecraft:is_shaking"
-										}
-									]
-								}
-							}
-						},
-						{
-							"use_item": true,
 							"play_sounds": "milk",
 							"interact_text": "action.interact.use",
 							"transform_to_item": "glass_bottle",
@@ -849,8 +796,7 @@
 						"turtle_egg",
 						"fish",
 						"salmon",
-						"billey:pizzapiece",
-						"billey:picklepet_fertilizer"
+						"billey:pizzapiece"
 					],
 					"tame_event": {
 						"event": "tamed_yay",

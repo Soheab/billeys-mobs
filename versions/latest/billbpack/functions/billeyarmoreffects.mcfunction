@@ -8,4 +8,4 @@ execute @e[hasitem={item=billey:penguin_boots,location=slot.armor.feet}] ~~~ det
 execute @e[hasitem={item=billey:penguin_boots,location=slot.armor.feet}] ~~~ detect ~ ~-1 ~ ice 0 effect @s speed 1 4 true
 execute @e[hasitem={item=billey:penguin_boots,location=slot.armor.feet}] ~~~ detect ~ ~-1 ~ packed_ice 0 effect @s speed 1 5 true
 execute @e[hasitem={item=billey:penguin_boots,location=slot.armor.feet}] ~~~ detect ~ ~-1 ~ blue_ice 0 effect @s speed 1 6 true
-effect @e[hasitem={item=billey:duck_hat,location=slot.armor.head}] strength 2 1 true
+effect @e[hasitem={item=billey:duck_hat,location=slot.armor.head}] strength 2 0 true

@@ -19,6 +19,7 @@
         },
       "minecraft:projectile": {
         "on_hit": {
+          /*
           "impact_damage": {
             "damage": 4,
             "knockback": true,
@@ -30,7 +31,7 @@
             "durationnormal": 200,
             "durationhard": 200,
             "amplifier": 2
-          },
+          },*/
           "remove_on_hit": {
           },
           "particle_on_hit": {

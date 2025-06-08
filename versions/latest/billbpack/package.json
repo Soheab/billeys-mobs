@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@minecraft/server": "^2.0.0-beta.1.21.70-stable",
+    "@minecraft/server": "^2.0.0-beta.1.21.80-preview.28",
     "@minecraft/server-gametest": "^1.0.0-beta.1.21.0-stable",
-    "@minecraft/server-ui": "^2.0.0-beta.1.21.70-stable"
+    "@minecraft/server-ui": "^2.0.0-beta.1.21.80-preview.28"
   }
 }

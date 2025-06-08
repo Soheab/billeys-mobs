@@ -41,14 +41,14 @@
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.214,
 			"bones": {
-				"tail1": {
+				"tail3": {
 					"rotation": {
 						"0.0": ["(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 40 : 0", 0, 0],
 						"0.04": ["25 + ((q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 40 : 20)", 0, 0]
 					},
 					"position": [0, 0, "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 0 : 1"]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": {
 						"0.04": [0, 0, 0],
 						"0.08": [12.5, 0, 0]
@@ -66,7 +66,7 @@
 						"0.08": [20, 0, 0]
 					}
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": ["(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 20 : 62.5", 0, 0]
 				}
 			}
@@ -74,10 +74,10 @@
 		"animation.cat.tailsnek": {
 			"loop": true,
 			"bones": {
-				"tail1": {
+				"tail3": {
 					"rotation": [0, "math.sin(q.anim_time * 150) * 10", 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [0, 0, "math.sin(q.anim_time * 150 + 2 * 90) * 10"]
 				},
 				"tail4": {
@@ -91,7 +91,7 @@
 		"animation.picklecat.fixsit": {
 			"loop": true,
 			"bones": {
-				"tail1": {
+				"tail3": {
 					"position": [0, 2, 1]
 				}
 			}

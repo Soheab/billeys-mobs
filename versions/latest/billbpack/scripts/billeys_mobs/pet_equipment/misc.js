@@ -79,3 +79,10 @@ registerPetEquipment("Legs", "billey:pet_bowtie",
         defaultColor: PetEquipmentColor.red
     }
 );
+
+registerPetEquipment("Head", "billey:duck_hat",
+    {
+        isBrave: true,
+        isDyeable: false
+    }
+);

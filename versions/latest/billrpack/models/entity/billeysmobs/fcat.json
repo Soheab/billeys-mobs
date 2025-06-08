@@ -89,7 +89,7 @@
 					"pivot": [0, 24, -0.5]
 				},
 				{
-					"name": "tail1",
+					"name": "tail3",
 					"parent": "body",
 					"pivot": [0, 6, 3],
 					"rotation": [25, 0, 0],
@@ -109,8 +109,8 @@
 					]
 				},
 				{
-					"name": "tail2",
-					"parent": "tail1",
+					"name": "tail4",
+					"parent": "tail3",
 					"pivot": [0, -1.5, 3.125],
 					"rotation": [75, 0, 0],
 					"cubes": [

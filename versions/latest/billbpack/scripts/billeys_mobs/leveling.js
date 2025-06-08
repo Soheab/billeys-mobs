@@ -206,11 +206,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {
 function additionalLevelingModifiers(baseAmount, pet) {
     let multiplier = 1;
     const happy = calculateTotalEffectiveHappinessPercentage2(pet);
-    multiplier *= happinessToXpBoostTrinomial(happy);
+    multiplier *= happy + 1;
     return baseAmount * multiplier;
-}
-
-/** @param {number} x */
-function happinessToXpBoostTrinomial(x) {
-    return (14 / 9) * x ** 2 + (13 / 9) * x - (1 / 9);
 }

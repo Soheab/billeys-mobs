@@ -49,7 +49,7 @@
 					"pivot": [0, 14, -9.4]
 				},
 				{
-					"name": "tail1",
+					"name": "tail3",
 					"parent": "body",
 					"pivot": [0, 12.5, 9],
 					"rotation": [90, 0, 0],
@@ -58,8 +58,8 @@
 					]
 				},
 				{
-					"name": "tail2",
-					"parent": "tail1",
+					"name": "tail4",
+					"parent": "tail3",
 					"pivot": [0, 4.4, 9.15],
 					"cubes": [
 						{"origin": [-0.5, -3.25369, 8.47584], "size": [1, 8, 1], "inflate": -0.01, "uv": [58, 26]}

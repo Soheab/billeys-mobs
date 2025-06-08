@@ -93,7 +93,7 @@ export function pigeonUI(player, pigeon, dimension) {
         const form = new ModalFormData();
         const playerNames = players.map(p => p.name);
         form.title({ translate: "ui.billeys_mobs.select_player" })
-            .dropdown("", playerNames, 0)
+            .dropdown("", playerNames, { defaultValueIndex: 0 })
             .show(player)
             .then(e => {
                 if (e.canceled) return;

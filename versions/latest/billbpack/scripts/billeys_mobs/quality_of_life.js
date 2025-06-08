@@ -31,22 +31,37 @@ export async function showSettingForm(player) {
             .title({ translate: "ui.billeys_mobs.info.category.settings" })
             .toggle(
                 { translate: "ui.billeys_mobs.settings.can_hit_own_pet" },
-                player.hasTag("billey:can_hit_own_pet")
+                { defaultValue: player.hasTag("billey:can_hit_own_pet") }
             )
             .toggle(
                 { translate: "ui.billeys_mobs.settings.can_hit_other_pet" },
-                !player.hasTag("billey:cant_hit_other_pet")
+                { defaultValue: !player.hasTag("billey:cant_hit_other_pet") }
+            )
+            .textField(
+                { translate: "ui.billeys_mobs.settings.double_sneak_seconds" },
+                (player.getDynamicProperty("double_sneak_seconds") ?? 0.5).toString(),
+                { defaultValue: "0.5" }
             );
-            const { canceled, formValues } = await form.show(player);
-            if (canceled) return;
-            if (formValues[0])
-                player.addTag("billey:can_hit_own_pet");
-            else
-                player.removeTag("billey:can_hit_own_pet");
-            if (formValues[1])
-                player.removeTag("billey:cant_hit_other_pet");
-            else
-                player.addTag("billey:cant_hit_other_pet");
+        const { canceled, formValues } = await form.show(player);
+        if (canceled) return;
+        if (formValues[0])
+            player.addTag("billey:can_hit_own_pet");
+        else
+            player.removeTag("billey:can_hit_own_pet");
+        if (formValues[1])
+            player.removeTag("billey:cant_hit_other_pet");
+        else
+            player.addTag("billey:cant_hit_other_pet");
+
+        const doubleSneakSecondsString = formValues[2];
+        const doubleSneakSeconds = Number(doubleSneakSecondsString);
+        if (!doubleSneakSecondsString) {
+            player.setDynamicProperty("double_sneak_seconds", 0.5);
+        }
+        else if (!isNaN(doubleSneakSeconds) && doubleSneakSeconds > 0)
+            player.setDynamicProperty("double_sneak_seconds", doubleSneakSeconds);
+        else
+            player.sendMessage({ translate: "chat.billeys_mobs.not_a_positive_number", with: [doubleSneakSecondsString] });
     }
     catch {
         world.sendMessage({ translate: "Billey's Mobs is outdated. Get the latest version in CurseForge, MCPEDL or Discord." });
@@ -298,7 +313,7 @@ export async function showPetStatForm(player, pet) {
         with: {
             rawtext: [
                 { text: mentalStateColor },
-                { translate: "mental_state.billeys_mobs." + mentalStateName }
+                { translate: "ui.billeys_mobs.mental_state." + mentalStateName }
             ]
         }
     });
@@ -358,7 +373,7 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
     if (killer.typeId.startsWith("billey:")) {
         const killerHealth = killer.getComponent("health");
         killerHealth.setCurrentValue(
-            killerHealth.currentValue + deadEntity.getComponent("health").effectiveMax / 3
+            killerHealth.currentValue + deadEntity.getComponent("health").effectiveMax / 5
         );
     }
 });

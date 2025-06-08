@@ -56,7 +56,7 @@
                 "initialize": [
                     "v.head_size_x = 4;",
                     "v.head_size_y = 4;",
-                    "v.head_size_z = 9;"
+                    "v.head_size_z = 8;"
                 ],
                 "pre_animation": [
                     "v.sitting=(q.is_sitting&&q.is_alive&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target));",

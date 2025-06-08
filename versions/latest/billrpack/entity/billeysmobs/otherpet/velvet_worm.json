@@ -24,7 +24,7 @@
 				"controller.sheared": "controller.animation.billeys_mobs.shearedd",
 				"controller.climb": "controller.animation.billeys_mobs.climbb",
 				"controller.attack": "controller.animation.billeys_mobs.velvet_attack",
-				"melt": "controller.animation.billeys_mobs.sit",
+				"controller.sit": "controller.animation.billeys_mobs.sit",
 				"climb": "animation.billeys_mobs.velvet_worm.climb",
 				"c.fall": "controller.animation.billeys_mobs.ground",
 				"fall": "animation.billeys_mobs.velvet_worm.fall",
@@ -53,6 +53,7 @@
 				"animate": [
 					"new",
 					"controller.attack",
+					"controller.sit",
 					{
 						"death2": "!q.is_alive"
 					},

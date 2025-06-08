@@ -369,7 +369,7 @@
 					]
 				},
 				{
-					"name": "tail1",
+					"name": "tail3",
 					"parent": "bodynohead",
 					"pivot": [0, 9, 8],
 					"rotation": [90, 0, 0],
@@ -402,8 +402,8 @@
 					]
 				},
 				{
-					"name": "tail2",
-					"parent": "tail1",
+					"name": "tail4",
+					"parent": "tail3",
 					"pivot": [0, 1, 8],
 					"cubes": [
 						{

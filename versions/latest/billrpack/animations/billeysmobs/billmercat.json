@@ -27,7 +27,7 @@
 				"bodylol": {
 					"position": [0, 0, 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [20, 0, 0],
 					"position": [0, -1, 0]
 				},
@@ -56,10 +56,10 @@
 				"body": {
 					"rotation": ["math.sin(q.anim_time*480)*1", 0, 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [0, "math.sin(q.anim_time*480-30)*-15+5", 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [0, "math.sin(q.anim_time*480-60)*-10", 0]
 				},
 				"fluke": {
@@ -80,10 +80,10 @@
 				"body": {
 					"rotation": ["math.sin(q.anim_time*480)*3", 0, 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [0, "math.sin(q.anim_time*480-30)*-15+5", 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [0, "math.sin(q.anim_time*480-60)*-10", 0]
 				},
 				"fluke": {
@@ -132,10 +132,10 @@
 				"body": {
 					"rotation": [0, "math.sin(q.anim_time*270)", 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": ["-math.abs(math.cos(q.anim_time*180)*3)", 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["math.abs(math.sin(q.anim_time*180)*3)", 0, 0]
 				},
 				"wing0": {
@@ -211,10 +211,10 @@
 					"rotation": [0, 0, 0],
 					"position": [0, 0.5, 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [0, 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [0, 0, 0]
 				},
 				"fluke": {
@@ -252,10 +252,10 @@
 				"bone2": {
 					"rotation": [0, 0, 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [0, -10, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [0, -15, 0]
 				},
 				"fluke": {
@@ -295,10 +295,10 @@
 				"frontLegR": {
 					"rotation": ["-(math.cos(q.anim_time*720)*-20)", "-math.min(0,-(math.cos(q.anim_time*720+90)*-15))", 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [0, "(math.cos(q.anim_time*720)*-5)", 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [0, "(math.cos(q.anim_time*720)*-5)", 0]
 				},
 				"fluke": {
@@ -324,10 +324,10 @@
 					"rotation": [0, 0, "q.target_y_rotation/4"],
 					"position": [0, "math.abs(q.target_y_rotation)/100", 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [0, 0, "q.target_y_rotation/4"]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["q.target_y_rotation/4", 0, 0]
 				},
 				"backLegL": {

@@ -3,6 +3,7 @@ import { crossMagnitude, decrementStack, duckArmors, nameOf, playSound } from ".
 import { getPetEquipment, setPetEquipment, SLOTS } from "./pet_equipment/_index";
 import { getAllHappinessIds } from "./happiness/happiness";
 import { entityLoadHappiness } from "./version";
+import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 
 /**
  * @typedef {{
@@ -122,7 +123,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
                 );
             }
 
-            entityLoadHappiness({entity: duckatrice});
+            entityLoadHappiness({ entity: duckatrice });
             for (const happinessId of getAllHappinessIds()) {
                 duckatrice[happinessId].value = duck[happinessId].value;
             }
@@ -136,7 +137,9 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
                 with: { rawtext: [nameOf(duck), { text: "\n" }] }
             }));
 
-            console.log("No idea what causes these errors");
+            addOwnerAsDynamicProperty(duckatrice);
+
+            console.warn("No idea what causes these errors");
             duck.remove();
             return;
         }
@@ -307,14 +310,34 @@ export function duckatriceBossStare(player, hostileDuck) {
         player.__duckatriceStareTime,
         { cause: "entityAttack", damagingEntity: hostileDuck }
     );
-    const duckatriceHealth = hostileDuck.getComponent("health");
-    duckatriceHealth.setCurrentValue(
-        duckatriceHealth.currentValue + (isDuckMinion ? 1 : 4) * player.__duckatriceStareTime
+    const hostileDuckHealth = hostileDuck.getComponent("health");
+    hostileDuckHealth.setCurrentValue(
+        hostileDuckHealth.currentValue + 4 * player.__duckatriceStareTime
     );
-    if (isDuckMinion)
-        player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duck_minion" });
+    if (isDuckMinion) {
+
+        let bossHealth;
+        if (hostileDuck.getComponent("variant").value == 1) {
+            bossHealth = hostileDuck.dimension.getEntities({
+                type: "billey:duckatrice_boss",
+                closest: 1,
+                location: hostileDuck.location,
+                maxDistance: 48
+            })[0]?.getComponent("health");
+        }
+        else {
+            bossHealth = world.getEntity(hostileDuck.getDynamicProperty("crowned_rat_id"))?.getComponent("health");
+        }
+
+        bossHealth?.setCurrentValue(
+            bossHealth.currentValue + 2 * player.__duckatriceStareTime
+        );
+        player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duck_minion"+ (
+            bossHealth ? 2 : ""
+    )  });
+    }
     else
-        player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duckatrice" });
+        player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duckatrice"});
     player.__duckatriceStareTime++;
 }
 

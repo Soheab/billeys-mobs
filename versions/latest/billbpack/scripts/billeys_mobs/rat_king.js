@@ -1,10 +1,10 @@
 import { world, system, Player, Entity } from "@minecraft/server";
-import { add, normalize, subtract, validateHeightOf } from "./utility";
+import { add, normalize, scale, subtract, validateHeightOf } from "./utility";
 import { setKillNextLoad } from "./rat_potions";
 
 system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id, message }) => {
     switch (id) {
-        case "billey:rat_minion_transform":
+        case "billey:rat_minion_transform": {
             if (!entity?.isValid) return;
             let l = entity.location;
             const { min, max } = entity.dimension.heightRange;
@@ -19,6 +19,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id, mes
             }
             else entity.kill();
             return;
+        }
         case "billey:rat_king_finish_cooking": {
             if (!entity?.isValid) return;
             entity.getComponent("rideable")?.getRiders()[0]?.remove();
@@ -27,7 +28,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id, mes
             if (!validateHeightOf(entity, loc.y)) return;
             let potionId;
             if (entity.getDynamicProperty("has_been_hit_by_mob") && entity.getProperty("billey:phase") > 1) {
-                potionId = "billey:rat_potion";
+                potionId = Math.random() < 0.33 ? "billey:rat_king_deter_potion" : "billey:rat_potion";
                 entity.setDynamicProperty("has_been_hit_by_mob", false);
             }
             else if (Math.random() < 0.5)
@@ -72,11 +73,18 @@ function dropMainhandEquipment(target, robber) {
     const itemStack = equippable.getEquipment("Mainhand");
     if (!itemStack || itemStack.lockMode != "none")
         return;
-    if (!target.__justGotRobbed) 
+    if (!target.__justGotRobbed)
         equippable.setEquipment("Mainhand", undefined);
     target.__justGotRobbed = true;
-    system.run(() =>{
-        robber.dimension.spawnItem(itemStack, robber.location);
+    system.run(() => {
+        const lol = normalize(subtract(
+            robber.location,
+            target.location
+        ));
+        const itemEntity = robber.dimension.spawnItem(itemStack, add(robber.location, lol));
+        itemEntity.applyImpulse(
+            scale(lol, 0.1)
+        );
         target.__justGotRobbed = false;
     });
 }
@@ -116,7 +124,7 @@ world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
     else if (hitEntity.typeId == "billey:rat_king" && damagingEntity.typeId != "minecraft:player") {
         hitEntity.setDynamicProperty("has_been_hit_by_mob", true);
         if (damagingEntity.isValid)
-        damagingEntity.addTag("billey:rat_king_target");
+            damagingEntity.addTag("billey:rat_king_target");
     }
 });
 

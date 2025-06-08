@@ -1497,7 +1497,6 @@
                 "minecraft:ageable": {
                     "duration": 4800,
                     "feed_items": [
-                        "billey:picklepet_fertilizer",
                         "billey:swordmeat",
                         "bread",
                         "billey:swordcooked"
@@ -1576,7 +1575,6 @@
                     ],
                     "breed_items": [
                         "billey:poultry_orange",
-                        "billey:picklepet_fertilizer",
                         "billey:swordmeat",
                         "bread",
                         "billey:swordcooked"
@@ -1648,7 +1646,6 @@
                     "probability": 0.33,
                     "tame_items": [
                         "billey:power_banana",
-                        "billey:picklepet_fertilizer",
                         "billey:swordmeat",
                         "bread",
                         "billey:swordcooked"
@@ -1683,7 +1680,6 @@
                     "priority": 5,
                     "speed_multiplier": 1.0,
                     "items": [
-                        "billey:picklepet_fertilizer",
                         "apple",
                         "billey:swordmeat",
                         "bread",
@@ -1695,7 +1691,6 @@
                     "look_distance": 3,
                     "look_time": 0,
                     "items": [
-                        "billey:picklepet_fertilizer",
                         "apple",
                         "billey:swordmeat",
                         "bread",
@@ -2423,10 +2418,6 @@
                         ]
                     },
                     {
-                        "item": "billey:picklepet_fertilizer",
-                        "heal_amount": 3
-                    },
-                    {
                         "item": "billey:swordmeat",
                         "heal_amount": 3
                     },
@@ -2643,7 +2634,6 @@
                 "priority": 5,
                 "speed_multiplier": 1.0,
                 "items": [
-                    "billey:picklepet_fertilizer",
                     "billey:swordmeat",
                     "bread",
                     "billey:swordcooked"
@@ -2654,7 +2644,6 @@
                 "look_distance": 3,
                 "look_time": 0,
                 "items": [
-                    "billey:picklepet_fertilizer",
                     "billey:swordmeat",
                     "bread",
                     "billey:swordcooked"

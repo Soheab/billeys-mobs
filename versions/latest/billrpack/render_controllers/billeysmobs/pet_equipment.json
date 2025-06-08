@@ -32,7 +32,13 @@
             },
             "textures": [
                 "array.colors[v.color]"
-            ]
+            ],
+            "color": {
+                "r": "1",
+                "g": "0",
+                "b": "0",
+                "a": "1"
+            }
         },
         "controller.render.billeys_mobs.pet_bowtie": {
             "geometry": "Geometry.default",

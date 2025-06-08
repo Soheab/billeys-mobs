@@ -15,11 +15,11 @@
 					"rotation": ["q.is_moving ? 0 : -2.5", 0, 0],
 					"position": [0, "q.is_moving ? 0 : -1", 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": ["q.is_moving ? 0 : 52.5", 0, 0],
 					"position": [0, 0, "q.is_moving ? 0 : -3"]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["q.is_moving ? 0 : 30", 0, 0],
 					"position": [0, 0, 0]
 				},

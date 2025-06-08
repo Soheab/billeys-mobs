@@ -29,11 +29,11 @@
 				"bodylol": {
 					"rotation": [0, 0, 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [85, 0, 0],
 					"position": [0, -2, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [20, 0, 0]
 				}
 			}

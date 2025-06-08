@@ -36,11 +36,11 @@
 					"rotation": [-10, "math.lerprotate(this, 75.81, v.liedownamount)", 0],
 					"position": [-0.1, 0, -0.5]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": ["math.lerprotate(this, -33.84, v.liedownamounttail)", 0, 0],
 					"position": [0, 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["math.lerprotate(this, -68.92, v.liedownamounttail)", 0, 0],
 					"position": [0, 0, 0]
 				}
@@ -49,7 +49,7 @@
 		"animation.scat.sit": {
 			"loop": true,
 			"bones": {
-				"tail2": {
+				"tail4": {
 					"rotation": ["50- this", 0, 0],
 					"position": [0, -9, 3.1]
 				},
@@ -93,7 +93,7 @@
 		"animation.scat.eat": {
 			"loop": true,
 			"bones": {
-				"tail2": {
+				"tail4": {
 					"rotation": [20, 0, 0]
 				}
 			}
@@ -101,7 +101,7 @@
 		"animation.scat.noteat": {
 			"loop": true,
 			"bones": {
-				"tail2": {
+				"tail4": {
 					"rotation": [-20, 0, 0]
 				}
 			}
@@ -245,14 +245,14 @@
 						"0.64": [-0.67, 1, 1]
 					}
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.56": [0, 0, 0],
 						"0.64": [-25, 0, 0]
 					}
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.56": [0, 0, 0],
@@ -309,10 +309,10 @@
 				"frontLegL": {
 					"rotation": ["math.cos(q.modified_distance_moved * 38.17 + 197.19) * 50.3 * q.modified_move_speed ", 0, 0]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [0, 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["62.0 + math.cos(q.modified_distance_moved * 57.3) * 18.0 * q.modified_move_speed", 0, 0]
 				},
 				"body": {
@@ -366,10 +366,10 @@
 						"-math.cos(q.modified_distance_moved * 38.17) * 1 * q.modified_move_speed"
 					]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [-51.57, 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["62.0 + math.cos(q.modified_distance_moved * 57.3) * 45.0 * q.modified_move_speed", 0, 0]
 				},
 				"body": {
@@ -420,11 +420,11 @@
 					"rotation": [45, 0, 0],
 					"position": [0, -2.96205, 0.29047]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [45, 0, 0],
 					"position": [0, -1, -1]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [45, 0, 0],
 					"position": [0, 0, 0]
 				},
@@ -487,7 +487,7 @@
 				"tail": {
 					"rotation": ["-(1 - q.health/q.max_health) * 45 * !q.is_sitting", 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["(-5-math.sin(270*(1 - q.health/q.max_health)) * 40) * !q.is_sitting", 0, 0]
 				}
 			}
@@ -511,10 +511,10 @@
 						"-math.cos(q.modified_distance_moved * 38.17) * 1 * q.modified_move_speed"
 					]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [-51.57, 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": ["62.0 + math.cos(q.modified_distance_moved * 57.3) * 45.0 * q.modified_move_speed", 0, 0]
 				},
 				"body": {
@@ -659,14 +659,14 @@
 						"0.64": [0.67, 1, 1]
 					}
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.56": [0, 0, 0],
 						"0.64": [-22.5, 0, 0]
 					}
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.56": [0, 0, 0],
@@ -703,11 +703,11 @@
 					"rotation": [45, 0, 0],
 					"position": [0, -2.96205, 0.29047]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [45, 0, 0],
 					"position": [0, -1, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [45, 0, 0],
 					"position": [0, 0, 0]
 				},
@@ -773,7 +773,7 @@
 				"tail4": {
 					"rotation": [37.5, 0, 0]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [45, 0, 0]
 				},
 				"tail6": {
@@ -818,10 +818,10 @@
 					"rotation": [-90, 0, 0],
 					"position": [0.1, -1.8, 3]
 				},
-				"tail1": {
+				"tail3": {
 					"position": [1.5, -4, -6.9]
 				},
-				"tail2": {
+				"tail4": {
 					"rotation": [0, 0, -180],
 					"position": [1, 0, 0]
 				}
@@ -855,7 +855,7 @@
 					"rotation": [62.5, 0, 0],
 					"position": [-2, -2.75, 3.25]
 				},
-				"tail1": {
+				"tail3": {
 					"rotation": [-90, 0, 0],
 					"position": [0, 1, -1],
 					"scale": [2, 1, 1]

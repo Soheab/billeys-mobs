@@ -832,6 +832,8 @@ chat.billeys_mobs.stop_staring_at_duckatrice=§cStop staring at the Duckatrice! 
 
 chat.billeys_mobs.stop_staring_at_duck_minion=§cStop staring at the Duck Minion! It steals your health!
 
+chat.billeys_mobs.stop_staring_at_duck_minion2=§cStop staring at the Duck Minion! It steals your health and also heals the boss!
+
 chat.billeys_mobs.duckatrice_stare_added=§6Your helmet has been granted Duckatrice's Stare %1 at the cost of 3 of your levels.
 
 chat.billeys_mobs.duckatrice_stare_ran_out=§6Your helmet's Duckatrice's Stare has been exhausted. Pet your duckatrice again to replenish it.
@@ -908,6 +910,8 @@ ui.billeys_mobs.settings.can_hit_own_pet=Be able to hurt your own pets
 
 ui.billeys_mobs.settings.can_hit_other_pet=Be able to hurt other players' pets
 
+ui.billeys_mobs.settings.double_sneak_seconds=Amount of seconds between 2 sneaks for double-sneaking to teleport your following pets to you. Default is 0.5. Bigger number means slower, smaller means faster.
+
 ui.billeys_mobs.pet_stats.owner=Owner
 
 ui.billeys_mobs.pet_stats.health=Health
@@ -922,20 +926,20 @@ ui.billeys_mobs.pet_stats.technical_details=Technical Details
 
 ##Mental states
 
-mental_state.billeys_mobs.rock_bottom=Rock Bottom
-mental_state.billeys_mobs.horribly_depressed=Horribly Depressed
-mental_state.billeys_mobs.depressed=Depressed
-mental_state.billeys_mobs.miserable=Miserable
-mental_state.billeys_mobs.sad=Sad
-mental_state.billeys_mobs.slightly_down=Slightly Down
-mental_state.billeys_mobs.ok=OK
-mental_state.billeys_mobs.content=Content
-mental_state.billeys_mobs.happy=Happy
-mental_state.billeys_mobs.delighted=Delighted
-mental_state.billeys_mobs.thrilled=Thrilled
-mental_state.billeys_mobs.euphoric=Euphoric
-mental_state.billeys_mobs.overjoyed=Overjoyed
-mental_state.billeys_mobs.error=Error
+ui.billeys_mobs.mental_state.rock_bottom=Rock Bottom
+ui.billeys_mobs.mental_state.horribly_depressed=Horribly Depressed
+ui.billeys_mobs.mental_state.depressed=Depressed
+ui.billeys_mobs.mental_state.miserable=Miserable
+ui.billeys_mobs.mental_state.sad=Sad
+ui.billeys_mobs.mental_state.slightly_down=Slightly Down
+ui.billeys_mobs.mental_state.ok=OK
+ui.billeys_mobs.mental_state.content=Content
+ui.billeys_mobs.mental_state.happy=Happy
+ui.billeys_mobs.mental_state.delighted=Delighted
+ui.billeys_mobs.mental_state.thrilled=Thrilled
+ui.billeys_mobs.mental_state.euphoric=Euphoric
+ui.billeys_mobs.mental_state.overjoyed=Overjoyed
+ui.billeys_mobs.mental_state.error=Error
 
 ##Pet equipment info
 
@@ -956,6 +960,10 @@ ui.billeys_mobs.item_info.anniversary_pet_hat_6=§fThe 6th year anniversary pet 
 ui.billeys_mobs.item_info.slime_wyvern_plushie=§fThe slime wyvern plushie is obtained by completing the §a"Slime Wyvern Overlord" advancement§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1It doesn't do anything on pets but it can also be §aplaced down§f and §aworn by players§f as a helmet. It is enchantable and has infinite durability but no protection.
 
 ui.billeys_mobs.item_info.rubber_ducky=§fThe rubber ducky is §ararely found by ducks in water§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1Makes the pet wearing it §amore likely to combo§f its target by dealing a bit of delayed damage and knockback. Also causes pets that normally wouldn't defend you to §adefend you anyway§f.
+
+ui.billeys_mobs.item_info.mercat_plushie=§fThe mercat plushie is obtained by completing the §a"Mercat Napper" advancement§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1It doesn't do anything on pets but it can also be §aplaced down§f and §aworn by players§f as a helmet. It is enchantable and has infinite durability but no protection.
+
+ui.billeys_mobs.item_info.duck_hat=§fThe duck hat is a hat that looks like a duck and is obtained by §akilling the rare zombie that wears it§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1It constantly gives the pet wearing it the §aStrength I§f effect. It also randomly quacks and plays the duck hurt and death sound when its wearer is damaged or dies.%1%1It can also be §aworn by players§f as a helmet for the same effect. It is enchantable and has infinite durability but no protection.
 
 ##Mob info
 
@@ -979,6 +987,8 @@ chat.billeys_mobs.owner_hit_pet=You cannot hurt your own pet.
 ui.billeys_mobs.info.owner_hit_pet=§cYou cannot hurt your own pet.§f You can turn this feature off in §aPersonal Settings§f in the §aBilley's Mobs Info Book§f. §8If you threw away the info book, say §f!givebilleyinfobook§8 in the chat to get one.
 
 chat.billeys_mobs.other_hit_pet=You cannot hurt other players' pets.
+
+chat.billeys_mobs.not_a_positive_number=§c%1 is not a positive number, dummy!
 
 ui.billeys_mobs.info.formore=...
 
@@ -1041,7 +1051,7 @@ ui.billeys_mobs.info.picklepet=§e§l=========PICKLEPET=========%1%1§r§aPickle
 
 ui.billeys_mobs.short_info.picklepet=§aPicklepets§f are tamed with several sea items and can be milked to get pickle juice to drink or to craft the colorful potion.
 
-ui.billeys_mobs.info.duck=§e§l=========DUCK=========%1%1§r§l§6- General%1§r§aDucks§9 spawn in §alakes and rivers§9 and are §atamed with any kind of seeds§9,§a carrots§9,§a melon§9 or§a bread§9.%1%1§l§6- Finding Items%1§r§9After being tamed §aif they're not sitting§9, they'll find §arandom items in grass and water§9, §amostly seeds§9, §afishing loot§9 §aand rarely§9 ore nuggets(including §adiamond nuggets§9).%1%1§l§6- Duck Armor%1§r§9You can also craft §aarmor§9 for them, ducks equipped with armor will §adefend their owner§9, and to §atake off the armor§9 use §adirt§9. §aEnd rod duck armor§9 makes the duck §ashoot end rods to its target§9 that inflict weakness. However, §aend rod projectiles are quite messy§9 and will likely hit you or other pets.%1%1§l§6- Rubber Ducky Pet Hat%1§r§9The §aRubber Ducky§9 pet hat is an item rarely found by ducks in water. It can be equipped on §aany pet§9 from this add-on and make it §amore likely to "combo"§9(hit its target without getting hurt back)§a its target§9. It also enables pets that don't usually fight for you, to §afight for you anyway§9, just like any piece of pet equipment that makes the pet stronger does(currently just this and the rat crown).%1%1§l§d- Leveling%1§r§9Ducks can be §aleveled up§9. To §alevel up§9 ducks, you have to §amake them kill mobs§9 (by equipping the duck with armor and then attacking mobs). When a duck levels up, its §ahealth, attack damage, speed and reach increase§9. Leveled ducks will also §afind items in grass and water more often§9, and from §alevel 5 and onwards§9 the items they find will also start becoming §abetter§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. The default level is level 1 and the max is level 10.
+ui.billeys_mobs.info.duck=§e§l=========DUCK=========%1%1§r§l§6- General%1§r§aDucks§9 spawn in §alakes and rivers§9 and are §atamed with any kind of seeds§9,§a carrots§9,§a melon§9 or§a bread§9.%1%1§l§6- Finding Items%1§r§9After being tamed §aif they're not sitting§9, they'll find §arandom items in grass and water§9, §amostly seeds§9, §afishing loot§9 §aand rarely§9 ore nuggets(including §adiamond nuggets§9).%1%1§l§6- Duck Armor%1§r§9You can also craft §aarmor§9 for them, ducks equipped with armor will §adefend their owner§9, and to §atake off the armor§9 use §adirt§9. §aEnd rod duck armor§9 makes the duck §ashoot end rods to its target§9 that inflict weakness.%1%1§l§6- Rubber Ducky Pet Hat%1§r§9The §aRubber Ducky§9 pet hat is an item rarely found by ducks in water. It can be equipped on §aany pet§9 from this add-on and make it §amore likely to "combo"§9(hit its target without getting hurt back)§a its target§9. It also enables pets that don't usually fight for you, to §afight for you anyway§9, just like any piece of pet equipment that makes the pet stronger does(currently just this and the rat crown).%1%1§l§d- Leveling%1§r§9Ducks can be §aleveled up§9. To §alevel up§9 ducks, you have to §amake them kill mobs§9 (by equipping the duck with armor and then attacking mobs). When a duck levels up, its §ahealth, attack damage, speed and reach increase§9. Leveled ducks will also §afind items in grass and water more often§9, and from §alevel 5 and onwards§9 the items they find will also start becoming §abetter§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. The default level is level 1 and the max is level 10.
 
 ui.billeys_mobs.short_info.duck=§aDucks§f are tamed with seeds or bread and will find random items in grass and water if they aren't sitting. §7They also defend you if you equip them with armor.
 
@@ -1053,7 +1063,7 @@ ui.billeys_mobs.info.penguin=§e§l=========PENGUIN=========%1%1§r§l§6- Gener
 
 ui.billeys_mobs.short_info.penguin=§aPenguins§f are tamed with sea pizza, can make ice cream, and randomly shed feathers with which you can craft penguin boots.
 
-ui.billeys_mobs.info.banana_duck=§e§l=========BANANA DUCK=========%1%1§r§l§6- General%1§r§aBanana ducks§9 spawn in §abeaches§9, §adeserts§9, and basically anywhere where there's sand. They are §atamed with bread§9.%1%1§l§6- Bananas%1§r§9After being tamed, you can feed them an§a apple§9 to get a §a"desert banana"§9. Desert bananas give you §arandom amplifier II beneficial effects§9 and can be fed to any tamed mob in the add-on. Eating a desert banana also gives you a §abanana peel§9, which can be §aplaced down§9 and §awhen something steps on it, it'll lose 12 HP / 6 hearts and get slowness§9 and nausea for a few seconds, meaning §a2 banana peels are enough to kill most monsters and§9 also§a players§9 not wearing armor. Banana peels also §adon't affect players and tamed mobs by default§9, but you can §acraft ones that affect players using a single regular one§9.%1%1§l§6- Duck Armor%1§r§9You can also craft §aarmor§9 for banana ducks, banana ducks equipped with armor will §adefend their owner§9, and to §atake off the armor§9 use §adirt§9. §aEnd rod duck armor§9 makes the banana duck §ashoot end rods to its target§9 that inflict weakness. However, §aend rod projectiles are quite messy§9 and will likely hit you or other pets.%1%1§l§d- Leveling%1§r§9Banana ducks can be §aleveled up§9. Aside from §atheir health and attack damage increasing§9, leveled banana ducks will also §abecome able to turn more items to sand bananas instead of just apples§9. From §alevel 5 and onwards§9, they can take §asweet berries§9, from §alevel 7§9, §apoultry oranges§9, and in §alevel 10§9, melon slices. The default level is level 1 and the max is level 10.%1%1§l§d- How to Level%1§r§9To §alevel up§9 banana ducks, you have to §amake them kill mobs§9 (by equipping the banana duck with armor and then attacking mobs). Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. Banana ducks also §alevel up by making bananas§9, but the amount of xp that gives them descreases every level.%1%1§l§6- Other%1§r§9There are also §asecret variants§9 of banana ducks, try breeding them in strange places, or try doing something with the other birds of the add-on.%1%1§l§6- Credits%1§r§eBanana duck texture by BOYOFTHEMONSTERS.
+ui.billeys_mobs.info.banana_duck=§e§l=========BANANA DUCK=========%1%1§r§l§6- General%1§r§aBanana ducks§9 spawn in §abeaches§9, §adeserts§9, and basically anywhere where there's sand. They are §atamed with bread§9.%1%1§l§6- Bananas%1§r§9After being tamed, you can feed them an§a apple§9 to get a §a"desert banana"§9. Desert bananas give you §arandom amplifier II beneficial effects§9 and can be fed to any tamed mob in the add-on. Eating a desert banana also gives you a §abanana peel§9, which can be §aplaced down§9 and §awhen something steps on it, it'll lose 12 HP / 6 hearts and get slowness§9 and nausea for a few seconds, meaning §a2 banana peels are enough to kill most monsters and§9 also§a players§9 not wearing armor. Banana peels also §adon't affect players and tamed mobs by default§9, but you can §acraft ones that affect players using a single regular one§9.%1%1§l§6- Duck Armor%1§r§9You can also craft §aarmor§9 for banana ducks, banana ducks equipped with armor will §adefend their owner§9, and to §atake off the armor§9 use §adirt§9. §aEnd rod duck armor§9 makes the banana duck §ashoot end rods to its target§9 that inflict weakness.%1%1§l§d- Leveling%1§r§9Banana ducks can be §aleveled up§9. Aside from §atheir health and attack damage increasing§9, leveled banana ducks will also §abecome able to turn more items to sand bananas instead of just apples§9. From §alevel 5 and onwards§9, they can take §asweet berries§9, from §alevel 7§9, §apoultry oranges§9, and in §alevel 10§9, melon slices. The default level is level 1 and the max is level 10.%1%1§l§d- How to Level%1§r§9To §alevel up§9 banana ducks, you have to §amake them kill mobs§9 (by equipping the banana duck with armor and then attacking mobs). Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. Banana ducks also §alevel up by making bananas§9, but the amount of xp that gives them descreases every level.%1%1§l§6- Other%1§r§9There are also §asecret variants§9 of banana ducks, try breeding them in strange places, or try doing something with the other birds of the add-on.%1%1§l§6- Credits%1§r§eBanana duck texture by BOYOFTHEMONSTERS.
 
 ui.billeys_mobs.short_info.banana_duck=§aBanana ducks§f are tamed with bread and if you feed one an apple you get a banana that gives you a random amplifier II beneficial effect and a banana peel that can be used as a trap.
 
@@ -1081,7 +1091,7 @@ ui.billeys_mobs.short_info.velvet_worm=§aVelvet worms§f are tamed with spider 
 
 ui.billeys_mobs.info.duck_centipede=§e§l=========DUCK CENTIPEDE (BOSS)=========%1%1§r§aWhen a duck kills a velvet worm§9 you have a chance to get a Duck Centipede§a boss spawn egg§9 which you §ashouldn't spawn in your house nor right outside§9. Duck centipedes drop §athrowable ducks§9 than can be thrown and attack everything other than other ducks, tamed mobs and the player who threw them. Thrown ducks can also be picked up.
 
-ui.billeys_mobs.info.hamster=§e§l=========HAMSTER=========%1%1§r§aHamsters§9 spawn in §asavannas§9 and §ararely in plains§9.They are §atamed with any kind of seeds§9, or§a carrots§9. They currently don't have any use. §aI'm open to suggestions for uses for hamsters, or for any mob that is currently useless§9. They'll also get more interesting variants.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+ui.billeys_mobs.info.hamster=§e§l=========HAMSTER=========%1%1§r§aHamsters§9 spawn in §asavannas§9 and §ararely in plains§9. They are §atamed with any kind of seeds§9, or§a carrots§9. They currently don't have any use. §aI'm open to suggestions for uses for hamsters, or for any mob that is currently useless§9. They'll also get more interesting variants.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
 
 ui.billeys_mobs.short_info.hamster=§aHamsters§f are tamed with seeds or carrots and are useless.
 

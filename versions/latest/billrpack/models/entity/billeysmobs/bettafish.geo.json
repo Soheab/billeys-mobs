@@ -122,7 +122,7 @@
 				{
 					"name": "hat",
 					"parent": "head",
-					"pivot": [0, 2.25, -2.5]
+					"pivot": [0, 2.25, -1.5]
 				},
 				{
 					"name": "bowtie",

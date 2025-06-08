@@ -213,6 +213,8 @@ export async function setPetEquipment(pet, slot, item, dontApplyDefaultColor) {
         pet.setDynamicProperty(`equipment${slot}_lore`, JSON.stringify(item.getLore()));
         if (item.hasComponent("enchantable"))
             pet.setDynamicProperty(`equipment${slot}_enchantments`, serializeEnchantments(item));
+        if (item.hasComponent("durability"))
+            pet.setDynamicProperty(`equipment${slot}_durability`, item.getComponent("durability").damage);
         else
             pet.setDynamicProperty(`equipment${slot}_enchantments`, undefined);
         for (const dpid of item.getDynamicPropertyIds()) {
@@ -256,13 +258,27 @@ export async function setPetEquipment(pet, slot, item, dontApplyDefaultColor) {
 export function getPetEquipment(pet, slot) {
     const itemId = pet.getDynamicProperty("equipment" + slot);
     if (!itemId) return undefined;
-    const item = new ItemStack(itemId);
+    let item;
+    try {
+        item = new ItemStack(itemId);
+    }
+    catch {
+        setPetEquipment(pet, slot, undefined);
+        return undefined;
+    }
     if (item.hasComponent("enchantable")) {
         deserializeEnchantments(
             item,
             pet.getDynamicProperty(`equipment${slot}_enchantments`)
         );
     }
+    
+
+    const durabilityDamage = pet.getDynamicProperty(`equipment${slot}_durability`);
+
+    if (item.hasComponent("durability"))
+        item.getComponent("durability").damage = durabilityDamage;
+
     item.nameTag = pet.getDynamicProperty(`equipment${slot}_nametag`);
     item.setLore(JSON.parse(pet.getDynamicProperty(`equipment${slot}_lore`)));
     for (const dpid of pet.getDynamicPropertyIds().filter(i => i.startsWith(`equipment${slot}_DP_`))) {

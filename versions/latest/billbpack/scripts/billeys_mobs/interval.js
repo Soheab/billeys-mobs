@@ -38,11 +38,13 @@ system.runInterval(() => {
 		player.__prevLoc = player.location;
 		player.__prevDimension = player.dimension;
 
+		const playerSneakTicks = 20 * (player.getDynamicProperty("double_sneak_seconds") ?? 0.5);
+
 		if (player.isSneaking && !player.__wasSneaking) {
 			if (
 				player.__lastSneakTick
 				&&
-				player.__lastSneakTick + 10 >= system.currentTick
+				player.__lastSneakTick + playerSneakTicks >= system.currentTick
 			) {
 				tpAllFollowingPets(player, false);
 			}
@@ -160,6 +162,13 @@ system.runInterval(() => {
 		else if (player.__wasSleeping && !player.isSleeping) {
 			onPlayerGetOutOfBed(player);
 		}
+
+		/*
+		const lol = player.getEntitiesFromViewDirection()?.[0]?.entity;
+		if (lol) {
+			const health = lol.getComponent("health");
+			player.onScreenDisplay.setActionBar(health.currentValue.toFixed(2) + "/" + health.effectiveMax.toFixed(2));
+		}*/
 
 		player.__wasSleeping = player.isSleeping;
 		player.__wasSneaking = player.isSneaking;

@@ -2,7 +2,7 @@ import { Entity, system, Trigger, world } from "@minecraft/server";
 import { loadHappiness } from "./happiness/happiness";
 import { DIMENSIONS } from "./utility";
 
-export const CURRENT_VERSION = "5.0.6";
+export const CURRENT_VERSION = "5.0.9";
 export const LAST_LOADED_BILLEYS_MOBS_VERSION_DPID = "last_loaded_billeys_mobs_version";
 
 /**
