@@ -2780,7 +2780,6 @@ The real tame items of this mob are in the wild component group*/
                     "mob",
                     "strider",
                     "dinosaur",
-                    "billey_levelable",
                     "actual_duck" //i.e. not banana duck
                 ]
             },

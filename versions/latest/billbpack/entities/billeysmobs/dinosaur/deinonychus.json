@@ -1039,8 +1039,7 @@ The real tame items of this mob are in the wild component group*/
                     "deinonychus",
                     "strider",
                     "mob",
-                    "dinosaur",
-                    "billey_levelable"
+                    "dinosaur"
                 ]
             },
             "minecraft:breathable": {

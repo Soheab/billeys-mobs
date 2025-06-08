@@ -371,8 +371,6 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
         }
     );
 
-    const haveTeleportButton = pet.getComponent?.("tameable")?.tamedToPlayer == player;
-
     form.body({ rawtext: body });
 
     let actions = [];
@@ -380,17 +378,17 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
     form.button({ translate: "ui.billeys_mobs.pet_stats.learn_more" });
     actions.push(() => showPetTypeInfo(player, pet.typeId.split(":")[1]));
 
-    if (haveTeleportButton) {
+    if (pet.getComponent?.("tameable")?.tamedToPlayer == player) {
         form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_pet" });
         actions.push(() => pet.teleport(player.location, { dimension: player.dimension }));
-
-        if (player.isOp() || player.hasTag("op"))
-            form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_to_pet", with: ["\n"] });
-
-        actions.push(() => player.teleport(pet.location, { dimension: pet.dimension }));
     }
 
-    form.button({ translate: fromInfoBook ? "gui.back" : "ui.billeys_mobs.pet_stats.see_all_your_pets" });
+    if (player.isOp() || player.hasTag("is_op")) {
+        actions.push(() => player.teleport(pet.location, { dimension: pet.dimension }));
+        form.button({ translate: fromInfoBook ? "gui.back" : "ui.billeys_mobs.pet_stats.see_all_your_pets" });
+    }
+
+    form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_to_pet", with: ["\n"] });
     actions.push(() => listPetsToPlayerForm(player));
 
     let { selection, canceled } = await form.show(player);

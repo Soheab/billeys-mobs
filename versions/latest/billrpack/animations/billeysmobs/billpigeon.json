@@ -292,6 +292,62 @@
 				}
 			}
 		},
+		"animation.billeys_mobs.pigeon.shrink": {
+			"animation_length": 6,
+			"bones": {
+				"body_walking": {
+					"scale": "math.cos(math.clamp(180*(q.anim_time-4.5),0,90))"
+				}
+			}
+		},
+		"animation.billeys_mobs.pigeon.attack": {
+			"loop": true,
+			"animation_length": 0.56,
+			"override_previous_animation": true,
+			"bones": {
+				"bodynolegs": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1467": [30.15, 0, 0],
+						"0.2133": [45.12, 0, 0],
+						"0.24": [35.12, 0, 0],
+						"0.3067": [45.12, 0, 0],
+						"0.3733": [35.12, 0, 0],
+						"0.56": [0, 0, 0]
+					}
+				},
+				"necc": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0933": [35, 0, 0],
+						"0.3067": [60, 0, 0],
+						"0.56": [0, 0, 0]
+					},
+					"position": {
+						"0.1733": [0, 0, 0],
+						"0.3067": [0, 0, 1],
+						"0.56": [0, 0, 0]
+					}
+				},
+				"bone": {
+					"rotation": {
+						"0.2667": [0, 0, 0],
+						"0.3333": [-20, 0, 0],
+						"0.56": [0, 0, 0]
+					}
+				},
+				"bone2": {
+					"rotation": {
+						"0.2667": [0, 0, 0],
+						"0.3333": [5, 0, 0],
+						"0.56": [0, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": [0.01, 0.01, 0.01]
+				}
+			}
+		},
 		"animation.billeys_mobs.pigeon.walk": {
 			"loop": true,
 			"bones": {
@@ -362,14 +418,6 @@
 			"bones": {
 				"bodynolegs": {
 					"position": [0, -1, 0]
-				}
-			}
-		},
-		"animation.billeys_mobs.pigeon.shrink": {
-			"animation_length": 6,
-			"bones": {
-				"body_walking": {
-					"scale": "math.cos(math.clamp(180*(q.anim_time-4.5),0,90))"
 				}
 			}
 		}

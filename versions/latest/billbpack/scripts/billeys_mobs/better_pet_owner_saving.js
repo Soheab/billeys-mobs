@@ -107,7 +107,7 @@ export async function listPetsToPlayerForm(player) {
     if (PetDatabase.hasLoaded) {
         const form = new ActionFormData();
         form.title({ translate: "ui.billeys_mobs.info.category.your_pets" });
-        form.body("");
+
         const pets = Object.values(PetDatabase.database[player.id])
             .map(p => petDataArrayToPetObject(p))
             .sort((x, y) => {
@@ -138,6 +138,16 @@ export async function listPetsToPlayerForm(player) {
             form.button({ rawtext: buttonRawText }, "textures/billey_icons/" + pet.typeId.split(":")[1]);
         }
         form.button({ translate: "gui.back" });
+
+
+        let body = [{ translate: "ui.billeys_mobs.info.category.your_pets.body", with: ["\n"] }];
+
+        if (!pets.length)
+            body.push({text: "\n\n"}, { translate: "ui.billeys_mobs.info.category.your_pets.body_no_pets" });
+
+        form.body({rawtext: body});
+
+
         const { canceled, selection } = await form.show(player);
         if (canceled)
             return;
@@ -193,7 +203,6 @@ export function addOwnerAsDynamicProperty(pet) {
         loadedPets.push(pet);
     if (!loadedPetIds.includes(pet.id))
         loadedPetIds.push(pet.id);
-    world.sendMessage("pet loaded");
 }
 
 world.afterEvents.entityLoad.subscribe(({ entity }) => {

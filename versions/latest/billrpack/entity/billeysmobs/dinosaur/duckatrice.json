@@ -113,8 +113,7 @@
                 "controller.render.billeys_mobs.duckatrice"
             ],
             "spawn_egg": {
-                "overlay_color": "#FFC712",
-                "base_color": "#FDFAF5"
+                "texture": "billey.duckatrice_spawn_egg"
             }
         }
     }

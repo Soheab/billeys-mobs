@@ -2,75 +2,29 @@
     "format_version": "1.16.0",
     "minecraft:entity": {
         "description": {
-            "identifier": "billey:rat_minion",
+            "identifier": "billey:yutyrannus_minion",
             "is_spawnable": false,
-            "is_summonable": true
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "slowfall"
+                ]
+            },
+            "animations": {
+                "slowfall": "animation.billeys_mobs.duck.slowfall"
+            }
         },
         "component_groups": {
-            "of_potion": {
-                "minecraft:variant": {
-                    "value": 0
-                },
-                "minecraft:damage_sensor": {
-                    "triggers": [
-                        {
-                            "on_damage": {
-                                "filters": {
-                                    "any_of": [
-                                        {
-                                            "test": "has_damage",
-                                            "value": "fatal"
-                                        },
-                                        {
-                                            "test": "has_damage",
-                                            "value": "void"
-                                        }
-                                    ]
-                                },
-                                "event": "transform_and_kill",
-                                "target": "self"
-                            },
-                            "deals_damage": false
-                        }
-                    ]
-                },
-                "minecraft:timer": {
-                    "time": [
-                        12,
-                        18
-                    ],
-                    "looping": true,
-                    "time_down_event": {
-                        "event": "transform",
-                        "target": "self"
-                    }
-                },
-                "minecraft:behavior.panic": {
-                    "force": true,
-                    "priority": 1,
-                    "speed_multiplier": 1.5
-                },
-                "minecraft:behavior.avoid_mob_type": {
-                    "max_dist": 0,
-                    "max_flee": 10,
-                    "walk_speed_multiplier": 1.5,
-                    "sprint_speed_multiplier": 1.5,
-                    "entity_types": {
-                        "filters": {
-                            "test": "is_family",
-                            "subject": "other",
-                            "operator": "not",
-                            "value": "rat_minion"
-                        }
-                    }
-                }
-            },
             "hostile": {
+                "minecraft:health": {
+                    "value": 100,
+                    "max": 100
+                },
                 "minecraft:type_family": {
                     "family": [
-                        "rat",
+                        "duck",
                         "mob",
-                        "rat_minion",
+                        "duck_minion",
                         "monster"
                     ]
                 },
@@ -80,12 +34,9 @@
                 "minecraft:behavior.hurt_by_target": {
                     "priority": 4
                 },
-                "minecraft:despawn": {
-                    "despawn_from_distance": {}
-                },
                 "minecraft:behavior.nearest_attackable_target": {
                     "priority": 3,
-                    "must_see": true,
+                    "must_see": false,
                     "reselect_targets": true,
                     "target_search_height": 80.0,
                     "within_radius": 100.0,
@@ -104,17 +55,48 @@
                                         "test": "has_component",
                                         "subject": "other",
                                         "value": "minecraft:is_tamed"
-                                    },
-                                    {
-                                        "test": "has_tag",
-                                        "subject": "other",
-                                        "value": "billey:rat_king_target"
                                     }
                                 ]
                             },
                             "max_dist": 35
                         }
                     ]
+                },
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                }
+            },
+            //half of them being like this makes the duckatrice bossfight harder
+            "hostile_attack_mostly_player": {
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 3
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 4,
+                    "must_see": false,
+                    "reselect_targets": true,
+                    "target_search_height": 80.0,
+                    "within_radius": 100.0,
+                    "must_see_forget_duration": 17.0,
+                    "entity_types": [
+                        {
+                            "priority": 0,
+                            "filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            "max_dist": 35
+                        }
+                    ]
+                },
+                "minecraft:timer": {
+                    "time": 7,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "remove_attack_mostly_player",
+                        "target": "self"
+                    }
                 }
             },
             "from_crowned_rat_angry": {
@@ -152,6 +134,10 @@
                 }
             },
             "from_crowned_rat": {
+                "minecraft:health": {
+                    "value": 10,
+                    "max": 10
+                },
                 "minecraft:variant": {
                     "value": 2
                 },
@@ -236,6 +222,52 @@
                     "stop_distance": 5
                 }
             },
+            "roaring": {
+                "minecraft:behavior.knockback_roar": {
+                    "priority": 1,
+                    "duration": 0.3,
+                    "attack_time": 0.1,
+                    "knockback_damage": 1,
+                    "knockback_horizontal_strength": 1,
+                    "knockback_vertical_strength": 0,
+                    "knockback_range": 3,
+                    "knockback_filters": {
+                        "test": "is_target",
+                        "subject": "other"
+                    },
+                    "damage_filters": {
+                        "test": "is_target",
+                        "subject": "other"
+                    },
+                    "on_roar_end": {
+                        "event": "stop_roar"
+                    },
+                    "cooldown_time": 10
+                }
+            },
+            "angry": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        7,
+                        15
+                    ],
+                    "time_down_event": {
+                        "event": "roar",
+                        "target": "self"
+                    }
+                }
+            },
+            "can_roar": {
+                "minecraft:target_nearby_sensor": {
+                    "inside_range": 4,
+                    "outside_range": 4.5,
+                    "on_inside_range": {
+                        "event": "roar",
+                        "target": "self"
+                    }
+                }
+            },
             "despawn": {
                 "minecraft:instant_despawn": {}
             }
@@ -244,9 +276,9 @@
             "minecraft:is_hidden_when_invisible": {},
             "minecraft:type_family": {
                 "family": [
-                    "rat",
+                    "duck",
                     "mob",
-                    "rat_minion"
+                    "duck_minion"
                 ]
             },
             "minecraft:breathable": {
@@ -254,14 +286,28 @@
                 "suffocate_time": 0
             },
             "minecraft:collision_box": {
-                "width": 0.6,
-                "height": 0.33
+                "width": 1.7,
+                "height": 2.0
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.8
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "test": "has_damage",
+                                "value": "suffocation"
+                            },
+                            "event": "tp_up"
+                        },
+                        "cause": "all",
+                        "deals_damage": true
+                    }
+                ]
             },
             "minecraft:nameable": {},
-            "minecraft:health": {
-                "value": 10,
-                "max": 10
-            },
             "minecraft:hurt_on_condition": {
                 "damage_conditions": [
                     {
@@ -277,7 +323,7 @@
                 ]
             },
             "minecraft:movement": {
-                "value": 0.2
+                "value": 0.3
             },
             "minecraft:leashable": {
                 "soft_distance": 4.0,
@@ -286,6 +332,14 @@
             },
             "minecraft:balloonable": {
                 "mass": 0.5
+            },
+            "minecraft:on_target_escape": {
+                "event": "target_escape",
+                "target": "self"
+            },
+            "minecraft:on_target_acquired": {
+                "event": "target_acquired",
+                "target": "self"
             },
             "minecraft:navigation.walk": {
                 "can_path_over_water": true,
@@ -298,13 +352,11 @@
                 "priority": 0
             },
             "minecraft:attack": {
-                "damage": 3
+                "damage": 16
             },
             "minecraft:behavior.melee_attack": {
-                "require_complete_path": true,
                 "priority": 3,
                 "speed_multiplier": 1.75,
-                "track_target": true,
                 "on_attack": {
                     "target": "self",
                     "event": "on_attack"
@@ -323,11 +375,76 @@
                 "is_pushable": true,
                 "is_pushable_by_piston": true
             },
+            "minecraft:target_nearby_sensor": {
+                "inside_range": 2.5,
+                "outside_range": 3,
+                "on_inside_range": {
+                    "event": "roar",
+                    "target": "self"
+                }
+            },
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "remove_attack_mostly_player":{
+                "add": {
+                    "component_groups": [
+                        "hostile"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "hostile_attack_mostly_player"
+                    ]
+                }
+            },
             "minecraft:entity_spawned": {
                 "trigger": "spawn_as_hostile"
+            },
+            "roar": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "playsound mob.dolphin.blowhole @a ~~~ 1.0 0.3"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,type=!item,family=!monster,type=!xp_orb,family=!inanimate] 2 entity_attack entity @s",
+                                "effect @e[r=6.5,type=!item,family=!monster,type=!xp_orb,family=!inanimate] wither 1 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "effect @s slowness 1 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "playanimation @s animation.billeys_mobs.yutyrannus.roar"
+                            ]
+                        }
+                    },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "can_roar"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "tp_up": {
+                "queue_command": {
+                    "command": "tp ~ ~1 ~"
+                }
             },
             "reset_target": {
                 "reset_target": {}
@@ -338,39 +455,39 @@
                 }
             },
             "on_attack": {
-                "sequence": [
-                    {
-                        "filters": {
-                            "test": "is_variant",
-                            "value": 2 //spawned by a crowned pet
-                        },
-                        "trigger": "rob_mob"
-                    },
-                    {
-                        "filters": {
-                            "test": "is_variant",
-                            "value": 1
-                        },
-                        "trigger": "rob_player"
-                    }
-                ]
-            },
-            "rob_player": {
                 "filters": {
-                    "test": "is_family",
-                    "subject": "target",
-                    "value": "player"
+                    "test": "is_variant",
+                    "value": 1 //spawned by a crowned pet duckatrice
                 },
-                "queue_command": {
-                    "command": "scriptevent billey:drop_target_equipment"
-                }
+                "trigger": "rob_mob"
             },
             "spawn_as_hostile": {
-                "add": {
-                    "component_groups": [
-                        "hostile"
-                    ]
-                }
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "hostile",
+                                "can_roar"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "hostile_attack_mostly_player",
+                                        "can_roar"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
             },
             "say_owner_hit_pet_info": {
                 "queue_command": {
@@ -388,27 +505,6 @@
                     "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
                 }
             },
-            "transform": {
-                "queue_command": {
-                    "command": [
-                        "scriptevent billey:rat_minion_transform"
-                    ]
-                }
-            },
-            "transform_and_kill": {
-                "queue_command": {
-                    "command": [
-                        "scriptevent billey:rat_minion_transform kill"
-                    ]
-                }
-            },
-            "from_potion": {
-                "add": {
-                    "component_groups": [
-                        "of_potion"
-                    ]
-                }
-            },
             "from_crowned_rat": {
                 "add": {
                     "component_groups": [
@@ -417,29 +513,68 @@
                     ]
                 }
             },
-            "billey:pet_target_escape": {
+            "target_acquired": {
                 "add": {
                     "component_groups": [
-                        "from_crowned_rat_calm"
-                    ]
-                },
-                "remove": {
-                    "component_groups": [
-                        "from_crowned_rat_angry"
+                        "angry"
                     ]
                 }
             },
+            "target_escape": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "angry"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "can_roar"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "billey:pet_target_escape": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "from_crowned_rat_calm"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "from_crowned_rat_angry"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "target_escape"
+                    }
+                ]
+            },
             "billey:pet_target_acquired": {
-                "remove": {
-                    "component_groups": [
-                        "from_crowned_rat_calm"
-                    ]
-                },
-                "add": {
-                    "component_groups": [
-                        "from_crowned_rat_angry"
-                    ]
-                }
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "from_crowned_rat_calm"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "from_crowned_rat_angry"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "target_acquired"
+                    }
+                ]
             },
             "start_despawn": {
                 "queue_command": {

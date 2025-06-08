@@ -134,7 +134,7 @@
                           "base_delay": 1.0,
                           "delay_per_summon": 0.0,
                           "num_entities_spawned": 5,
-                          "entity_type": "billey:duck_minion<spawn_as_hostile>",
+                          "entity_type": "billey:random_duckatrice_minion",
                           "size": 3,
                           "entity_lifespan": -1.0
                         }
@@ -186,7 +186,7 @@
                           "base_delay": 1.0,
                           "delay_per_summon": 0.0,
                           "num_entities_spawned": 5,
-                          "entity_type": "billey:duck_minion<spawn_as_hostile>",
+                          "entity_type": "billey:random_duckatrice_minion",
                           "size": 3,
                           "entity_lifespan": -1.0
                         }
@@ -243,8 +243,8 @@
                     "priority": 2,
                     "damage_reach": 1.2,
                     "delay_range": [
-                        0.25,
-                        0.5
+                        0.5,
+                        1.0
                     ]
                 },
                 "minecraft:behavior.circle_around_anchor": {
@@ -252,16 +252,16 @@
                     "goal_radius": 1.0,
                     "angle_change": 15.0,
                     "radius_range": [
-                        1.0,
-                        2.0
+                        2.0,
+                        5.0
                     ],
                     "height_offset_range": [
-                        -2.0,
-                        2.0
+                        5.0,
+                        10.0
                     ],
                     "height_above_target_range": [
-                        0,//2.5
-                        4//5
+                        0,
+                        2
                     ]
                 }
             },
@@ -360,6 +360,18 @@
                                 ]
                             }
                         }
+                    },
+                    
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "test": "has_damage",
+                                "value": "suffocation"
+                            },
+                            "event": "tp_up"
+                        },
+                        "cause": "all",
+                        "deals_damage": true
                     }
                 ]
             },
@@ -378,6 +390,11 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "tp_up": {
+                "queue_command": {
+                   "command": "tp ~ ~1 ~"
+                }
+            },
             "reset_target": {
                 "reset_target": {}
             },
@@ -590,9 +607,9 @@
                 "queue_command": {
                     "command":[
                         "summon billey:duck_minion ~1 ~ ~ spawn_as_hostile",
-                        "summon billey:duck_minion ~-1 ~ ~ spawn_as_hostile",
-                        "summon billey:duck_minion ~ ~ ~1 spawn_as_hostile",
-                        "summon billey:duck_minion ~ ~ ~-1 spawn_as_hostile"
+                        "summon billey:pigeon_minion ~-1 ~ ~ spawn_as_hostile",
+                        "summon billey:deinonychus_minion ~ ~ ~1 spawn_as_hostile",
+                        "summon billey:yutyrannus_minion ~ ~ ~-1 spawn_as_hostile"
                     ]
                 }
             },

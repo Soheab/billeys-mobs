@@ -305,16 +305,16 @@ export function duckatriceBossStare(player, hostileDuck) {
     )
         return;
 
-    const isDuckMinion = hostileDuck.typeId == "billey:duck_minion";
+    const isMinion = hostileDuck.typeId.endsWith("_minion");
     player.applyDamage(
         player.__duckatriceStareTime,
         { cause: "entityAttack", damagingEntity: hostileDuck }
     );
     const hostileDuckHealth = hostileDuck.getComponent("health");
     hostileDuckHealth.setCurrentValue(
-        hostileDuckHealth.currentValue + 4 * player.__duckatriceStareTime
+        hostileDuckHealth.currentValue + 6 * player.__duckatriceStareTime
     );
-    if (isDuckMinion) {
+    if (isMinion) {
 
         let bossHealth;
         if (hostileDuck.getComponent("variant").value == 1) {
@@ -330,7 +330,7 @@ export function duckatriceBossStare(player, hostileDuck) {
         }
 
         bossHealth?.setCurrentValue(
-            bossHealth.currentValue + 2 * player.__duckatriceStareTime
+            bossHealth.currentValue + 4 * player.__duckatriceStareTime
         );
         player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duck_minion"+ (
             bossHealth ? 2 : ""

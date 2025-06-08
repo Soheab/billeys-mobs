@@ -287,6 +287,12 @@ item.spawn_egg.entity.billey:duckatrice_boss.name=§cDuckatrice Boss Spawn Egg§
 
 entity.billey:duck_minion.name=Duck Minion
 
+entity.billey:deinonychus_minion.name=Deinonychus Minion
+
+entity.billey:pigeon_minion.name=Pigeon Minion
+
+entity.billey:yutyrannus_minion.name=Yutyrannus Minion
+
 entity.billey:duckatrice_egg.name=Duckatrice Egg
 
 entity.billey:giraffe_cat.name=Giraffe Cat
@@ -842,9 +848,9 @@ ui.billeys_mobs.info.duck_must_be_level_10=%1 must be level 10 to be evolved int
 
 chat.billeys_mobs.stop_staring_at_duckatrice=§cStop staring at the Duckatrice! It steals your health!
 
-chat.billeys_mobs.stop_staring_at_duck_minion=§cStop staring at the Duck Minion! It steals your health!
+chat.billeys_mobs.stop_staring_at_duck_minion=§cStop staring at the minion! It steals your health!
 
-chat.billeys_mobs.stop_staring_at_duck_minion2=§cStop staring at the Duck Minion! It steals your health and also heals the boss!
+chat.billeys_mobs.stop_staring_at_duck_minion2=§cStop staring at the minion! It steals your health and also heals the boss!
 
 chat.billeys_mobs.duckatrice_stare_added=§6Your helmet has been granted Duckatrice's Stare %1 at the cost of 3 of your levels.
 
@@ -858,7 +864,7 @@ chat.billeys_mobs.anniversary_hat=§9You got a §e6 Year Anniversary Pet Hat§9!
 
 chat.billeys_mobs.pets_still_loading=Pets are still loading. Try again in a few seconds.
 
-## this isn't actually a feature
+## this isn't actually a feature, it was only for a very short amount of time
 chat.billeys_mobs.pet_depressed_untamed=§c%1 has become depressed because you didn't take care of it. It can now be re-tamed by anyone (including yourself).
 
 
@@ -914,11 +920,15 @@ ui.billeys_mobs.advancements.body=Select an advancement to view its info and rew
 
 ui.billeys_mobs.pet_equipment=§l§tPet Equipment
 
+ui.billeys_mobs.pet_equipment.body=There are many things you can put on your pets in this add-on! Click on the pet equipment you want to learn about.%1%1By the way, the way to §aremove§f equipment from a pet is attempting to put any equipment of the same slot as the item you want to take off.%1%1For example, to remove a chef hat from a pet you'd use any kind of hat on it, and to remove a bowtie from a pet you'd use another bowtie on it.%1%1You can also forget all this and just use shears.
+
 ui.billeys_mobs.info.category.your_pets=§l§2Your §9Pets
 
 ui.billeys_mobs.info.category.your_pets.desc=View your individual pets.
 
-ui.billeys_mobs.pet_equipment.body=There are many things you can put on your pets in this add-on! Click on the pet equipment you want to learn about.%1%1By the way, the way to §aremove§f equipment from a pet is attempting to put any equipment of the same slot as the item you want to take off.%1%1For example, to remove a chef hat from a pet you'd use any kind of hat on it, and to remove a bowtie from a pet you'd use another bowtie on it.%1%1You can also forget all this and just use shears.
+ui.billeys_mobs.info.category.your_pets.body=Select a pet to view its health, level, location and more.%1%1You can also do this by punching a pet of yours while sneaking.
+
+ui.billeys_mobs.info.category.your_pets.body_no_pets=Looks like you don't have any pets yet, tame some and they'll be listed here!
 
 ui.billeys_mobs.advancements.completed=§2Completed
 
@@ -1244,7 +1254,7 @@ ui.billeys_mobs.info.tip6=§6Billey's Mobs Tip §b6§6/§b10§6: §6The colorful
 
 ui.billeys_mobs.info.tip7=§6Billey's Mobs Tip §b7§6/§b10§6: §6If you §blose this book§6 you can get it back by saying §b!givebilleyinfobook§6 in the chat.
 
-ui.billeys_mobs.info.tip8=§6Billey's Mobs Tip §b8§6/§b10§6: §6You can §bview a mob's health and leveling progress§6 by using §bsneaking and punching§6 it if you have "Be able to hurt own pet" disabled in the info book.
+ui.billeys_mobs.info.tip8=§6Billey's Mobs Tip §b8§6/§b10§6: §6You can §bview a mob's health and leveling progress§6 by using §bsneaking and punching§6 as long as you have "Be able to hurt own pet" disabled in the info book.
 
 ui.billeys_mobs.info.tip9=§6Billey's Mobs Tip §b9§6/§b10§6: §bPet teleportation§6 of billey's mobs is §bway more reliable§6 than vanilla. Whether you die, use /tp, use a waystone from another add-on or go through a portal, §byour pets will still teleport to you§6. Beware however that your pets probably won't teleport to you if you use waystones from other add-ons to teleport between different dimensions. You can also §bforce §6following pets to §bteleport to you§6 by double-sneaking.
 

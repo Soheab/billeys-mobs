@@ -244,24 +244,19 @@
 					"rotation": [0, 0, "math.sin(q.life_time * 880) * 14"]
 				},
 				"wing2": {
-					"rotation": [0, 0, "math.sin(q.life_time * 880 + 45) * 9+ 9"],
-					"scale": [1.2, 1, 1]
+					"rotation": [0, 0, "math.sin(q.life_time * 880 + 45) * 9+ 9"]
 				},
 				"wing3": {
-					"rotation": [0, 0, "math.sin(q.life_time * 880 + 45) * 7 +7"],
-					"scale": ["1/0.8", 1, 1]
+					"rotation": [0, 0, "math.sin(q.life_time * 880 + 45) * 7 +7"]
 				},
 				"wing4": {
-					"rotation": [0, 0, "-math.sin(q.life_time * 880 + 45) * 9- 9"],
-					"scale": [1.2, 1, 1]
+					"rotation": [0, 0, "-math.sin(q.life_time * 880 + 45) * 9- 9"]
 				},
 				"wing5": {
 					"rotation": [0, 0, "math.sin(q.life_time * 880 + 45) * 9+ 9"]
 				},
 				"wing6": {
-					"rotation": [0, "math.sin(q.life_time * 880) * 7 -15", 0],
-					"position": [0, -0.15, 0.25],
-					"scale": [0.9, 1, 1]
+					"rotation": [0, "math.sin(q.life_time * 880) * 7 -15", 0]
 				},
 				"wing0": {
 					"rotation": [0, 0, "-math.sin(q.life_time * 880) * 14"]

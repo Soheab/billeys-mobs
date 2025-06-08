@@ -89,6 +89,14 @@
                             "max_dist": 35
                         }
                     ]
+                },
+                "minecraft:timer": {
+                    "time": 7,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "remove_attack_mostly_player",
+                        "target": "self"
+                    }
                 }
             },
             "from_crowned_rat_angry": {
@@ -313,6 +321,18 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "remove_attack_mostly_player":{
+                "add": {
+                    "component_groups": [
+                        "hostile"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "hostile_attack_mostly_player"
+                    ]
+                }
+            },
             "tp_up": {
                 "queue_command": {
                    "command": "tp ~ ~1 ~"

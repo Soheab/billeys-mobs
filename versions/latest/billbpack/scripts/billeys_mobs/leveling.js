@@ -20,7 +20,7 @@ world.afterEvents.entityHurt.subscribe(({ hurtEntity, damageSource, damage }) =>
     let xpMultiplier = 1;
     if (isMinion) {
         xpTarget = damager.dimension.getEntities()
-            .find(e => e.id == damager.getDynamicProperty("crowned_rat_id"))
+            .find(e => e.id == damager.getDynamicProperty("crowned_rat_id"));
         if (!xpTarget)
             return;
         xpMultiplier /= 4;

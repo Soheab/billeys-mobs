@@ -11,7 +11,7 @@ export class HealthHappiness extends PetNegativeHappiness {
 
     /** @override */
     getWeight() {
-        return 2;
+        return 3;
     }
 
     /** 

@@ -17,60 +17,65 @@ registerPetEquipment("Head", "billey:rat_crown",
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
     if (eventId != "billey:pet_target_acquired"
-        || !entity.isValid ||
-        getPetEquipmentId(entity, "Head") != "billey:rat_crown")
+        || !entity.isValid)
         return;
+    if (getPetEquipmentId(entity, "Head") == "billey:rat_crown") {
+        const minionTypeId = entity.typeId == "billey:duckatrice" ? "billey:duck_minion" : "billey:rat_minion";
 
-    const minionTypeId = entity.typeId == "billey:duckatrice" ? "billey:duck_minion" : "billey:rat_minion";
+        entity.dimension.getEntities({ type: minionTypeId })
+            .filter(r => r.getDynamicProperty("crowned_rat_id") == entity.id)
+            .forEach(ratMinionPoof);
+        if (!validateHeightOf(entity)) return;
+        const crownedRatOwner = entity.getComponent("tameable").tamedToPlayer;
+        const tpLocs = [
+            { x: 1, y: 0, z: 1 },
+            { x: 1, y: 0, z: -1 },
+            { x: -1, y: 0, z: 1 },
+            { x: -1, y: 0, z: -1 }
+        ];
+        /**
+         * @type {Entity[]}
+         */
+        let ratMinions = [];
+        for (let i = 0; i < tpLocs.length; i++) {
+            const ratMinion = entity.dimension.spawnEntity(minionTypeId, entity.location);
+            ratMinions.push(ratMinion);
+            ratMinion.setRotation(entity.getRotation());
+            if (entity.nameTag) ratMinion.nameTag = "§7" + entity.nameTag + "§r";
+            ratMinion.triggerEvent("from_crowned_rat");
+            ratMinion.setDynamicProperty("crowned_rat_id", entity.id);
+            ratMinion.tryTeleport(add(tpLocs[i], ratMinion.location), {
+                checkForBlocks: true
+            });
+            if (!i) entity.target?.applyDamage(1, {
+                damagingEntity: ratMinion,
+                cause: "entityAttack"
+            });
+        }
+        system.runTimeout(
+            () => ratMinions.forEach(ratMinion => {
+                //crownedRatOwner is undefined if the crowned rat's owner is offline
+                //getComponent("tameable") was also undefined once, i forgot in what situation
+                if (crownedRatOwner?.isValid)
+                    ratMinion.getComponent("tameable")?.tame(crownedRatOwner);
 
-    entity.dimension.getEntities({ type: minionTypeId })
-        .filter(r => r.getDynamicProperty("crowned_rat_id") == entity.id)
-        .forEach(ratMinionPoof);
-    if (!validateHeightOf(entity)) return;
-    const crownedRatOwner = entity.getComponent("tameable").tamedToPlayer;
-    const tpLocs = [
-        { x: 1, y: 0, z: 1 },
-        { x: 1, y: 0, z: -1 },
-        { x: -1, y: 0, z: 1 },
-        { x: -1, y: 0, z: -1 }
-    ];
-    /**
-     * @type {Entity[]}
-     */
-    let ratMinions = [];
-    for (let i = 0; i < tpLocs.length; i++) {
-        const ratMinion = entity.dimension.spawnEntity(minionTypeId, entity.location);
-        ratMinions.push(ratMinion);
-        ratMinion.setRotation(entity.getRotation());
-        if (entity.nameTag) ratMinion.nameTag = "§7" + entity.nameTag + "§r";
-        ratMinion.triggerEvent("from_crowned_rat");
-        ratMinion.setDynamicProperty("crowned_rat_id", entity.id);
-        ratMinion.tryTeleport(add(tpLocs[i], ratMinion.location), {
-            checkForBlocks: true
-        });
-        if (!i) entity.target?.applyDamage(1, {
-            damagingEntity: ratMinion,
-            cause: "entityAttack"
-        });
+                //make the rat minions angry at the crowned rat's target
+                if (entity.isValid && entity.target) {
+                    ratMinion.applyDamage(1, {
+                        damagingEntity: entity.target,
+                        cause: "entityAttack"
+                    });
+                    ratMinion.clearVelocity();
+                    ratMinion.applyImpulse(entity.getVelocity());
+                }
+            }), 2
+        );
     }
-    system.runTimeout(
-        () => ratMinions.forEach(ratMinion => {
-            //crownedRatOwner is undefined if the crowned rat's owner is offline
-            //getComponent("tameable") was also undefined once, i forgot in what situation
-            if (crownedRatOwner?.isValid)
-                ratMinion.getComponent("tameable")?.tame(crownedRatOwner);
-
-            //make the rat minions angry at the crowned rat's target
-            if (entity.isValid && entity.target) {
-                ratMinion.applyDamage(1, {
-                    damagingEntity: entity.target,
-                    cause: "entityAttack"
-                });
-                ratMinion.clearVelocity();
-                ratMinion.applyImpulse(entity.getVelocity());
-            }
-        }), 2
-    );
+    if (entity.typeId.endsWith("_minion")) {
+        const owner = entity.getComponent("tameable").tamedToPlayer;
+        if (owner && owner == entity.target?.getComponent("tameable").tamedToPlayer)
+            entity.triggerEvent("start_despawn");
+    }
 });
 
 system.afterEvents.scriptEventReceive.subscribe(

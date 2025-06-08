@@ -27,7 +27,7 @@ export function versionGreaterThan(str1, str2) {
 }
 
 export const entityLoadHappiness = world.afterEvents.entityLoad.subscribe(({ entity }) => {
-    if (entity.typeId.startsWith("billey:") && entity.getComponent("tameable")) {
+    if (entity.isValid && entity.typeId.startsWith("billey:") && entity.getComponent("tameable")) {
         loadHappiness(entity);
 
         entity.setDynamicProperty(LAST_LOADED_BILLEYS_MOBS_VERSION_DPID, CURRENT_VERSION);

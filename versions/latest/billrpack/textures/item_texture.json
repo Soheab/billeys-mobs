@@ -436,6 +436,12 @@
 		},
 		"billey.giraffe_cat_treat": {
 			"textures": "textures/billeyitems/giraffe_cat_treat"
+		},
+		"billey.duckatrice_spawn_egg": {
+			"textures": "textures/billeyitems/duckatrice_spawn_egg"
+		},
+		"billey.duckatrice_boss_spawn_egg": {
+			"textures": "textures/billeyitems/duckatrice_boss_spawn_egg"
 		}
 		//stfu blockception extension
 	}

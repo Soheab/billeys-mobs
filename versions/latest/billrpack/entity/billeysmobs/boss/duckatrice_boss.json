@@ -104,8 +104,7 @@
                 "controller.render.default"
             ],
             "spawn_egg": {
-                "overlay_color": "#FF0000",
-                "base_color": "#2d3342"
+                "texture": "billey.duckatrice_boss_spawn_egg"
             }
         }
     }

@@ -2,23 +2,14 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "billey:pigeon",
+      "identifier": "billey:pigeon_minion",
       "materials": {
-        "default": "entity_alphatest",
-        "cat": "cat"
+        "default": "entity_emissive_alpha"
       },
       "textures": {
-        "default": "textures/entity/billeys_mobs/pigeon",
-        "white": "textures/entity/billeys_mobs/pigeon1",
-        "mixed": "textures/entity/billeys_mobs/pigeon2",
-        "gray": "textures/entity/billeys_mobs/pigeon3",
-        "hatopy": "textures/entity/billeys_mobs/hatopy",
-        "blend": "textures/entity/billeys_mobs/pigeon4",
-        "mixedw": "textures/entity/billeys_mobs/pigeon5",
-        "grayw": "textures/entity/billeys_mobs/pigeon6",
-        "blendw": "textures/entity/billeys_mobs/pigeon7",
-        "black": "textures/entity/billeys_mobs/pigeon8",
-        "blackw": "textures/entity/billeys_mobs/pigeon9"
+          "of_potion": "textures/entity/billeys_mobs/pigeon_minion",
+          "friendly": "textures/entity/billeys_mobs/pigeon_minion",
+          "hostile": "textures/entity/billeys_mobs/pigeon_minion"
       },
       "geometry": {
         "default": "geometry.billeys_mobs.pigeon"
@@ -83,9 +74,6 @@
             "new": "!q.is_alive"
           },
           {
-            "hurt": "(q.health < q.max_health) && q.is_alive"
-          },
-          {
             "baby": "q.is_baby"
           },
           {
@@ -96,7 +84,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.billeys_mobs.pigeon"
+        "controller.render.billeys_mobs.rat_minion"
       ],
       "spawn_egg": {
         "base_color": "#303437",
