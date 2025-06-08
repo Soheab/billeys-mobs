@@ -26,26 +26,31 @@ world.afterEvents.entityDie.subscribe(
 
 /** @param {Player} player  */
 export async function showSettingForm(player) {
-    const form = new ModalFormData()
-        .title({ translate: "ui.billeys_mobs.info.category.settings" })
-        .toggle(
-            { translate: "ui.billeys_mobs.settings.can_hit_own_pet" },
-            player.hasTag("billey:can_hit_own_pet")
-        )
-        .toggle(
-            { translate: "ui.billeys_mobs.settings.can_hit_other_pet" },
-            !player.hasTag("billey:cant_hit_other_pet")
-        );
-    const { canceled, formValues } = await form.show(player);
-    if (canceled) return;
-    if (formValues[0])
-        player.addTag("billey:can_hit_own_pet");
-    else
-        player.removeTag("billey:can_hit_own_pet");
-    if (formValues[1])
-        player.removeTag("billey:cant_hit_other_pet");
-    else
-        player.addTag("billey:cant_hit_other_pet");
+    try {
+        const form = new ModalFormData()
+            .title({ translate: "ui.billeys_mobs.info.category.settings" })
+            .toggle(
+                { translate: "ui.billeys_mobs.settings.can_hit_own_pet" },
+                player.hasTag("billey:can_hit_own_pet")
+            )
+            .toggle(
+                { translate: "ui.billeys_mobs.settings.can_hit_other_pet" },
+                !player.hasTag("billey:cant_hit_other_pet")
+            );
+            const { canceled, formValues } = await form.show(player);
+            if (canceled) return;
+            if (formValues[0])
+                player.addTag("billey:can_hit_own_pet");
+            else
+                player.removeTag("billey:can_hit_own_pet");
+            if (formValues[1])
+                player.removeTag("billey:cant_hit_other_pet");
+            else
+                player.addTag("billey:cant_hit_other_pet");
+    }
+    catch {
+        world.sendMessage({ translate: "Billey's Mobs is outdated. Get the latest version in CurseForge, MCPEDL or Discord." });
+    }
 }
 
 let nextXPushDirection = 1;
@@ -340,7 +345,7 @@ function displayDynamicProperty(a) {
     return JSON.stringify(a);
 }
 
-world.afterEvents.dataDrivenEntityTrigger.subscribe(({eventId,entity})=>{
+world.afterEvents.dataDrivenEntityTrigger.subscribe(({ eventId, entity }) => {
     if (eventId == "say_owner_hit_pet_info") {
         entity.extinguishFire();
     }
@@ -350,7 +355,7 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
     const killer = damageSource.damagingEntity;
     if (!deadEntity.isValid || !killer?.isValid)
         return;
-    if (killer.typeId.startsWith("billey:")){
+    if (killer.typeId.startsWith("billey:")) {
         const killerHealth = killer.getComponent("health");
         killerHealth.setCurrentValue(
             killerHealth.currentValue + deadEntity.getComponent("health").effectiveMax / 3

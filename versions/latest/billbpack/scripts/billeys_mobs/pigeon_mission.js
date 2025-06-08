@@ -16,10 +16,12 @@ system.afterEvents.scriptEventReceive.subscribe(data => {
                 dropAll(pigeon.getComponent("inventory").container, pigeon.dimension, target.location);
                 target.sendMessage({
                     translate: "chat.billeys_mobs.received_pigeon",
-                    with: {rawtext:[
-                        {text: pigeon.getDynamicProperty("owner_name")},
-                        nameOf(pigeon)
-                    ]}
+                    with: {
+                        rawtext: [
+                            { text: pigeon.getDynamicProperty("owner_name") },
+                            nameOf(pigeon)
+                        ]
+                    }
                 });
             }
             else {
@@ -85,24 +87,29 @@ export function addItemToPigeon(player, mob, item, dimension) {
  * @param {Dimension} dimension
  */
 export function pigeonUI(player, pigeon, dimension) {
-    const players = dimension.getPlayers({ minDistance: 32, location: pigeon.location });
-    if (!players.length) return;
-    const form = new ModalFormData();
-    const playerNames = players.map(p => p.name);
-    form.title({ translate: "ui.billeys_mobs.select_player" })
-        .dropdown("", playerNames, 0)
-        .show(player)
-        .then(e => {
-            if (e.canceled) return;
-            if (players[e.formValues[0]].isValid) {
-                pigeon.triggerEvent("start_mission");
-                pigeon.setDynamicProperty("target_name", playerNames[[e.formValues[0]]]);
-                pigeon.setDynamicProperty("original_location", pigeon.location);
-                pigeon.setDynamicProperty("original_dimension", pigeon.dimension.id);
-            }
-            else player.sendMessage({
-                translate: "chat.billeys_mobs.player_left",
-                with: playerNames[[e.formValues[0]]]
+    try {
+        const players = dimension.getPlayers({ minDistance: 32, location: pigeon.location });
+        if (!players.length) return;
+        const form = new ModalFormData();
+        const playerNames = players.map(p => p.name);
+        form.title({ translate: "ui.billeys_mobs.select_player" })
+            .dropdown("", playerNames, 0)
+            .show(player)
+            .then(e => {
+                if (e.canceled) return;
+                if (players[e.formValues[0]].isValid) {
+                    pigeon.triggerEvent("start_mission");
+                    pigeon.setDynamicProperty("target_name", playerNames[[e.formValues[0]]]);
+                    pigeon.setDynamicProperty("original_location", pigeon.location);
+                    pigeon.setDynamicProperty("original_dimension", pigeon.dimension.id);
+                }
+                else player.sendMessage({
+                    translate: "chat.billeys_mobs.player_left",
+                    with: playerNames[[e.formValues[0]]]
+                });
             });
-        });
+    }
+    catch {
+        world.sendMessage({ translate: "Billey's Mobs is outdated. Get the latest version in CurseForge, MCPEDL or Discord." });
+    }
 }

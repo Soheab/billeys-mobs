@@ -53,8 +53,16 @@
           "tail": "animation.billeys_mobs.deinonychus.tail"
         },
         "scripts": {
+          "variables": {
+            "variable.head_size_x": "public",
+            "variable.head_size_y": "public",
+            "variable.head_size_z": "public"
+          },
           "initialize": [
-            "v.colordelay=math.random_integer(0,1)*math.random_integer(0,360);"
+            "v.colordelay=math.random_integer(0,1)*math.random_integer(0,360);",
+            "v.head_size_x = 3;",
+            "v.head_size_y = 3;",
+            "v.head_size_z = 4;"
           ],
           "animate": [
             "idle",

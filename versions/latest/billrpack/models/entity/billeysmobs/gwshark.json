@@ -10,17 +10,14 @@
 				"visible_bounds_height": 2,
 				"visible_bounds_offset": [0, 1, 0]
 			},
-			"bones": [{
-				"name": "ooo",
-				"pivot": [
-					0,
-					0,
-					0
-				]
-			},
-			{
-				"parent": "ooo",
+			"bones": [
+				{
+					"name": "ooo",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "body",
+					"parent": "ooo",
 					"pivot": [0, 5, 0],
 					"cubes": [
 						{"origin": [-5, 0, -13], "size": [10, 10, 19], "uv": [0, 0]}
@@ -54,7 +51,7 @@
 				{
 					"name": "hat",
 					"parent": "head",
-					"pivot": [0, 10, -16]
+					"pivot": [0, 9, -18.5]
 				},
 				{
 					"name": "top_fin",

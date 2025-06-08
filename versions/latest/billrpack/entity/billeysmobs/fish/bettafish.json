@@ -58,9 +58,17 @@
         "dance": "controller.animation.billeys_mobs.bettadance"
       },
       "scripts": {
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
         "initialize": [
           "v.mirror = math.random_integer(0,1) ? -1 : 1;",
-          "v.colordelay=math.random_integer(0,1)*math.random_integer(0,360);"
+          "v.colordelay=math.random_integer(0,1)*math.random_integer(0,360);",
+          "v.head_size_x = 1;",
+          "v.head_size_y = 2;",
+          "v.head_size_z = 2;"
         ],
         "animate": [
           { "dance": "q.variant == 16 || q.variant == 17 || q.variant == 14 || q.variant == 15" },

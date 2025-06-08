@@ -32,11 +32,7 @@
           "netherite": "textures/entity/billeys_mobs/ducknetherite"
         },
         "geometry": {
-          "default": "geometry.billeys_mobs.duck2",
-          "chest": "geometry.billeys_mobs.duckchest",
-          "hatcenti": "geometry.billeys_mobs.duckhat",
-          "armor": "geometry.billeys_mobs.duckarmor",
-          "endrod": "geometry.billduckendrod"
+          "default": "geometry.billeys_mobs.duck2"
         },
         "particle_effects": {
           "zeelol": "billey:zeeduck"
@@ -116,12 +112,6 @@
       "hide_armor": false,
       "render_controllers": [
           "controller.render.billeys_mobs.duckcentipede",
-          {
-            "controller.render.billeys_mobs.duckarmor": "query.mark_variant > 0 && query.mark_variant != 7"
-          },
-          {
-            "controller.render.billeys_mobs.duckendrod": "query.mark_variant == 7"
-          },
           {
             "controller.render.billeys_mobs.centipedehat": "query.is_saddled"
           },

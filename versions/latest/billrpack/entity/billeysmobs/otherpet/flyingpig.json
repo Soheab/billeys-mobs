@@ -3,7 +3,9 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "billey:flyingpig",
-      "materials": { "default": "entity_alphatest" },
+      "materials": {
+        "default": "entity_alphatest"
+      },
       "textures": {
         "default": "textures/entity/billeys_mobs/fpig",
         "angry": "textures/entity/billeys_mobs/fpig1"
@@ -20,17 +22,38 @@
         "controller.sit": "controller.animation.billeys_mobs.sit"
       },
       "scripts": {
-        "animate": [ "new",
-          {"look_at_target": "q.has_target ? -1 : 1" },
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 8;",
+          "v.head_size_y = 8;",
+          "v.head_size_z = 8;"
+        ],
+        "animate": [
+          "new",
+          {
+            "look_at_target": "q.has_target ? -1 : 1"
+          },
           "controller.sit",
-          { "sit": "!q.is_tamed && q.mark_variant == 1 && !q.has_target" },
-          { "idle": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_on_ground" },
-          { "baby": "q.is_baby" }
+          {
+            "sit": "!q.is_tamed && q.mark_variant == 1 && !q.has_target"
+          },
+          {
+            "idle": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_on_ground"
+          },
+          {
+            "baby": "q.is_baby"
+          }
         ]
       },
       "enable_attachables": true,
       "hide_armor": false,
-      "render_controllers": [ "controller.render.billeys_mobs.angelpig" ],
+      "render_controllers": [
+        "controller.render.billeys_mobs.angelpig"
+      ],
       "spawn_egg": {
         "texture": "egg_pig_angel"
       }

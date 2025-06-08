@@ -16,6 +16,16 @@
         "swim": "animation.billeys_mobs.swordfish.swim"
       },
       "scripts": {
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 3;",
+				  "v.head_size_y = 4;",
+				  "v.head_size_z = 4;"
+				],
         "animate": [ "new",
           { "attack": "q.is_sheared" },
           { "swim": "q.is_in_water" },

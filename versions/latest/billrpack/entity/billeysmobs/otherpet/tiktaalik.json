@@ -40,7 +40,15 @@
         "hurt": "animation.billeys_mobs.cat.hurt2"
       },
       "scripts": {
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
         "initialize": [
+          "v.head_size_x = 9;",
+          "v.head_size_y = 5;",
+          "v.head_size_z = 9;",
           "v.time_to_idle= 0;"
         ],
         "animate": [

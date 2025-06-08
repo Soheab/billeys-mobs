@@ -18,6 +18,16 @@
         "turn": "animation.billeys_mobs.hmrshark.turn"
       },
       "scripts": {
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 8;",
+				  "v.head_size_y = 5;",
+				  "v.head_size_z = 10;"
+				],
         "animate": [ "new",
           { "swim": "q.is_in_water" },
           { "turn": "q.is_in_water" },

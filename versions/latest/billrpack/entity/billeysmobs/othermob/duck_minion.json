@@ -53,10 +53,19 @@
           "quackbaby": "billey.duck.saybaby"
         },
         "scripts": {
+          "variables": {
+            "variable.head_size_x": "public",
+            "variable.head_size_y": "public",
+            "variable.head_size_z": "public"
+          },
           "initialize": [
             "v.time_to_idle = 0;",
             "v.prevhealth = 0;",
-            "v.state = 0;"
+            "v.state = 0;",
+            "v.prevhealth = 0;",
+            "v.head_size_x = 4;",
+            "v.head_size_y = 3;",
+            "v.head_size_z = 3;"
           ],
           "animate": [
             {

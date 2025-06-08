@@ -46,10 +46,18 @@
 				"admire": "animation.billeys_mobs.penguin.cook"
 			},
 			"scripts": {
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
 				"initialize": [
 					"v.should_crawl=q.is_powered;",
 					"v.crawl_stop_time=0;",
-					"v.swim_stop_time=0;"
+					"v.swim_stop_time=0;",
+					"v.head_size_x = q.variant == 1 || q.variant == 0 ? 4 : 3;",
+					"v.head_size_y = q.variant == 1 ? 4 : 3;",
+					"v.head_size_z = q.variant == 1 ? 4 : 3;"
 				],
 				"pre_animation": [
 					"v.sitting=q.is_admiring || (q.is_sitting&&q.is_alive&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target));",

@@ -71,7 +71,15 @@
                 "flycont": "controller.animation.billeys_mobs.netherrat_fly"
             },
             "scripts": {
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
                 "initialize": [
+                    "v.head_size_x = 4;",
+                    "v.head_size_y = 3;",
+                    "v.head_size_z = 3;",
                     "v.time_to_idle = 0;",
                     "v.can_use_sit2 = 1;"
                     //hamsters' animation code was written 2.5 years ago

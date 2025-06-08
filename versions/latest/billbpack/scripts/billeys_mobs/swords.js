@@ -2,7 +2,8 @@ import { world } from "@minecraft/server";
 import { damageItem } from "./utility";
 
 world.afterEvents.entityHitEntity.subscribe(({ hitEntity, damagingEntity }) => {
-	if (damagingEntity.getComponent("equippable")?.getEquipment("Mainhand")) {
+	if ( damagingEntity.isValid &&
+		damagingEntity.getComponent("equippable")?.getEquipment("Mainhand")) {
 		let item = damagingEntity.getComponent("equippable").getEquipment("Mainhand");
 		switch (item.typeId) {
 			case "billey:swordfish":

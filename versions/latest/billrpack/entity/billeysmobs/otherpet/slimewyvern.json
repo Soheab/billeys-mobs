@@ -48,6 +48,16 @@
                 "hiss": "animation.billeys_mobs.slimewyvern.hiss"
             },
             "scripts": {
+                "variables": {
+                    "variable.head_size_x": "public",
+                    "variable.head_size_y": "public",
+                    "variable.head_size_z": "public"
+                },
+                "initialize": [
+                    "v.head_size_x = 4;",
+                    "v.head_size_y = 4;",
+                    "v.head_size_z = 9;"
+                ],
                 "pre_animation": [
                     "v.sitting=(q.is_sitting&&q.is_alive&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target));",
                     "v.turn_value=math.min(1,q.modified_move_speed/5);"
@@ -71,8 +81,8 @@
                 ]
             },
             "enable_attachables": true,
-      "hide_armor": false,
-      "render_controllers": [
+            "hide_armor": false,
+            "render_controllers": [
                 "controller.render.billeys_mobs.slimewyvern",
                 {
                     "controller.render.billeys_mobs.slimewyvern.cum": "q.is_saddled"

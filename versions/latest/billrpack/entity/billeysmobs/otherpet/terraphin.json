@@ -55,7 +55,15 @@
                 "eatcont": "controller.animation.billeys_mobs.terraphin_mouth"
             },
             "scripts": {
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
                 "initialize": [
+                  "v.head_size_x = 6;",
+                  "v.head_size_y = 6;",
+                  "v.head_size_z = 7;",
                     "v.time_to_idle = 0;"
                 ],
                 "animate": [

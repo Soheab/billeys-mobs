@@ -44,8 +44,16 @@
         "ritual_or_anything_else_cont": "controller.animation.billeys_mobs.mercat.ritual_or_anything_else"
       },
       "scripts": {
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
         "initialize": [
-          "v.random_mercat=0;"
+          "v.random_mercat=0;",
+          "v.head_size_x = 5;",
+          "v.head_size_y = 4;",
+          "v.head_size_z = 5;"
         ],
         "animate": [
           "new",

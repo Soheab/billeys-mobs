@@ -86,6 +86,16 @@
 				"attack": "animation.billeys_mobs.pygmy_dunkleosteus.attack"
 			},
 			"scripts": {
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 6;",
+				  "v.head_size_y = 5;",
+				  "v.head_size_z = 5;"
+				],
 				"animate": [
 					"new",
 					{

@@ -25,6 +25,16 @@
         "attack": "animation.billeys_mobs.shark.attack"
       },
       "scripts": {
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 10;",
+				  "v.head_size_y = 5;",
+				  "v.head_size_z = 11;"
+				],
         "animate": [
           "new",
           "look",

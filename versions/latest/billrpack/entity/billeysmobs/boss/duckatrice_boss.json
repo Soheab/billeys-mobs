@@ -41,12 +41,20 @@
                 "controller.moisturize_teeth": "controller.animation.billeys_mobs.duckatrice.moisturize_teeth"
             },
             "scripts": {
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
                 "initialize": [
                     "v.is_moisturizing_teeth = 0;",
                     "v.time_to_quack = 0;",
                     "v.quack_random_choice = 0;",
                     "v.flying_x_rotation_smoothened = 0;",
-                    "v.flying_z_rotation_smoothened = 0;"
+                    "v.flying_z_rotation_smoothened = 0;",
+                    "v.head_size_x = 7;",
+                    "v.head_size_y = 5;",
+                    "v.head_size_z = 6;"
                 ],
                 "pre_animation": [
                     "v.is_fly_attacking = q.property('billey:is_fly_attacking');",

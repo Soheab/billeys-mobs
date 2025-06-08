@@ -46,6 +46,16 @@
         "default": "geometry.cat"
       },
       "scripts": {
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 5;",
+          "v.head_size_y = 4;",
+          "v.head_size_z = 5;"
+        ],
         "animate": [ "new",
           {"hat": "q.is_powered"},
           "raising", "eatcont", "sitcont", "baby", "look_at_target_cont",

@@ -47,6 +47,16 @@
 				//i did it for blockbench
 			},
 			"scripts": {
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 7;",
+				  "v.head_size_y = 7;",
+				  "v.head_size_z = 7;"
+				],
 				"animate": [
 					"new",
 					{

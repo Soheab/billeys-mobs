@@ -27,7 +27,15 @@
         "move": "controller.animation.billeys_mobs.rodent_walk_or_run"
       },
       "scripts": {
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
         "initialize": [
+          "v.head_size_x = 4;",
+          "v.head_size_y = 3;",
+          "v.head_size_z = 3;",
           "v.can_use_sit2 = 1;"
         ],
         "animate": [

@@ -36,6 +36,16 @@
 				"controller.sit": "controller.animation.billeys_mobs.sit"
 			},
 			"scripts": {
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
+                "initialize": [
+                  "v.head_size_x = 6;",
+                  "v.head_size_y = 6;",
+                  "v.head_size_z = 6;"
+                ],
 				"animate": [
 					"new",
 					"bob",

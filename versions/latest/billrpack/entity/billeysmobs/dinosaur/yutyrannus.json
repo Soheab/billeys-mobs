@@ -31,12 +31,20 @@
                 "scale_transition": "animation.billeys_mobs.scale_transition"
             },
             "scripts": {
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
                 "initialize": [
                     "v.transition_time = 0;",
                     //these variables are used for the scale transition
                     "v.curr_scale = 16 * q.model_scale;",
                     "v.prev_scale = 16 * q.model_scale;",
-                    "v.scale_timer = 0;"
+                    "v.scale_timer = 0;",
+                    "v.head_size_x = 8;",
+                    "v.head_size_y = 8;",
+                    "v.head_size_z = 8;"
                 ],
                 "pre_animation": [
                     "v.curr_scale = 16 * q.model_scale;"
