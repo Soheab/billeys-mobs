@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.move_hat_to_pet_position": {
+			"loop": true,
+			"bones": {
+				"hat_whole": {
+					"position": [0, -8, 0]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.pet_hat.remove_scale": {
+			"loop": true,
+			"bones": {
+				"hat": {
+					"rotation": [0, "1 / q.model_scale / 16", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.pet_hat.move_one_down": {
+			"loop": true,
+			"bones": {
+				"hat_body": {
+					"position": [0, -1, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.pet_hat.stretch": {
+			"loop": true,
+			"bones": {
+				"hat_body": {
+					"scale": [1.1, 1, 1]
+				}
+			}
+		}
+	}
+}
