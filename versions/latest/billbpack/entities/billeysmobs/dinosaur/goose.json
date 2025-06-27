@@ -976,6 +976,11 @@ The real tame items of this mob are in the wild component group*/
                                 {
                                     "test": "is_family",
                                     "subject": "other",
+                                    "value": "creeper"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
                                     "value": "inanimate"
                                 },
                                 {

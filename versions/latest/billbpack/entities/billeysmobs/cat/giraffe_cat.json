@@ -1246,7 +1246,8 @@ The real tame items of this mob are in the wild component group*/
                 "family": [
                     "giraffe_cat",
                     "mob",
-                    "strider"
+                    "strider",
+                    "cat"
                 ]
             },
             "minecraft:breathable": {
