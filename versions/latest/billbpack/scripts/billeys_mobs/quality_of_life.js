@@ -374,7 +374,7 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
         actions.push(() => pet.teleport(player.location, { dimension: player.dimension }));
     }
 
-    if (player.playerPermissionLevel() > 0 || player.hasTag("is_op")) {
+    if (player.playerPermissionLevel > 0 || player.hasTag("is_op")) {
         actions.push(() => player.teleport(pet.location, { dimension: world.getDimension(pet.dimension.id) }));
         form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_to_pet", with: ["\n"] });
     }
