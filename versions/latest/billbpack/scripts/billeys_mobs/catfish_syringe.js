@@ -89,7 +89,7 @@ function useCatfishAntibodies(entity, slot, injector) {
     //entity.setDynamicProperty("time_to_stop_effect_immunity", Date.now() + 600 * 1000);
     entity.getEffects().forEach(effect => entity.removeEffect(effect.typeId));
     playSoundAtEntity(entity, "mob.sheep.shear");
-    if ((injector ?? entity).getGameMode() != "creative")
+    if ((injector ?? entity).getGameMode() != "Creative")
         slot.setItem(undefined);
     if (injector) {
         if (entity.getComponent("health").currentValue > 1)

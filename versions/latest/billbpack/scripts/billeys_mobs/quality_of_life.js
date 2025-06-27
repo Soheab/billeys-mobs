@@ -108,17 +108,7 @@ export function tpAllFollowingPets(player, alwaysUnjumble) {
 export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepeat) {
     for (const dimension of DIMENSIONS) {
         const followingPets = dimension
-            /**
-             * the tamed tag is added to all tamed billey mobs.
-             * it was used back in the day when scripts didn't yet exist
-             * to allow commands to detect if a mob is tamed or not,
-             * eg. angel cats giving regeneration.
-             * Here it wasn't needed but probably
-             * slightly optimizes this function.
-             */
-            .getEntities({
-                tags: ["tamed"]
-            })
+            .getEntities()
             .filter(entity =>
                 entity.getProperty("billey:is_sitting") === false
                 && entity.getComponent("tameable")?.tamedToPlayerId == player.id
@@ -132,7 +122,8 @@ export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepea
     }
     const { dimension } = player;
     const structureId = `billey:${player.id}_tped_pets`;
-    world.structureManager.delete(structureId);
+    if (world.structureManager.get(structureId))
+        world.structureManager.delete(structureId);
     world.structureManager.createFromWorld(
         structureId,
         dimension, player.location, player.location
@@ -347,7 +338,7 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
             translate: "ui.billeys_mobs.pet_stats.dimension",
             with: {
                 rawtext: [
-                    { translate: pet.dimension.id }
+                    { translate: pet.dimension.id.replace("minecraft:", "") }
                 ]
             }
         }
@@ -384,11 +375,11 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
     }
 
     if (player.isOp() || player.hasTag("is_op")) {
-        actions.push(() => player.teleport(pet.location, { dimension: pet.dimension }));
-        form.button({ translate: fromInfoBook ? "gui.back" : "ui.billeys_mobs.pet_stats.see_all_your_pets" });
+        actions.push(() => player.teleport(pet.location, { dimension: world.getDimension(pet.dimension.id) }));
+        form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_to_pet", with: ["\n"] });
     }
 
-    form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_to_pet", with: ["\n"] });
+    form.button({ translate: fromInfoBook ? "gui.back" : "ui.billeys_mobs.pet_stats.see_all_your_pets" });
     actions.push(() => listPetsToPlayerForm(player));
 
     let { selection, canceled } = await form.show(player);

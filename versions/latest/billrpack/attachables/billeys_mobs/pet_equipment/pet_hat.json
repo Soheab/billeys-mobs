@@ -32,16 +32,17 @@
                 "default": "geometry.billeys_mobs.pet_hat"
             },
             "animations": {
-                /*makes it the same size even if the mob is scaled (eg. baby),
-                looks kinda goofy at times but i like it*/
-                "remove_scale": "animation.billeys_mobs.pet_hat.remove_scale"
+                "scale_top_hat": "animation.billeys_mobs.pet_hat.scale_top_hat"
             },
             "scripts": {
                 "pre_animation": [
-                    "v.color = c.owning_entity -> q.property('billey:head_equipment_color');"
+                    "v.color = c.owning_entity -> q.property('billey:head_equipment_color');",
+                    "v.head_size_x = c.owning_entity -> v.head_size_x;",
+                    "v.head_size_y = c.owning_entity -> v.head_size_y;",
+                    "v.head_size_z = c.owning_entity -> v.head_size_z;"
                 ],
                 "animate": [
-                    "remove_scale"
+                    "scale_top_hat"
                 ]
             },
             "render_controllers": [

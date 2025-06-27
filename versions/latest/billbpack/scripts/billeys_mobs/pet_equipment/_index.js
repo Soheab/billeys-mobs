@@ -51,7 +51,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ sourceEntity: entity, id }) =
         case "billey:set_duck_armor":
             duckArmor = entity.getComponent("equippable").getEquipment("Mainhand")?.typeId
                 ?.replace("billey:", "")?.replace("_pet_armor", "");
-            duckArmorerWasntInCreative = entity.getGameMode() != "creative";
+            duckArmorerWasntInCreative = entity.getGameMode() != "Creative";
             if (duckArmorerWasntInCreative && duckArmor && duckArmor != "minecraft:dirt")
                 entity.getComponent("equippable").setEquipment("Mainhand", undefined);
             return;

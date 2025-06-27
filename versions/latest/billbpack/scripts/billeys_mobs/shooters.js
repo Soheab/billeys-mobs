@@ -16,7 +16,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
 				system.run(() => {
 					let piranhaCount = 1;
 					if (data.itemStack.getLore().length) piranhaCount = data.itemStack.getLore()[0];
-					if (data.source.getGameMode() == GameMode.creative) return;
+					if (data.source.getGameMode() == GameMode.Creative) return;
 					if (piranhaCount <= 1) {
 						let emptyLauncher = new ItemStack("billey:piranha_launcher");
 						emptyLauncher.nameTag = data.itemStack.nameTag;
@@ -43,7 +43,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
 			break;
 		case "billey:mergoose_sword":
 			system.run(() => {
-				if (data.source.getGameMode() == GameMode.creative) return;
+				if (data.source.getGameMode() == GameMode.Creative) return;
 				let item = data.itemStack;
 				item.getComponent("durability").damage += calculateDamage(item);
 				if (item.getComponent("durability").damage == item.getComponent("durability").maxDurability) {

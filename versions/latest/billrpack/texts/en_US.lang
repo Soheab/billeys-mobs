@@ -926,7 +926,7 @@ ui.billeys_mobs.info.category.your_pets=§l§2Your §9Pets
 
 ui.billeys_mobs.info.category.your_pets.desc=View your individual pets.
 
-ui.billeys_mobs.info.category.your_pets.body=Select a pet to view its health, level, location and more.%1%1You can also do this by punching a pet of yours while sneaking.
+ui.billeys_mobs.info.category.your_pets.body=Select a pet to view its health, level, location and more.%1%1You can also do this by punching a pet of yours while sneaking. Useful for checking pets' XP while leveling them.
 
 ui.billeys_mobs.info.category.your_pets.body_no_pets=Looks like you don't have any pets yet, tame some and they'll be listed here!
 

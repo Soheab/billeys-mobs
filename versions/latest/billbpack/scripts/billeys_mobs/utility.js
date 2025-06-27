@@ -153,7 +153,7 @@ export function damageItem(entity, amount) {
  * @returns True if the item stack was decremented to nothing(the player had 1 in their hand).
  */
 export function decrementStack(player) {
-	if (player.getGameMode() == "creative") return false;
+	if (player.getGameMode() == "Creative") return false;
 	const slot = player.getComponent("equippable").getEquipmentSlot("Mainhand");
 	let item = slot.getItem();
 	if (item.amount == 1) item = undefined;
@@ -248,7 +248,7 @@ export function changeItemType(oldItem, newTypeId) {
 /**
  * @param {Entity} entity 
  * @param {string} dpid 
- * @param {number} value 
+ * @param {number} value
  */
 export function addToDynamicProperty(entity, dpid, value) {
 	entity.setDynamicProperty(

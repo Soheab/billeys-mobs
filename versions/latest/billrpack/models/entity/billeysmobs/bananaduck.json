@@ -242,7 +242,7 @@
 				{
 					"name": "hat",
 					"parent": "bone7",
-					"pivot": [0, 15, 0.35]
+					"pivot": [0, 15.02, 0.35]
 				},
 				{
 					"name": "bone11",

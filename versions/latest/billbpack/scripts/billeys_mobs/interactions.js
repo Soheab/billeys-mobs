@@ -85,7 +85,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
 		system.run(() => {
 			mob.triggerEvent(item.typeId.slice(7));
 			mob.addEffect("instant_health", 1, { amplifier: 255 });
-			if (player.getGameMode() != GameMode.creative)
+			if (player.getGameMode() != GameMode.Creative)
 				player.getComponent("equippable").setEquipment("Mainhand", undefined);
 		});
 	}/*
