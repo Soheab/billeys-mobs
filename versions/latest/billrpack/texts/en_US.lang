@@ -1034,7 +1034,7 @@ chat.billeys_mobs.not_a_positive_number=§c%1 is not a positive number, dummy!
 
 chat.billeys_mobs.pet_no_longer_exists=§cOops! Looks like %1 no longer exists!
 
-chat.billeys_mobs.pet_unloaded=§cWarning: §fA pet of yours set to follow is no longer in a loaded chunk and might no longer be able to follow you!%1 - §e%2 §fat %3
+chat.billeys_mobs.pet_unloaded=§cWarning: §fA pet of yours set to follow is no longer in a loaded chunk and is probably no longer be able to follow you!%1 - §e%2 §fat %3
 
 ui.billeys_mobs.info.formore=...
 

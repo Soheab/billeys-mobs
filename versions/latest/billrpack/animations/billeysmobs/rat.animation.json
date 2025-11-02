@@ -458,6 +458,11 @@
 					}
 				}
 			}
+		},
+		"animation.billeys_mobs.rat_minion.remove_hurt_tint": {
+			"timeline": {
+				"0.0": "v.hidden_hurt_start_time = q.life_time;"
+			}
 		}
 	}
 }

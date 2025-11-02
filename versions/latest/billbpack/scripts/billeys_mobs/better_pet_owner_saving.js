@@ -21,7 +21,7 @@ function* saveLoadedPetsInDatabase() {
     try {
         if (PetDatabase.hasLoaded) for (const pet of loadedPets) {
             if (!pet.isValid) {
-                petUnloaded(pet.id); 
+                petUnloaded(pet.id);
                 const prevData = petDataArrayToPetObject(PetDatabase.database[pet.__ownerId][pet.id]);
                 if (!prevData)
                     continue;
@@ -69,6 +69,7 @@ function* saveLoadedPetsInDatabase() {
                 { id: pet.dimension.id }
             ];
             pet.__wasFollowing = pet.getProperty("billey:follow_owner_state") == "following" && !pet.getProperty("billey:is_sitting");
+            pet.__wasFollowing ||= pet.__yeetedVelocity;
             yield;
         }
     }
@@ -83,6 +84,8 @@ system.runJob(saveLoadedPetsInDatabase());
 /** @param {any[]} petDataArray  */
 function petDataArrayToPetObject(petDataArray) {
     const petObject = {};
+    if (!petDataArray)
+        return undefined;
     //this is only needed for some of my testing worlds before i changed the thing
     if (petDataArray.id)
         return petDataArray;
@@ -108,7 +111,8 @@ export async function listPetsToPlayerForm(player) {
         const form = new ActionFormData();
         form.title({ translate: "ui.billeys_mobs.info.category.your_pets" });
 
-        const pets = Object.values(PetDatabase.database[player.id])
+        const petsOfPlayerObject = PetDatabase.database[player.id];
+        const pets = petsOfPlayerObject ? Object.values(petsOfPlayerObject)
             .map(p => petDataArrayToPetObject(p))
             .sort((x, y) => {
                 let a = x.nameTag;
@@ -127,7 +131,7 @@ export async function listPetsToPlayerForm(player) {
                 else {
                     return compareStrings(a, b);
                 }
-            });
+            }) : [];
         for (const pet of pets) {
             let buttonRawText = [nameOf(pet)];
             if ((pet.level ?? 1) > 1)
@@ -143,9 +147,9 @@ export async function listPetsToPlayerForm(player) {
         let body = [{ translate: "ui.billeys_mobs.info.category.your_pets.body", with: ["\n"] }];
 
         if (!pets.length)
-            body.push({text: "\n\n"}, { translate: "ui.billeys_mobs.info.category.your_pets.body_no_pets" });
+            body.push({ text: "\n\n" }, { translate: "ui.billeys_mobs.info.category.your_pets.body_no_pets" });
 
-        form.body({rawtext: body});
+        form.body({ rawtext: body });
 
 
         const { canceled, selection } = await form.show(player);
@@ -156,15 +160,17 @@ export async function listPetsToPlayerForm(player) {
             return;
         }
         const petId = pets[selection].id;
+        const petNameTag = pets[selection].nameTag;
+        const petTypeId = pets[selection].typeId;
         const petObject = petDataArrayToPetObject(PetDatabase.database[player.id][petId]);
         if (!petObject) {
-            player.sendMessage({ translate: "chat.billeys_mobs.pet_no_longer_exists", with: { rawtext: [nameOf(petObject)] } });
+            player.sendMessage({ translate: "chat.billeys_mobs.pet_no_longer_exists", with: { rawtext: [nameOf({ typeId: petTypeId, nameTag: petNameTag })] } });
             return;
         }
         const pet = world.getEntity(petId) ?? petObject;
         if (!(pet instanceof Entity) && world.getDimension(pet.dimension.id).getBlock(pet.location)?.isValid) {
             player.sendMessage({ translate: "chat.billeys_mobs.pet_no_longer_exists", with: { rawtext: [nameOf(pet)] } });
-            removePetFromDatabase(pet.id, pet.ownerId)
+            removePetFromDatabase(pet.id, pet.ownerId);
             return;
         }
         showPetStatForm(player, pet, true);

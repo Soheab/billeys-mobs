@@ -12,9 +12,32 @@
             },
             "animations": {
                 "slowfall": "animation.billeys_mobs.duck.slowfall"
+            },
+            "properties": {
+                "billey:follow_owner_state": {
+                    "type": "enum",
+                    "default": "following",
+                    "values": [
+                        "unknown",
+                        "following",
+                        "wandering"
+                    ]
+                },
+                "billey:is_sitting": {
+                    "type": "bool",
+                    "default": false
+                }
             }
         },
         "component_groups": {
+            "following": {
+                "minecraft:behavior.follow_owner": {
+                    "priority": 4,
+                    "speed_multiplier": 1.5,
+                    "start_distance": 7,
+                    "stop_distance": 5
+                }
+            },
             "hostile": {
                 "minecraft:health": {
                     "value": 26,
@@ -24,7 +47,7 @@
                     "family": [
                         "duck",
                         "mob",
-                        "duck_minion",
+                        "rat_minion",
                         "monster"
                     ]
                 },
@@ -267,7 +290,7 @@
                 "family": [
                     "duck",
                     "mob",
-                    "duck_minion"
+                    "rat_minion"
                 ]
             },
             "minecraft:breathable": {
@@ -362,6 +385,38 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "eventwander_silent": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "eventfollow_silent": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    }
+                ]
+            },
             "remove_attack_mostly_player":{
                 "add": {
                     "component_groups": [
@@ -373,9 +428,6 @@
                         "hostile_attack_mostly_player"
                     ]
                 }
-            },
-            "minecraft:entity_spawned": {
-                "trigger": "spawn_as_hostile"
             },
             "tp_up": {
                 "queue_command": {

@@ -8,7 +8,7 @@
       },
       "textures": {
           "of_potion": "textures/entity/billeys_mobs/pigeon_minion",
-          "friendly": "textures/entity/billeys_mobs/pigeon_minion",
+          "friendly": "textures/entity/billeys_mobs/pigeon_minion_friendly",
           "hostile": "textures/entity/billeys_mobs/pigeon_minion"
       },
       "geometry": {

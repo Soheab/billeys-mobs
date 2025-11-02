@@ -15,12 +15,6 @@
                     ]
                 }
             },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
-            },
             "geometry": "Geometry.default",
             "materials": [
                 {
@@ -54,12 +48,6 @@
                         "texture.desat"
                     ]
                 }
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             },
             "geometry": "Geometry.default",
             "materials": [

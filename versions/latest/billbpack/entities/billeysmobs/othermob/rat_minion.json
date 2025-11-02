@@ -4,9 +4,32 @@
         "description": {
             "identifier": "billey:rat_minion",
             "is_spawnable": false,
-            "is_summonable": true
+            "is_summonable": true,
+            "properties": {
+                "billey:follow_owner_state": {
+                    "type": "enum",
+                    "default": "following",
+                    "values": [
+                        "unknown",
+                        "following",
+                        "wandering"
+                    ]
+                },
+                "billey:is_sitting": {
+                    "type": "bool",
+                    "default": false
+                }
+            }
         },
         "component_groups": {
+            "following": {
+                "minecraft:behavior.follow_owner": {
+                    "priority": 4,
+                    "speed_multiplier": 1.5,
+                    "start_distance": 7,
+                    "stop_distance": 5
+                }
+            },
             "of_potion": {
                 "minecraft:variant": {
                     "value": 0
@@ -326,6 +349,38 @@
             "minecraft:conditional_bandwidth_optimization": {}
         },
         "events": {
+            "eventwander_silent": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "eventfollow_silent": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    }
+                ]
+            },
             "minecraft:entity_spawned": {
                 "trigger": "spawn_as_hostile"
             },

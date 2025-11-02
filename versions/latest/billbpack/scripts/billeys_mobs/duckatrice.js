@@ -84,7 +84,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
         return;
     switch (id) {
         case "billey:duck_become_duckatrice": {
-            const owner = duck.getComponent("tameable").tamedToPlayer;
+            const owner = duck.getComponent("tameable")?.tamedToPlayer;
             //if owner is offline
             if (!owner) {
                 duck.triggerEvent("duckatrization_failed");
@@ -93,7 +93,10 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
             }
             duck.addEffect("invisibility", 20000000, { showParticles: false });
             const duckatrice = duck.dimension.spawnEntity("billey:duckatrice", duck.location);
-            system.runTimeout(() => duckatrice.getComponent("tameable").tame(owner), 2);
+            system.runTimeout(() => {
+                duckatrice.getComponent("tameable").tame(owner);
+                addOwnerAsDynamicProperty(duckatrice);
+            }, 2);
             //duckatrice.setRotation(duck.getRotation()); didn't really work
             duckatrice.teleport(duck.location, { rotation: duck.getRotation() })
             duckatrice.nameTag = duck.nameTag;
@@ -136,8 +139,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity: duck }) => 
                 translate: "chat.billeys_mobs.levelup.duckatrice",
                 with: { rawtext: [nameOf(duck), { text: "\n" }] }
             }));
-
-            addOwnerAsDynamicProperty(duckatrice);
 
             console.warn("No idea what causes these errors");
             duck.remove();
@@ -332,12 +333,14 @@ export function duckatriceBossStare(player, hostileDuck) {
         bossHealth?.setCurrentValue(
             bossHealth.currentValue + 4 * player.__duckatriceStareTime
         );
-        player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duck_minion"+ (
-            bossHealth ? 2 : ""
-    )  });
+        player.onScreenDisplay.setActionBar({
+            translate: "chat.billeys_mobs.stop_staring_at_duck_minion" + (
+                bossHealth ? 2 : ""
+            )
+        });
     }
     else
-        player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duckatrice"});
+        player.onScreenDisplay.setActionBar({ translate: "chat.billeys_mobs.stop_staring_at_duckatrice" });
     player.__duckatriceStareTime++;
 }
 

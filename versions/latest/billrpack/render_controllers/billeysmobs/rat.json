@@ -51,12 +51,6 @@
           "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
           "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             }
         },
         "controller.render.billeys_mobs.netherrat": {
@@ -116,12 +110,6 @@
           "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
           "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             }
         },
         "controller.render.billeys_mobs.shark": {
@@ -156,35 +144,6 @@
           "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
           "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
-            }
-        },
-        "controller.render.billeys_mobs.rat_head_equipment": {
-            "geometry": "Geometry.hat",
-            "materials": [
-                {
-                    "*": "q.is_saddled ? Material.dyeable : Material.dont_show_patterns"
-                }
-            ],
-            "textures": [
-                "q.is_saddled ? texture.zero : (q.property('billey:head_equipment') == 'rat_crown' ? texture.crown : texture.royal_hat)"
-            ],
-            "overlay_color": {
-                "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
-                "g": "math.sin(q.life_time * 300 + q.variant * 234 + 220)",
-                "b": "math.sin(q.life_time * 300 + q.variant * 234 + 340)",
-                "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "math.sin(q.life_time * 200 + q.variant * 1200)",
-                "g": "math.sin(q.life_time * 200 + q.variant * 1200 + 120)",
-                "b": "math.sin(q.life_time * 200 + q.variant * 1200 + 240)",
-                "a": "q.is_illager_captain ? 0.4 : 0.0"
             }
         },
         "controller.render.billeys_mobs.rat_minion": {
@@ -213,7 +172,7 @@
                 "r": "1",
                 "g": "0",
                 "b": "0",
-                "a": "(!q.is_alive || q.life_time > 1 ) ? 0.5 : 0"
+                "a": "(!q.is_alive || q.life_time - (v.hidden_hurt_start_time ?? 0) > 1 ) ? 0.5 : 0"
             }
         },
         "controller.render.billeys_mobs.rat_king": {

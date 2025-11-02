@@ -138,7 +138,7 @@
                     "max": 200
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 1.7,
                     "reach_multiplier": 1.6,
                     "track_target": true,
@@ -157,11 +157,11 @@
             },
             "level2": {
                 "minecraft:health": {
-                    "value": 333,
-                    "max": 333
+                    "value": 267,
+                    "max": 267
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 1.8,
                     "reach_multiplier": 1.7,
                     "track_target": true,
@@ -175,16 +175,16 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 37
+                    "damage": 33
                 }
             },
             "level3": {
                 "minecraft:health": {
-                    "value": 467,
-                    "max": 467
+                    "value": 333,
+                    "max": 333
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 1.85,
                     "reach_multiplier": 1.75,
                     "track_target": true,
@@ -198,16 +198,16 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 53
+                    "damage": 41
                 }
             },
             "level4": {
                 "minecraft:health": {
-                    "value": 600,
-                    "max": 600
+                    "value": 400,
+                    "max": 400
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 1.95,
                     "reach_multiplier": 1.85,
                     "track_target": true,
@@ -221,16 +221,16 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 71
+                    "damage": 50
                 }
             },
             "level5": {
                 "minecraft:health": {
-                    "value": 733,
-                    "max": 733
+                    "value": 466,
+                    "max": 466
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 2.0,
                     "reach_multiplier": 1.9,
                     "track_target": true,
@@ -244,16 +244,16 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 90
+                    "damage": 58
                 }
             },
             "level6": {
                 "minecraft:health": {
-                    "value": 867,
-                    "max": 867
+                    "value": 533,
+                    "max": 533
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 2.1,
                     "reach_multiplier": 2.0,
                     "track_target": true,
@@ -267,18 +267,18 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 111
+                    "damage": 66
                 }
             },
             "level7": {
                 "minecraft:health": {
-                    "value": 1000,
-                    "max": 1000
+                    "value": 600,
+                    "max": 600
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 2.15,
-                    "reach_multiplier": 2.1,
+                    "reach_multiplier": 2.05,
                     "track_target": true,
                     "on_attack": {
                         "event": "on_attack",
@@ -290,16 +290,16 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 134
+                    "damage": 74
                 }
             },
             "level8": {
                 "minecraft:health": {
-                    "value": 1133,
-                    "max": 1133
+                    "value": 667,
+                    "max": 667
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 2.25,
                     "reach_multiplier": 2.15,
                     "track_target": true,
@@ -313,16 +313,16 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 159
+                    "damage": 83
                 }
             },
             "level9": {
                 "minecraft:health": {
-                    "value": 1267,
-                    "max": 1267
+                    "value": 733,
+                    "max": 733
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 2.3,
                     "reach_multiplier": 2.2,
                     "track_target": true,
@@ -336,16 +336,16 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 186
+                    "damage": 91
                 }
             },
             "level10": {
                 "minecraft:health": {
-                    "value": 1400,
-                    "max": 1400
+                    "value": 800,
+                    "max": 800
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 2.4,
                     "reach_multiplier": 2.3,
                     "track_target": true,
@@ -358,20 +358,26 @@
                         "target": "self"
                     }
                 },
+                "minecraft:movement": {
+                    "value": 0.3
+                },
                 "minecraft:scale": {
                     "value": 1
                 },
                 "minecraft:attack": {
-                    "damage": 216
+                    "damage": 99
                 }
             },
             "big_and_slow": {
                 "minecraft:health": {
-                    "max": 2800,
-                    "value": 2800
+                    "max": 1600,
+                    "value": 1600
                 },
                 "minecraft:attack": {
-                    "damage": 432
+                    "damage": 198
+                },
+                "minecraft:movement": {
+                    "value": 0.15
                 },
                 "minecraft:scale": {
                     "value": 2
@@ -379,16 +385,22 @@
             },
             "small_and_quick": {
                 "minecraft:health": {
-                    "max": 700,
-                    "value": 700
+                    "max": 400,
+                    "value": 400
                 },
                 "minecraft:attack": {
-                    "damage": 108
+                    "damage": 99
+                },
+                "minecraft:movement": {
+                    "value": 0.5
+                },
+                "minecraft:scale": {
+                    "value": 0.5
                 },
                 "minecraft:behavior.melee_attack": {
-                    "priority": 4,
+                    "priority": 3,
                     "speed_multiplier": 1.75,
-                    "reach_multiplier": 6.0,
+                    "reach_multiplier": 6.3,
                     "on_attack": {
                         "event": "on_attack",
                         "target": "self"

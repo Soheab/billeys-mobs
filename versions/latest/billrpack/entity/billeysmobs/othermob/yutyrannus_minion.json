@@ -8,7 +8,7 @@
       },
       "textures": {
           "of_potion": "textures/entity/billeys_mobs/yutyrannus_minion",
-          "friendly": "textures/entity/billeys_mobs/yutyrannus_minion",
+          "friendly": "textures/entity/billeys_mobs/yutyrannus_minion_friendly",
           "hostile": "textures/entity/billeys_mobs/yutyrannus_minion"
       },
             "geometry": {
@@ -56,7 +56,7 @@
                     "new",
                     "general",
                     {
-                        "hurt": "q.health < q.max_health"
+                        "hurt": "0" //never
                     },
                     "attackcont",
                     {

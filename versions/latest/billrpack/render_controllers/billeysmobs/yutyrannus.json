@@ -19,12 +19,6 @@
             "rider_*": "q.has_rider"
           }
         ],
-        "is_hurt_color": {
-            "r": "!q.is_illager_captain",
-            "g": "0",
-            "b": "0",
-            "a": "0.5 + q.is_illager_captain / 3"
-        },
         "overlay_color": {
           
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",

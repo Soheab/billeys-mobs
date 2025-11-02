@@ -214,7 +214,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {
 
                 const nearbyEntities = sourceEntity.dimension.getEntities({
                     location: sourceEntity.location,
-                    maxDistance: 3.5,
+                    maxDistance: 2.5,
                     tags: ["tamed"]
                 });
 
@@ -233,7 +233,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {
                         }
                         sourceEntity.triggerEvent("start_yeeting");
                         rideable.addRider(entity);
-                        sourceEntity.addEffect("slowness", 3 * TicksPerSecond, { amplifier: 255, showParticles: false });
+                        sourceEntity.addEffect("slowness", 2 * TicksPerSecond, { amplifier: 255, showParticles: false });
 
                         const target = sourceEntity.target ?? entity.target;
                         sourceEntity.teleport(sourceEntity.location, { facingLocation: target.location });
@@ -491,8 +491,10 @@ function yeetedMobPhysics() {
 
             const nextLocation = add(mob.__location ?? mob.location, mob.__yeetedVelocity);
 
+            const blockAtNextLocation = mob.dimension.getBlock(nextLocation);
             if (
-                isSolidOrSlabOrLeaves(mob.dimension.getBlock(nextLocation))
+                !blockAtNextLocation.isValid
+                || isSolidOrSlabOrLeaves(blockAtNextLocation)
                 || (
                     mob.__damageEntityAfterYeet?.isValid
                     && getDistanceXYZ(mob.__damageEntityAfterYeet.location, mob.location) < YEET_MOB_COLLISION_RADIUS

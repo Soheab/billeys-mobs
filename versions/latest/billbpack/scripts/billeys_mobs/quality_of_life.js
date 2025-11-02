@@ -3,7 +3,7 @@ import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { DIMENSIONS, floorVector, nameOf, titleCase, vectorToColorfulString, vectorToString } from "./utility";
 import { xpOfNextLevel } from "./leveling";
 import { calculateTotalEffectiveHappinessPercentage, calculateTotalEffectiveHappinessPercentage2, getAllHappinessIds, getMentalStateColor, getMentalStateName, MAX_HAPPINESS, valueToEffectiveValue } from "./happiness/happiness";
-import { showPetTypeInfo } from "./info_book";
+import { INFOLESS_PETS, showPetTypeInfo } from "./info_book";
 import { listPetsToPlayerForm } from "./better_pet_owner_saving";
 
 world.afterEvents.entityDie.subscribe(
@@ -106,19 +106,26 @@ export function tpAllFollowingPets(player, alwaysUnjumble) {
  * placing the structure. This fixes the invisible pet after tp vanilla bug
 */
 export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepeat) {
+    /** @type {Entity[]} */
+    const followingPets = [];
+    const skyLocation = {
+        x: player.location.x,
+        y: player.dimension.heightRange.max - 1,
+        z: player.location.z
+    };
     for (const dimension of DIMENSIONS) {
-        const followingPets = dimension
+        const dimensionFollowingPets = dimension
             .getEntities()
             .filter(entity =>
                 entity.getProperty("billey:is_sitting") === false
                 && entity.getComponent("tameable")?.tamedToPlayerId == player.id
                 && isFollowingOwner(entity)
             );
-        for (const pet of followingPets) {
-            pet.teleport(player.location, { dimension: player.dimension });
+        for (const pet of dimensionFollowingPets) {
+            pet.teleport(skyLocation, { dimension: player.dimension });
             pet.setDynamicProperty("unjumble_on_load", true);
         }
-        //removeWaystoneLoader(player);
+        followingPets.push(...dimensionFollowingPets);
     }
     const { dimension } = player;
     const structureId = `billey:${player.id}_tped_pets`;
@@ -126,9 +133,9 @@ export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepea
         world.structureManager.delete(structureId);
     world.structureManager.createFromWorld(
         structureId,
-        dimension, player.location, player.location
+        dimension, skyLocation, skyLocation
     );
-    dimension.getEntitiesAtBlockLocation(player.location)
+    dimension.getEntitiesAtBlockLocation(skyLocation)
         .forEach(e => { if (!(e instanceof Player)) e.remove(); });
     world.structureManager.place(structureId, dimension, player.location, {
         includeBlocks: false
@@ -236,7 +243,8 @@ world.afterEvents.entityHitEntity.subscribe(({ damagingEntity, hitEntity }) => {
 export async function showPetStatForm(player, pet, fromInfoBook) {
     const petIsEntity = pet instanceof Entity;
     const form = new ActionFormData();
-    form.title(nameOf(pet));
+    const petNameRawText = nameOf(pet);
+    form.title(petNameRawText);
     let maxHealth;
     let currentHealth;
     if (petIsEntity) {
@@ -277,6 +285,7 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
         { translate: "ui.billeys_mobs.pet_stats.health" },
         { text: `: ${healthColor + currentHealth}§r / ${"§a" + maxHealth}§r\n` }
     ];
+    let actions = [];
 
     /** @type {number|undefined} */
     const level = pet.getProperty?.("billey:level") ?? pet.level;
@@ -353,35 +362,44 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
         }
     );
 
-    body.push(
-        {
-            text: "§r\n\n"
-        },
-        {
-            translate: "ui.billeys_mobs.short_info." + pet.typeId.split(":")[1]
-        }
-    );
+    if (!INFOLESS_PETS.has(pet.typeId)) {
+        body.push(
+            {
+                text: "§r\n\n"
+            },
+            {
+                translate: "ui.billeys_mobs.short_info." + pet.typeId.split(":")[1]
+            }
+        );
 
-    form.body({ rawtext: body });
-
-    let actions = [];
-
-    form.button({ translate: "ui.billeys_mobs.pet_stats.learn_more" });
-    actions.push(() => showPetTypeInfo(player, pet.typeId.split(":")[1]));
+        form.button({ translate: "ui.billeys_mobs.pet_stats.learn_more" });
+        actions.push(() => showPetTypeInfo(player, pet.typeId.split(":")[1]));
+    }
 
     if (pet.getComponent?.("tameable")?.tamedToPlayer == player) {
         form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_pet" });
-        actions.push(() => pet.teleport(player.location, { dimension: player.dimension }));
+        actions.push(() => {
+            if (pet.isValid)
+                pet.teleport(player.location, { dimension: player.dimension });
+            else
+                player.sendMessage({ translate: "chat.billeys_mobs.pet_no_longer_exists", with: { rawtext: [petNameRawText] } });
+        });
     }
 
     if (player.playerPermissionLevel > 0 || player.hasTag("is_op")) {
-        actions.push(() => player.teleport(pet.location, { dimension: world.getDimension(pet.dimension.id) }));
         form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_to_pet", with: ["\n"] });
+        actions.push(() => {
+            if (pet.isValid)
+                player.teleport(pet.location, { dimension: world.getDimension(pet.dimension.id) });
+            else
+                player.sendMessage({ translate: "chat.billeys_mobs.pet_no_longer_exists", with: { rawtext: [petNameRawText] } });
+        });
     }
 
     form.button({ translate: fromInfoBook ? "gui.back" : "ui.billeys_mobs.pet_stats.see_all_your_pets" });
     actions.push(() => listPetsToPlayerForm(player));
 
+    form.body({ rawtext: body });
     let { selection, canceled } = await form.show(player);
 
     if (!canceled)
@@ -434,7 +452,7 @@ world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity }) => {
     if (killer.typeId.startsWith("billey:")) {
         const killerHealth = killer.getComponent("health");
         killerHealth.setCurrentValue(
-            killerHealth.currentValue + deadEntity.getComponent("health").effectiveMax / 5
+            Math.min(killerHealth.currentValue + deadEntity.getComponent("health").effectiveMax / 5, killerHealth.effectiveMax)
         );
     }
 });

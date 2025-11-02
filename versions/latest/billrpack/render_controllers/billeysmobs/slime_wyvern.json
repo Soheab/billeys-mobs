@@ -29,12 +29,6 @@
                 "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
             },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
-            },
             "textures": [
                 "array.variants[q.variant]",
                 "q.is_sheared ? texture.drunk : texture.nothing"
@@ -52,12 +46,6 @@
                 "g": "math.sin(q.life_time * 230 + q.variant * 234 + 120)",
                 "b": "math.sin(q.life_time * 230 + q.variant * 234 + 240)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             },
             "textures": [
                 "texture.cum"

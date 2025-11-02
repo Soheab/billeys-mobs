@@ -21,6 +21,14 @@ const categories = [
 	"your_pets"
 ];
 
+export const INFOLESS_PETS = new Set([
+	"billey:rat_minion",
+	"billey:duck_minion",
+	"billey:pigeon_minion",
+	"billey:deinonychus_minion",
+	"billey:yutyrannus_minion"
+]);
+
 const tipCount = 10;
 
 world.afterEvents.playerSpawn.subscribe(({ player }) => {

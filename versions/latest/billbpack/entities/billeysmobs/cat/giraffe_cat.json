@@ -1099,6 +1099,11 @@ The real tame items of this mob are in the wild component group*/
                                             "value": true
                                         },
                                         {
+                                            "test": "is_missing_health",
+                                            "subject": "self",
+                                            "value": false
+                                        },
+                                        {
                                             "test": "has_component",
                                             "subject": "self",
                                             "operator": "!=",

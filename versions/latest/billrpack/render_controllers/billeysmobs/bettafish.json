@@ -55,12 +55,6 @@
           "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
           "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             }
         },
         "controller.render.billeys_mobs.bettafish": {
@@ -109,12 +103,6 @@
                 "g": "q.is_illager_captain ? (math.sin(v.colordelay+q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
                 "b": "q.is_illager_captain ? (math.sin(v.colordelay+q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             }
         },
         "controller.render.billeys_mobs.bettaglowbody": {
@@ -171,12 +159,6 @@
                 "g": "math.sin(v.colordelay+q.life_time * 200 + 120)",
                 "b": "math.sin(v.colordelay+q.life_time * 200 + 240)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             }
         },
         "controller.render.billeys_mobs.bettaglowfins": {
@@ -225,12 +207,6 @@
                     "opaque*": false
                 }
             ],
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
-            },
             "ignore_lighting": true,
             "overlay_color": {
                 "r": "math.sin(v.colordelay+q.life_time * 200)",
@@ -276,12 +252,6 @@
                 "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
                 "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
                 "a": "q.is_illager_captain ? 0.4 : 0.0"
-            },
-            "is_hurt_color": {
-                "r": "!q.is_illager_captain",
-                "g": "0",
-                "b": "0",
-                "a": "0.5 + q.is_illager_captain / 3"
             }
         },/////////////////
         "controller.render.billeys_mobs.orangepenguin": {

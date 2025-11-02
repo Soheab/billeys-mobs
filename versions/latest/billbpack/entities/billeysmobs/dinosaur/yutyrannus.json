@@ -158,8 +158,8 @@
             },
             "level2": {
                 "minecraft:health": {
-                    "value": 333,
-                    "max": 333
+                    "value": 267,
+                    "max": 267
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -176,13 +176,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 37
+                    "damage": 33
                 }
             },
             "level3": {
                 "minecraft:health": {
-                    "value": 467,
-                    "max": 467
+                    "value": 333,
+                    "max": 333
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -199,13 +199,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 53
+                    "damage": 41
                 }
             },
             "level4": {
                 "minecraft:health": {
-                    "value": 600,
-                    "max": 600
+                    "value": 400,
+                    "max": 400
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -222,13 +222,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 71
+                    "damage": 50
                 }
             },
             "level5": {
                 "minecraft:health": {
-                    "value": 733,
-                    "max": 733
+                    "value": 466,
+                    "max": 466
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -245,13 +245,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 90
+                    "damage": 58
                 }
             },
             "level6": {
                 "minecraft:health": {
-                    "value": 867,
-                    "max": 867
+                    "value": 533,
+                    "max": 533
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -268,13 +268,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 111
+                    "damage": 66
                 }
             },
             "level7": {
                 "minecraft:health": {
-                    "value": 1000,
-                    "max": 1000
+                    "value": 600,
+                    "max": 600
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -291,13 +291,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 134
+                    "damage": 74
                 }
             },
             "level8": {
                 "minecraft:health": {
-                    "value": 1133,
-                    "max": 1133
+                    "value": 667,
+                    "max": 667
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -314,13 +314,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 159
+                    "damage": 83
                 }
             },
             "level9": {
                 "minecraft:health": {
-                    "value": 1267,
-                    "max": 1267
+                    "value": 733,
+                    "max": 733
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -337,13 +337,13 @@
                     }
                 },
                 "minecraft:attack": {
-                    "damage": 186
+                    "damage": 91
                 }
             },
             "level10": {
                 "minecraft:health": {
-                    "value": 1400,
-                    "max": 1400
+                    "value": 800,
+                    "max": 800
                 },
                 "minecraft:behavior.melee_attack": {
                     "priority": 3,
@@ -366,16 +366,16 @@
                     "value": 1
                 },
                 "minecraft:attack": {
-                    "damage": 216
+                    "damage": 99
                 }
             },
             "big_and_slow": {
                 "minecraft:health": {
-                    "max": 2800,
-                    "value": 2800
+                    "max": 1600,
+                    "value": 1600
                 },
                 "minecraft:attack": {
-                    "damage": 432
+                    "damage": 198
                 },
                 "minecraft:movement": {
                     "value": 0.15
@@ -386,11 +386,11 @@
             },
             "small_and_quick": {
                 "minecraft:health": {
-                    "max": 700,
-                    "value": 700
+                    "max": 400,
+                    "value": 400
                 },
                 "minecraft:attack": {
-                    "damage": 108
+                    "damage": 99
                 },
                 "minecraft:movement": {
                     "value": 0.5
@@ -2218,8 +2218,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 13 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 3 6 true",
-                                "effect @s regeneration 2 4 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 3 6 true"
                             ]
                         }
                     },
@@ -2242,8 +2241,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 15 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 4 5 true",
-                                "effect @s regeneration 2 4 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 4 5 true"
                             ]
                         }
                     },
@@ -2266,8 +2264,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 18 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 4 6 true",
-                                "effect @s regeneration 3 4 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 4 6 true"
                             ]
                         }
                     },
@@ -2290,8 +2287,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 19 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 5 5 true",
-                                "effect @s regeneration 3 4 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 5 5 true"
                             ]
                         }
                     },
@@ -2314,8 +2310,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 20 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 5 6 true",
-                                "effect @s regeneration 3 4 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 5 6 true"
                             ]
                         }
                     },
@@ -2338,8 +2333,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 23 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 6 6 true",
-                                "effect @s regeneration 3 4 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 6 6 true"
                             ]
                         }
                     },
@@ -2362,8 +2356,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 29 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 6 8 true",
-                                "effect @s regeneration 3 5 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 6 8 true"
                             ]
                         }
                     },
@@ -2386,8 +2379,7 @@ The real tame items of this mob are in the wild component group*/
                         "queue_command": {
                             "command": [
                                 "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 14 entity_attack entity @s",
-                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 3 6 true",
-                                "effect @s regeneration 3 4 true"
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 3 6 true"
                             ]
                         }
                     },
