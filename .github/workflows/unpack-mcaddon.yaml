@@ -8,12 +8,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout repository content
-          uses: actions/checkout@v2 # Checkout the repository content to github runner.
+          uses: actions/checkout@v2
 
         - name: Setup Python Version
           uses: actions/setup-python@v2
           with:
-            python-version: 3.13
+            python-version: 3.14
 
         - name: Execute Python Script
           run: python -OO .github/handle_addon_file.py
