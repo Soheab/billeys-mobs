@@ -143,10 +143,14 @@ export function tpAllFollowingPetsUsingStructure(player, chunkLoader, doNotRepea
     world.structureManager.delete(structureId);
     chunkLoader?.remove();
     removeWaystoneLoader(player);
-    system.run(() => {
-        if (!doNotRepeat)
+    system.runTimeout(() => {
+        if (!doNotRepeat) {
             tpAllFollowingPetsUsingStructure(player, undefined, true);
-    });
+            system.run(() => {
+                tpAllFollowingPets(player, true);
+            });
+        }
+    }, 2);
 }
 
 world.afterEvents.entityLoad.subscribe(({ entity }) => {

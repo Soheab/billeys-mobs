@@ -138,6 +138,8 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
     //non-hat pet equipment will go here
     /* hats are different from other cosmetics in that every single one
     of them can be put on every single mob */
+
+
     if (itemStack.typeId == "minecraft:shears") {
         for (const slot of SLOTS) {
             const equipmentId = getPetEquipmentId(entity, slot);
@@ -147,11 +149,24 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
             }
         }
         if (data.cancel) system.runTimeout(() => {
+            if (entity.__justGotSheared) {
+                entity.__justGotSheared = undefined;
+                return;
+            }
             dropAllPetEquipment(entity);
             playSoundAtEntity(entity, "mob.sheep.shear");
             system.run(() => damageItem(player));
         }, 2);
         return;
+    }
+});
+
+world.afterEvents.playerInteractWithEntity.subscribe(({beforeItemStack, target}) => {
+    if (beforeItemStack?.typeId == "minecraft:shears") {
+        target.__justGotSheared = true;
+        system.runTimeout(() => {
+            target.__justGotSheared = undefined;
+        }, 3);
     }
 });
 

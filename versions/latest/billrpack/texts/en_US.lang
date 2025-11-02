@@ -966,6 +966,20 @@ ui.billeys_mobs.pet_stats.teleport_to_pet=Teleport to pet%1§o(Operator-only)§r
 
 ui.billeys_mobs.pet_stats.see_all_your_pets=See all of your pets
 
+
+##Commands
+
+commands.billeys_mobs.must_be_by_player=This command must be run by a player.
+
+commands.billeys_mobs.no_inventory=§cYou don't have an inventory!
+
+commands.billeys_mobs.giveinfobook.description=Gives the executing player a Billey's Mobs Info Book.
+
+commands.billeys_mobs.giveinfobook.success=§aYou received a Billey's Mobs Info Book!
+
+commands.billeys_mobs.full_inventory=§cThere are no empty slots in your inventory.
+
+
 ##Mental states
 
 ui.billeys_mobs.mental_state.rock_bottom=Rock Bottom

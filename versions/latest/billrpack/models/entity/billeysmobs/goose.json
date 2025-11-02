@@ -10,17 +10,14 @@
 				"visible_bounds_height": 4,
 				"visible_bounds_offset": [0, 1, 0]
 			},
-			"bones": [{
-				"name": "ooo",
-				"pivot": [
-					0,
-					0,
-					0
-				]
-			},
-			{
-				"parent": "ooo",
+			"bones": [
+				{
+					"name": "ooo",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "body",
+					"parent": "ooo",
 					"pivot": [0, 5, 1]
 				},
 				{
@@ -66,8 +63,24 @@
 					"pivot": [0, 7, 1]
 				},
 				{
-					"name": "head",
+					"name": "bodylol",
 					"parent": "bodynolegs",
+					"pivot": [0, 8, 0],
+					"cubes": [
+						{"origin": [-3, 4, -3], "size": [6, 8, 5], "pivot": [0, 8, 0], "rotation": [90, 0, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "duck_tail",
+					"parent": "bodylol",
+					"pivot": [0, 11, 4],
+					"cubes": [
+						{"origin": [-2, 8.9, 3], "size": [4, 1, 4], "uv": [23, 11]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "bodylol",
 					"pivot": [0, 9, -4],
 					"cubes": [
 						{"origin": [-1, 8, -5], "size": [2, 4, 2], "inflate": 0.01, "uv": [13, 27]}
@@ -206,22 +219,6 @@
 					"name": "bowtie",
 					"parent": "head",
 					"pivot": [0, 12, -5]
-				},
-				{
-					"name": "bodylol",
-					"parent": "bodynolegs",
-					"pivot": [0, 8, 0],
-					"cubes": [
-						{"origin": [-3, 4, -3], "size": [6, 8, 5], "pivot": [0, 8, 0], "rotation": [90, 0, 0], "uv": [0, 0]}
-					]
-				},
-				{
-					"name": "duck_tail",
-					"parent": "bodylol",
-					"pivot": [0, 11, 4],
-					"cubes": [
-						{"origin": [-2, 8.9, 3], "size": [4, 1, 4], "uv": [23, 11]}
-					]
 				},
 				{
 					"name": "wing0",

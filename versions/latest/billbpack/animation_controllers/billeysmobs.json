@@ -53,10 +53,10 @@
 				"default": {
 					"transitions": [
 						{
-							"stand_up": "q.health < v.prev_health"
+							"stand_up": "q.health < v.prev_health ?? 0"
 						},
 						{
-							"healed": "q.health > v.prev_health"
+							"healed": "q.health > v.prev_health ?? 0"
 						}
 					],
 					"on_entry": [

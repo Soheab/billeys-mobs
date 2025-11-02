@@ -93,9 +93,7 @@
       "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-        "controller.render.cat",
-        "controller.render.cateyes",
-        "controller.render.cattail"
+        "controller.render.cat"
       ],
       "spawn_egg": {
         "texture": "egg_cat_withered"

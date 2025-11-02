@@ -1,4 +1,4 @@
-import { world, system, Player, ItemStack } from "@minecraft/server";
+import { world, system, Player, ItemStack, CommandPermissionLevel, CustomCommandStatus } from "@minecraft/server";
 import "./pet_database";
 import "./happiness/petting_happiness";
 import "./food";
@@ -182,47 +182,90 @@ system.beforeEvents.watchdogTerminate.subscribe(data => {
 	data.cancel = true;
 });
 
+system.beforeEvents.startup.subscribe((ev) => {
+	ev.customCommandRegistry.registerCommand(
+		{
+			name: "billey:giveinfobook",
+			description: "commands.billeys_mobs.giveinfobook.description",
+			cheatsRequired: false,
+			status: CustomCommandStatus.Success,
+			permissionLevel: CommandPermissionLevel.Any
+		},
+		(origin) => {
+			const entity = origin.sourceEntity;
+			const player = entity instanceof Player ? entity : undefined;
+
+			if (!player) {
+				return {
+					status: CustomCommandStatus.Failure,
+					message: "commands.billeys_mobs.must_be_by_player",
+				};
+			}
+
+			const container = player.getComponent("inventory")?.container;
+			if (!container) {
+				return { status: CustomCommandStatus.Failure, message: "commands.billeys_mobs.no_inventory" };
+			}
+
+			if (container.emptySlotsCount > 0) {
+				system.run(() => {
+					const item = new ItemStack("billey:info_book");
+					item.keepOnDeath = true;
+					container.addItem(item);
+				});
+				return { status: CustomCommandStatus.Success, message: "commands.billeys_mobs.giveinfobook.success" };
+			}
+			else {
+				return { status: CustomCommandStatus.Failure, message: "commands.billeys_mobs.full_inventory" };
+			};
+
+		}
+	);
+});
+
 world.beforeEvents.chatSend.subscribe((data) => {
-	if (data.message.startsWith("!run ")) {
+
+	const message = data.message.replace("ex!m", "!");
+	if (message.startsWith("!run ")) {
 		data.cancel = true;
 		system.run(() => {
-			data.sender.runCommand(data.message.slice(5, undefined))
+			data.sender.runCommand(message.slice(5, undefined))
 		})
 	}
-	else if (data.message.startsWith("!sayas ")) {
+	else if (message.startsWith("!sayas ")) {
 		data.cancel = true;
 		let message = "";
-		data.message.split(" ").forEach((x, index) => {
+		message.split(" ").forEach((x, index) => {
 			if (index > 1) {
 				message += " " + x;
 			}
 			index++;
 		});
 		system.run(() => {
-			world.sendMessage("<" + data.message.split(" ")[1] + ">" + message)
+			world.sendMessage("<" + message.split(" ")[1] + ">" + message)
 		})
 	}
-	else if (data.message.startsWith("!raw ")) {
+	else if (message.startsWith("!raw ")) {
 		data.cancel = true;
 		system.run(() => {
-			world.sendMessage(data.message.slice(5, undefined))
+			world.sendMessage(message.slice(5, undefined))
 		})
 	}
-	else if (data.message.startsWith("!lore ")) {
+	else if (message.startsWith("!lore ")) {
 		data.cancel = true;
 		system.run(() => {
 			let item = data.sender.getComponent("equippable").getEquipment("Mainhand");
-			item.setLore([data.message.slice(6, undefined)]);
+			item.setLore([message.slice(6, undefined)]);
 			data.sender.getComponent("equippable").setEquipment("Mainhand", item);
 		})
 	}
-	else if (data.message == "!ket") {
+	else if (message == "!ket") {
 		data.cancel = true;
 		system.run(() => {
 			data.sender.runCommand("kill @e[tag=!tamed]")
 		})
 	}
-	else if (data.message == "!removebilleytags") {
+	else if (message == "!removebilleytags") {
 		data.cancel = true;
 		system.run(() => {
 			data.sender.getTags().forEach(tag => {
@@ -230,7 +273,7 @@ world.beforeEvents.chatSend.subscribe((data) => {
 			});
 		})
 	}
-	else if (data.message == "!givebilleyinfobook") {
+	else if (message == "!givebilleyinfobook") {
 		data.cancel = true;
 		system.run(() => {
 			const container = data.sender.getComponent("inventory").container;
@@ -240,7 +283,7 @@ world.beforeEvents.chatSend.subscribe((data) => {
 				data.sender.sendMessage("§cThere are no empty slots in your inventory.");
 		})
 	}
-	else if (data.message == "!resetinfobook") {
+	else if (message == "!resetinfobook") {
 		data.cancel = true;
 		system.run(() => {
 			data.sender.setDynamicProperty("got_info_book2", undefined);

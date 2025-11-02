@@ -1395,7 +1395,7 @@ The real tame items of this mob are in the wild component group*/
                 }
             },
             "minecraft:attack": {
-                "damage": 1
+                "damage": 2
             },
             //this is so the script can access the variant and mark variant of baby rats
             "minecraft:variant": {
