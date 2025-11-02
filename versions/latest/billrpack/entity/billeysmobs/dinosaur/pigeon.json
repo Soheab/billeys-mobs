@@ -58,6 +58,9 @@
           "v.head_size_y = 3;",
           "v.head_size_z = 3;"
         ],
+        "pre_animation": [
+          "v.has_backpack = q.property('billey:has_backpack');"
+        ],
         "animate": [
           "new2",
           "idle",

@@ -22,7 +22,8 @@ system.runInterval(() => {
 		const playerEquippable = player.getComponent("equippable");
 
 		if (
-			player.__prevLoc //if is not undefined
+			false
+			&& player.__prevLoc //if is not undefined
 			&& getDistanceXZ(player.location, player.__prevLoc) > 60
 			&& player.__prevDimension.id == player.dimension.id
 			&& validateHeightOf(player)

@@ -28,10 +28,10 @@
                 "array.textures[q.variant]"
             ],
             "overlay_color": {
-                "r": "q.property('billey:is_enchanted') ? 0.25 + 0.125 * math.cos(q.life_time*360)",
+                "r": "v.is_enchanted ? 0.25 + 0.125 * math.cos(q.life_time*360)",
                 "g": "0",
-                "b": "q.property('billey:is_enchanted')",
-                "a": "q.property('billey:is_enchanted') ? 0.25 + 0.0625 * math.cos(q.life_time*480)"
+                "b": "v.is_enchanted",
+                "a": "v.is_enchanted ? 0.25 + 0.0625 * math.cos(q.life_time*480)"
             },
             "is_hurt_color": {
                 "r": "0",

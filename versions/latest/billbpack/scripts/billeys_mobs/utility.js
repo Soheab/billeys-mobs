@@ -1,4 +1,4 @@
-import { ItemStack, Player, Container, Dimension, Entity, system, DimensionTypes, world } from "@minecraft/server";
+import { ItemStack, Player, Container, Dimension, Entity, system, DimensionTypes, world, GameMode } from "@minecraft/server";
 
 export const headPets = ["billey:rat", "billey:netherrat", "billey:slime_wyvern"];
 export const ridePets = [...headPets, "billey:pigeon"];
@@ -138,6 +138,8 @@ export function shoot(entity, projectileId, power) {
  * @param {number | undefined} amount
  */
 export function damageItem(entity, amount) {
+	if (entity instanceof Player && entity.getGameMode() == GameMode.Creative)
+		return;
 	let item = entity.getComponent("equippable").getEquipment("Mainhand");
 	let damage = (amount ?? 1) * calculateDamage(item);
 	if (item.getComponent("durability").damage + damage >= item.getComponent("durability").maxDurability) {

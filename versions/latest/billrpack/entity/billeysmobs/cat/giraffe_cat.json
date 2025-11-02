@@ -81,6 +81,9 @@
                     "v.smooth_digging_angle_offset = v.digging_angle_offset;"
                 ],
                 "pre_animation": [
+                    "v.is_cat_hybrid = q.property('billey:is_cat_hybrid');",
+                    "v.has_snout = q.property('billey:has_snout');",
+                    "v.variant = q.property('billey:variant');",
                     "v.is_ladder = q.property('billey:is_ladder');",
                     "v.is_digging = q.property('billey:is_digging');",
                     "v.is_yeeting = q.property('billey:is_yeeting');",

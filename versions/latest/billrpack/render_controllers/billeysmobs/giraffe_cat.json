@@ -40,11 +40,11 @@
                 }
             ],
             "textures": [
-                "q.property('billey:is_cat_hybrid') ? array.vanilla_cats[q.property('billey:variant')] : array.other[q.property('billey:variant')]"
+                "v.is_cat_hybrid ? array.vanilla_cats[v.variant] : array.other[v.variant]"
             ],
             "part_visibility": [
                 {
-                    "snout": "q.property('billey:has_snout')"
+                    "snout": "v.has_snout"
                 }
             ],
             "overlay_color": {

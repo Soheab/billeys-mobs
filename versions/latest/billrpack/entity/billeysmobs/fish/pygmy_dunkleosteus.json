@@ -97,6 +97,10 @@
 				  "v.head_size_y = 5;",
 				  "v.head_size_z = 5;"
 				],
+				"pre_animation": [
+                    "v.mark_variant = q.property('billey:mark_variant');",
+                    "v.big_tail = q.property('billey:big_tail');"
+				],
 				"animate": [
 					"new",
 					{

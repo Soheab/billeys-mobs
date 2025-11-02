@@ -24,6 +24,9 @@
                 "initialize": [
                     "v.plushie_random_sign = 1;"
                 ],
+                "pre_animation": [
+                    "v.is_enchanted = q.property('billey:is_enchanted');"
+                ],
                 "animate": [
                     "quantize_rotation"
                 ]

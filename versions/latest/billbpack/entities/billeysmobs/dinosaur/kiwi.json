@@ -1145,6 +1145,10 @@ The real tame items of this mob are in the wild component group*/
                         "heal_amount": 4
                     },
                     {
+                        "item": "spider_eye",
+                        "heal_amount": 4
+                    },
+                    {
                         "item": "billey:raw_snail_s",
                         "heal_amount": 4
                     },

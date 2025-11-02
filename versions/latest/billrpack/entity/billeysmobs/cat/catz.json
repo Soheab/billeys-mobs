@@ -44,10 +44,7 @@
         "lily_tame": "textures/entity/cat/lily_tame"
       },
       "geometry": {
-        "default": "geometry.zcat",
-        "hat": "geometry.billeys_mobs.cathat",
-        "eyes": "geometry.cateyes",
-        "tail": "geometry.cattail"
+        "default": "geometry.zcat"
       },
       "animations": {
         "new": "animation.billeys_mobs.duckproj.body",

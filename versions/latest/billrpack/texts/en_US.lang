@@ -299,6 +299,10 @@ entity.billey:giraffe_cat.name=Giraffe Cat
 
 item.spawn_egg.entity.billey:giraffe_cat.name=Giraffe Cat Spawn Egg
 
+entity.billey:berry_goose.name=Berry Goose
+
+item.spawn_egg.entity.billey:berry_goose.name=Berry Goose Spawn Egg
+
 
 ##Items
 
@@ -966,6 +970,12 @@ ui.billeys_mobs.pet_stats.teleport_to_pet=Teleport to pet%1§o(Operator-only)§r
 
 ui.billeys_mobs.pet_stats.see_all_your_pets=See all of your pets
 
+ui.billeys_mobs.pet_equipment.get_more=Get 300+ more pet hats!
+
+ui.billeys_mobs.just_cosmetics=Just Cosmetics Add-on
+
+ui.billeys_mobs.just_cosmetics.body=Download the §aJust Cosmetics§r add-on to get hundreds of new cosmetics for you and your pets! §aAll hats from Just Cosmetics can be put on Billey's Mobs pets!§r Get the add-on from §aMCPEDL§r or §aCurseForge!§r
+
 
 ##Commands
 
@@ -973,11 +983,15 @@ commands.billeys_mobs.must_be_by_player=This command must be run by a player.
 
 commands.billeys_mobs.no_inventory=§cYou don't have an inventory!
 
-commands.billeys_mobs.giveinfobook.description=Gives the executing player a Billey's Mobs Info Book.
+commands.billeys_mobs.giveinfobook.description=Gives you a Billey's Mobs Info Book.
 
 commands.billeys_mobs.giveinfobook.success=§aYou received a Billey's Mobs Info Book!
 
 commands.billeys_mobs.full_inventory=§cThere are no empty slots in your inventory.
+
+commands.billeys_mobs.preparetp.description=Brings your pets with you the next time you teleport.
+
+commands.billeys_mobs.preparetp.success=§aYour following pets will teleport with you if you teleport within 60 seconds!
 
 
 ##Mental states
@@ -1003,15 +1017,15 @@ ui.billeys_mobs.item_info.pet_hat=§fThe pet hat is §acrafted§f with 4 kiwi fe
 
 ui.billeys_mobs.item_info.pet_chef_hat=§fThe pet chef hat is §acrafted§f with 4 kiwi feathers and 1 wool and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat. §aDyeable§f by using a dye on the pet wearing it.%1%1Enables §arats§f, §anetherrats§f, and §apenguins§f to use their §acooking§f ability. Not functional on other pets but can still be put on them for fun.
 
-ui.billeys_mobs.item_info.royal_rat_chef_hat=§fThe pet royal chef hat is obtained by §akilling a Rat King§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat. §aDyeable§f by using a dye on the pet wearing it.%1%1Similar to the pet chef hat but makes rats and netherrats cook §arat potions§f instead of rat beer and warped wine, more about it in the §aRat King's info§f. Not functional on other pets but can still be put on them for fun.
+ui.billeys_mobs.item_info.royal_rat_chef_hat=§fThe pet royal chef hat is obtained by §akilling a Rat King§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1Similar to the pet chef hat but makes rats and netherrats cook §arat potions§f instead of rat beer and warped wine, more about it in the §aRat King's info§f. Not functional on other pets but can still be put on them for fun.
 
 ui.billeys_mobs.item_info.pet_straw_hat=§fUseless and creative-only for now.
 
-ui.billeys_mobs.item_info.pet_bowtie=§fPets will §aget a bowtie on tame by default§f but you can also craft a bowtie using a kiwi feathers and wool, can be put on §aany§f Billey's Mobs §apet§f or vanilla cat. §aDyeable§f by using a dye on the pet wearing it.%1%1Useless but looks cute.
+ui.billeys_mobs.item_info.pet_bowtie=§fPets will §aget a bowtie on tame by default§f but you can also craft a bowtie using kiwi feathers and wool, can be put on §aany§f Billey's Mobs §apet§f or vanilla cat. §aDyeable§f by using a dye on the pet wearing it.%1%1Useless but looks cute.
 
 ui.billeys_mobs.item_info.rat_crown=§fThe rat crown is obtained by §akilling a Rat King§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1Makes the pet wearing it §asummon rat minions§f when it attacks. Also causes pets that normally wouldn't defend you to §adefend you anyway§f.
 
-ui.billeys_mobs.item_info.anniversary_pet_hat_6=§fThe 6th year anniversary pet hat §awas§f obtained by completing Billey's Mobs advancements between 20th February and 1st March 2025 but players who got it in time still have it. It can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1The anniversary was celebrated unusually late this year, §aget the next anniversary pet hat§f during §aJanuary 2026§f, exact ontaining method undecided.%1%1Anniversary pet hats make the pet wearing them §alevel up twice as fast§f (if it's levelable).%1%1Did you know Billey's Mobs is the oldest ongoing Bedrock add-on?
+ui.billeys_mobs.item_info.anniversary_pet_hat_6=§fThe 6th year anniversary pet hat §awas§f obtained by completing Billey's Mobs advancements between 20th February and 1st March 2025 but players who got it in time still have it. It can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1The anniversary was celebrated unusually late this year, §aget the next anniversary pet hat§f during §aJanuary 2026§f, exact obtaining method undecided.%1%1Anniversary pet hats make the pet wearing them §alevel up twice as fast§f (if it's levelable).%1%1Did you know Billey's Mobs is the oldest ongoing Bedrock add-on?
 
 ui.billeys_mobs.item_info.slime_wyvern_plushie=§fThe slime wyvern plushie is obtained by completing the §a"Slime Wyvern Overlord" advancement§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1It doesn't do anything on pets but it can also be §aplaced down§f and §aworn by players§f as a helmet. It is enchantable and has infinite durability but no protection.
 
@@ -1254,22 +1268,22 @@ ui.billeys_mobs.info.plushie1=Rubber duckies don't have such a text because they
 
 ui.billeys_mobs.info.plushie2=§b%1§e slept 20 times with a mercat!
 
-ui.billeys_mobs.info.tip1=§6Billey's Mobs Tip §b1§6/§b10§6: §6Taming a mob ensures it won't despawn and that other mobs won't attack it. Vanilla fish can also be tamed, with seeds, carrots or sea pizza.
+ui.billeys_mobs.info.tip1=§bBilley's Mobs Tip §e1§b/§e10§b: §bTaming a mob ensures it won't despawn and that other mobs won't attack it. Vanilla fish can also be tamed, with seeds, carrots or sea pizza.
 
-ui.billeys_mobs.info.tip2=§6Billey's Mobs Tip §b2§6/§b10§6: §6You can make mobs from billey's mobs, and vanilla cats, fish and parrots, §bmove around instead of following you§6 by using a stick on them.
+ui.billeys_mobs.info.tip2=§bBilley's Mobs Tip §e2§b/§e10§b: §bYou can make mobs from billey's mobs, and vanilla cats, fish and parrots, §emove around instead of following you§b by using a stick on them.
 
-ui.billeys_mobs.info.tip3=§6Billey's Mobs Tip §b3§6/§b10§6: §6You can §buntame§6 mobs from billey's mobs, and vanilla cats, fish and parrots, by using an §buntaming stick(craft w/ stick + any feather from billey's mobs§6, or swordfish stick + plain feather) on them. After being untamed, the mob can be tamed with most items most mobs are tamed with.
+ui.billeys_mobs.info.tip3=§bBilley's Mobs Tip §e3§b/§e10§b: §bYou can §euntame§b mobs from billey's mobs, and vanilla cats, fish and parrots, by using an §euntaming stick(craft w/ stick + any feather from billey's mobs§b, or swordfish stick + plain feather) on them. After being untamed, the mob can be tamed with most items most mobs are tamed with.
 
-ui.billeys_mobs.info.tip4=§6Billey's Mobs Tip §b4§6/§b10§6: §6To make a §brideable mob§6 from billey's mobs §bsit or stand§6, §bsneak while holding anything§6.
+ui.billeys_mobs.info.tip4=§bBilley's Mobs Tip §e4§b/§e10§b: §bTo make a §erideable mob§b from billey's mobs §esit or stand§b, §esneak while holding anything§b.
 
-ui.billeys_mobs.info.tip5=§6Billey's Mobs Tip §b5§6/§b10§6: §6When a mob from billey's mobs is §bshivering, §6it §bmeans its health isn't full, feed it§6 the item it's tamed with or similar items§b to heal it§6. Once a mob is §bfully healed§6, it'll make §bgreen particles§6 and stop shivering.
+ui.billeys_mobs.info.tip5=§bBilley's Mobs Tip §e5§b/§e10§b: §bWhen a mob from billey's mobs is §eshivering, §bit §emeans its health isn't full, feed it§b the item it's tamed with or similar items§e to heal it§b. Once a mob is §efully healed§b, it'll make §egreen particles§b and stop shivering.
 
-ui.billeys_mobs.info.tip6=§6Billey's Mobs Tip §b6§6/§b10§6: §6The colorful potion is crafted with one colorful powder and a bottle of pickle juice. You can put it on your pets. Also, §bcolor-changing mobs constantly have every beneficial effect, with amplifier I§6.
+ui.billeys_mobs.info.tip6=§bBilley's Mobs Tip §e6§b/§e10§b: §bThe colorful potion is crafted with one colorful powder and a bottle of pickle juice. You can put it on your pets. Also, §ecolor-changing mobs constantly have every beneficial effect, with amplifier I§b.
 
-ui.billeys_mobs.info.tip7=§6Billey's Mobs Tip §b7§6/§b10§6: §6If you §blose this book§6 you can get it back by saying §b!givebilleyinfobook§6 in the chat.
+ui.billeys_mobs.info.tip7=§bBilley's Mobs Tip §e7§b/§e10§b: §bIf you §elose this book§b you can get it back by saying §e!givebilleyinfobook§b in the chat.
 
-ui.billeys_mobs.info.tip8=§6Billey's Mobs Tip §b8§6/§b10§6: §6You can §bview a mob's health and leveling progress§6 by using §bsneaking and punching§6 as long as you have "Be able to hurt own pet" disabled in the info book.
+ui.billeys_mobs.info.tip8=§bBilley's Mobs Tip §e8§b/§e10§b: §bYou can §eview a mob's health and leveling progress§b by using §esneaking and punching§b as long as you have "Be able to hurt own pet" disabled in the info book.
 
-ui.billeys_mobs.info.tip9=§6Billey's Mobs Tip §b9§6/§b10§6: §bPet teleportation§6 of billey's mobs is §bway more reliable§6 than vanilla. Whether you die, use /tp, use a waystone from another add-on or go through a portal, §byour pets will still teleport to you§6. Beware however that your pets probably won't teleport to you if you use waystones from other add-ons to teleport between different dimensions. You can also §bforce §6following pets to §bteleport to you§6 by double-sneaking.
+ui.billeys_mobs.info.tip9=§bBilley's Mobs Tip §e9§b/§e10§b: You can §eforce §bfollowing pets to §eteleport to you§b by double-sneaking
 
-ui.billeys_mobs.info.tip10=§6Billey's Mobs Tip §b10§6/§b10§6: §6You can §btake off a mob's bowtie§6 by using §bcrafting§6 another bowtie and then attempting to put it on it.
+ui.billeys_mobs.info.tip10=§bBilley's Mobs Tip §e10§b/§e10§b: §bYou can use the command §e/preparetp§b or /billey:preparetp to make §eyour following pets come with you when you teleport§b the next time you teleport within a minute of executing the command.

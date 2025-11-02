@@ -338,6 +338,14 @@ The real tame items of this mob are in the wild component group*/
                                 "event": "minecraft:entity_born_green",
                                 "target": "baby"
                             }
+                        },
+                        {
+                            "mateType": "billey:berry_goose",
+                            "babyType": "billey:berry_goose",
+                            "breed_event": {
+                                "event": "minecraft:entity_born_goose",
+                                "target": "baby"
+                            }
                         }
                     ],
                     "breed_items": [

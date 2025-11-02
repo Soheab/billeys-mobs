@@ -82,6 +82,7 @@
                     "v.smooth_baby = q.is_baby;"
                 ],
                 "pre_animation": [
+                    "v.mark_variant = q.property('billey:mark_variant');",
                     "v.is_mating = q.is_in_love && q.property('billey:mob_nearby') && !q.is_sitting;",
                     "v.show_details = q.distance_from_camera < 7;",
                     "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",

@@ -168,7 +168,7 @@
 					"animations": [
 						"general",
 						{
-							"hurt": "q.health < q.max_health"
+							"hurt": "q.is_tamed && q.health < q.max_health"
 						},
 						"look_cont",
 						{
@@ -1164,10 +1164,10 @@
 				"default": {
 					"transitions": [
 						{
-							"crack": "q.health < v.prevhealth"
+							"crack": "q.health < (v.prevhealth ?? q.health)"
 						},
 						{
-							"healed": "q.health > v.prevhealth"
+							"healed": "q.health > (v.prevhealth ?? q.health)"
 						}
 					],
 					"on_entry": [

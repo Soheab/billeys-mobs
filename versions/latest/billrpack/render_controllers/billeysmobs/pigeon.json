@@ -36,10 +36,10 @@
       "materials": [ { "*": "Material.default" }, { "sack": "Material.cat"} ],
       "part_visibility": [
         {
-          "backpack": "q.property('billey:has_backpack')"
+          "backpack": "v.has_backpack"
         },
         {
-          "sack": "q.property('billey:has_backpack')"
+          "sack": "v.has_backpack"
         }
       ],
       "textures": [ "(q.get_name == 'Perry' || q.get_name == 'Πέρι') ? (array.changer[q.life_time * 1.5 + q.variant + q.is_sheared * 5]) : (q.is_sheared ? array.sheared[q.variant] : array.skins[q.variant])" ],

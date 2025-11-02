@@ -10,17 +10,14 @@
 				"visible_bounds_height": 3,
 				"visible_bounds_offset": [0, 0.5, 0]
 			},
-			"bones": [{
-				"name": "ooo",
-				"pivot": [
-					0,
-					0,
-					0
-				]
-			},
-			{
-				"parent": "ooo",
+			"bones": [
+				{
+					"name": "ooo",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "bone",
+					"parent": "ooo",
 					"pivot": [0, 7, -7]
 				},
 				{
@@ -69,46 +66,6 @@
 								"west": {"uv": [2, 20], "uv_size": [1, 4]},
 								"up": {"uv": [1, 19], "uv_size": [1, 1]},
 								"down": {"uv": [2, 20], "uv_size": [1, -1]}
-							}
-						}
-					]
-				},
-				{
-					"name": "tail4",
-					"parent": "tail4",
-					"pivot": [0, 1, 8],
-					"cubes": [
-						{
-							"origin": [-0.5, -3, 8],
-							"size": [1, 4, 1],
-							"inflate": -0.01,
-							"uv": {
-								"north": {"uv": [5, 16], "uv_size": [1, 4]},
-								"east": {"uv": [4, 16], "uv_size": [1, 4]},
-								"south": {"uv": [7, 16], "uv_size": [1, 4]},
-								"west": {"uv": [6, 16], "uv_size": [1, 4]},
-								"up": {"uv": [5, 15], "uv_size": [1, 1]},
-								"down": {"uv": [6, 16], "uv_size": [1, -1]}
-							}
-						}
-					]
-				},
-				{
-					"name": "tail6",
-					"parent": "tail4",
-					"pivot": [0, -3, 8],
-					"cubes": [
-						{
-							"origin": [-0.5, -7, 8],
-							"size": [1, 4, 1],
-							"inflate": -0.02,
-							"uv": {
-								"north": {"uv": [5, 20], "uv_size": [1, 4]},
-								"east": {"uv": [4, 20], "uv_size": [1, 4]},
-								"south": {"uv": [7, 20], "uv_size": [1, 4]},
-								"west": {"uv": [6, 20], "uv_size": [1, 4]},
-								"up": {"uv": [5, 19], "uv_size": [1, 1]},
-								"down": {"uv": [5, 24], "uv_size": [1, -1]}
 							}
 						}
 					]
@@ -202,7 +159,7 @@
 					"rotation": [90, 0, 0]
 				},
 				{
-					"name": "tail3",
+					"name": "tail5",
 					"parent": "pcatail",
 					"pivot": [0, 9, 8],
 					"cubes": [
@@ -222,8 +179,8 @@
 					]
 				},
 				{
-					"name": "tail4",
-					"parent": "tail3",
+					"name": "tail7",
+					"parent": "tail5",
 					"pivot": [0, 1, 8],
 					"cubes": [
 						{

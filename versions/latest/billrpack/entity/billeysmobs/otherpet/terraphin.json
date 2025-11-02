@@ -67,6 +67,8 @@
                   "v.head_size_z = 7;",
                     "v.time_to_idle = 0;"
                 ],
+                "pre_animation": [
+                    "v.mark_variant = q.property('billey:mark_variant');"],
                 "animate": [
                     "new",
                     {

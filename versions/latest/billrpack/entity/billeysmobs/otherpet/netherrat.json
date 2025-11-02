@@ -87,6 +87,8 @@
                     //i dont remember if this variable actually has something to do with twerking
                     //it probably doesnt
                 ],
+                "pre_animation": [
+                    "v.mark_variant = q.property('billey:mark_variant');"],
                 "animate": [
                     "new",
                     {"flycont": "!q.is_riding"},

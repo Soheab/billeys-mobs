@@ -1,8 +1,5 @@
 {
     "format_version": "1.16.0",
-    /*im not actually gay if youre wondering,
-    it's just that orange penguins were made during the first days of the
-    Russian 2022 Invasion of Ukraine, and a particular relevant video got recommended to me*/
     "minecraft:entity": {
         "description": {
             "identifier": "billey:orange_penguin",
@@ -582,6 +579,14 @@ The real tame items of this mob are in the wild component group*/
                             "baby_type": "billey:duck",
                             "breed_event": {
                                 "event": "minecraft:entity_born_golden",
+                                "target": "baby"
+                            }
+                        },
+                        {
+                            "mateType": "billey:berry_goose",
+                            "babyType": "billey:berry_goose",
+                            "breed_event": {
+                                "event": "minecraft:entity_born_orange",
                                 "target": "baby"
                             }
                         }

@@ -83,7 +83,7 @@
 			],
 			"textures": [
                 "array.base[q.variant]",
-                "array.patterns[q.property('billey:mark_variant')]"
+                "array.patterns[v.mark_variant]"
 			],
 			"overlay_color": {
 				"r": "math.sin(q.life_time * 200 + q.variant * 234)",
@@ -99,10 +99,10 @@
 			},
 			"part_visibility": [
 				{
-					"small_tail_fin": "!q.property('billey:big_tail')"
+					"small_tail_fin": "!v.big_tail"
 				},
 				{
-					"big_tail_fin_*": "q.property('billey:big_tail')"
+					"big_tail_fin_*": "v.big_tail"
 				}
 			]
 		}

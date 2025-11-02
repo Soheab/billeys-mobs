@@ -44,8 +44,10 @@ export function trySavePetDatabase() {
         savePetDatabase();
 }
 
-export function removePetFromDatabase(petId) {
-    for (const petOwnerId of Object.keys(PetDatabase.database))
-        delete PetDatabase.database[petOwnerId][petId];
+export function removePetFromDatabase(petId, ownerId) {
+    if (ownerId)
+        delete PetDatabase.database[ownerId][petId];
+    else for (const ownerId of Object.keys(PetDatabase.database))
+        delete PetDatabase.database[ownerId][petId];
     trySavePetDatabase();
 }

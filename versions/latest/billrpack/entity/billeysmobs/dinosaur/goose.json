@@ -30,7 +30,7 @@
         "shrinkitem": "animation.billeys_mobs.duck.shrinkitem",
         "shrinkitem2": "animation.billeys_mobs.duck.shrinkitem2",
         "glisteringmelon": "animation.billeys_mobs.duck.glisteringmelon",
-        "move": "animation.billeys_mobs.duck.walk",
+        "move": "animation.billeys_mobs.duck.walk32",
         "sit": "animation.billeys_mobs.duck.sit2",
         "swim": "animation.billeys_mobs.duck.swim",
         "look_at_target": "animation.billeys_mobs.duck.look_at_target",

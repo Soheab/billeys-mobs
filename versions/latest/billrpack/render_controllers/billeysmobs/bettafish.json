@@ -48,7 +48,7 @@
             ],
             "textures": [
                 "q.get_name == 'lol' ? array.base[q.life_time] : array.base[q.variant]",
-                "q.get_name == 'lol' ? array.patterns[q.life_time*1.33] : array.patterns[q.property('billey:mark_variant')]"
+                "q.get_name == 'lol' ? array.patterns[q.life_time*1.33] : array.patterns[v.mark_variant]"
             ],
             "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",

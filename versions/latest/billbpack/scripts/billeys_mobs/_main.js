@@ -182,8 +182,10 @@ system.beforeEvents.watchdogTerminate.subscribe(data => {
 	data.cancel = true;
 });
 
-system.beforeEvents.startup.subscribe((ev) => {
-	ev.customCommandRegistry.registerCommand(
+const LOADER_DPID = "prev_loader_id";
+
+system.beforeEvents.startup.subscribe(data => {
+	data.customCommandRegistry.registerCommand(
 		{
 			name: "billey:giveinfobook",
 			description: "commands.billeys_mobs.giveinfobook.description",
@@ -217,6 +219,41 @@ system.beforeEvents.startup.subscribe((ev) => {
 			}
 			else {
 				return { status: CustomCommandStatus.Failure, message: "commands.billeys_mobs.full_inventory" };
+			};
+
+		}
+	);
+	data.customCommandRegistry.registerCommand(
+		{
+			name: "billey:preparetp",
+			description: "commands.billeys_mobs.preparetp.description",
+			cheatsRequired: false,
+			status: CustomCommandStatus.Success,
+			permissionLevel: CommandPermissionLevel.Any
+		},
+		(origin) => {
+			const entity = origin.sourceEntity;
+			const player = entity instanceof Player ? entity : undefined;
+
+			if (!player) {
+				return {
+					status: CustomCommandStatus.Failure,
+					message: "commands.billeys_mobs.must_be_by_player",
+				};
+			}
+
+			system.run(() => {
+				const prevLoaderId = player.getDynamicProperty(LOADER_DPID);
+				if (prevLoaderId) {
+					world.getEntity(prevLoaderId)?.remove();
+				}
+				const newLoader = player.dimension.spawnEntity("billey:chunk_loader", player.location);
+				player.setDynamicProperty(LOADER_DPID, newLoader.id);
+			});
+
+			return {
+				status: CustomCommandStatus.Success,
+				message: "commands.billeys_mobs.preparetp.success",
 			};
 
 		}

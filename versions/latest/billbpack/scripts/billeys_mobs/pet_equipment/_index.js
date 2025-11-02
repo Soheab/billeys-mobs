@@ -141,6 +141,9 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
 
 
     if (itemStack.typeId == "minecraft:shears") {
+        const shearPredicate = SHEAR_PREDICATES[entity.typeId];
+        if (shearPredicate && !shearPredicate(entity))
+            return;
         for (const slot of SLOTS) {
             const equipmentId = getPetEquipmentId(entity, slot);
             if (equipmentId) {
@@ -149,26 +152,20 @@ world.beforeEvents.playerInteractWithEntity.subscribe(data => {
             }
         }
         if (data.cancel) system.runTimeout(() => {
-            if (entity.__justGotSheared) {
-                entity.__justGotSheared = undefined;
-                return;
-            }
             dropAllPetEquipment(entity);
             playSoundAtEntity(entity, "mob.sheep.shear");
             system.run(() => damageItem(player));
-        }, 2);
+        }, 1);
         return;
     }
 });
 
-world.afterEvents.playerInteractWithEntity.subscribe(({beforeItemStack, target}) => {
-    if (beforeItemStack?.typeId == "minecraft:shears") {
-        target.__justGotSheared = true;
-        system.runTimeout(() => {
-            target.__justGotSheared = undefined;
-        }, 3);
-    }
-});
+const SHEAR_PREDICATES = {
+    "billey:kiwi": kiwi => kiwi.hasComponent("is_sheared") || kiwi.hasComponent("is_saddled"),
+    "billey:pizzafish": pizzafish => pizzafish.getComponent("variant").value == 5,
+    //"is_sheared" for orange penguins actually means they have a shearable orange on their head
+    "billey:orange_penguin": orangePenguin => !orangePenguin.hasComponent("is_sheared")
+}
 
 /**
  * @param {Player} player 
@@ -287,7 +284,7 @@ export function getPetEquipment(pet, slot) {
             pet.getDynamicProperty(`equipment${slot}_enchantments`)
         );
     }
-    
+
 
     const durabilityDamage = pet.getDynamicProperty(`equipment${slot}_durability`);
 

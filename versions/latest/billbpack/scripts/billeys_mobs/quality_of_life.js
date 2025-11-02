@@ -5,6 +5,7 @@ import { xpOfNextLevel } from "./leveling";
 import { calculateTotalEffectiveHappinessPercentage, calculateTotalEffectiveHappinessPercentage2, getAllHappinessIds, getMentalStateColor, getMentalStateName, MAX_HAPPINESS, valueToEffectiveValue } from "./happiness/happiness";
 import { INFOLESS_PETS, showPetTypeInfo } from "./info_book";
 import { listPetsToPlayerForm } from "./better_pet_owner_saving";
+import { removePetFromDatabase } from "./pet_database";
 
 world.afterEvents.entityDie.subscribe(
     ({ deadEntity }) => {
@@ -18,7 +19,8 @@ world.afterEvents.entityDie.subscribe(
             if (player.id != deadEntity.id)
                 return;
             world.afterEvents.playerSpawn.unsubscribe(subscription);
-            tpAllFollowingPetsUsingStructure(player, chunkLoader);
+            //tpAllFollowingPetsUsingStructure(player, chunkLoader);
+            system.run(chunkLoader.remove);
         });
     },
     {
@@ -385,7 +387,7 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
         actions.push(() => {
             if (pet.isValid)
                 pet.teleport(player.location, { dimension: player.dimension });
-            else
+            else 
                 player.sendMessage({ translate: "chat.billeys_mobs.pet_no_longer_exists", with: { rawtext: [petNameRawText] } });
         });
     }
@@ -393,10 +395,12 @@ export async function showPetStatForm(player, pet, fromInfoBook) {
     if (player.playerPermissionLevel > 0 || player.hasTag("is_op")) {
         form.button({ translate: "ui.billeys_mobs.pet_stats.teleport_to_pet", with: ["\n"] });
         actions.push(() => {
-            if (pet.isValid)
-                player.teleport(pet.location, { dimension: world.getDimension(pet.dimension.id) });
-            else
+            const petDimension = world.getDimension(pet.dimension.id);
+            if (pet.isValid || !petDimension.getBlock({ x: pet.location.x, y: 70, z: pet.location.z })?.isValid)
+                player.teleport(pet.location, { dimension: petDimension });
+            else {
                 player.sendMessage({ translate: "chat.billeys_mobs.pet_no_longer_exists", with: { rawtext: [petNameRawText] } });
+            }
         });
     }
 
