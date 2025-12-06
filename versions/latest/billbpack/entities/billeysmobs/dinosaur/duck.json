@@ -152,8 +152,8 @@
                 //this component group isn't used unless the mob is brought back to level 1
                 //through commands or the creative item
                 "minecraft:health": {
-                    "max": 8,
-                    "value": 8
+                    "max": 12,
+                    "value": 12
                 },
                 "minecraft:attack": {
                     "damage": 4
@@ -174,8 +174,8 @@
             },
             "level2": {
                 "minecraft:health": {
-                    "max": 16,
-                    "value": 16
+                    "max": 24,
+                    "value": 24
                 },
                 "minecraft:attack": {
                     "damage": 7
@@ -196,8 +196,8 @@
             },
             "level3": {
                 "minecraft:health": {
-                    "max": 24,
-                    "value": 24
+                    "max": 36,
+                    "value": 36
                 },
                 "minecraft:attack": {
                     "damage": 10
@@ -218,8 +218,8 @@
             },
             "level4": {
                 "minecraft:health": {
-                    "max": 32,
-                    "value": 32
+                    "max": 48,
+                    "value": 48
                 },
                 "minecraft:attack": {
                     "damage": 13
@@ -240,8 +240,8 @@
             },
             "level5": {
                 "minecraft:health": {
-                    "max": 40,
-                    "value": 40
+                    "max": 60,
+                    "value": 60
                 },
                 "minecraft:attack": {
                     "damage": 16
@@ -262,8 +262,8 @@
             },
             "level6": {
                 "minecraft:health": {
-                    "max": 48,
-                    "value": 48
+                    "max": 72,
+                    "value": 72
                 },
                 "minecraft:attack": {
                     "damage": 19
@@ -284,8 +284,8 @@
             },
             "level7": {
                 "minecraft:health": {
-                    "max": 56,
-                    "value": 56
+                    "max": 84,
+                    "value": 84
                 },
                 "minecraft:attack": {
                     "damage": 22
@@ -306,8 +306,8 @@
             },
             "level8": {
                 "minecraft:health": {
-                    "max": 64,
-                    "value": 64
+                    "max": 96,
+                    "value": 96
                 },
                 "minecraft:attack": {
                     "damage": 25
@@ -328,8 +328,8 @@
             },
             "level9": {
                 "minecraft:health": {
-                    "max": 81,
-                    "value": 81
+                    "max": 108,
+                    "value": 108
                 },
                 "minecraft:attack": {
                     "damage": 28
@@ -350,8 +350,8 @@
             },
             "level10": {
                 "minecraft:health": {
-                    "max": 100,
-                    "value": 100
+                    "max": 120,
+                    "value": 120
                 },
                 "minecraft:attack": {
                     "damage": 34

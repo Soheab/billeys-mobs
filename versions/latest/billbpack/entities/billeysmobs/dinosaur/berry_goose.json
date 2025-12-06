@@ -8,7 +8,7 @@
             //weird stuff you find here may be whats left from the duck code
             "identifier": "billey:berry_goose",
             "runtime_identifier": "minecraft:cat",
-            "is_spawnable": false,
+            "is_spawnable": true,
             "is_summonable": true,
             "scripts": {
                 "animate": [
@@ -112,10 +112,118 @@
                     //only used so scripts can know whether or not it's sitting
                     "type": "bool",
                     "default": false
+                },
+                "billey:xp": {
+                    "type": "float",
+                    "range": [
+                        0.0,
+                        1000000.0
+                    ],
+                    "default": 0.0
+                },
+                "billey:level": {
+                    "type": "int",
+                    "range": [
+                        1,
+                        10
+                    ],
+                    "default": 1
                 }
             }
         },
         "component_groups": {
+            "level1": {
+                //this component group isn't used unless the mob is brought back to level 1
+                //through commands or the creative item
+                "minecraft:health": {
+                    "value": 12,
+                    "max": 12
+                },
+                "minecraft:attack": {
+                    "damage": 6
+                }
+            },
+            "level2": {
+                "minecraft:health": {
+                    "value": 24,
+                    "max": 24
+                },
+                "minecraft:attack": {
+                    "damage": 8
+                }
+            },
+            "level3": {
+                "minecraft:health": {
+                    "value": 32,
+                    "max": 32
+                },
+                "minecraft:attack": {
+                    "damage": 10
+                }
+            },
+            "level4": {
+                "minecraft:health": {
+                    "value": 48,
+                    "max": 48
+                },
+                "minecraft:attack": {
+                    "damage": 12
+                }
+            },
+            "level5": {
+                "minecraft:health": {
+                    "value": 60,
+                    "max": 60
+                },
+                "minecraft:attack": {
+                    "damage": 14
+                }
+            },
+            "level6": {
+                "minecraft:health": {
+                    "value": 72,
+                    "max": 72
+                },
+                "minecraft:attack": {
+                    "damage": 16
+                }
+            },
+            "level7": {
+                "minecraft:health": {
+                    "value": 84,
+                    "max": 84
+                },
+                "minecraft:attack": {
+                    "damage": 18
+                }
+            },
+            "level8": {
+                "minecraft:health": {
+                    "value": 96,
+                    "max": 96
+                },
+                "minecraft:attack": {
+                    "damage": 20
+                }
+            },
+            "level9": {
+                "minecraft:health": {
+                    "value": 108,
+                    "max": 108
+                },
+                "minecraft:attack": {
+                    "damage": 22
+                }
+            },
+            "level10": {
+                "minecraft:health": {
+                    "value": 120,
+                    "max": 120
+                },
+                "minecraft:attack": {
+                    "damage": 25
+                }
+            },
             "sittable": {
                 "minecraft:sittable": {}
             },
@@ -135,6 +243,8 @@ The real tame items of this mob are in the wild component group*/
                         "billey:bettafish",
                         "billey:pizzapiece",
                         "salmon",
+                        "pumpkin_pie",
+                        "pumpkin",
                         "fish",
                         "melon",
                         "melon_block",
@@ -299,6 +409,7 @@ The real tame items of this mob are in the wild component group*/
                 },
                 "minecraft:breedable": {
                     "require_tame": true,
+                    "blend_attributes": false,
                     "allow_sitting": true,
                     "require_full_health": true,
                     "breeds_with": [
@@ -354,34 +465,14 @@ The real tame items of this mob are in the wild component group*/
                     "breed_items": [
                         "billey:poultry_orange",
                         "bread",
-                        "wheat_seeds",
-                        "melon_seeds",
-                        "melon_block",
-                        "melon",
-                        "glistering_melon_slice",
                         "pumpkin_seeds",
-                        "beetroot_seeds",
-                        "carrot",
-                        "golden_carrot"
+                        "pumpkin",
+                        "pumpkin_pie"
                     ]
                 },
                 "minecraft:behavior.breed": {
                     "priority": 3,
                     "speed_multiplier": 1
-                },
-                "minecraft:spawn_entity": {
-                    "entities": {
-                        "max_wait_time": 3600,
-                        "spawn_sound": "plop",
-                        "spawn_item": "feather",
-                        "filters": {
-                            "test": "has_component",
-                            "subject": "self",
-                            "operator": "==",
-                            "value": "minecraft:is_tamed"
-                        },
-                        "min_wait_time": 1200
-                    }
                 }
             },
             "leashed": {
@@ -396,16 +487,10 @@ The real tame items of this mob are in the wild component group*/
                     "speed_multiplier": 1,
                     "items": [
                         "bread",
-                        "wheat_seeds",
-                        "melon_seeds",
-                        "melon_block",
-                        "melon",
                         "pumpkin_seeds",
-                        "beetroot_seeds",
-                        "carrot",
-                        "golden_carrot",
-                        "billey:sand_banana",
-                        "glistering_melon_slice"
+                        "pumpkin",
+                        "pumpkin_pie",
+                        "billey:sand_banana"
                     ]
                 },
                 "minecraft:behavior.beg": {
@@ -414,16 +499,10 @@ The real tame items of this mob are in the wild component group*/
                     "look_time": 0,
                     "items": [
                         "bread",
-                        "wheat_seeds",
-                        "melon_seeds",
-                        "melon_block",
-                        "melon",
                         "pumpkin_seeds",
-                        "beetroot_seeds",
-                        "carrot",
-                        "golden_carrot",
-                        "billey:sand_banana",
-                        "glistering_melon_slice"
+                        "pumpkin",
+                        "pumpkin_pie",
+                        "billey:sand_banana"
                     ]
                 },
                 "minecraft:behavior.avoid_mob_type": {
@@ -515,10 +594,7 @@ The real tame items of this mob are in the wild component group*/
                     "probability": 0.33,
                     "tame_items": [
                         "billey:power_banana",
-                        "melon_seeds",
-                        "melon_block",
-                        "melon",
-                        "glistering_melon_slice"
+                        "pumpkin_pie"
                     ],
                     "tame_event": {
                         "event": "yay",
@@ -900,7 +976,100 @@ The real tame items of this mob are in the wild component group*/
                             "event": "nokroma",
                             "target": "self"
                         }
-                    }
+                    },
+                        {
+                            "use_item": true,
+                            "transform_to_item": "billey:gooseberries",
+                            "play_sounds": "eat",
+                            "interact_text": "action.interact.feed",
+                            "on_interact": {
+                                "filters": {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "operator": "not",
+                                            "value": "minecraft:is_baby"
+                                        },
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_tamed"
+                                        },
+                                        {
+                                            "test": "is_sleeping",
+                                            "subject": "self",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "is_family",
+                                            "subject": "other",
+                                            "value": "player"
+                                        },
+                                        {
+                                            "any_of": [
+                                                {
+                                                    "test": "has_equipment",
+                                                    "subject": "other",
+                                                    "domain": "hand",
+                                                    "value": "apple"
+                                                },
+                                                {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_equipment",
+                                                            "subject": "other",
+                                                            "domain": "hand",
+                                                            "value": "sweet_berries"
+                                                        },
+                                                        {
+                                                            "test": "int_property",
+                                                            "domain": "billey:level",
+                                                            "operator": ">=",
+                                                            "value": 5
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_equipment",
+                                                            "subject": "other",
+                                                            "domain": "hand",
+                                                            "value": "billey:poultry_orange"
+                                                        },
+                                                        {
+                                                            "test": "int_property",
+                                                            "domain": "billey:level",
+                                                            "operator": ">=",
+                                                            "value": 7
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "all_of": [
+                                                        {
+                                                            "test": "has_equipment",
+                                                            "subject": "other",
+                                                            "domain": "hand",
+                                                            "value": "melon"
+                                                        },
+                                                        {
+                                                            "test": "int_property",
+                                                            "domain": "billey:level",
+                                                            "operator": ">=",
+                                                            "value": 10
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "event": "make_gooseberries",
+                                "target": "self"
+                            }
+                        }
                 ]
             },
             "minecraft:behavior.nap": {
@@ -1016,6 +1185,10 @@ The real tame items of this mob are in the wild component group*/
                                     "test": "is_family",
                                     "subject": "other",
                                     "value": "player"
+                                },
+                                {
+                                    "test": "in_water_or_rain",
+                                    "subject": "other"
                                 }
                             ]
                         },
@@ -1027,7 +1200,7 @@ The real tame items of this mob are in the wild component group*/
                 "total_supply": 15,
                 "suffocate_time": 0,
                 "breathes_air": true,
-                "breathes_water": true
+                "breathes_water": false
             },
             "minecraft:damage_sensor": {
                 "triggers": [
@@ -1125,24 +1298,10 @@ The real tame items of this mob are in the wild component group*/
             "minecraft:behavior.float": {
                 "priority": 0
             },
-            "minecraft:behavior.rise_to_liquid_level": {
-                "priority": 0,
-                "liquid_y_offset": 0.0,
-                "rise_delta": 0.1,
-                "sink_delta": 0.1
-            },
-            "minecraft:behavior.raid_garden": {
-                "priority": 3,
-                "blocks": [
-                    "melon_block"
-                ],
-                "search_range": 16,
-                "goal_radius": 0.8
-            },
             "minecraft:nameable": {},
             "minecraft:health": {
-                "value": 8,
-                "max": 8
+                "value": 12,
+                "max": 12
             },
             "minecraft:leashable": {
                 "soft_distance": 4,
@@ -1174,10 +1333,7 @@ The real tame items of this mob are in the wild component group*/
                 "priority": 5,
                 "speed_multiplier": 1,
                 "items": [
-                    "melon",
-                    "glistering_melon_slice",
-                    "melon_block",
-                    "melon_seeds"
+                    "pumpkin_pie"
                 ]
             },
             "minecraft:behavior.beg": {
@@ -1185,10 +1341,7 @@ The real tame items of this mob are in the wild component group*/
                 "look_distance": 3,
                 "look_time": 0,
                 "items": [
-                    "melon",
-                    "glistering_melon_slice",
-                    "melon_block",
-                    "melon_seeds"
+                    "pumpkin_pie"
                 ]
             },
             "minecraft:behavior.random_stroll": {
@@ -1244,43 +1397,19 @@ The real tame items of this mob are in the wild component group*/
                     },
                     {
                         "item": "bread",
-                        "heal_amount": 1
-                    },
-                    {
-                        "item": "wheat_seeds",
-                        "heal_amount": 2
-                    },
-                    {
-                        "item": "melon_seeds",
                         "heal_amount": 3
                     },
                     {
-                        "item": "melon",
-                        "heal_amount": 6
-                    },
-                    {
-                        "item": "glistering_melon_slice",
-                        "heal_amount": 9
-                    },
-                    {
-                        "item": "melon_block",
-                        "heal_amount": 9
-                    },
-                    {
-                        "item": "pumpkin_seeds",
-                        "heal_amount": 2
-                    },
-                    {
-                        "item": "carrot",
-                        "heal_amount": 3
-                    },
-                    {
-                        "item": "golden_carrot",
+                        "item": "pumpkin",
                         "heal_amount": 5
                     },
                     {
-                        "item": "beetroot_seeds",
-                        "heal_amount": 2
+                        "item": "pumpkin_seeds",
+                        "heal_amount": 4
+                    },
+                    {
+                        "item": "pumpkin_pie",
+                        "heal_amount": 7
                     }
                 ]
             },
@@ -1395,6 +1524,120 @@ The real tame items of this mob are in the wild component group*/
                         "electrocuted"
                     ]
                 }
+            },
+            "make_gooseberries": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scoreboard objectives add billbanana dummy billbanana"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "effect @s[m=!c,l=0] wither 1 4 true",
+                                "scoreboard players add @s[m=!c] billbanana 1",
+                                "xp -1L @s[m=!c,scores={billbanana=5}]",
+                                "playsound random.orb @s[m=!c,scores={billbanana=5}] ~~~ 1.00 0.8 0.5",
+                                "scoreboard players set @s[m=!c,scores={billbanana=5}] billbanana 0"
+                            ],
+                            "target": "other"
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "playanimation @s animation.billeys_mobs.banana_duck.pugehenis"
+                            ]
+                        }
+                    },
+                    {
+                        "sequence": [
+                            {
+                                "randomize": [
+                                    {
+                                        "weight": 4,
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s speed 10"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 4,
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s absorption 10"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 4,
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s resistance 10"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 4,
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s strength 10"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 4,
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s water_breathing 10"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 4,
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s fire_resistance 10"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "weight": 1,
+                                        "sequence": [
+                                            {
+                                                "queue_command": {
+                                                    "command": [
+                                                        "effect @s levitation 1 0 true"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "queue_command": {
+                                                    "target": "other",
+                                                    "command": [
+                                                        "effect @s levitation 1 0 true"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "queue_command": {
+                            "command": "scriptevent billey:banana_duck_banana_xp"
+                        }
+                    },
+                    {
+                        "trigger": "check_level"
+                    }
+                ]
             },
             "wearhat": {
                 "sequence": [
@@ -1694,6 +1937,479 @@ The real tame items of this mob are in the wild component group*/
                     }
                 ]
             },
+            "check_level": {
+                "filters": {
+                    "all_of": [
+                        {
+                            "test": "has_component",
+                            "value": "minecraft:is_tamed"
+                        },
+                        {
+                            "test": "has_component",
+                            "operator": "not",
+                            "value": "minecraft:is_baby"
+                        }
+                    ]
+                },
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 2
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 30.0 //xp_level_2
+                                }
+                            ]
+                        },
+                        "trigger": "to_level2"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 3
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 90.0 //xp_level_3
+                                }
+                            ]
+                        },
+                        "trigger": "to_level3"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 4
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 180.0 //xp_level_4
+                                }
+                            ]
+                        },
+                        "trigger": "to_level4"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 5
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 310.0 //xp_level_5
+                                }
+                            ]
+                        },
+                        "trigger": "to_level5"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 6
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 520.0 //xp_level_6
+                                }
+                            ]
+                        },
+                        "trigger": "to_level6"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 7
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 890.0 //xp_level_7
+                                }
+                            ]
+                        },
+                        "trigger": "to_level7"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 8
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 1650.0 //xp_level_8
+                                }
+                            ]
+                        },
+                        "trigger": "to_level8"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 9
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 3310.0 //xp_level_9
+                                }
+                            ]
+                        },
+                        "trigger": "to_level9"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 10
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 7150.0 //xp_level_10
+                                }
+                            ]
+                        },
+                        "trigger": "to_level10"
+                    }
+                ]
+            },
+            "to_level1": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level1"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "1",
+                            "billey:xp": "0"
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.reset\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level2": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level2"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "2",
+                            "billey:xp": "30" //xp_level_2
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level3": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level3"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "3",
+                            "billey:xp": "90" //xp_level_3
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level4": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level4"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "4",
+                            "billey:xp": "180" //xp_level_4
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level5": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level5"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "5",
+                            "billey:xp": "310" //xp_level_5
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level6": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level6"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "6",
+                            "billey:xp": "520" //xp_level_6
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level7": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level7"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "7",
+                            "billey:xp": "890" //xp_level_7
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level8": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level8"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "8",
+                            "billey:xp": "1650" //xp_level_8
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5",
+                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.oneshot\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level9": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level9"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "9",
+                            "billey:xp": "3310" //xp_level_9
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level10": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level10"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "10",
+                            "billey:xp": "7150" //xp_level_10
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info.only_health_and_damage\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
             "beno": {
                 "add": {
                     "component_groups": [
@@ -1828,12 +2544,12 @@ The real tame items of this mob are in the wild component group*/
                                 "weight": 10,
                                 "add": {
                                     "component_groups": [
-                                        "variant3"
+                                        "variant1"
                                     ]
                                 }
                             },
                             {
-                                "weight": 2,
+                                "weight": 10,
                                 "add": {
                                     "component_groups": [
                                         "variant2"

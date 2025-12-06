@@ -46,9 +46,6 @@
             "move": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && q.variant == 0"
           },
           {
-            "moveinball": "(!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && (q.variant > 0)) ? q.modified_move_speed : 0"
-          },
-          {
             "hurt": "(q.max_health - q.health) / 3"
           },
           "contsheared",

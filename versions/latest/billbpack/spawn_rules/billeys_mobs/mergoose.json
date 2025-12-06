@@ -12,10 +12,6 @@
           },
           "minecraft:spawns_on_surface": {},
           "minecraft:spawns_underwater": {},
-          "minecraft:distance_filter": {
-            "min": 24,
-            "max": 32
-          },
           "minecraft:weight": {
             "default": 5
           },

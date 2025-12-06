@@ -1,5 +1,5 @@
 import { world } from "@minecraft/server";
-import { beneficalEffects } from "./utility";
+import { beneficalEffects, playSoundAtEntity } from "./utility";
 import { trueBeneficialEffects } from "./utility";
 import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/server-ui";
 
@@ -156,6 +156,12 @@ world.afterEvents.itemCompleteUse.subscribe(data => {
 			data.source.addEffect("regeneration", 300);
 			data.source.addEffect("resistance", 300, { amplifier: 1 });
 			data.source.addEffect("fire_resistance", 300);
+			break;
+		case "billey:golden_gooseberries":
+		case "billey:gooseberries":
+			const prevTime = data.source.getDynamicProperty("gooseberry_thorn_time") ?? 0;
+			data.source.setDynamicProperty("gooseberry_thorn_time", prevTime + 120);
+			playSoundAtEntity(data.source, "billey.goose.say", { pitch: 0.8 + 0.2 * Math.random() });
 			break;
 	}
 });

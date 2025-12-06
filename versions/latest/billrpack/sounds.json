@@ -867,6 +867,36 @@
                     "plop": "mob.chicken.plop"
                 }
             },
+            "billey:berry_goose": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": {
+                        "sound": "billey.goose.say",
+                        "pitch": [
+                            0.7,
+                            0.9
+                        ]
+                    },
+                    "equip": "mob.horse.armor",
+                    "death": {
+                        "sound": "billey.goose.say",
+                        "pitch": [
+                            0.45,
+                            0.65
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
             "billey:hamster": {
                 "volume": 1.0,
                 "pitch": [

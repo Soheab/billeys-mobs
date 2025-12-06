@@ -22,7 +22,7 @@
         }
       },
       "geometry": "Geometry.default",
-      "materials": [ { "*": "Material.default" } ],
+      "materials": [ { "*": "Material.default", "hairs": "Material.blend" } ],
       "overlay_color": {
           "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
           "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",

@@ -442,7 +442,27 @@
 		},
 		"billey.duckatrice_boss_spawn_egg": {
 			"textures": "textures/billeyitems/duckatrice_boss_spawn_egg"
+		},
+		"billey.gooseberries": {
+			"textures": "textures/billeyitems/gooseberries"
+		},
+		"billey.golden_gooseberries": {
+			"textures": "textures/billeyitems/golden_gooseberries"
+		},
+		"billey.instant_health_potion": {
+			"textures": "textures/items/potion_bottle_heal"
+		},
+		"billey.jump_boost_potion": {
+			"textures": "textures/items/potion_bottle_jump"
+		},
+		"billey.regeneration_potion": {
+			"textures": "textures/items/potion_bottle_regeneration"
+		},
+		"billey.strength_potion": {
+			"textures": "textures/items/potion_bottle_damageBoost"
+		},
+		"billey.speed_potion": {
+			"textures": "textures/items/potion_bottle_moveSpeed"
 		}
-		//stfu blockception extension
 	}
 }

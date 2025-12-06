@@ -577,6 +577,20 @@ item.billey:mercat_plushie=Mercat Plushie
 
 item.billey:giraffe_cat_treat=Giraffe Cat Treat
 
+item.billey:gooseberries=Gooseberries
+
+item.billey:golden_gooseberries=Golden Gooseberries
+
+item.billey:instant_health_potion_3=Potion of Healing III
+
+item.billey:jump_boost_potion_3=Potion of Leaping III §7(1:00)§r
+
+item.billey:regeneration_potion_3=Potion of Regeneration III §7(1:00)§r
+
+item.billey:speed_potion_3=Potion of Swiftness III §7(1:00)§r
+
+item.billey:strength_potion_3=Potion of Strength III §7(1:00)§r
+
 
 ##Blocks
 
@@ -1247,6 +1261,10 @@ ui.billeys_mobs.info.duckatrice_boss=§e§l=========DUCKATRICE BOSS=========%1%1
 ui.billeys_mobs.info.giraffe_cat=§e§l======GIRAFFE CAT======%1%1§r§l§6- General%1§r§aGiraffe cats§9 spawn in §asavannas§9 and can be §atamed with§9 raw or cooked, §afish, chicken, or hamster§9, or with §aleaves§9.%1%1§l§6- Throwing Pets%1§r§9When a tamed giraffe cat has a §atarget§9 and there's a nearby §atamed pet§9 of the same owner, it will §apick up and yeet the other pet at the enemy§9. If the thrown pet hits the target it will §adeal damage on impact§9 and will continue to attack the target, even if it doesn't usually defend its owner. Pets that are sitting won't be yeeted.%1%1§l§6- Living Ladder%1§r§9If you §ause a ladder§9 on a giraffe cat, it will §aextend its neck§9 and allow you to §ause it as a ladder§9. You can §aincrease or decrease§9 its ladder height up to §a64 blocks§9 by using a ladder on it while not sneaking or sneaking respectively. After climbing above your giraffe cat, it §ateleports to you§9 and returns to normal, even if it was sitting.%1If you don't want that to happen then either let your friends climb it first or make it wander.%1%1§l§6- Digging Up Mobs%1§r§9If the giraffe cat is §astanding on grass§9 or dirt, and §afed a giraffe cat treat§9, it will shove its head in the ground and eventually §adig up a§9 random borrowing critter like a §arat§9, §ahamster§9, or §akiwi§9. Other add-ons can add more mobs to the diggable mobs, see line 428 in scripts/billeys_mobs/giraffe_cat.js in the add-on's behavior pack if you're an add-on creator.%1%1§l§6- Crossbreeding with Cats%1§r§9If you breed a giraffe cat with a cat, the result will be a giraffe cat with the texture of the cat.%1%1§l§d- Leveling%1§r§9Giraffe cats can §alevel up§9 by killing mobs, either directly or by throwing pets. When they level up §atheir health and attack damage increase§9.
 
 ui.billeys_mobs.short_info.giraffe_cat=§aGiraffe cats§f are tamed with raw or cooked fish, chicken or hamster. They can be used as ladders, dig out rodents, and throw your pets at the enemy.
+
+ui.billeys_mobs.info.berry_goose=§e§l======BERRY GOOSE======%1%1§r§l§6- General%1§r§aBerry geese§9 spawn in §alush caves§9 and can be §atamed with pumpkin pie§9. After being tamed they can be bred and healed with pumpkin pie but also with bread, pumpkin and pumpkin seeds§9.%1%1§l§6- Gooseberries%1§r§9A tamed berry goose can §amake gooseberries for you§9 by turning certain foods in your hand into §agooseberries§9. At first it will accept §aapples§9, and as it levels up it can also turn §asweet berries§9 (level §a5+§9), §apoultry oranges§9 (level §a7+§9) and §amelons§9 (level §a10§9) into gooseberries. Making gooseberries slightly drains your XP, but also gives the berry goose random buffs and makes it slightly progress through leveling.%1%1§l§6- Golden Gooseberries%1§r§aGolden gooseberries§9 can be §acrafted§9 by surrounding a gooseberry with 8 gold ingots in a crafting table. They §afeed you more§9 (hunger and saturation) than a normal gooseberry and can be used in brewing to §aupgrade tier II potions of jump boost, swiftness, strength, instant health and regeneration into new tier III potions§9.%1%1§l§6- Gooseberry Thorns%1§r§9Both §agooseberries§9 and §agolden gooseberries§9 give the eater a §atemporary thorny aura§9. While this effect is active, any mob that hits you in melee will §atake damage in return§9, and the more gooseberries you have recently eaten, the §alonger and stronger§9 this aura becomes before it wears off. Berry geese themselves also have built-in §athorns§9: whenever something hits them in melee, the attacker takes damage based on the goose's §alevel§9, making high-level berry geese very punishing to fight up close.%1%1§l§d- Leveling%1§r§9Berry geese have §aten levels§9. They gain XP by §afighting and making gooseberries§9, and whenever they level up their §amax health and attack damage, speed and reach increase§9, as does the damage reflected by their thorns.
+
+ui.billeys_mobs.short_info.berry_goose=§aBerry geese§f are tamed with pumpkin pie and their berries can give you a spiky effect or make potions stronger.
 
 ui.billeys_mobs.info.leveling=...
 

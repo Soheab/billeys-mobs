@@ -173,5 +173,9 @@ export const BILLEYS_MOBS = [
 	{
 		id: "giraffe_cat",
 		category: ["cat", "recommended", "other"]
+	},
+	{
+		id: "berry_goose",
+		category: "dinosaur"
 	}
 ];

@@ -56,9 +56,6 @@
           "v.head_size_y = 4;",
           "v.head_size_z = 5;"
         ],
-        "pre_animation": [
-          "v.mark_variant = q.property('billey:mark_variant');"
-        ],
         "animate": [
           "new",
           "ritual_or_anything_else_cont",

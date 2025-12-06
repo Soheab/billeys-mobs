@@ -23,10 +23,6 @@
             "min_size": 3,
             "max_size": 6
           },
-          "minecraft:distance_filter": {
-            "min": 24,
-            "max": 32
-          },
           "minecraft:biome_filter": {
             "any_of": [
                 {"test": "has_biome_tag", "operator":"==", "value": "swamp"}

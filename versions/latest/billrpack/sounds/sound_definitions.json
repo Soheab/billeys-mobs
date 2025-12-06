@@ -134,6 +134,23 @@
                 }
             ]
         },
+        "billey.berry_goose.say": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/berrygoosesay",
+                    "volume": 0.5
+                },
+                {
+                    "name": "sounds/billeysmobs/berrygoosesay1",
+                    "volume": 0.5
+                },
+                {
+                    "name": "sounds/billeysmobs/berrygoosesay2",
+                    "volume": 0.5
+                }
+            ]
+        },
         "billey.goose.saybaby": {
             "category": "neutral",
             "sounds": [

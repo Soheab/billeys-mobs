@@ -8,6 +8,7 @@ import { happinessTick, TICKS_PER_HAPPY_TICK } from "./happiness/happiness";
 import { onPlayerGetOnBed, onPlayerGetOutOfBed } from "./mercat";
 import { giraffeCatTick, playerLandAfterClimbingGiraffeCat } from "./giraffe_cat";
 import { trySavePetDatabase } from "./pet_database";
+import { tickGooseberryThorns } from "./berry_goose";
 
 system.runInterval(() => {
 	const { currentTick } = system;
@@ -172,6 +173,10 @@ system.runInterval(() => {
 
 		if (player.__climbingGiraffeCat && player.isOnGround) {
 			playerLandAfterClimbingGiraffeCat(player);
+		}
+
+		if (player.getDynamicProperty("gooseberry_thorn_time") > 0) {
+			tickGooseberryThorns(player);
 		}
 
 		/*

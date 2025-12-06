@@ -5,7 +5,7 @@
       "identifier": "billey:berry_goose",
       "materials": {
         "default": "entity_alphatest",
-        "cat": "cat"
+        "blend": "entity_alphablend"
       },
       "textures": {
         "variant0": "textures/entity/billeys_mobs/berry_goose",
@@ -26,7 +26,8 @@
         "default": "geometry.billeys_mobs.berry_goose"
       },
       "particle_effects": {
-        "zeelol": "billey:zeeduck"
+        "zeelol": "billey:zeeduck",
+        "banana": "billey:gooseberries"
       },
       "animations": {
         "new": "animation.billeys_mobs.duckproj.body",
@@ -40,7 +41,7 @@
         "look_at_target": "animation.billeys_mobs.duck.look_at_target",
         "look_at_target_baby": "animation.common.look_at_target",
         "baby_transform": "animation.billeys_mobs.duck.ling2",
-        "flap_wings": "animation.billeys_mobs.duck.fall",
+        "fall": "animation.billeys_mobs.duck.fall",
         "sheared": "animation.billeys_mobs.duck.quack",
         "shearedbaby": "animation.billeys_mobs.duck.quackbaby",
         "saddled": "animation.billeys_mobs.duck.flap",
@@ -54,14 +55,16 @@
         "controller.sheared": "controller.animation.billeys_mobs.sheared",
         "controller.shearedbaby": "controller.animation.billeys_mobs.shearedbaby",
         "controller.eat": "controller.animation.billeys_mobs.eat",
+        "controller.ground": "controller.animation.billeys_mobs.ground",
         "controller.saddled": "controller.animation.billeys_mobs.saddled",
         "controller.swim": "controller.animation.billeys_mobs.swim",
         "angrycon": "controller.animation.billeys_mobs.duckangry",
         "controller.sleep": "controller.animation.billeys_mobs.sleep"
       },
       "sound_effects": {
-        "quack": "billey.goose.say",
-        "quackbaby": "billey.goose.saybaby"
+        "quack": "billey.berry_goose.say",
+        "quackbaby": "billey.goose.saybaby",
+        "burp": "random.burp"
       },
       "scripts": {
                 "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
@@ -121,7 +124,7 @@
             "look_at_target_baby": "q.is_baby"
           },
           {
-            "flap_wings": "!q.is_in_water && !q.is_saddled && !q.has_rider && !q.is_on_ground"
+            "controller.ground": "!q.is_saddled"
           },
           {
             "move": "q.modified_move_speed * 1.5"
@@ -137,8 +140,8 @@
         "controller.render.billeys_mobs.berry_goose"
       ],
       "spawn_egg": {
-        "base_color": "#FEFFFF",
-        "overlay_color": "#FF6E04"
+        "base_color": "#D3E871",
+        "overlay_color": "#596FAA"
       }
     }
   }

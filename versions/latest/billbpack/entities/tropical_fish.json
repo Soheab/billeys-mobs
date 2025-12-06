@@ -1214,7 +1214,7 @@
       "minecraft:behavior.swim_idle": {
         "priority": 5
       },
-      "minecraft:behavior.random_swim": { // Randomly selects points to go to, even in water
+      "minecraft:behavior.random_swim": {
         "priority": 3,
         "speed_multiplier": 1.0,
         "xz_dist": 16,
