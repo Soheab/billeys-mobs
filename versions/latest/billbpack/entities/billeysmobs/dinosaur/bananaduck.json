@@ -30,7 +30,7 @@
                     "gold",
                     "bananafire",
                     {
-                        "flyfuck": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_sleeping"
+                        "flyfook": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_sleeping"
                     },
                     {
                         "ornithologist": "q.is_sheared && q.is_tamed"
@@ -48,7 +48,7 @@
                 "tame": "controller.animation.billeys_mobs.tame",
                 "bananafire": "controller.animation.billeys_mobs.bananafire",
                 "gold": "controller.animation.billeys_mobs.duck.gold",
-                "flyfuck": "controller.animation.fuck.fly",
+                "flyfook": "controller.animation.fook.fly",
                 "ornithologist": "animation.banana_duck.ornithologist",
                 "can_sleep": "controller.animation.billeys_mobs.can_sleep"
             },

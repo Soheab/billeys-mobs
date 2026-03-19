@@ -463,7 +463,6 @@
                 ],
                 "events": {
                     "hurt": "billey.duck.hit",
-                    "equip": "mob.horse.armor",
                     "death": {
                         "sound": "billey.duck.death",
                         "volume": 1.0,
@@ -851,7 +850,6 @@
                             0.9
                         ]
                     },
-                    "equip": "mob.horse.armor",
                     "death": {
                         "sound": "billey.goose.say",
                         "pitch": [
@@ -881,7 +879,6 @@
                             0.9
                         ]
                     },
-                    "equip": "mob.horse.armor",
                     "death": {
                         "sound": "billey.goose.say",
                         "pitch": [
@@ -911,17 +908,14 @@
                         "sound": "mob.fox.hurt",
                         "pitch": 1.6
                     },
-                    "equip": "mob.horse.armor",
                     "mad": "mob.fox.aggro",
-                    "sniff": "mob.fox.sniff",
                     "attack": "mob.fox.bite",
                     "eat": "mob.fox.eat",
                     "screech": {
                         "sound": "mob.fox.screech",
                         "volume": 2
                     },
-                    "sleep": "mob.fox.sleep",
-                    "spit": "mob.fox.spit"
+                    "sleep": "mob.fox.sleep"
                 }
             },
             "billey:rat": {
@@ -938,17 +932,14 @@
                         "sound": "mob.fox.hurt",
                         "pitch": 1.6
                     },
-                    "equip": "mob.horse.armor",
                     "mad": "mob.fox.aggro",
-                    "sniff": "mob.fox.sniff",
                     "attack": "mob.fox.bite",
                     "eat": "mob.fox.eat",
                     "screech": {
                         "sound": "mob.fox.screech",
                         "volume": 2
                     },
-                    "sleep": "mob.fox.sleep",
-                    "spit": "mob.fox.spit"
+                    "sleep": "mob.fox.sleep"
                 }
             },
             "billey:rat_minion": {
@@ -965,17 +956,14 @@
                         "sound": "mob.fox.hurt",
                         "pitch": 1.6
                     },
-                    "equip": "mob.horse.armor",
                     "mad": "mob.fox.aggro",
-                    "sniff": "mob.fox.sniff",
                     "attack": "mob.fox.bite",
                     "eat": "mob.fox.eat",
                     "screech": {
                         "sound": "mob.fox.screech",
                         "volume": 2
                     },
-                    "sleep": "mob.fox.sleep",
-                    "spit": "mob.fox.spit"
+                    "sleep": "mob.fox.sleep"
                 }
             },
             "billey:catfish": {
@@ -1323,7 +1311,6 @@
                 ],
                 "events": {
                     "hurt": "billey.duckatrice.hurt",
-                    "equip": "mob.horse.armor",
                     "death": {
                         "sound": "billey.duck.death",
                         "volume": 1.0,
@@ -1348,7 +1335,6 @@
                 ],
                 "events": {
                     "hurt": "billey.duckatrice.hurt",
-                    "equip": "mob.horse.armor",
                     "death": {
                         "sound": "billey.duck.death",
                         "volume": 1.0,
@@ -1373,7 +1359,6 @@
                 ],
                 "events": {
                     "hurt": "billey.duck.hit",
-                    "equip": "mob.horse.armor",
                     "death": {
                         "sound": "billey.duck.death",
                         "volume": 1.0,

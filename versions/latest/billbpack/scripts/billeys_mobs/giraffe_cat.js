@@ -264,7 +264,9 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {
                     "random.bow",
                     { pitch: 0.6 + Math.random() / 5 - 0.1, volume: 2 }
                 );
-                const yeetTime = 20;
+                const yeetTime = 20 * (
+                    getDistanceXYZ(target.location, sourceEntity.location)
+                ) / BLOCKS_THAT_TAKE_A_SECOND_TO_REACH;
 
                 const targetApproximateFutureLocation = add(
                     target.location,
@@ -283,6 +285,8 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {
         }
     }
 });
+
+const BLOCKS_THAT_TAKE_A_SECOND_TO_REACH = 10;
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
     if (eventId == "billey:pet_target_escape"

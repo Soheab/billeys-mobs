@@ -116,6 +116,30 @@ export function dropAll(container, dimension, location) {
 export function playSoundAtEntity(entity, sound, options) {
 	entity.dimension.playSound(sound, entity.location, options);
 };
+/** 
+ * @param {Block} block
+ * @param {string} sound
+ * @param {import('@minecraft/server').WorldSoundOptions | undefined} options
+ * Plays a sound at the location and dimension of an entity for all players.
+ */
+export function playSoundAtBlockCenter(block, sound, options) {
+	block.dimension.playSound(sound, {
+		x: block.x + 0.5,
+		y: block.y + 0.5,
+		z: block.z + 0.5
+	}, options);
+};
+/** 
+ * @param {Block} block
+ * @param {ItemStack} itemStack
+ */
+export function spawnItemInBlockCenter(block, itemStack) {
+	block.dimension.spawnItem(itemStack, {
+		x: block.x + 0.5,
+		y: block.y + 0.5,
+		z: block.z + 0.5
+	});
+};
 /**
  * @param {Entity} entity
  * @param {string} projectileId
@@ -152,7 +176,7 @@ export function damageItem(entity, amount) {
 
 /**
  * @param {Player} player 
- * @returns True if the item stack was decremented to nothing(the player had 1 in their hand).
+ * @returns True if the item stack was decremented to nothing(the player had 1 of the item in their hand).
  */
 export function decrementStack(player) {
 	if (player.getGameMode() == "Creative") return false;

@@ -145,29 +145,6 @@
         "a": "0"
       }
     },
-    "controller.render.billeys_mobs.centipedehat": {
-      "geometry": "Geometry.hatcenti",
-      "materials": [
-        {
-          "*": "Material.cat"
-        }
-      ],
-      "textures": [
-        "texture.centipedehat"
-      ],
-      "overlay_color": {
-        "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
-        "g": "math.sin(q.life_time * 300 + q.variant * 234 + 220)",
-        "b": "math.sin(q.life_time * 300 + q.variant * 234 + 340)",
-        "a": "q.is_illager_captain ? 0.4 : 0.0"
-      },
-      "is_hurt_color": {
-        "r": "math.sin(q.life_time * 1200 + q.variant * 1200)",
-        "g": "math.sin(q.life_time * 1200 + q.variant * 1200 + 120)",
-        "b": "math.sin(q.life_time * 1200 + q.variant * 1200 + 240)",
-        "a": "q.is_illager_captain ? 0.5 : 0.0"
-      }
-    },
     "controller.render.billeys_mobs.duckchest": {
       "geometry": "Geometry.chest",
       "materials": [

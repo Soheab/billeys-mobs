@@ -4,8 +4,7 @@
         "description": {
             "identifier": "billey:mergoose",
             "materials": {
-                "default": "entity_alphatest",
-                "cat": "cat"
+                "default": "entity_alphatest"
             },
             "textures": {
                 "zero": "textures/entity/billeys_mobs/mergoose",
@@ -66,10 +65,7 @@
             "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-                "controller.render.billeys_mobszambie.kiwi",
-                {
-                    "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
-                }
+                "controller.render.billeys_mobszambie.kiwi"
             ],
             "spawn_egg": {
                 "base_color": "#A5A7AF",

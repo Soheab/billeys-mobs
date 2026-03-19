@@ -975,38 +975,12 @@ The real tame items of this mob are in the wild component group*/
                 "entity_types": [
                     {
                         "filters": {
-                            "none_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "goose"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "creeper"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "inanimate"
-                                },
+                            "all_of": [
                                 {
                                     "test": "has_component",
-                                    "subject": "other",
+                                    "subject": "self",
+                                    "operator": "not",
                                     "value": "minecraft:is_tamed"
-                                },
-                                {
-                                    "test": "has_equipment",
-                                    "subject": "other",
-                                    "domain": "any",
-                                    "value": "minecraft:melon"
-                                },
-                                {
-                                    "test": "has_equipment",
-                                    "subject": "other",
-                                    "domain": "any",
-                                    "value": "minecraft:glistering_melon_slice"
                                 },
                                 {
                                     "test": "is_family",
@@ -1015,7 +989,7 @@ The real tame items of this mob are in the wild component group*/
                                 }
                             ]
                         },
-                        "max_dist": 10
+                        "max_dist": 4
                     }
                 ]
             },

@@ -33,6 +33,7 @@ import "./mercat";
 import "./giraffe_cat";
 import "./end_rod_projectile";
 import "./berry_goose";
+import "./fish_tank";
 import { playSoundAtEntity } from "./utility";
 import { loadPiranhaLauncher } from "./interactions";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";

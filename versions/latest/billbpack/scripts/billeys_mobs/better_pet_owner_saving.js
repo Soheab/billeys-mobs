@@ -251,9 +251,3 @@ world.beforeEvents.playerInteractWithEntity.subscribe(({ target }) => {
         }
     });
 });
-
-world.beforeEvents.entityRemove.subscribe(({removedEntity})=>{
-    if (removedEntity.typeId.startsWith("billey:") && removedEntity.hasComponent("minecraft:is_tamed")) {
-        removePetFromDatabase(removedEntity.id);
-    }
-});

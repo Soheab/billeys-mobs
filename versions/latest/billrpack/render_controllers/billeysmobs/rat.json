@@ -160,9 +160,6 @@
             "materials": [
                 {
                     "*": "Material.default"
-                },
-                {
-                    "eyes": "Material.eyes"
                 }
             ],
             "textures": [

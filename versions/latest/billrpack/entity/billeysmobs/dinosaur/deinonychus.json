@@ -5,7 +5,7 @@
         "identifier": "billey:deinonychus",
         "materials": {
           "default": "entity_alphatest",
-          "cat": "cat"
+          "opaque": "entity" //unused, only here because it uses the betta fish render controller and the content log would throw an error otherwise. I should've made a separate render controller for deinonychuses but whatever
         },
         "textures": {
           "zero": "textures/entity/billeys_mobs/deinonychus",

@@ -1142,60 +1142,6 @@ The real tame items of this mob are in the wild component group*/
                     "dinosaur"
                 ]
             },
-            "minecraft:behavior.nearest_attackable_target": {
-                "priority": 4,
-                "attack_interval": 25,
-                "entity_types": [
-                    {
-                        "filters": {
-                            "none_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "goose"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "creeper"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "inanimate"
-                                },
-                                {
-                                    "test": "has_component",
-                                    "subject": "other",
-                                    "value": "minecraft:is_tamed"
-                                },
-                                {
-                                    "test": "has_equipment",
-                                    "subject": "other",
-                                    "domain": "any",
-                                    "value": "minecraft:melon"
-                                },
-                                {
-                                    "test": "has_equipment",
-                                    "subject": "other",
-                                    "domain": "any",
-                                    "value": "minecraft:glistering_melon_slice"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "player"
-                                },
-                                {
-                                    "test": "in_water_or_rain",
-                                    "subject": "other"
-                                }
-                            ]
-                        },
-                        "max_dist": 10
-                    }
-                ]
-            },
             "minecraft:breathable": {
                 "total_supply": 15,
                 "suffocate_time": 0,

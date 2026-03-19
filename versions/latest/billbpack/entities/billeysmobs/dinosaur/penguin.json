@@ -724,7 +724,7 @@ The real tame items of this mob are in the wild component group*/
 						"billey:pizzapiece"
 					],
 					"tame_event": {
-						"event": "get_tamed_fucker"
+						"event": "get_tamed_fooker"
 					}
 				}
 			},
@@ -2354,7 +2354,7 @@ The real tame items of this mob are in the wild component group*/
 							"value": "minecraft:is_baby",
 							"operator": "not"
 						},
-						"trigger": "get_tamed_fucker"
+						"trigger": "get_tamed_fooker"
 					}
 				]
 			},
@@ -2379,7 +2379,7 @@ The real tame items of this mob are in the wild component group*/
 					]
 				}
 			},
-			"get_tamed_fucker": {
+			"get_tamed_fooker": {
 				"add": {
 					"component_groups": [
 						"tamed",

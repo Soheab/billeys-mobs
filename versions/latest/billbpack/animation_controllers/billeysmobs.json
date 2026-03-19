@@ -1,28 +1,6 @@
 {
 	"format_version": "1.10.0",
 	"animation_controllers": {
-		"controller.animation.billeys_mobs.slime_wyvern_remove_angry": {
-			"initial_state": "calm",
-			"states": {
-				"calm": {
-					"transitions": [
-						{
-							"sitting": "q.has_target"
-						}
-					],
-					"on_entry": [
-						"@s billey:on_target_escape"
-					]
-				},
-				"has_target": {
-					"transitions": [
-						{
-							"calm": "!q.has_target"
-						}
-					]
-				}
-			}
-		},
 		"controller.animation.billeys_mobs.set_sitting_property": {
 			"initial_state": "standing",
 			"states": {
@@ -747,7 +725,7 @@
 				}
 			}
 		},
-		"controller.animation.fuck.fly": {
+		"controller.animation.fook.fly": {
 			"states": {
 				"default": {
 					"transitions": [

@@ -38,6 +38,39 @@
       "textures": [
         "textures/blocks/billpotatostick"
       ]
-    }
+    },
+    "billeyzambie": {
+      "textures": [
+        "textures/blocks/billeyzambie"
+      ]
+    },
+    "billey.aquarium_gravel": {
+      "textures": [
+        "textures/blocks/billcolorgravel"
+      ]
+    },
+    "billey.fish_tank_bottom": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/bottom"
+      ]
+    },
+    "billey.fish_tank_top": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/top"
+      ]
+    },
+    "billey.fish_tank_side": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/side"
+      ]
+    },
+    "billey.fish_tank_tip": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/tip"
+      ]
+    },
+		"billey.nothing": {
+			"textures": "textures/entity/billeys_mobs/nothing"
+		}
   }
 }

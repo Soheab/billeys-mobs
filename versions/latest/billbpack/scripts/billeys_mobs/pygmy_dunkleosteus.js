@@ -2,7 +2,7 @@ import { world, system, EquipmentSlot, ContainerSlot, ItemStack, Entity, Invalid
 import { decrementStack, itemEnglishName, nameOf, playSoundAtEntity, titleCase } from "./utility";
 import { addOwnerAsDynamicProperty } from "./better_pet_owner_saving";
 
-//This entire file is a fucking mess because I wanted to do it in an hour
+//This entire file is a fooking mess because I wanted to do it in an hour
 
 /**
  * The durability of a single pygmy dunk scute

@@ -27,6 +27,11 @@
             },
             
             "properties": {
+                "billey:in_tank": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": false
+                },
                 "billey:is_billey_mob": {
                     "client_sync": true,
                     "type": "bool",
@@ -438,6 +443,36 @@ The real tame items of this mob are in the wild component group*/
             }
         },
         "components": {
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "event": "exit_fish_tank",
+                        "target": "self",
+                        "filters": [
+                            {
+                                "test": "is_riding",
+                                "subject": "self",
+                                "value": false
+                            },
+                            {
+                                "test": "bool_property",
+                                "subject": "self",
+                                "domain": "billey:in_tank",
+                                "value": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:block_sensor": {
+                "sensor_radius": 0,
+                "on_break": [{
+                    "block_list": [
+                        "billey:fish_tank"
+                    ],
+                    "on_block_broken": "exit_fish_tank"
+                }]
+            },
             "minecraft:health": {
                 "value": 8,
                 "max": 8
@@ -990,6 +1025,16 @@ The real tame items of this mob are in the wild component group*/
         },
         
         "events": {
+            "enter_fish_tank": {
+                "set_property": {
+                    "billey:in_tank": true
+                }
+            },
+            "exit_fish_tank": {
+                "set_property": {
+                    "billey:in_tank": false
+                }
+            },
             "reset_target": {
                 "reset_target": {}
             },"destroy_head_equipment": {

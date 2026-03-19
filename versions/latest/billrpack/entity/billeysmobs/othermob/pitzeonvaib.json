@@ -8,8 +8,7 @@
         "default": "textures/entity/billeys_mobs/pigeon"
       },
       "geometry": {
-        "default": "geometry.billeys_mobs.pigeon",
-        "hat": "geometry.billeys_mobs.pigeonhat"
+        "default": "geometry.billeys_mobs.pigeon"
       },
       "animations": {
         "new": "animation.billeys_mobs.duckproj.body",
@@ -27,7 +26,7 @@
       },
       "enable_attachables": true,
       "hide_armor": false,
-      "render_controllers": [ "controller.render.billeys_mobs_default", {"controller.render.billeys_mobs.bduckhat":"q.is_powered"} ],
+      "render_controllers": [ "controller.render.billeys_mobs_default" ],
       "spawn_egg": {
         "base_color": "#2D4456",
         "overlay_color": "#AAC7E2"

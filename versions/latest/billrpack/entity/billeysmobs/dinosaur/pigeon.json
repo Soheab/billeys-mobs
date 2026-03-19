@@ -4,8 +4,7 @@
     "description": {
       "identifier": "billey:pigeon",
       "materials": {
-        "default": "entity_alphatest",
-        "cat": "cat"
+        "default": "entity_alphatest"
       },
       "textures": {
         "default": "textures/entity/billeys_mobs/pigeon",
@@ -26,7 +25,6 @@
       "animations": {
         "new2": "animation.billeys_mobs.duckproj.body",
         "walk": "animation.billeys_mobs.pigeon.walk",
-        "fly": "animation.billeys_mobs.pigeon.fly",
         "hurt": "animation.billeys_mobs.pigeon.hurt",
         "sit": "animation.billeys_mobs.pigeon.sit",
         "sleep": "animation.billeys_mobs.pigeon.sleep",
@@ -71,7 +69,6 @@
           {
             "flap": "!q.is_on_ground && !q.is_riding"
           },
-          "fly",
           {
             "controller.eatfloor": "q.is_on_ground&&!q.is_sitting"
           },

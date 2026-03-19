@@ -3,10 +3,9 @@
     "minecraft:client_entity": {
         "description": {
             "identifier": "billey:rat_minion",
-            "materials": {
-                "default": "entity_alphatest",
-                "eyes": "entity_emissive_alpha"
-            },
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
             "textures": {
                 "of_potion": "textures/entity/billeys_mobs/rat_minion",
                 "hostile": "textures/entity/billeys_mobs/rat_minion_hostile",

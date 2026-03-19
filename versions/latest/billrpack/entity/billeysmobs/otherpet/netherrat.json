@@ -5,7 +5,6 @@
             "identifier": "billey:netherrat",
             "materials": {
                 "default": "villager_v2_masked",
-                "cat": "cat",
                 "eyes": "entity_emissive_alpha"
             },
             "textures": {
@@ -117,10 +116,7 @@
             "enable_attachables": true,
       "hide_armor": false,
       "render_controllers": [
-                "controller.render.billeys_mobs.netherrat", //in the rat render controller file
-                {
-                    "controller.render.billeys_mobs.bduckhat": "q.is_saddled"
-                }
+                "controller.render.billeys_mobs.netherrat" //in the rat render controller file
             ],
             "spawn_egg": {
                 "base_color": "#7F163D",

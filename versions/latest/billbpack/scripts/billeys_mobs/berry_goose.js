@@ -1,5 +1,5 @@
-import { EntityInitializationCause, Player, system, world } from "@minecraft/server";
-import { playSoundAtEntity, vectorToColorfulString } from "./utility";
+import { Player, system, world } from "@minecraft/server";
+import { playSoundAtEntity } from "./utility";
 
 world.afterEvents.entityHurt.subscribe(({ hurtEntity, damage, damageSource }) => {
     const damager = damageSource.damagingEntity;
