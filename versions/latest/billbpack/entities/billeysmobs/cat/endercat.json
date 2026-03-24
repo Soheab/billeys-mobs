@@ -209,8 +209,8 @@ The real tame items of this mob are in the wild component group*/
 					"require_full_health": true,
 					"breeds_with": [
 						{
-							"mateType": "billey:endercat",
-							"babyType": "billey:endercat",
+							"mate_type": "billey:endercat",
+							"baby_type": "billey:endercat",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"

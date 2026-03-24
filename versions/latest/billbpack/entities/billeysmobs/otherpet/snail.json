@@ -203,8 +203,8 @@ The real tame items of this mob are in the wild component group*/
 					"allow_sitting": false,
 					"blend_attributes": true,
 					"breeds_with": {
-						"mateType": "billey:snail",
-						"babyType": "billey:snail",
+						"mate_type": "billey:snail",
+						"baby_type": "billey:snail",
 						"breed_event": {
 							"event": "minecraft:entity_born",
 							"target": "baby"

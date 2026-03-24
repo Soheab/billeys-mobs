@@ -429,16 +429,16 @@ The real tame items of this mob are in the wild component group*/
 					"allow_sitting": true,
 					"breeds_with": [
 						{
-							"mateType": "billey:pigeon",
-							"babyType": "billey:pigeon",
+							"mate_type": "billey:pigeon",
+							"baby_type": "billey:pigeon",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"
 							}
 						},
 						{
-							"mateType": "billey:goose",
-							"babyType": "billey:goose",
+							"mate_type": "billey:goose",
+							"baby_type": "billey:goose",
 							"breed_event": {
 								"event": "minecraft:entity_born_blue",
 								"target": "baby"
@@ -453,16 +453,16 @@ The real tame items of this mob are in the wild component group*/
 							}
 						},
 						{
-							"mateType": "billey:penguin",
-							"babyType": "billey:kiwi",
+							"mate_type": "billey:penguin",
+							"baby_type": "billey:kiwi",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"
 							}
 						},
 						{
-							"mateType": "billey:duck",
-							"babyType": "billey:pigeon",
+							"mate_type": "billey:duck",
+							"baby_type": "billey:pigeon",
 							"breed_event": {
 								"event": "minecraft:entity_born_white",
 								"target": "baby"

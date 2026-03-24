@@ -2992,40 +2992,40 @@
                     "require_full_health": true,
                     "breeds_with": [
                         {
-                            "mateType": "billey:amogus",
-                            "babyType": "billey:amogus",
+                            "mate_type": "billey:amogus",
+                            "baby_type": "billey:amogus",
                             "breed_event": {
                                 "event": "minecraft:entity_born",
                                 "target": "baby"
                             }
                         },
                         {
-                            "mateType": "billey:goose",
-                            "babyType": "billey:goose",
+                            "mate_type": "billey:goose",
+                            "baby_type": "billey:goose",
                             "breed_event": {
                                 "event": "minecraft:entity_born",
                                 "target": "baby"
                             }
                         },
                         {
-                            "mateType": "billey:pigeon",
-                            "babyType": "billey:pigeon",
+                            "mate_type": "billey:pigeon",
+                            "baby_type": "billey:pigeon",
                             "breed_event": {
                                 "event": "minecraft:entity_born_white",
                                 "target": "baby"
                             }
                         },
                         {
-                            "mateType": "billey:penguin",
-                            "babyType": "billey:amogus",
+                            "mate_type": "billey:penguin",
+                            "baby_type": "billey:amogus",
                             "breed_event": {
                                 "event": "minecraft:entity_born_golden",
                                 "target": "baby"
                             }
                         },
                         {
-                            "mateType": "billey:banana_duck",
-                            "babyType": "billey:banana_duck",
+                            "mate_type": "billey:banana_duck",
+                            "baby_type": "billey:banana_duck",
                             "breed_event": {
                                 "event": "minecraft:entity_born_green",
                                 "target": "baby"

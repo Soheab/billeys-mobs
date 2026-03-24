@@ -668,8 +668,8 @@ The real tame items of this mob are in the wild component group*/
 				"minecraft:breedable": {
 					"require_tame": true,
 					"breeds_with": {
-						"mateType": "billey:picklepet",
-						"babyType": "billey:picklepet",
+						"mate_type": "billey:picklepet",
+						"baby_type": "billey:picklepet",
 						"breed_event": {
 							"event": "minecraft:entity_born",
 							"target": "baby"

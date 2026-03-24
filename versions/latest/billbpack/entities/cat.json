@@ -207,8 +207,8 @@ The real tame items of this mob are in the wild component group*/
 					"allow_sitting": true,
 					"breeds_with": [
 						{
-							"mateType": "minecraft:cat",
-							"babyType": "minecraft:cat",
+							"mate_type": "minecraft:cat",
+							"baby_type": "minecraft:cat",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"

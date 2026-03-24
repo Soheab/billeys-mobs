@@ -209,32 +209,32 @@ The real tame items of this mob are in the wild component group*/
                     "require_full_health": true,
                     "breeds_with": [
                         {
-                            "mateType": "billey:zombified_cat",
-                            "babyType": "billey:zombie_cat",
+                            "mate_type": "billey:zombified_cat",
+                            "baby_type": "billey:zombie_cat",
                             "breed_event": {
                                 "event": "minecraft:entity_born",
                                 "target": "baby"
                             }
                         },
                         {
-                            "mateType": "billey:zombie_cat",
-                            "babyType": "billey:zombie_cat",
+                            "mate_type": "billey:zombie_cat",
+                            "baby_type": "billey:zombie_cat",
                             "breed_event": {
                                 "event": "minecraft:entity_born",
                                 "target": "baby"
                             }
                         },
                         {
-                            "mateType": "minecraft:cat",
-                            "babyType": "minecraft:cat",
+                            "mate_type": "minecraft:cat",
+                            "baby_type": "minecraft:cat",
                             "breed_event": {
                                 "event": "minecraft:entity_born",
                                 "target": "baby"
                             }
                         },
                         {
-                            "mateType": "billey:skeleton_cat",
-                            "babyType": "billey:skeleton_cat",
+                            "mate_type": "billey:skeleton_cat",
+                            "baby_type": "billey:skeleton_cat",
                             "breed_event": {
                                 "event": "minecraft:entity_born",
                                 "target": "baby"

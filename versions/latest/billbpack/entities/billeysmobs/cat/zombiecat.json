@@ -212,16 +212,16 @@ The real tame items of this mob are in the wild component group*/
 					"extra_baby_chance": 0.125,
 					"breeds_with": [
 						{
-							"mateType": "billey:zombie_cat",
-							"babyType": "billey:zombie_cat",
+							"mate_type": "billey:zombie_cat",
+							"baby_type": "billey:zombie_cat",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"
 							}
 						},
 						{
-							"mateType": "minecraft:cat",
-							"babyType": "minecraft:cat",
+							"mate_type": "minecraft:cat",
+							"baby_type": "minecraft:cat",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"

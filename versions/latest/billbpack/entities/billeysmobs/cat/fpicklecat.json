@@ -173,8 +173,8 @@
 					"allow_sitting": true,
 					"extra_baby_chance": 0.125,
 					"breeds_with": {
-						"mateType": "billey:flyingpickle_cat",
-						"babyType": "billey:flyingpickle_cat",
+						"mate_type": "billey:flyingpickle_cat",
+						"baby_type": "billey:flyingpickle_cat",
 						"breed_event": {
 							"event": "minecraft:entity_born",
 							"target": "baby"

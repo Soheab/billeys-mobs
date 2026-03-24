@@ -277,8 +277,8 @@ The real tame items of this mob are in the wild component group*/
 					"require_full_health": true,
 					"breeds_with": [
 						{
-							"mateType": "billey:penguin",
-							"babyType": "billey:penguin",
+							"mate_type": "billey:penguin",
+							"baby_type": "billey:penguin",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"
@@ -293,24 +293,24 @@ The real tame items of this mob are in the wild component group*/
 							}
 						},
 						{
-							"mateType": "billey:pigeon",
-							"babyType": "billey:kiwi",
+							"mate_type": "billey:pigeon",
+							"baby_type": "billey:kiwi",
 							"breed_event": {
 								"event": "minecraft:entity_born",
 								"target": "baby"
 							}
 						},
 						{
-							"mateType": "billey:duck",
-							"babyType": "billey:duck",
+							"mate_type": "billey:duck",
+							"baby_type": "billey:duck",
 							"breed_event": {
 								"event": "minecraft:entity_born_golden",
 								"target": "baby"
 							}
 						},
 						{
-							"mateType": "billey:banana_duck",
-							"babyType": "billey:banana_duck",
+							"mate_type": "billey:banana_duck",
+							"baby_type": "billey:banana_duck",
 							"breed_event": {
 								"event": "minecraft:entity_born_purple",
 								"target": "baby"
