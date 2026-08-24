@@ -149,8 +149,6 @@ def move_addon_file(addon_file: pathlib.Path, version: Version) -> None:
 
 def zipmcaddon_to_mcaddon(zipmcaddon: pathlib.Path) -> pathlib.Path:
     mcaddon = mcaddons_dir / zipmcaddon.with_suffix(".mcaddon").name
-    with zipfile.ZipFile(zipmcaddon, "w") as zip_ref:
-        zip_ref.write(zipmcaddon)
     shutil.move(zipmcaddon, mcaddon)
     return mcaddon
 
