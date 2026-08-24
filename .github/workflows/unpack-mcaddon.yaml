@@ -5,16 +5,22 @@ on:
 
 jobs:
   unpack-file:
+      permissions:
+        contents: write
       runs-on: ubuntu-latest
       steps:
         - name: Checkout repository content
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
 
         - name: Setup Python Version
-          uses: actions/setup-python@v2
+          uses: actions/setup-python@v5
           with:
             python-version: 3.14
 
         - name: Execute Python Script
+          env:
+            GIT_AUTHOR_NAME: "Billey's Mobs Addon Unpacker"
+            GIT_AUTHOR_EMAIL: "action@github.com"
+            GIT_COMMITTER_NAME: "Billey's Mobs Addon Unpacker"
+            GIT_COMMITTER_EMAIL: "action@github.com"
           run: python -OO .github/handle_addon_file.py
-

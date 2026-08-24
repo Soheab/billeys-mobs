@@ -2,6 +2,7 @@ import logging
 import os
 import pathlib
 import shutil
+import subprocess
 import sys
 import zipfile
 from collections.abc import Iterator
@@ -106,10 +107,47 @@ class Version:
 versions_dir = pathlib.Path("versions")
 latest_dir = versions_dir / "latest"
 mcaddons_dir = pathlib.Path("./mcaddons")
-CONFIGS = (
-    'git config --local user.email "action@github.com"',
-    'git config --local user.name "Billey\'s Mobs Addon Unpacker"',
-)
+GIT_USER_NAME = "Billey's Mobs Addon Unpacker"
+GIT_USER_EMAIL = "action@github.com"
+
+
+def git_identity_env() -> dict[str, str]:
+    env = os.environ.copy()
+    env.update(
+        {
+            "GIT_AUTHOR_NAME": GIT_USER_NAME,
+            "GIT_AUTHOR_EMAIL": GIT_USER_EMAIL,
+            "GIT_COMMITTER_NAME": GIT_USER_NAME,
+            "GIT_COMMITTER_EMAIL": GIT_USER_EMAIL,
+        }
+    )
+    return env
+
+
+def run_command(command: list[str], *, env: dict[str, str] | None = None) -> subprocess.CompletedProcess[str]:
+    logger.info(f"Running command: {' '.join(command)}")
+    completed = subprocess.run(
+        command,
+        check=True,
+        capture_output=True,
+        text=True,
+        env=env,
+    )
+    if completed.stdout.strip():
+        logger.info(completed.stdout.strip())
+    if completed.stderr.strip():
+        logger.warning(completed.stderr.strip())
+    return completed
+
+
+def configure_git_identity() -> None:
+    run_command(["git", "config", "--local", "user.email", GIT_USER_EMAIL], env=git_identity_env())
+    run_command(["git", "config", "--local", "user.name", GIT_USER_NAME], env=git_identity_env())
+
+
+def has_git_changes() -> bool:
+    status = run_command(["git", "status", "--porcelain"])
+    return bool(status.stdout.strip())
 
 
 def get_versions() -> list[Version]:
@@ -149,8 +187,6 @@ def move_addon_file(addon_file: pathlib.Path, version: Version) -> None:
 
 def zipmcaddon_to_mcaddon(zipmcaddon: pathlib.Path) -> pathlib.Path:
     mcaddon = mcaddons_dir / zipmcaddon.with_suffix(".mcaddon").name
-    with zipfile.ZipFile(zipmcaddon, "w") as zip_ref:
-        zip_ref.write(zipmcaddon)
     shutil.move(zipmcaddon, mcaddon)
     return mcaddon
 
@@ -168,7 +204,7 @@ def handle_addon_file(addon_file: pathlib.Path, version: Version) -> tuple[bool,
         with zipfile.ZipFile(new_file, "r") as zip_ref:
             zip_ref.extractall(version_dir)
     except (zipfile.BadZipFile, FileNotFoundError, PermissionError) as e:
-        new_file.unlink(missing_ok=True)
+        new_file.rename(addon_file)
         move_addon_file(addon_file, version)
         return False, f"Error unzipping file: {e}"
 
@@ -180,43 +216,37 @@ def create_tag(version: str, no_push: bool = False) -> None:
     if not version:
         logger.warning("No version provided")
         return
-    commands = [
-        *CONFIGS,
-        f"git tag -a v{version} -m 'Version {version}'",
-    ]
+    configure_git_identity()
+    run_command(["git", "tag", "-a", f"v{version}", "-m", f"Version {version}"], env=git_identity_env())
     if not no_push:
-        commands.append(f"git push origin v{version}")
-    logger.info(f"Running commands: {' && '.join(commands)}")
-    os.system(" && ".join(commands))
+        run_command(["git", "push", "origin", f"v{version}"])
     action = "created and pushed" if not no_push else "created"
     logger.info(f"Tag {action} for: v{version}")
 
 
 def commit_and_push(version: str, message: str | None = None, no_push: bool = False) -> None:
     message = message or f"Unpacked addon version {version}"
-    commands = [
-        *CONFIGS,
-        "git add -A -f",
-        f'git commit -a -m "{message}"',
-    ]
+    configure_git_identity()
+    run_command(["git", "add", "-A", "-f"])
+    if not has_git_changes():
+        logger.info(f"No changes to commit for version {version}")
+        return
+    run_command(["git", "commit", "-a", "-m", message], env=git_identity_env())
     if not no_push:
-        commands.append("git push")
-    logger.info(f"Running commands: {' && '.join(commands)}")
-    os.system(" && ".join(commands))
+        run_command(["git", "push"])
     action = "Committed and pushed" if not no_push else "Committed"
     logger.info(f"{action} changes for version {version}")
 
 
 def commit_changes_to_latest_dir(version: str, no_push: bool = False) -> None:
-    commands = [
-        *CONFIGS,
-        "git add -A -f",
-        f'git commit -a -m "Updated latest dirs to version {version}"',
-    ]
+    configure_git_identity()
+    run_command(["git", "add", "-A", "-f"])
+    if not has_git_changes():
+        logger.info(f"No latest directory changes to commit for version {version}")
+        return
+    run_command(["git", "commit", "-a", "-m", f"Updated latest dirs to version {version}"], env=git_identity_env())
     if not no_push:
-        commands.append("git push")
-    logger.info(f"Running commands: {' && '.join(commands)}")
-    os.system(" && ".join(commands))
+        run_command(["git", "push"])
     action = "Committed and pushed" if not no_push else "Committed"
     logger.info(f"{action} changes for latest version {version}")
 
@@ -290,12 +320,9 @@ def main():
 
     # Push all commits and tags at once
     logger.info("Pushing all commits and tags to remote...")
-    push_commands = [
-        *CONFIGS,
-        "git push",
-        "git push --tags",
-    ]
-    os.system(" && ".join(push_commands))
+    configure_git_identity()
+    run_command(["git", "push"])
+    run_command(["git", "push", "--tags"])
     logger.info("All changes pushed successfully")
 
     if failed_files:
