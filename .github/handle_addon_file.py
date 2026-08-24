@@ -168,7 +168,7 @@ def handle_addon_file(addon_file: pathlib.Path, version: Version) -> tuple[bool,
         with zipfile.ZipFile(new_file, "r") as zip_ref:
             zip_ref.extractall(version_dir)
     except (zipfile.BadZipFile, FileNotFoundError, PermissionError) as e:
-        new_file.unlink(missing_ok=True)
+        new_file.rename(addon_file)
         move_addon_file(addon_file, version)
         return False, f"Error unzipping file: {e}"
 
