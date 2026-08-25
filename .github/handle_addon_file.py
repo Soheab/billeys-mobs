@@ -140,7 +140,7 @@ mcaddons_dir = pathlib.Path("./mcaddons")
 # alone will silently lose - which is why commits were showing up as
 # "actions-user" instead of "Billey's Mobs Addon Unpacker".
 BOT_NAME = "Billey's Mobs Addon Unpacker"
-BOT_EMAIL = "action@github.com"
+BOT_EMAIL = "33902984+Soheab@users.noreply.github.com"
 os.environ["GIT_AUTHOR_NAME"] = BOT_NAME
 os.environ["GIT_AUTHOR_EMAIL"] = BOT_EMAIL
 os.environ["GIT_COMMITTER_NAME"] = BOT_NAME
@@ -206,11 +206,13 @@ def zipmcaddon_to_mcaddon(zipmcaddon: pathlib.Path) -> pathlib.Path:
 def handle_addon_file(addon_file: pathlib.Path, version: Version) -> tuple[bool, str]:
     logger.info(f"Handling addon file: {addon_file} with version: {version}")
 
-    version_dir = version.to_path(create_if_not_exists=True)
-    required_files = ["billbpack", "billrpack"]
-    if version_dir.exists() and all((version_dir / file).exists() for file in required_files):
-        move_addon_file(addon_file, version)
-        return False, f"Version {version} already exists"
+    version_dir = version.to_path(create_if_not_exists=False)
+    if version_dir.exists():
+        # Overwrite: a re-upload of an existing version should replace what's
+        # there, not be silently skipped as a duplicate.
+        logger.info(f"Version {version} already exists - overwriting")
+        shutil.rmtree(version_dir)
+    version_dir.mkdir(parents=True)
 
     new_file = addon_file.with_suffix(".zip")
     addon_file.rename(new_file)
@@ -242,10 +244,13 @@ def create_tag(version: str, no_push: bool = False) -> None:
 
     commands = [
         *CONFIGS,
-        f"git tag -a v{version} -m 'Version {version}'",
+        # -f: replace the tag locally if it already points somewhere else
+        # (re-uploading an existing version should move the tag, not fail).
+        f"git tag -f -a v{version} -m 'Version {version}'",
     ]
     if not no_push:
-        commands.append(f"git push origin v{version}")
+        # Force-push so an overwritten tag actually updates on the remote too.
+        commands.append(f"git push --force origin v{version}")
 
     logger.info(f"Running commands: {' && '.join(commands)}")
     os.system(" && ".join(commands))
@@ -360,7 +365,7 @@ def main():
     push_commands = [
         *CONFIGS,
         "git push",
-        "git push --tags",
+        "git push --force --tags",
     ]
     os.system(" && ".join(push_commands))
     logger.info("All changes pushed successfully")
