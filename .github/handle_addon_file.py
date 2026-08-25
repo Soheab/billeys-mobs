@@ -307,7 +307,10 @@ def process_addon_file(addon_file: pathlib.Path, latest_version: Version | None)
         create_tag(version_or_reason, no_push=True)
 
         # Update latest directory if this version is newer
-        if (latest_version is None or version > latest_version) and update_latest_dir(version, latest_version):
+        # >= not >: a re-upload of the *current* latest version should still
+        # refresh latest/'s contents (overwrite semantics), not be skipped
+        # just because it isn't strictly newer than what's already recorded.
+        if (latest_version is None or version >= latest_version) and update_latest_dir(version, latest_version):
             commit_changes_to_latest_dir(version_or_reason, no_push=True)
     except (ValueError, RuntimeError, zipfile.BadZipFile, OSError) as e:
         # Broadened from (ValueError, RuntimeError, zipfile.BadZipFile) to
