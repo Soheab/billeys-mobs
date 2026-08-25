@@ -1,3 +1,4 @@
+import functools
 import logging
 import os
 import pathlib
@@ -16,6 +17,7 @@ logger = logging.getLogger(__name__)
 VERSION_RE = re.compile(r"(\d+)(?:\.(\d+))?(?:\.(\d+))?$")
 
 
+@functools.total_ordering
 @dataclass(slots=True, frozen=True, kw_only=True, repr=False)
 class Version:
     major: int
@@ -116,13 +118,6 @@ class Version:
 
     def __lt__(self, other: Self) -> bool:
         return (self.major, self.minor or 0, self.patch or 0) < (
-            other.major,
-            other.minor or 0,
-            other.patch or 0,
-        )
-
-    def __gt__(self, other: Self) -> bool:
-        return (self.major, self.minor or 0, self.patch or 0) > (
             other.major,
             other.minor or 0,
             other.patch or 0,
