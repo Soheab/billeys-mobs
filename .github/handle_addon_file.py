@@ -1,8 +1,8 @@
 import logging
 import os
 import pathlib
+import re
 import shutil
-import subprocess
 import sys
 import zipfile
 from collections.abc import Iterator
@@ -11,6 +11,9 @@ from typing import Self
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
+
+# Strict "X", "X.Y" or "X.Y.Z" match, anchored to the end of the filename.
+VERSION_RE = re.compile(r"(\d+)(?:\.(\d+))?(?:\.(\d+))?$")
 
 
 @dataclass(slots=True, frozen=True, kw_only=True, repr=False)
@@ -27,9 +30,11 @@ class Version:
         except ValueError as e:
             msg = f"Invalid version string: {version}"
             raise ValueError(msg) from e
+
         if not parts:
             msg = f"Invalid version string: {version}"
             raise ValueError(msg)
+
         major = parts[0]
         minor = parts[1] if len(parts) > 1 else None
         patch = parts[2] if len(parts) > 2 else None
@@ -42,6 +47,7 @@ class Version:
         except (ValueError, AttributeError) as e:
             msg = f"Invalid version path: {path}"
             raise ValueError(msg) from e
+
         return cls(
             major=parts[0],
             minor=parts[1] if len(parts) > 1 else None,
@@ -51,17 +57,36 @@ class Version:
 
     @classmethod
     def from_addon_file(cls, path: pathlib.Path) -> Self:
+        """Parse a version strictly from the trailing '<major>[.minor[.patch]]' of the stem.
+
+        Previously this used ``name.split()[-1]`` which grabbed the *last
+        whitespace-separated token* of the filename and tried to parse it as
+        a version wholesale. Any stray trailing text (a copy suffix like
+        " (1)", a typo, "beta", etc.) made this either raise on an unrelated
+        file, or - worse - silently parse to the wrong version and collide
+        with another upload.
+        """
         name = path.stem
+        match = VERSION_RE.search(name)
+        if not match:
+            msg = f"Invalid addon file name: {name}"
+            raise ValueError(msg)
+
+        major, minor, patch = match.groups()
         try:
-            version_str = name.split()[-1]
-            return cls.from_string(version_str)
-        except (IndexError, ValueError) as e:
+            return cls(
+                major=int(major),
+                minor=int(minor) if minor is not None else None,
+                patch=int(patch) if patch is not None else None,
+            )
+        except ValueError as e:
             msg = f"Invalid addon file name: {name}"
             raise ValueError(msg) from e
 
     def path(self) -> pathlib.Path:
         if self._path is not None:
             return self._path
+
         base = versions_dir / str(self.major)
         if self.minor is not None:
             base /= str(self.minor)
@@ -107,53 +132,31 @@ class Version:
 versions_dir = pathlib.Path("versions")
 latest_dir = versions_dir / "latest"
 mcaddons_dir = pathlib.Path("./mcaddons")
-GIT_USER_NAME = "Billey's Mobs Addon Unpacker"
-GIT_USER_EMAIL = "action@github.com"
 
+# Set identity via the git *environment variables* rather than only
+# `git config`. GIT_AUTHOR_* / GIT_COMMITTER_* env vars take precedence over
+# git config, so if anything else in the workflow (checkout action, a
+# credential helper, GITHUB_ACTOR, etc.) exports those, `git config --local`
+# alone will silently lose - which is why commits were showing up as
+# "actions-user" instead of "Billey's Mobs Addon Unpacker".
+BOT_NAME = "Billey's Mobs Addon Unpacker"
+BOT_EMAIL = "action@github.com"
+os.environ["GIT_AUTHOR_NAME"] = BOT_NAME
+os.environ["GIT_AUTHOR_EMAIL"] = BOT_EMAIL
+os.environ["GIT_COMMITTER_NAME"] = BOT_NAME
+os.environ["GIT_COMMITTER_EMAIL"] = BOT_EMAIL
 
-def git_identity_env() -> dict[str, str]:
-    env = os.environ.copy()
-    env.update(
-        {
-            "GIT_AUTHOR_NAME": GIT_USER_NAME,
-            "GIT_AUTHOR_EMAIL": GIT_USER_EMAIL,
-            "GIT_COMMITTER_NAME": GIT_USER_NAME,
-            "GIT_COMMITTER_EMAIL": GIT_USER_EMAIL,
-        }
-    )
-    return env
-
-
-def run_command(command: list[str], *, env: dict[str, str] | None = None) -> subprocess.CompletedProcess[str]:
-    logger.info(f"Running command: {' '.join(command)}")
-    completed = subprocess.run(
-        command,
-        check=True,
-        capture_output=True,
-        text=True,
-        env=env,
-    )
-    if completed.stdout.strip():
-        logger.info(completed.stdout.strip())
-    if completed.stderr.strip():
-        logger.warning(completed.stderr.strip())
-    return completed
-
-
-def configure_git_identity() -> None:
-    run_command(["git", "config", "--local", "user.email", GIT_USER_EMAIL], env=git_identity_env())
-    run_command(["git", "config", "--local", "user.name", GIT_USER_NAME], env=git_identity_env())
-
-
-def has_git_changes() -> bool:
-    status = run_command(["git", "status", "--porcelain"])
-    return bool(status.stdout.strip())
+CONFIGS = (
+    f'git config --local user.email "{BOT_EMAIL}"',
+    f'git config --local user.name "{BOT_NAME}"',
+)
 
 
 def get_versions() -> list[Version]:
     if not versions_dir.exists() or not versions_dir.is_dir():
         versions_dir.mkdir(parents=True)
         logger.info(f"Created versions directory: {versions_dir}")
+
     version_objects = []
     for root, dirs, _ in os.walk(versions_dir):
         for dir_name in dirs:
@@ -163,6 +166,7 @@ def get_versions() -> list[Version]:
                     version_objects.append(Version.from_path(dir_path))
                 except ValueError as e:
                     logger.warning(f"Skipping invalid version path: {dir_path} ({e})")
+
     return sorted(version_objects)
 
 
@@ -170,6 +174,7 @@ def update_latest_dir(last_addition: Version, latest_version: Version | None) ->
     if latest_version and last_addition < latest_version:
         logger.info(f"Version {last_addition} is less than the latest version {latest_version}")
         return False
+
     shutil.rmtree(latest_dir, ignore_errors=True)
     shutil.copytree(last_addition.to_path(), latest_dir)
     logger.info(f"Updated latest version to {last_addition}")
@@ -179,33 +184,51 @@ def update_latest_dir(last_addition: Version, latest_version: Version | None) ->
 def move_addon_file(addon_file: pathlib.Path, version: Version) -> None:
     mcaddons_dir.mkdir(exist_ok=True)
     destination = mcaddons_dir / f"Billey's Mobs {version}.mcaddon"
-    if not destination.exists():
+    if addon_file.exists() and not destination.exists():
         shutil.move(str(addon_file), str(destination))
-    else:
+    elif addon_file.exists():
         addon_file.unlink(missing_ok=True)
 
 
 def zipmcaddon_to_mcaddon(zipmcaddon: pathlib.Path) -> pathlib.Path:
+    """Rename the already-zipped `.mcaddon` file into place.
+
+    NOTE: .mcaddon files ARE zip archives already - there's no need to
+    re-zip them. The previous version opened `zipmcaddon` itself in write
+    mode (truncating it to empty) and then tried to add the now-empty file
+    into itself, producing a corrupt/zero-byte archive. This just moves it.
+    """
     mcaddon = mcaddons_dir / zipmcaddon.with_suffix(".mcaddon").name
-    shutil.move(zipmcaddon, mcaddon)
+    shutil.move(str(zipmcaddon), str(mcaddon))
     return mcaddon
 
 
 def handle_addon_file(addon_file: pathlib.Path, version: Version) -> tuple[bool, str]:
     logger.info(f"Handling addon file: {addon_file} with version: {version}")
+
     version_dir = version.to_path(create_if_not_exists=True)
     required_files = ["billbpack", "billrpack"]
     if version_dir.exists() and all((version_dir / file).exists() for file in required_files):
         move_addon_file(addon_file, version)
         return False, f"Version {version} already exists"
+
     new_file = addon_file.with_suffix(".zip")
     addon_file.rename(new_file)
+
     try:
         with zipfile.ZipFile(new_file, "r") as zip_ref:
             zip_ref.extractall(version_dir)
     except (zipfile.BadZipFile, FileNotFoundError, PermissionError) as e:
-        new_file.rename(addon_file)
+        # `addon_file` was already renamed to `new_file` above, so it no
+        # longer exists under its original name - the previous code tried
+        # to move `addon_file` here and would raise FileNotFoundError,
+        # which wasn't caught anywhere, silently aborting the whole batch
+        # run partway through (any files queued after this one were never
+        # processed). Move `new_file` instead, and always surface the
+        # failure as an error (not a quiet warning) so it's visible in logs.
+        new_file.rename(addon_file) if new_file.exists() else None
         move_addon_file(addon_file, version)
+        logger.error(f"Failed to unzip {addon_file.name} for version {version}: {e}")
         return False, f"Error unzipping file: {e}"
 
     zipmcaddon_to_mcaddon(new_file)
@@ -216,37 +239,47 @@ def create_tag(version: str, no_push: bool = False) -> None:
     if not version:
         logger.warning("No version provided")
         return
-    configure_git_identity()
-    run_command(["git", "tag", "-a", f"v{version}", "-m", f"Version {version}"], env=git_identity_env())
+
+    commands = [
+        *CONFIGS,
+        f"git tag -a v{version} -m 'Version {version}'",
+    ]
     if not no_push:
-        run_command(["git", "push", "origin", f"v{version}"])
+        commands.append(f"git push origin v{version}")
+
+    logger.info(f"Running commands: {' && '.join(commands)}")
+    os.system(" && ".join(commands))
     action = "created and pushed" if not no_push else "created"
     logger.info(f"Tag {action} for: v{version}")
 
 
 def commit_and_push(version: str, message: str | None = None, no_push: bool = False) -> None:
     message = message or f"Unpacked addon version {version}"
-    configure_git_identity()
-    run_command(["git", "add", "-A", "-f"])
-    if not has_git_changes():
-        logger.info(f"No changes to commit for version {version}")
-        return
-    run_command(["git", "commit", "-a", "-m", message], env=git_identity_env())
+    commands = [
+        *CONFIGS,
+        "git add -A -f",
+        f'git commit -a -m "{message}"',
+    ]
     if not no_push:
-        run_command(["git", "push"])
+        commands.append("git push")
+
+    logger.info(f"Running commands: {' && '.join(commands)}")
+    os.system(" && ".join(commands))
     action = "Committed and pushed" if not no_push else "Committed"
     logger.info(f"{action} changes for version {version}")
 
 
 def commit_changes_to_latest_dir(version: str, no_push: bool = False) -> None:
-    configure_git_identity()
-    run_command(["git", "add", "-A", "-f"])
-    if not has_git_changes():
-        logger.info(f"No latest directory changes to commit for version {version}")
-        return
-    run_command(["git", "commit", "-a", "-m", f"Updated latest dirs to version {version}"], env=git_identity_env())
+    commands = [
+        *CONFIGS,
+        "git add -A -f",
+        f'git commit -a -m "Updated latest dirs to version {version}"',
+    ]
     if not no_push:
-        run_command(["git", "push"])
+        commands.append("git push")
+
+    logger.info(f"Running commands: {' && '.join(commands)}")
+    os.system(" && ".join(commands))
     action = "Committed and pushed" if not no_push else "Committed"
     logger.info(f"{action} changes for latest version {version}")
 
@@ -256,6 +289,7 @@ def process_addon_file(addon_file: pathlib.Path, latest_version: Version | None)
     try:
         version = Version.from_addon_file(addon_file)
         logger.info(f"Found version {version} for {addon_file.name}")
+
         success, version_or_reason = handle_addon_file(addon_file, version)
         if not success:
             logger.warning(f"Skipping {addon_file.name}: {version_or_reason}")
@@ -270,8 +304,11 @@ def process_addon_file(addon_file: pathlib.Path, latest_version: Version | None)
         # Update latest directory if this version is newer
         if (latest_version is None or version > latest_version) and update_latest_dir(version, latest_version):
             commit_changes_to_latest_dir(version_or_reason, no_push=True)
-
-    except (ValueError, RuntimeError, zipfile.BadZipFile) as e:
+    except (ValueError, RuntimeError, zipfile.BadZipFile, OSError) as e:
+        # Broadened from (ValueError, RuntimeError, zipfile.BadZipFile) to
+        # also catch OSError (covers FileNotFoundError/PermissionError etc.)
+        # so an unexpected filesystem error on one file can no longer bring
+        # down processing of the rest of the batch.
         logger.exception(f"Error processing {addon_file.name}")
         return False, str(e), None
     else:
@@ -311,7 +348,7 @@ def main():
     if not processed_versions:
         logger.warning("No addon files were successfully processed")
         if failed_files:
-            logger.error(f"Failed files: {', '.join(f[0] for f in failed_files)}")
+            logger.error(f"Failed files: {', '.join(f'{name} ({reason})' for name, reason in failed_files)}")
         sys.exit(0)
 
     # Log summary
@@ -320,13 +357,21 @@ def main():
 
     # Push all commits and tags at once
     logger.info("Pushing all commits and tags to remote...")
-    configure_git_identity()
-    run_command(["git", "push"])
-    run_command(["git", "push", "--tags"])
+    push_commands = [
+        *CONFIGS,
+        "git push",
+        "git push --tags",
+    ]
+    os.system(" && ".join(push_commands))
     logger.info("All changes pushed successfully")
 
     if failed_files:
-        logger.warning(f"Some files failed to process: {', '.join(f[0] for f in failed_files)}")
+        logger.warning(
+            f"Some files failed to process: {', '.join(f'{name} ({reason})' for name, reason in failed_files)}"
+        )
+        # Exit non-zero when files failed, so a partially-failed run shows
+        # up as a failed Action instead of a silent green checkmark.
+        sys.exit(1)
 
 
 if __name__ == "__main__":
